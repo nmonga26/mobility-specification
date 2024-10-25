@@ -4412,6 +4412,8 @@ x-flows:
             message:
               intent:
                 fulfillment:
+                  vehicle:
+                    energy_type: CNG
                   stops:
                     - location:
                         gps: 13.008935, 77.644408
@@ -4500,6 +4502,7 @@ x-flows:
                         vehicle:
                           category: AUTO_RICKSHAW
                           variant: AUTO_RICKSHAW
+                          energy_type: CNG
                       - id: F2
                         stops:
                           - location:
@@ -4706,6 +4709,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                 items:
                   - descriptor:
                       code: RIDE
@@ -4838,6 +4842,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                 items:
                   - id: I1
                 payments:
@@ -4989,6 +4994,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                 items:
                   - descriptor:
                       code: RIDE
@@ -5168,6 +5174,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                 items:
                   - id: I1
                 payments:
@@ -5583,6 +5590,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -5909,6 +5917,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -6152,6 +6161,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -7120,6 +7130,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                 id: O1
                 items:
                   - descriptor:
@@ -7361,6 +7372,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -7691,6 +7703,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -8126,6 +8139,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                     tags:
                       - descriptor:
                           code: ROUTE_INFO
@@ -10093,6 +10107,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -10449,6 +10464,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                       make: Bajaj
                       model: Compact RE
                       registration: KA-01-AD-9876
@@ -10934,6 +10950,7 @@ x-flows:
                     vehicle:
                       category: AUTO_RICKSHAW
                       variant: AUTO_RICKSHAW
+                      energy_type: CNG
                 id: O1
                 items:
                   - descriptor:

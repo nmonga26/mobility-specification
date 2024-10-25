@@ -5,6 +5,7 @@ const fs = require("fs");
 async function buildAttribiutes() {
   let attributes = {};
   const workSheetsFromBuffer = xlsx.parse(`./on-demand_attributes_updated.xlsx`);
+  console.log(workSheetsFromBuffer)
   for (let i = 0; i < workSheetsFromBuffer.length; i++) {
     const array = workSheetsFromBuffer[i];
     const filterArray = array.data.filter((subArr) => subArr.length > 0);
