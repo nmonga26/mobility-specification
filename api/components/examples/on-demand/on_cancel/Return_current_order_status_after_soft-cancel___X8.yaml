@@ -94,6 +94,7 @@ message:
         vehicle:
           category: AUTO_RICKSHAW
           variant: AUTO_RICKSHAW
+          energy_type: CNG
           make: Bajaj
           model: Compact RE
           registration: KA-01-AD-9876

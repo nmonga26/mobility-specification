@@ -87,6 +87,7 @@ message:
         vehicle:
           category: AUTO_RICKSHAW
           variant: AUTO_RICKSHAW
+          energy_type: CNG
     id: O1
     items:
       - descriptor:
