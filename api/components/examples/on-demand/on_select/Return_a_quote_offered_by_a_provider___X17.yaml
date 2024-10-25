@@ -50,6 +50,7 @@ message:
         vehicle:
           category: AUTO_RICKSHAW
           variant: AUTO_RICKSHAW
+          energy_type: CNG
     items:
       - descriptor:
           code: RIDE

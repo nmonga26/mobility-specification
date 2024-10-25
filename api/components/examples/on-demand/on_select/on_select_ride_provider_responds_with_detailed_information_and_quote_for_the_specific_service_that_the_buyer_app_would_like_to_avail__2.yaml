@@ -33,6 +33,7 @@ message:
         vehicle:
           category: AUTO_RICKSHAW
           variant: AUTO_RICKSHAW
+          energy_type: CNG
         tags:
           - descriptor:
               code: ROUTE_INFO
