@@ -54,6 +54,8 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
+        category_ids:
+          - '198392'          
         fulfillment_ids:
           - F1
         id: I1
@@ -65,6 +67,11 @@ message:
           maximum_value: '176'
           minimum_value: '136'
           value: '146'
+        categories: 
+          - id: '198392'
+            descriptor: 
+              code: ON_DEMAND
+              name: on demand          
         tags:
           - descriptor:
               code: FARE_POLICY

@@ -106,6 +106,8 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
+        category_ids:
+          - '198392'           
         fulfillment_ids:
           - F1
         id: I1
@@ -170,6 +172,11 @@ message:
           amount: '146'
         status: PAID
         type: ON-FULFILLMENT
+    categories: 
+      - id: '198392'
+        descriptor: 
+          code: ON_DEMAND
+          name: on demand           
     provider:
       id: P1
     quote:

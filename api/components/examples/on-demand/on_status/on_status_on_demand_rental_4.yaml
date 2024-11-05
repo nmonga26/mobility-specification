@@ -10,13 +10,14 @@ context:
       code: std:080
     country:
       code: IND
-  message_id: 94e0ac3d-7191-4a8b-b987-4f6fa79559cf
-  timestamp: '2023-03-23T04:49:34.53Z'
+  message_id: 8926b747-0362-4fcc-b795-0994a6287700
+  timestamp: '2023-03-23T04:48:59Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
   version: 2.0.1
 message:
   order:
+    id: O1
     cancellation_terms:
       - cancellation_fee:
           percentage: '0'
@@ -27,7 +28,7 @@ message:
       - cancellation_fee:
           amount:
             currency: INR
-            value: '30'
+            value: '50'
         fulfillment_state:
           descriptor:
             code: RIDE_ENROUTE_PICKUP
@@ -60,7 +61,8 @@ message:
         id: F1
         state:
           descriptor:
-            code: RIDE_STARTED
+            code: RIDE_ENDED
+            name: Your ride has ended
         stops:
           - authorization:
               token: '234234'
@@ -73,9 +75,8 @@ message:
             instructions:
               short_desc: short description of the location
               long_desc: long description of the location
-          - location:
-              gps: 12.971186, 77.586812
-            type: END
+          - time:
+              timestamp: '2024-11-7T00:32:19.000Z'
         tags:
           - descriptor:
               code: ROUTE_INFO
@@ -100,7 +101,6 @@ message:
           make: Bajaj
           model: Compact RE
           registration: KA-01-AD-9876
-    id: O1
     items:
       - descriptor:
           code: RIDE
@@ -118,7 +118,7 @@ message:
         price:
           currency: INR
           maximum_value: '176'
-          minimum_value: '136'
+          minimum_value: '156'
           value: '146'
         tags:
           - descriptor:
@@ -168,7 +168,8 @@ message:
           bank_account_number: xxxxxxxxxxxxxx
           bank_code: XXXXXXXX
           virtual_payment_address: 9988199772@okicic
-        status: NOT-PAID
+          amount: '146'
+        status: PAID
         type: ON-FULFILLMENT
     categories: 
       - id: '198392'
@@ -256,6 +257,6 @@ message:
           - descriptor:
               code: SETTLEMENT_AMOUNT
             value: '1.46'
-    status: ACTIVE
-    created_at: '2023-03-23T04:48:34.53Z'
-    updated_at: '2023-03-23T04:49:34.53Z'
+    status: COMPLETED
+    created_at: '2023-12-10T08:03:34.294Z'
+    updated_at: '2023-12-11T03:54:28.832Z'

@@ -10,4 +10,5 @@
 - $ref: ./on_demand___update_stop/index.yaml
 - $ref: ./on_demand_bid/index.yaml
 - $ref: ./on_demand_tip/index.yaml
+- $ref: ./on_demand_rental/index.yaml
 
