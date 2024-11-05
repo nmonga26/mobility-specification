@@ -20,6 +20,7 @@ message:
     descriptor:
       name: Mobility Servies BPP
     providers:
+
       - fulfillments:
           - id: F1
             stops:
@@ -70,6 +71,8 @@ message:
           - descriptor:
               code: RIDE
               name: CAB Economy Ride
+            category_ids:
+             - '198392'
             fulfillment_ids:
               - F2
             id: I2
@@ -92,6 +95,11 @@ message:
             id: L4
         payments:
           - collected_by: BPP
+        categories: 
+          - id: '198392'
+            descriptor: 
+              code: ON_DEMAND
+              name: on demand
     tags:
       - descriptor:
           code: BPP_TERMS

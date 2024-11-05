@@ -21,6 +21,14 @@ search:
         reference: <PR/Issue/Discussion Links md format text>
   message:
     intent:
+      category:
+        descriptor:
+          - code: ON_DEMAND
+            description: Describes the category of the on_demand offer
+            reference: <PR/Issue/Discussion Links md format text
+          - code: SCHEDULED
+            description: Describes the category of the scheduled ride offer
+            reference: <PR/Issue/Discussion Links md format text
       fulfillment: &a3
         vehicle:
           category:
