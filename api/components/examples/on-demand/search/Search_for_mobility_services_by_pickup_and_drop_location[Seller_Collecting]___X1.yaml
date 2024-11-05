@@ -15,6 +15,21 @@ context:
   version: 2.0.1
 message:
   intent:
+    tags:
+      - descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bap.com/static-terms.txt    
     fulfillment:
       stops:
         - location:
@@ -25,21 +40,3 @@ message:
           type: END
     payment:
       collected_by: BPP
-      tags:
-        - descriptor:
-            code: BUYER_FINDER_FEES
-          display: false
-          list:
-            - descriptor:
-                code: BUYER_FINDER_FEES_PERCENTAGE
-              value: '1'
-        - descriptor:
-            code: SETTLEMENT_TERMS
-          display: false
-          list:
-            - descriptor:
-                code: DELAY_INTEREST
-              value: '5'
-            - descriptor:
-                code: STATIC_TERMS
-              value: https://example-test-bap.com/static-terms.txt

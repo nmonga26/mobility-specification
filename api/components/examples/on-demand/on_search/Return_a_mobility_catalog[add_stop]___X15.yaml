@@ -17,6 +17,36 @@ context:
   version: 2.0.1
 message:
   catalog:
+    tags:  
+      - descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT60M
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: DELIVERY
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: UPI
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bpp.com/static-terms.txt
     descriptor:
       name: Mobility Servies BPP
     providers:
@@ -101,36 +131,3 @@ message:
             id: L4
         payments:
           - collected_by: BPP
-            tags:
-              - descriptor:
-                  code: BUYER_FINDER_FEES
-                display: false
-                list:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: '1'
-              - descriptor:
-                  code: SETTLEMENT_TERMS
-                display: false
-                list:
-                  - descriptor:
-                      code: SETTLEMENT_WINDOW
-                    value: PT60M
-                  - descriptor:
-                      code: SETTLEMENT_BASIS
-                    value: DELIVERY
-                  - descriptor:
-                      code: SETTLEMENT_TYPE
-                    value: UPI
-                  - descriptor:
-                      code: MANDATORY_ARBITRATION
-                    value: 'true'
-                  - descriptor:
-                      code: COURT_JURISDICTION
-                    value: New Delhi
-                  - descriptor:
-                      code: DELAY_INTEREST
-                    value: '5'
-                  - descriptor:
-                      code: STATIC_TERMS
-                    value: https://example-test-bpp.com/static-terms.txt
