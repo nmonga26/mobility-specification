@@ -20,7 +20,6 @@ message:
     descriptor:
       name: Mobility Servies BPP
     providers:
-
       - fulfillments:
           - id: F1
             stops:
@@ -31,7 +30,7 @@ message:
                   short_desc: short description of the location
                   long_desc: long description of the location
               - time:
-                  timestamp: '2024-11-7T00:32:19.000Z'
+                  timestamp: '2024-11-07T00:32:19.000Z'
             type: DELIVERY
             vehicle:
               category: AUTO_RICKSHAW
@@ -45,7 +44,7 @@ message:
                   short_desc: short description of the location
                   long_desc: long description of the location
               - time:
-                  timestamp: '2024-11-7T00:32:19.000Z'
+                  timestamp: '2024-11-07T00:32:19.000Z'
             type: DELIVERY
             vehicle:
               category: CAB
@@ -102,7 +101,6 @@ message:
       - descriptor:
           code: BPP_TERMS
           name: BPP Terms of Engagement
-        display: false
         list:
           - descriptor:
               code: BUYER_FINDER_FEES_PERCENTAGE

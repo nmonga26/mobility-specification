@@ -11,4 +11,7 @@
 - $ref: ./on_demand_bid/index.yaml
 - $ref: ./on_demand_tip/index.yaml
 - $ref: ./on_demand_rental/index.yaml
-
+- $ref: ./schedule_rental/index.yaml
+- $ref: ./schedule_trip/index.yaml
+- $ref: ./on_demand_rental_when_end_stop_gps_coordinate_is_not_present/index.yaml
+- $ref: ./schedule_rental_when_end_stop_gps_coordinate_is_not_present/index.yaml

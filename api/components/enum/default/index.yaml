@@ -23,12 +23,13 @@ search:
     intent:
       category: &a14
         descriptor:
-          - code: ON_DEMAND
-            description: Describes the category of the on_demand offer
-            reference: <PR/Issue/Discussion Links md format text
-          - code: SCHEDULED
-            description: Describes the category of the scheduled ride offer
-            reference: <PR/Issue/Discussion Links md format text
+          code:
+            - code: ON_DEMAND
+              description: Describes the category of the on_demand offer
+              reference: <PR/Issue/Discussion Links md format text
+            - code: SCHEDULED
+              description: Describes the category of the scheduled ride offer
+              reference: <PR/Issue/Discussion Links md format text
       fulfillment: &a3
         vehicle:
           category:
@@ -174,7 +175,6 @@ on_search:
     domain: *a2
   message:
     catalog:
-      category: *a14
       providers:
         items: &a5
           descriptor:
@@ -184,6 +184,8 @@ on_search:
                 reference: <PR/Issue/Discussion Links md format text
         fulfillments: *a3
         payments: *a4
+        categories: *a14
+
 select:
   context:
     action:
@@ -194,7 +196,6 @@ select:
     domain: *a2
   message: &a7
     order:
-      category: *a14
       items: *a5
       fulfillments: *a3
       payments: *a4
@@ -209,7 +210,6 @@ on_select:
     domain: *a2
   message: &a12
     order:
-      category: *a14
       items: *a5
       fulfillments: *a3
       payments: *a4
@@ -267,7 +267,6 @@ on_init:
     domain: *a2
   message: 
     order:
-      category: *a14
       items: *a5
       fulfillments: *a3
       payments: *a4
@@ -294,7 +293,6 @@ on_confirm:
     domain: *a2
   message: &a10
     order:
-      category: *a14    
       items: *a5
       fulfillments: *a3
       payments: *a4
@@ -378,7 +376,6 @@ cancel:
         reference: <PR/Issue/Discussion Links md format text
     descriptor:
       code: *a13
-    category: *a14  
 on_cancel:
   context:
     action:
@@ -389,7 +386,6 @@ on_cancel:
     domain: *a2
   message:
     order:
-      category: *a14
       items: *a5
       fulfillments: *a3
       payments: *a4
@@ -418,7 +414,6 @@ on_update:
     domain: *a2
   message:
     order:
-      category: *a14
       items: *a5
       fulfillments: *a3
       payments: *a4

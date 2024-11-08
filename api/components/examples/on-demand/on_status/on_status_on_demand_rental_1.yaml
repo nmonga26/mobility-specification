@@ -74,7 +74,7 @@ message:
               long_desc: long description of the location
             type: START
           - time:
-              timestamp: '2024-11-7T00:32:19.000Z'
+              timestamp: '2024-11-07T00:32:19.000Z'
         tags:
           - descriptor:
               code: ROUTE_INFO
@@ -104,6 +104,7 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
+           
         fulfillment_ids:
           - F1
         id: I1

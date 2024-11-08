@@ -61,7 +61,7 @@ message:
               short_desc: short description of the location
               long_desc: long description of the location
           - time:
-              timestamp: '2024-11-7T00:32:19.000Z'
+              timestamp: '2024-11-07T00:32:19.000Z'
         tags:
           - descriptor:
               code: ROUTE_INFO
@@ -87,8 +87,7 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
-        category_ids:
-          - '198392'          
+         
         fulfillment_ids:
           - F1
         id: I1
@@ -152,11 +151,6 @@ message:
           virtual_payment_address: 9988199772@okicic
         status: NOT-PAID
         type: ON-FULFILLMENT
-    categories: 
-      - id: '198392'
-        descriptor: 
-          code: ON_DEMAND
-          name: on demand        
     provider:
       id: P1
     quote:

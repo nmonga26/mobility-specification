@@ -1,0 +1,193 @@
+summary: Schedule - Rental(when end stop gps coordinate is not present)
+details:
+  - description:
+      The illustraive flow to perform a transaction of the nature where
+      in a buyer would like to book a mobility service form location
+      A(gps-cordinates) to localtion B(gps-cordinates)
+    mermaid: >-
+      sequenceDiagram
+        title On-Demand Discovery
+        Buyer Platform (BAP)->>Gateway (BG): search
+        Gateway (BG) ->> Buyer Platform (BAP): ACK
+        Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+        Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+        Gateway (BG)->>Seller Platform (BPP): search
+        Seller Platform (BPP)->>Gateway (BG) : ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+        Buyer Platform (BAP)->>Seller Platform (BPP): ACK
+  - description: Ordering
+    mermaid: |-
+      sequenceDiagram
+        title Selection
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): select
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_select
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+  - description: Initializing the order
+    mermaid: |-
+      sequenceDiagram
+        title Initializing Order
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): init
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_init
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+  - description: Order Confirmation
+    mermaid: |-
+      sequenceDiagram
+        title  Order Confirmation
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+  - description: Fulfillment
+    mermaid: >-
+      sequenceDiagram
+        title Order Fulfillment
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): status-Request application status
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_status - Provide application status
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+steps:
+  - summary: Ride provider confirms the ride request
+    api: on_confirm
+    details:
+      - description:
+          Ride provider confirms the ride request and provides the ride
+          details on confirmation.
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return confirmed order with latest fulfillment details
+      value:
+        $ref: ../../examples/schedule/on_confirm/on_confirm_schedule_rental_without_end_stop_gps_coordinate.yaml
+  - summary: Ride provider provides latest order status
+    api: on_status
+    details:
+      - description: Ride provider provides the updated order status to the buyer app
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Return updated order with updated agent details
+      value:
+        $ref: ../../examples/schedule/on_status/on_status_schedule_rental_without_end_stop_gps_coordinate_1.yaml
+  - summary: Ride provider provides latest order status
+    api: on_status
+    details:
+      - description: Ride provider provides the updated order status to the buyer app
+        mermaid: "sequenceDiagram
+
+          \  participant Buyer Platform (BAP)
+
+          \  participant Seller Platform (BPP)
+
+          \  rect rgb(191, 223, 255)
+
+          \  Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+
+          \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+          \  end
+
+          \  Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+
+          \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+          \  "
+    reference: if any
+    example:
+      summary: Return updated order with updated agent details
+      value:
+        $ref: ../../examples/schedule/on_status/on_status_schedule_rental_without_end_stop_gps_coordinate_2.yaml
+  - summary: Ride provider provides latest order updates
+    api: on_status
+    details:
+      - description: Ride provider provides the updated order status to the buyer app
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Return updated order with updated agent details
+      value:
+        $ref: ../../examples/schedule/on_status/on_status_schedule_rental_without_end_stop_gps_coordinate_3.yaml
+  - summary: Ride provider provides latest update on the ride (unsolicited call)
+    api: on_update
+    details:
+      - description:
+          Ride provider provides the updated order updates to the buyer app &
+          can update the quote in case of fare update
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return updated order with recomputed charges
+      value:
+        $ref: ../../examples/schedule/on_update/on_update_schedule_rental_without_end_stop_gps_coordinate.yaml
+  - summary: Ride provider provides latest order status
+    api: on_status
+    details:
+      - description: Ride provider provides the updated order status to the buyer app
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Return order with status - Driver at pickup
+      value:
+        $ref: ../../examples/schedule/on_status/on_status_schedule_rental_without_end_stop_gps_coordinate_4.yaml

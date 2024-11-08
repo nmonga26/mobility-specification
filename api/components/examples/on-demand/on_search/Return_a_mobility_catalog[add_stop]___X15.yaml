@@ -21,7 +21,6 @@ message:
       - descriptor:
           name: BPP Terms of Engagement
           code: BPP_TERMS
-        display: false
         list:
           - descriptor:
               code: BUYER_FINDER_FEES_PERCENTAGE
@@ -47,6 +46,7 @@ message:
           - descriptor:
               code: STATIC_TERMS
             value: https://example-test-bpp.com/static-terms.txt
+    
     descriptor:
       name: Mobility Servies BPP
     providers:

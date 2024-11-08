@@ -104,7 +104,6 @@ message:
       - descriptor:
           code: BPP_TERMS
           name: BPP Terms of Engagement
-        display: false
         list:
           - descriptor:
               code: BUYER_FINDER_FEES_PERCENTAGE

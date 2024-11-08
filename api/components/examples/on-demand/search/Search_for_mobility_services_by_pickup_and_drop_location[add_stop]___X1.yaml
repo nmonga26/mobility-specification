@@ -15,6 +15,9 @@ context:
   version: 2.0.1
 message:
   intent:
+    category:
+      descriptor:
+        code: ON_DEMAND
     tags:
       - descriptor:
           name: BAP Terms of Engagement
@@ -49,5 +52,6 @@ message:
                 type: END
                 id: "3"
                 parent_stop_id: "2"
+    
     payment:
       collected_by: BPP

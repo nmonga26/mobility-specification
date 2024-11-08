@@ -105,8 +105,7 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
-        category_ids:
-          - '198392'                    
+   
         fulfillment_ids:
           - F1
         id: I1
@@ -170,11 +169,8 @@ message:
           virtual_payment_address: 9988199772@okicic
         status: NOT-PAID
         type: ON-FULFILLMENT
-    categories: 
-      - id: '198392'
-        descriptor: 
-          code: ON_DEMAND
-          name: on demand          
+
+
     provider:
       id: P1
     quote:
