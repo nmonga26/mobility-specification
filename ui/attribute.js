@@ -33,6 +33,29 @@ function loadAttributes(data) {
   });
   const indexKey = Object.keys(attributes);
   addAttributeSets(indexKey[0]);
+
+  console.log("done loading...")
+
+  const veriosnDropdown = document.getElementById("version-dropdown")
+  const content = document.getElementById("content")
+  const home = document.getElementById("home")
+  const loader = document.getElementById("loader")
+
+  veriosnDropdown.style.display = "block"
+  content.style.display = "block"
+  home.style.display = "none"
+  loader.style.display = "none"
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const tabId = urlParams.get('tabId');
+
+  if(tabId) {
+    const anchorTag = document.querySelector(`a[href="${tabId}"]`);
+    anchorTag.click();
+  } else {
+    const anchorTag = document.querySelector(`a[href="#swagger"]`);
+    anchorTag.click();
+  }
 }
 
 function emptyAttributeTreeDiv() {
