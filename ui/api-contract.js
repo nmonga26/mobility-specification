@@ -70,7 +70,7 @@ async function fetchRequest(url){
 
 async function fetchBranches() {
   try {
-  const BRANCHES_URL= "https://api.github.com/repos/ondc-official/mobility-specification/branches";
+  const BRANCHES_URL= "https://api.github.com/repos/ondc-official/mobility-specification/branches?per_page=100&page=1";
   const TAGS_URL= "https://api.github.com/repos/ondc-official/mobility-specification/tags";
                   
   let response1, response2;
