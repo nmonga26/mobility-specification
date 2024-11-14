@@ -82,6 +82,10 @@ message:
             phone: '9856798567'
         vehicle:
           category: BUS
+          variant: NON-AC
+          capacity: 47
+          wheels_count: '6'
+          energy_type: ELECTRIC
         tags:
           - descriptor:
               code: SEAT_GRID

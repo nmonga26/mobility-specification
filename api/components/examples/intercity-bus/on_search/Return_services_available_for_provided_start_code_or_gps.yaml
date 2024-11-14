@@ -69,6 +69,10 @@ message:
                   gps: 17.379024, 78.482443
             vehicle:
               category: BUS
+              variant: AC
+              capacity: 47
+              wheels_count: '6'
+              energy_type: DIESEL
           - id: F2
             type: TRIP
             stops:
@@ -110,6 +114,10 @@ message:
                   gps: 17.379024, 78.482443
             vehicle:
               category: BUS
+              variant: NON-AC
+              capacity: 47
+              wheels_count: '6'
+              energy_type: ELECTRIC
         payments:
           - collected_by: BPP
             tags:

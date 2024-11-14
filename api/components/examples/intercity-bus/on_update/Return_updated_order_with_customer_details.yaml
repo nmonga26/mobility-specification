@@ -77,6 +77,10 @@ message:
             phone: +91-9988776655
         vehicle:
           category: BUS
+          variant: NON-AC
+          capacity: 47
+          wheels_count: '6'
+          energy_type: ELECTRIC
         tags:
           - descriptor:
               code: SEAT_GRID

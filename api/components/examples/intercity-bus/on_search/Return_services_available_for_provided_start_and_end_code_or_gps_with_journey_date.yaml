@@ -85,6 +85,10 @@ message:
                   timestamp: '2023-09-06T15:30:00.000Z'
             vehicle:
               category: BUS
+              variant: AC
+              capacity: 47
+              wheels_count: '6'
+              energy_type: DIESEL
             tags:
               - descriptor:
                   code: VEHICLE_GRID
@@ -193,6 +197,10 @@ message:
                   timestamp: '2023-09-07T06:30:00.000Z'
             vehicle:
               category: BUS
+              variant: NON-AC
+              capacity: 47
+              wheels_count: '6'
+              energy_type: ELECTRIC
             tags:
               - descriptor:
                   code: VEHICLE_GRID
