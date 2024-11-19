@@ -4438,8 +4438,6 @@ x-flows:
             message:
               intent:
                 fulfillment:
-                  vehicle:
-                    energy_type: CNG
                   stops:
                     - location:
                         gps: 13.008935, 77.644408
@@ -10050,7 +10048,7 @@ x-flows:
                 country:
                   code: IND
               message_id: 8926b747-0362-4fcc-b795-0994a6287700
-              timestamp: '2023-03-23T04:48:53Z'
+              timestamp: '2023-03-23T04:48:53.253Z'
               transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
               version: 2.0.1
               ttl: PT30S
@@ -10104,6 +10102,8 @@ x-flows:
                       - authorization:
                           token: '234234'
                           type: OTP
+                          valid_to: '2023-12-10T08:05:34.294Z'
+                          status: UNCLAIMED
                         location:
                           gps: 13.008935, 77.644408
                         time:
@@ -10267,6 +10267,8 @@ x-flows:
                     value: '10'
                   ttl: P200S
                 status: CANCELLED
+                created_at: '2023-12-10T08:03:34.294Z'
+                updated_at: '2023-03-23T04:48:53.253Z'
   - summary: On-Demand - Ride cancellation by rider
     details:
       - description: Detailed process of cancelling a ride with soft & confirm status.
@@ -10407,7 +10409,7 @@ x-flows:
                 country:
                   code: IND
               message_id: 8926b747-0362-4fcc-b795-0994a6287700
-              timestamp: '2023-03-23T04:48:53Z'
+              timestamp: '2023-03-23T04:48:53.253Z'
               transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
               version: 2.0.1
               ttl: PT30S
@@ -10461,6 +10463,8 @@ x-flows:
                       - authorization:
                           token: '234234'
                           type: OTP
+                          valid_to: '2023-12-10T08:05:34.294Z'
+                          status: UNCLAIMED
                         location:
                           gps: 13.008935, 77.644408
                         time:
@@ -10624,6 +10628,8 @@ x-flows:
                     value: '10'
                   ttl: P200S
                 status: SOFT_CANCEL
+                created_at: '2023-12-10T08:03:34.294Z'
+                updated_at: '2023-03-23T04:48:53.253Z'
       - summary: Buyer app confirms the cancel request for ride
         api: cancel
         details:

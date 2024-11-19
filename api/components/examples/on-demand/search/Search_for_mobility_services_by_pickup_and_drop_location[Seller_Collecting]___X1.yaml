@@ -16,8 +16,8 @@ context:
 message:
   intent:
     fulfillment:
-      vehicle:
-        energy_type: CNG
+      # vehicle:
+      #   energy_type: CNG
       stops:
         - location:
             gps: 13.008935, 77.644408
