@@ -3,7 +3,7 @@ const BRANCHES = [
     code: "draft-TRV10-2.1.0",
     name: "Ride Hailing",
     short_desc: "Ride Hailing: OnDemand, Special Zone, Schedule, Rental",
-    status: "DRAFT",
+    status: "WIP",
   },
   {
     code: "draft-TRV11-2.0.1",
@@ -43,13 +43,13 @@ const BRANCHES = [
   },
   {
     code: "release-TRV10-2.0.1",
-    name: "On Demand",
+    name: "Ride Hailing",
     short_desc: "Ride Hailing: OnDemand, Special Zone",
     status: "RELEASED",
   },
   {
     code: "release-TRV11-2.0.0",
-    name: "Intracity Bus",
+    name: "Unreserved Ticket",
     short_desc: "Unreserved Ticket booking for Metro",
     status: "RELEASED",
   },
