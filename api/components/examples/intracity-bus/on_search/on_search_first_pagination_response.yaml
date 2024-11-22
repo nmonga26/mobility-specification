@@ -12,7 +12,7 @@ context:
   bpp_id: api.transit-solutions.com
   bpp_uri: https://api.transit-solutions.com/beckn/
   transaction_id: 6f339232-2bc3-44d2-915c-30d2b053ce1d
-  message_id: 9052daf0-6af9-40a3-80c6-784eca74d902
+  message_id: bac82fa3-c0f3-4f61-8b2a-0b47dcb67004
   timestamp: '2021-03-23T10:00:40.065Z'
   ttl: PT30S
 message:
@@ -31,116 +31,6 @@ message:
                 https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
               size_type: xs
         fulfillments:
-          - id: F1
-            type: ROUTE
-            stops:
-              - type: START
-                id: '1'
-              - type: INTERMEDIATE_STOP
-                id: '2'
-                parent_stop_id: '1'
-              - type: INTERMEDIATE_STOP
-                id: '3'
-                parent_stop_id: '2'
-              - type: INTERMEDIATE_STOP
-                id: '4'
-                parent_stop_id: '3'
-              - type: INTERMEDIATE_STOP
-                id: '5'
-                parent_stop_id: '4'
-              - type: END
-                id: '6'
-                parent_stop_id: '5'
-            vehicle:
-              category: BUS
-            tags:
-              - descriptor:
-                  code: ROUTE_INFO
-                list:
-                  - descriptor:
-                      code: ROUTE_ID
-                    value: '242'
-                  - descriptor:
-                      code: ROUTE_DIRECTION
-                    value: UP
-          - id: F2
-            type: ROUTE
-            stops:
-              - type: START
-                id: '6'
-              - type: INTERMEDIATE_STOP
-                id: '5'
-                parent_stop_id: '6'
-              - type: INTERMEDIATE_STOP
-                id: '4'
-                parent_stop_id: '5'
-              - type: INTERMEDIATE_STOP
-                id: '3'
-                parent_stop_id: '4'
-              - type: INTERMEDIATE_STOP
-                id: '2'
-                parent_stop_id: '3'
-              - type: END
-                id: '1'
-                parent_stop_id: '2'
-            vehicle:
-              category: BUS
-            tags:
-              - descriptor:
-                  code: ROUTE_INFO
-                list:
-                  - descriptor:
-                      code: ROUTE_ID
-                    value: '242'
-                  - descriptor:
-                      code: ROUTE_DIRECTION
-                    value: DOWN
-          - id: F3
-            type: ROUTE
-            stops:
-              - type: START
-                id: '1'
-              - type: INTERMEDIATE_STOP
-                id: '2'
-                parent_stop_id: '1'
-              - type: END
-                id: '6'
-                parent_stop_id: '2'
-            vehicle:
-              category: BUS
-            tags:
-              - descriptor:
-                  code: ROUTE_INFO
-                list:
-                  - descriptor:
-                      code: ROUTE_ID
-                    value: '241'
-                  - descriptor:
-                      code: ROUTE_DIRECTION
-                    value: UP
-          - id: F4
-            type: ROUTE
-            stops:
-              - type: START
-                id: '6'
-              - type: INTERMEDIATE_STOP
-                id: '2'
-                parent_stop_id: '6'
-              - type: END
-                id: '1'
-                parent_stop_id: '2'
-            vehicle:
-              category: BUS
-            tags:
-              - descriptor:
-                  code: ROUTE_INFO
-                list:
-                  - descriptor:
-                      code: ROUTE_ID
-                    value: '241'
-                  - descriptor:
-                      code: ROUTE_DIRECTION
-                    value: DOWN
           - id: F8
             type: PASS
             stops:
@@ -175,53 +65,6 @@ message:
             vehicle:
               category: BUS
               variant: AC
-          - id: F10
-            type: STOPS
-            stops:
-              - id: '1'
-                location:
-                  descriptor:
-                    name: kashmere gate
-                    code: KASHMERE_GATE
-                  gps: 28.666576, 77.233332
-              - id: '2'
-                instructions:
-                  name: Stop 1
-                location:
-                  descriptor:
-                    name: Indira Gandhi Technical Unviversity
-                    code: INDIRA_GANDHI_TECHNICAL_UNIV
-                  gps: 28.624097, 77.204991
-              - id: '3'
-                instructions:
-                  name: Stop 2
-                location:
-                  descriptor:
-                    name: Yamuna Bazar
-                    code: YAMUNA_BAZAR
-                  gps: 28.625972,77.209917
-              - id: '4'
-                instructions:
-                  name: Stop 3
-                location:
-                  descriptor:
-                    name: dhaula kuan
-                    code: DHAULA_KUAN
-                  gps: 28.610972,77.201717
-              - id: '5'
-                instructions:
-                  name: Stop 4
-                location:
-                  descriptor:
-                    name: gpo
-                    code: GPO
-                  gps: 28.623097,77.209917
-              - id: '6'
-                location:
-                  descriptor:
-                    name: Greater Kailash
-                    code: GREATER_KAILASH
-                  gps: 28.548230, 77.238039
         items:
           - id: I1
             descriptor:
@@ -336,9 +179,6 @@ message:
           - descriptor:
               code: PAGINATION_ID
             value: P1
-          - descriptor:
-              code: CURRENT_PAGE_NUMBER
-            value: '1'
           - descriptor:
               code: MAX_PAGE_NUMBER
             value: '3'
