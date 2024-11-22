@@ -66,6 +66,10 @@ message:
               timestamp: '2023-09-06T15:10:00.000Z'
         vehicle:
           category: BUS
+          variant: AC
+          capacity: 47
+          wheels_count: '6'
+          energy_type: DIESEL
       - id: FT1
         type: TICKET
         customer:

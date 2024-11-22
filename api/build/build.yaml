@@ -345,7 +345,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -380,7 +379,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -437,7 +435,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -473,7 +470,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -487,7 +483,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -511,7 +506,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -525,7 +519,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -586,7 +579,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -626,7 +618,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -664,7 +655,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -702,7 +692,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -716,7 +705,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -755,7 +743,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -776,7 +763,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -1038,10 +1024,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Provider'
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
         exp:
           description: Timestamp after which catalog will expire
           type: string
@@ -1922,14 +1904,6 @@ components:
             Status of the order. Allowed values can be defined by the network
             policy
           type: string
-          enum:
-            - ACTIVE
-            - COMPLETE
-            - CANCELLED
-            - COMPLETED
-            - SOFT_CANCEL
-            - CANCELLATION_INITIATED
-            - CANCELLATION_REJECTED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -2842,6 +2816,35 @@ x-enum:
               - code: AIRLINE
                 description: Describes the vehicle category as Airline
                 reference: <PR/Issue/Discussion Links md format text
+            variant:
+              - code: AC
+                description: Describes the vehicle variant for category type BUS
+                reference: <PR/Issue/Discussion Links md format text
+              - code: NON-AC
+                description: Describes the vehicle variant for category type BUS
+                reference: <PR/Issue/Discussion Links md format text
+            energy_type:
+              - code: ELECTRIC
+                description: Describes the vehicle energy_type as Electric
+                reference: <PR/Issue/Discussion Links md format text
+              - code: PETRO
+                description: Describes the vehicle energy_type as Petrol
+                reference: <PR/Issue/Discussion Links md format text
+              - code: DIESEL
+                description: Describes the vehicle energy_type as Diesel
+                reference: <PR/Issue/Discussion Links md format text
+              - code: HYDROGEN
+                description: Describes the vehicle energy_type as Hydrogen
+                reference: <PR/Issue/Discussion Links md format text
+              - code: BIOFUELS
+                description: Describes the vehicle energy_type as Biofuels
+                reference: <PR/Issue/Discussion Links md format text
+              - code: CNG
+                description: Describes the vehicle energy_type as CNG
+                reference: <PR/Issue/Discussion Links md format text
+              - code: LPG
+                description: Describes the vehicle energy_type as LPG
+                reference: <PR/Issue/Discussion Links md format text
           type:
             - code: DELIVERY
               description: Describes the type of fulfillment.
@@ -3527,6 +3530,10 @@ x-flows:
                         gps: 12.979759, 77.590427
                   vehicle:
                     category: BUS
+                    variant: AC
+                    capacity: 47
+                    wheels_count: '6'
+                    energy_type: DIESEL
                 payment:
                   tags:
                     - descriptor:
@@ -3642,6 +3649,10 @@ x-flows:
                               gps: 17.379024, 78.482443
                         vehicle:
                           category: BUS
+                          variant: AC
+                          capacity: 47
+                          wheels_count: '6'
+                          energy_type: DIESEL
                       - id: F2
                         type: TRIP
                         stops:
@@ -3683,6 +3694,10 @@ x-flows:
                               gps: 17.379024, 78.482443
                         vehicle:
                           category: BUS
+                          variant: NON-AC
+                          capacity: 47
+                          wheels_count: '6'
+                          energy_type: ELECTRIC
                     payments:
                       - collected_by: BPP
                         tags:
@@ -3768,6 +3783,10 @@ x-flows:
                         gps: 17.399832, 78.471200
                   vehicle:
                     category: BUS
+                    variant: AC
+                    capacity: 47
+                    wheels_count: '6'
+                    energy_type: DIESEL
                 payment:
                   tags:
                     - descriptor:
@@ -3904,6 +3923,10 @@ x-flows:
                               timestamp: '2023-09-06T15:30:00.000Z'
                         vehicle:
                           category: BUS
+                          variant: AC
+                          capacity: 47
+                          wheels_count: '6'
+                          energy_type: DIESEL
                         tags:
                           - descriptor:
                               code: VEHICLE_GRID
@@ -4012,6 +4035,10 @@ x-flows:
                               timestamp: '2023-09-07T06:30:00.000Z'
                         vehicle:
                           category: BUS
+                          variant: NON-AC
+                          capacity: 47
+                          wheels_count: '6'
+                          energy_type: ELECTRIC
                         tags:
                           - descriptor:
                               code: VEHICLE_GRID
@@ -4240,6 +4267,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     tags:
@@ -4488,6 +4519,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     tags:
@@ -4833,6 +4868,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     customer:
@@ -5252,6 +5291,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     customer:
@@ -5591,6 +5634,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     customer:
@@ -5923,6 +5970,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     customer:
@@ -6225,6 +6276,10 @@ x-flows:
                           code: std:080
                   vehicle:
                     category: BUS
+                    variant: AC
+                    capacity: 47
+                    wheels_count: '6'
+                    energy_type: DIESEL
                 payment:
                   tags:
                     - descriptor:
@@ -6323,6 +6378,10 @@ x-flows:
                           code: std:040
                   vehicle:
                     category: BUS
+                    variant: AC
+                    capacity: 47
+                    wheels_count: '6'
+                    energy_type: DIESEL
                 payment:
                   tags:
                     - descriptor:
@@ -6566,6 +6625,10 @@ x-flows:
                               timestamp: '2023-09-06T15:30:00.000Z'
                         vehicle:
                           category: BUS
+                          variant: AC
+                          capacity: 47
+                          wheels_count: '6'
+                          energy_type: DIESEL
                         tags:
                           - descriptor:
                               code: VEHICLE_GRID
@@ -6965,6 +7028,10 @@ x-flows:
                         phone: +91-9988776655
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                     tags:
                       - descriptor:
                           code: SEAT_GRID
@@ -7236,6 +7303,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     customer:
@@ -7579,6 +7650,10 @@ x-flows:
                           timestamp: '2023-09-06T15:10:00.000Z'
                     vehicle:
                       category: BUS
+                      variant: AC
+                      capacity: 47
+                      wheels_count: '6'
+                      energy_type: DIESEL
                   - id: FT1
                     type: TICKET
                     customer:
@@ -8150,6 +8225,10 @@ x-examples:
                           phone: +91-9988776655
                       vehicle:
                         category: BUS
+                        variant: AC
+                        capacity: 47
+                        wheels_count: '6'
+                        energy_type: DIESEL
                       tags:
                         - descriptor:
                             code: SEAT_GRID
@@ -8369,6 +8448,10 @@ x-examples:
                           phone: +91-9988776655
                       vehicle:
                         category: BUS
+                        variant: NON-AC
+                        capacity: 47
+                        wheels_count: '6'
+                        energy_type: ELECTRIC
                       tags:
                         - descriptor:
                             code: SEAT_GRID
@@ -8584,6 +8667,10 @@ x-examples:
                           phone: +91-9988776655
                       vehicle:
                         category: BUS
+                        variant: NON-AC
+                        capacity: 47
+                        wheels_count: '6'
+                        energy_type: ELECTRIC
                       tags:
                         - descriptor:
                             code: SEAT_GRID
@@ -8800,6 +8887,10 @@ x-examples:
                           phone: '9856798567'
                       vehicle:
                         category: BUS
+                        variant: NON-AC
+                        capacity: 47
+                        wheels_count: '6'
+                        energy_type: ELECTRIC
                       tags:
                         - descriptor:
                             code: SEAT_GRID
