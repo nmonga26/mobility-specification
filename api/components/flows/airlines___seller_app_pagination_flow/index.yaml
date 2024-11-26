@@ -64,7 +64,34 @@ steps: &steps
     example: &steps_1_example
       summary: Return services available for provided start and end code
       value: &steps_1_example_value
+        $ref: ../../examples/airline/on_search/on_search-request-1.yaml
+  
+  - &steps_1
+    summary: Return an airline catalog of all flights services from one airport to
+      another
+    api: on_search
+    details: &steps_1_details
+      - &steps_1_details_0
+        description: Users searches over the network to avail the airline mode of
+          transport from one airport to another
+        mermaid: >-
+          sequenceDiagram
+            Buyer Platform (BAP)->>Gateway (BG): search
+            Gateway (BG) ->> Buyer Platform (BAP): ACK
+            Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+            Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+            Gateway (BG)->>Seller Platform (BPP): search
+            Seller Platform (BPP)->>Gateway (BG) : ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+            Buyer Platform (BAP)->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example: &steps_1_example
+      summary: Return services available for provided start and end code
+      value: &steps_1_example_value
         $ref: ../../examples/airline/on_search/Return_services_available_for_provided_start_and_end_code.yaml
+  
   - &steps_2
     summary: Return an airline catalog of all flights services from one airport to
       another
