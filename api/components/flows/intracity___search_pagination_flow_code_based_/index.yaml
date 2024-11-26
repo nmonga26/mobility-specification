@@ -63,8 +63,34 @@ steps: &steps
     example: &steps_1_example
       summary: Return a public transit catalog of all routes in serverd
       value: &steps_1_example_value
-        $ref: ../../examples/intracity-bus/on_search/Return_a_public_transit_catalog_of_all_routes_in_serverd_21.yaml
+        $ref: ../../examples/intracity-bus/on_search/on_search_first_pagination_response.yaml
+
   - &steps_2
+    summary: Return a bus catalog of all intracity bus services from the given
+      point(code)
+    api: on_search
+    details: &steps_1_details
+      - &steps_1_details_0
+        description: Provider platform sends the catalog of all the service that can be
+          used for transit using bus service from a given point(code)
+        mermaid: >-
+          sequenceDiagram
+            Buyer Platform (BAP)->>Gateway (BG): search
+            Gateway (BG) ->> Buyer Platform (BAP): ACK
+            Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+            Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+            Gateway (BG)->>Seller Platform (BPP): search
+            Seller Platform (BPP)->>Gateway (BG) : ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+            Buyer Platform (BAP)->>Seller Platform (BPP): ACK 
+            end 
+    reference: if any
+    example: &steps_1_example
+      summary: Return a public transit catalog of all routes in serverd
+      value: &steps_1_example_value
+        $ref: ../../examples/intracity-bus/on_search/Return_a_public_transit_catalog_of_all_routes_in_serverd_21.yaml
+  - &steps_3
     summary: Return a bus catalog of all intracity bus services from the given
       point(code)
     api: on_search
@@ -74,7 +100,7 @@ steps: &steps
       summary: Return a public transit catalog of all routes in serverd
       value: &steps_2_example_value
         $ref: ../../examples/intracity-bus/on_search/Return_a_public_transit_catalog_of_all_routes_in_serverd_22.yaml
-  - &steps_3
+  - &steps_4
     summary: Return a bus catalog of all intracity bus services from the given
       point(code)
     api: on_search
