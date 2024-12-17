@@ -2992,7 +2992,7 @@ x-enum:
         quote: &ref_6
           breakup:
             title:
-              - code: BASE_PRICE
+              - code: BASE_FARE
                 description: Describes the base price of an item.
                 reference: <PR/Issue/Discussion Links md format text
               - code: REFUND
