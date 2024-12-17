@@ -345,6 +345,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -379,6 +380,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -435,6 +437,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -470,6 +473,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -483,6 +487,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -506,6 +511,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -519,6 +525,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -579,6 +586,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -618,6 +626,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -655,6 +664,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -692,6 +702,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -705,6 +716,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -743,6 +755,7 @@ paths:
           application/json:
             schema:
               type: object
+              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -763,6 +776,7 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
+                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -1024,6 +1038,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Provider'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
         exp:
           description: Timestamp after which catalog will expire
           type: string
@@ -1904,6 +1922,14 @@ components:
             Status of the order. Allowed values can be defined by the network
             policy
           type: string
+          enum:
+            - ACTIVE
+            - COMPLETE
+            - CANCELLED
+            - COMPLETED
+            - SOFT_CANCEL
+            - CANCELLATION_INITIATED
+            - CANCELLATION_REJECTED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -3072,7 +3098,7 @@ x-enum:
         quote: &ref_7
           breakup:
             title:
-              - code: BASE_PRICE
+              - code: BASE_FARE
                 description: >-
                   Describes the basic cost of something without adding anything
                   extra.
