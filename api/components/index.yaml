@@ -11,4 +11,6 @@ flows:
 error_codes:
   $ref: "./error_codes/index.yaml"
 tlc:
-  $ref: "./tlc/index.yaml"  
+  $ref: "./tlc/index.yaml"
+sandbox-ui:
+  $ref: "./sandbox/index.yaml"    
