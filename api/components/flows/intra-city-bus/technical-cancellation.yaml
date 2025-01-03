@@ -20,22 +20,65 @@ steps:
   - summary: Provider confirms the request
     api: on_confirm
     details: 
-      - description: Provider confirms the  request and provides the details on confirmation.
+      - description: The provider has confirmed the request, but the buyer app received the request after the TTL had expired.
         mermaid: >-
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
             rect rgb(191, 223, 255)
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            Buyer Platform (BAP)-->>Seller Platform (BPP): NACK 
             end
-            Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK   
     reference: if any
     example:
       $ref: "../../examples/intra_city/on_confirm/example_0.yaml"
+  
+  - summary: Buyer app request for latest order status
+    api: status
+    details: 
+      - description: Buyer app request for latest order status
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): NACK 
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK  
+    reference: if any
+    example:
+      $ref: "../../examples/intra_city/status/example_1.yaml"
+  - summary: Provider sends the latest order status
+    api: on_status
+    details: 
+      - description:  Provider sends the latest order status
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): NACK 
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+             rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK  
+            end
+    reference: if any
+    example:
+      $ref: "../../examples/intra_city/on_status/example_1.yaml"
+  
+  
+  
+  
   - summary: Buyer app cancels the request for ticket
     api: cancel
     details: 
@@ -44,8 +87,6 @@ steps:
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
             rect rgb(191, 223, 255)
             Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
@@ -63,8 +104,6 @@ steps:
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
             Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
             rect rgb(191, 223, 255)
@@ -74,6 +113,7 @@ steps:
     reference: if any
     example:
       $ref: "../../examples/intra_city/on_cancel/example_technical_1.yaml"
+  
   - summary: Buyer app confirms the cancel request for ticket
     api: cancel
     details: 
