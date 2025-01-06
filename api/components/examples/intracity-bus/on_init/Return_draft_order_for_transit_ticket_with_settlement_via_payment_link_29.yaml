@@ -28,7 +28,7 @@ message:
               size_type: xs
         fulfillment_ids:
           - F9
-          - F5
+          # - F5
         price:
           currency: INR
           value: '100'
@@ -68,15 +68,15 @@ message:
         vehicle:
           category: BUS
           variant: AC
-      - id: F5
-        type: TICKET
-        tags:
-          - descriptor:
-              code: INFO
-            list:
-              - descriptor:
-                  code: PARENT_ID
-                value: F9
+      # - id: F5
+      #   type: TICKET
+      #   tags:
+      #     - descriptor:
+      #         code: INFO
+      #       list:
+      #         - descriptor:
+      #             code: PARENT_ID
+      #           value: F9
     cancellation_terms:
       - cancel_by:
           duration: PT60M

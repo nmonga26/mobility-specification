@@ -30,7 +30,7 @@ message:
               size_type: xs
         fulfillment_ids:
           - F9
-          - F5
+          # - F5
         price:
           currency: INR
           value: '100'
@@ -61,6 +61,12 @@ message:
               descriptor:
                 code: std:011
               gps: 28.666576, 77.233332
+            authorization:
+              type: QR
+              token: >-
+                aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+              valid_to: '2024-07-23T23:59:59.999Z'
+              status: UNCLAIMED  
             # time:
             #   label: Validity
             #   range:
@@ -70,29 +76,37 @@ message:
         vehicle:
           category: BUS
           variant: AC
-      - id: F5
-        type: TICKET
-        stops:
-          - type: START
-            authorization:
-              type: QR
-              token: >-
-                aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-              valid_to: '2024-07-23T23:59:59.999Z'
-              status: UNCLAIMED
         tags:
-          - descriptor:
-              code: INFO
-            list:
-              - descriptor:
-                  code: PARENT_ID
-                value: F9
           - descriptor:
               code: TICKET_INFO
             list:
               - descriptor:
                   code: NUMBER
-                value: 7ed21b6f
+                value: 7ed21b6f  
+      # - id: F5
+      #   type: TICKET
+      #   stops:
+      #     - type: START
+      #       authorization:
+      #         type: QR
+      #         token: >-
+      #           aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+      #         valid_to: '2024-07-23T23:59:59.999Z'
+      #         status: UNCLAIMED
+      #   tags:
+      #     - descriptor:
+      #         code: INFO
+      #       list:
+      #         - descriptor:
+      #             code: PARENT_ID
+      #           value: F9
+      #     - descriptor:
+      #         code: TICKET_INFO
+      #       list:
+      #         - descriptor:
+      #             code: NUMBER
+      #           value: 7ed21b6f
+    
     cancellation_terms:
       - cancel_by:
           duration: PT60M
