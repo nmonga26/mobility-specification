@@ -2975,7 +2975,7 @@ x-enum:
         quote: &ref_7
           breakup:
             title:
-              - code: BASE_PRICE
+              - code: BASE_FARE
                 description: >-
                   Describes the basic cost of something without adding anything
                   extra.
