@@ -382,6 +382,13 @@ on_cancel:
         reason:
           descriptor:
             code: *a11
+        cancelled_by:
+          - code: CONSUMER
+            description: Describes, when the ride is cancelled by the consumer.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: PROVIDER
+            description: Describes, when the ride is cancelled by the provider.
+            reference: <PR/Issue/Discussion Links md format text>
       quote: *a9
       status: *a13
 update:
