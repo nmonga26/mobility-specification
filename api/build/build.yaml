@@ -3192,6 +3192,13 @@ x-enum:
           reason:
             descriptor:
               code: *ref_10
+          cancelled_by:
+            - code: CONSUMER
+              description: Describes, when the ride is cancelled by the consumer.
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: PROVIDER
+              description: Describes, when the ride is cancelled by the provider.
+              reference: <PR/Issue/Discussion Links md format text>
         quote: *ref_7
         status: *ref_9
   update:
@@ -3402,7 +3409,7 @@ x-flows:
           summary: >-
             Initialize draft order and request for terms of service[Buyer
             Collecting]
-          value: &ref_38
+          value: &ref_37
             context:
               action: init
               bap_id: example-bap.com
@@ -4004,7 +4011,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ride booking
-          value: &ref_37
+          value: &ref_36
             context:
               action: confirm
               bap_id: example-bap.com
@@ -4909,6 +4916,9 @@ x-flows:
                           - descriptor:
                               code: STATIC_TERMS
                             value: https://example-test-bpp.com/static-terms.txt
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '144.54'
                     type: ON-FULFILLMENT
                 provider:
                   id: P1
@@ -7064,7 +7074,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-          value: &ref_33
+          value: &ref_32
             context:
               action: on_confirm
               bap_id: example-bap.com
@@ -8274,7 +8284,7 @@ x-flows:
           summary: >-
             Initialize draft order and request for terms of service[Seller
             Collecting]
-          value: &ref_39
+          value: &ref_38
             context:
               action: init
               bap_id: example-bap.com
@@ -8359,6 +8369,9 @@ x-flows:
                           - descriptor:
                               code: STATIC_TERMS
                             value: https://example-test-bpp.com/static-terms.txt
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '144.54'
                     type: ON-FULFILLMENT
                 provider:
                   id: P1
@@ -8606,7 +8619,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ride booking
-          value: &ref_36
+          value: &ref_35
             context:
               action: confirm
               bap_id: example-bap.com
@@ -10034,7 +10047,7 @@ x-flows:
         reference: if any
         example:
           summary: Return current order status after confirm-cancel
-          value: &ref_32
+          value:
             context:
               action: on_cancel
               bap_id: example-bap.com
@@ -10267,6 +10280,11 @@ x-flows:
                     value: '10'
                   ttl: P200S
                 status: CANCELLED
+                cancellation:
+                  cancelled_by: PROVIDER
+                  reason:
+                    descriptor:
+                      code: '013'
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-03-23T04:48:53.253Z'
   - summary: On-Demand - Ride cancellation by rider
@@ -10349,7 +10367,7 @@ x-flows:
         reference: if any
         example:
           summary: Initiates cancelling a ride with soft cancel status
-          value: &ref_35
+          value: &ref_34
             context:
               action: cancel
               bap_id: example-bap.com
@@ -10628,6 +10646,11 @@ x-flows:
                     value: '10'
                   ttl: P200S
                 status: SOFT_CANCEL
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '001'
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-03-23T04:48:53.253Z'
       - summary: Buyer app confirms the cancel request for ride
@@ -10647,7 +10670,7 @@ x-flows:
         reference: if any
         example:
           summary: Initiates cancelling a ride with confirm cancel status
-          value: &ref_34
+          value: &ref_33
             context:
               action: cancel
               bap_id: example-bap.com
@@ -10691,7 +10714,246 @@ x-flows:
         reference: if any
         example:
           summary: Return current order status after confirm-cancel
-          value: *ref_32
+          value: &ref_39
+            context:
+              action: on_cancel
+              bap_id: example-bap.com
+              bap_uri: https://example-bap.com/prod/trv10
+              bpp_id: example-bpp.com
+              bpp_uri: https://example-bpp.com/prod/seller
+              domain: ONDC:TRV10
+              location:
+                city:
+                  code: std:080
+                country:
+                  code: IND
+              message_id: 8926b747-0362-4fcc-b795-0994a6287700
+              timestamp: '2023-03-23T04:48:53.253Z'
+              transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
+              version: 2.0.1
+              ttl: PT30S
+            message:
+              order:
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
+                fulfillments:
+                  - agent:
+                      contact:
+                        phone: '9856798567'
+                      person:
+                        name: Jason Roy
+                    customer:
+                      contact:
+                        phone: '9876556789'
+                      person:
+                        name: Joe Adams
+                    id: F1
+                    state:
+                      descriptor:
+                        code: RIDE_CANCELLED
+                    stops:
+                      - authorization:
+                          token: '234234'
+                          type: OTP
+                          valid_to: '2023-12-10T08:05:34.294Z'
+                          status: UNCLAIMED
+                        location:
+                          gps: 13.008935, 77.644408
+                        time:
+                          duration: PT2H
+                        type: START
+                        instructions:
+                          short_desc: short description of the location
+                          long_desc: long description of the location
+                    tags:
+                      - descriptor:
+                          code: ROUTE_INFO
+                          name: Route Information
+                        display: true
+                        list:
+                          - descriptor:
+                              code: ENCODED_POLYLINE
+                              name: Path
+                            value: _p~iF~ps|U_ulLnnqC_mqNvxq`@
+                          - descriptor:
+                              code: WAYPOINTS
+                              name: Waypoints
+                            value: >-
+                              [{"gps":"12.909982,
+                              77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,
+                              77.611822"}]
+                    type: DELIVERY
+                    vehicle:
+                      category: AUTO_RICKSHAW
+                      variant: AUTO_RICKSHAW
+                      energy_type: CNG
+                      make: Bajaj
+                      model: Compact RE
+                      registration: KA-01-AD-9876
+                id: O1
+                items:
+                  - descriptor:
+                      code: RIDE
+                      name: CAB Ride
+                    fulfillment_ids:
+                      - F1
+                    id: I1
+                    location_ids:
+                      - L1
+                      - L3
+                    payment_ids:
+                      - PA1
+                    price:
+                      currency: INR
+                      maximum_value: '176'
+                      minimum_value: '156'
+                      value: '146'
+                    tags:
+                      - descriptor:
+                          code: FARE_POLICY
+                          name: Daytime Charges
+                        display: true
+                        list:
+                          - descriptor:
+                              code: MIN_FARE
+                            value: '30'
+                          - descriptor:
+                              code: MIN_FARE_DISTANCE_KM
+                            value: '2'
+                          - descriptor:
+                              code: PER_KM_CHARGE
+                            value: '15'
+                          - descriptor:
+                              code: PICKUP_CHARGE
+                            value: '10'
+                          - descriptor:
+                              code: WAITING_CHARGE_PER_MIN
+                            value: '2'
+                          - descriptor:
+                              code: NIGHT_CHARGE_MULTIPLIER
+                            value: '1.5'
+                          - descriptor:
+                              code: NIGHT_SHIFT_START_TIME
+                            value: '22:00:00'
+                          - descriptor:
+                              code: NIGHT_SHIFT_END_TIME
+                            value: '05:00:00'
+                      - descriptor:
+                          code: INFO
+                          name: General Information
+                        display: true
+                        list:
+                          - descriptor:
+                              code: DISTANCE_TO_NEAREST_DRIVER_METER
+                            value: '661'
+                          - descriptor:
+                              code: ETA_TO_NEAREST_DRIVER_MIN
+                            value: '3'
+                payments:
+                  - collected_by: BAP
+                    id: PA1
+                    params:
+                      bank_account_number: xxxxxxxxxxxxxx
+                      bank_code: XXXXXXXX
+                      virtual_payment_address: 9988199772@okicic
+                    status: NOT-PAID
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        display: false
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '1'
+                      - descriptor:
+                          code: SETTLEMENT_TERMS
+                        display: false
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_WINDOW
+                            value: PT60M
+                          - descriptor:
+                              code: SETTLEMENT_BASIS
+                            value: Delivery
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: UPI
+                          - descriptor:
+                              code: MANDATORY_ARBITRATION
+                            value: 'true'
+                          - descriptor:
+                              code: COURT_JURISDICTION
+                            value: New Delhi
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '2.5'
+                          - descriptor:
+                              code: STATIC_TERMS
+                            value: >-
+                              https://www.icicibank.com/personal-banking/loans/personal-loan
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '85'
+                    type: ON-FULFILLMENT
+                provider:
+                  id: P1
+                quote:
+                  breakup:
+                    - price:
+                        currency: INR
+                        value: '30'
+                      title: BASE_FARE
+                    - price:
+                        currency: INR
+                        value: '116'
+                      title: DISTANCE_FARE
+                    - price:
+                        currency: INR
+                        value: '10'
+                      title: CANCELLATION_CHARGES
+                    - price:
+                        currency: INR
+                        value: '-146'
+                      title: REFUND
+                  price:
+                    currency: INR
+                    value: '10'
+                  ttl: P200S
+                status: CANCELLED
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '001'
+                created_at: '2023-12-10T08:03:34.294Z'
+                updated_at: '2023-03-23T04:48:53.253Z'
   - summary: Driver not found on on_confirm
     references: if any
     details:
@@ -10873,7 +11135,7 @@ x-flows:
         reference: if any
         api: on_confirm
         example:
-          value: *ref_33
+          value: *ref_32
         details:
           - description: >-
               Ride provider confirms the ride request and provides the ride
@@ -11155,9 +11417,9 @@ x-examples:
       cancel:
         examples:
           - summary: Initiates_cancelling_a_ride_with_confirm_cancel_status___X5
-            value: *ref_34
+            value: *ref_33
           - summary: Initiates_cancelling_a_ride_with_soft_cancel_status___X4
-            value: *ref_35
+            value: *ref_34
       confirm:
         examples:
           - summary: Confirm_ride_booking___X6
@@ -11165,11 +11427,11 @@ x-examples:
           - summary: >-
               confirm_buyer_app_confirms_the_booking_and_provides_all_the_required_information_for_confirmation_as_per_the_terms_of_the_order__5
             description: TBD
-            value: *ref_36
+            value: *ref_35
           - summary: >-
               confirm_buyer_app_confirms_the_booking_and_provides_all_the_required_information_for_confirmation_as_per_the_terms_of_the_order__6
             description: TBD
-            value: *ref_37
+            value: *ref_36
       init:
         examples:
           - summary: >-
@@ -11178,15 +11440,15 @@ x-examples:
           - summary: >-
               init_buyer_app_platform_shares_the_terms_of_order_and_initializes_the_request__1
             description: TBD
-            value: *ref_38
+            value: *ref_37
           - summary: >-
               init_buyer_app_platform_shares_the_terms_of_order_and_initializes_the_request__3
             description: TBD
-            value: *ref_39
+            value: *ref_38
       on_cancel:
         examples:
           - summary: Return_current_order_status_after_confirm-cancel___X9
-            value: *ref_32
+            value: *ref_39
           - summary: Return_current_order_status_after_soft-cancel___X8
             value: *ref_40
           - summary: cancel_after_confirm
@@ -11197,7 +11459,7 @@ x-examples:
           - summary: Return_confirmed_order_with_latest_fulfillment_details___X10
             value: *ref_30
           - summary: Return_confirmed_order_with_latest_fulfillment_details___X11
-            value: *ref_33
+            value: *ref_32
           - summary: Return_confirmed_order_with_latest_fulfillment_details___X12
             value:
               context:

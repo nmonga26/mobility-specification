@@ -82,6 +82,9 @@ message:
               - descriptor:
                   code: STATIC_TERMS
                 value: https://example-test-bpp.com/static-terms.txt
+              - descriptor:
+                  code: SETTLEMENT_AMOUNT
+                value: '144.54'  
         type: ON-FULFILLMENT
     provider:
       id: P1
