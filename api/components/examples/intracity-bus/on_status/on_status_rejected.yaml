@@ -235,7 +235,7 @@ message:
                   code: SETTLEMENT_AMOUNT
                 value: '12505'
     cancellation:
-      cancelled_by: PROVIDER
+      cancelled_by: CONSUMER
       reason:
         descriptor:
           code: '0'

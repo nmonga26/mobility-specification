@@ -387,7 +387,7 @@ message:
               code: GTFS
             value: https://metro-transit/gtfs-realtime
     cancellation:
-      cancelled_by: PROVIDER
+      cancelled_by: CONSUMER
       time: "2021-03-23T10:00:00.065Z"
     created_at: "2021-03-23T10:00:40.065Z"
     updated_at: "2021-03-23T10:05:48.061Z"

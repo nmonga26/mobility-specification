@@ -387,7 +387,7 @@ message:
               code: GTFS
             value: https://metro-transit/gtfs-realtime
     cancellation:
-      cancelled_by: PROVIDER
+      cancelled_by: CONSUMER
       reason:
         descriptor:
           code: '0'
