@@ -13,4 +13,6 @@ error_codes:
 tlc:
   $ref: "./tlc/index.yaml"
 sandbox-ui:
-  $ref: "./sandbox/index.yaml"    
+  $ref: "./sandbox/index.yaml"
+changeLog: 
+  $ref: "./docs/changeLog/index.yaml"       
