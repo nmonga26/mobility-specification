@@ -18,3 +18,5 @@ sandbox-ui:
   $ref: "./sandbox/index.yaml"
 changeLog:
   $ref: "./docs/changeLog/index.yaml"
+feature-ui:
+  $ref: "./docs/index.yaml"  
