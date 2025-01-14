@@ -80,10 +80,15 @@ message:
             id: "2"
             parent_stop_id: "1"
           - location:
-              gps: 12.968540, 77.564459
-            type: END
+              gps: 12.983271, 77.595779
+            type: INTERMEDIATE_STOP
             id: "3"
             parent_stop_id: "2"
+          - location:
+              gps: 12.968540, 77.564459
+            type: END
+            id: "4"
+            parent_stop_id: "3"
         tags:
           - descriptor:
               code: ROUTE_INFO

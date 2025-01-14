@@ -11734,7 +11734,7 @@ x-flows:
                 Seller Platform (BPP)->>Buyer Platform (BAP): on_cancel
                 Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
                 end
-  - summary: On-Demand - Add intermediate stop for given ride
+  - summary: On-Demand - Ride with multiple stops
     details:
       - description: >-
           The illustraive flow to perform a transaction of the nature where in a
@@ -14759,7 +14759,7 @@ x-flows:
                       title: BASE_FARE
                     - price:
                         currency: INR
-                        value: '116'
+                        value: '126'
                       title: DISTANCE_FARE
                   price:
                     currency: INR
