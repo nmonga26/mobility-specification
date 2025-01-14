@@ -35,7 +35,7 @@ message:
             type: DELIVERY
             vehicle:
               category: AUTO_RICKSHAW
-              variant: EV
+              variant: AUTO_RICKSHAW
           - id: F2
             stops:
               - location:
@@ -92,30 +92,30 @@ message:
             id: L4
         payments:
           - collected_by: BAP
-            tags:
-              - descriptor:
-                  code: BUYER_FINDER_FEES
-                display: false
-                list:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: '1'
-              - descriptor:
-                  code: SETTLEMENT_TERMS
-                display: false
-                list:
-                  - descriptor:
-                      code: DELAY_INTEREST
-                    value: '5'
-                  - descriptor:
-                      code: SETTLEMENT_TYPE
-                    value: UPI
-                  - descriptor:
-                      code: MANDATORY_ARBITRATION
-                    value: 'true'
-                  - descriptor:
-                      code: COURT_JURISDICTION
-                    value: New Delhi
-                  - descriptor:
-                      code: STATIC_TERMS
-                    value: https://example-test-bpp.com/static-terms.txt
+    tags:
+      - descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+      - descriptor:
+          code: SETTLEMENT_TERMS
+        display: false
+        list:
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: UPI
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bpp.com/static-terms.txt

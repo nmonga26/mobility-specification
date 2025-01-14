@@ -6,3 +6,12 @@
 - $ref: ./on_demand___ride_cancellation_by_rider/index.yaml
 - $ref: ./Driver-not-found-on-on_confirm/index.yaml
 - $ref: ./Driver-not-found-post-on_confirm/index.yaml
+- $ref: ./on_demand___add_stop_for_given_ride/index.yaml
+- $ref: ./on_demand___update_stop/index.yaml
+- $ref: ./on_demand_bid/index.yaml
+- $ref: ./on_demand_tip/index.yaml
+- $ref: ./on_demand_rental/index.yaml
+- $ref: ./schedule_rental/index.yaml
+- $ref: ./schedule_trip/index.yaml
+- $ref: ./on_demand_rental_when_end_stop_gps_coordinate_is_not_present/index.yaml
+- $ref: ./schedule_rental_when_end_stop_gps_coordinate_is_not_present/index.yaml

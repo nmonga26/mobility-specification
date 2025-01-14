@@ -1,0 +1,119 @@
+- code: VIS_IMP
+  description: Vision Impairment
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: LEVEL
+      description: Level of Disability
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SCREEN_READER_USAGE
+      description: Screen Reader Usage
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: CANE_USAGE
+      description: Cane Usage
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: HEA_IMP
+  description: Hearing Impairment
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: READING_ABILITY
+      description: Reading Ability
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SIGN_LANGUAGE_PREFERENCE
+      description: Sign Language Preference
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: MOB_IMP
+  description: Mobility Impairment
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: DISABILITY
+      description: locomotor / multiple sclerosis / cerebral palsy / muscular dystrophy / others
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: WHEELCHAIR_USAGE
+      description: WheelChair Usage
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: CRUTCHES_USAGE
+      description: Crutches Usage
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: LEP_CUR
+  description: Leprosy Cured
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: SPE_LAN
+  description: Speech and Language Disability
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: INTEL_DIS
+  description: Intellectual Disability
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: DISABILITY
+      description: Autism Spectrum Disorder / Specific Learning Disabilities / Parkinson's / others
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: MENTAL_ILLNESS
+  description: Mental Illness
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: DISABILITY
+      description: Schizophrenia / Bipolar Disorder / Depression / others
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: BLOOD_DIS
+  description: Blood Related Disorders
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: DISABILITY
+      description: Hemophilia / Thalassemia / Sickle Cell Anemia / others
+      reference: <PR/Issue/Discussion Links md format text>
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: DWARFISM
+  description: Dwarfism
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: ACID_ATTACK_SURVIVOR
+  description: Acid Attack Survivor
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - code: SPECIAL_REQUIREMENT
+      description: CUSTOM TEXT ENTERED BY USER
+      reference: <PR/Issue/Discussion Links md format text>
+
+- code: MULTIPLE_DIS
+  description: Multiple Disabilities
+  reference: <PR/Issue/Discussion Links md format text>
+  list:
+    - description: LIST OF RELEVANT VALUES FROM ABOVE
+      reference: <PR/Issue/Discussion Links md format text>

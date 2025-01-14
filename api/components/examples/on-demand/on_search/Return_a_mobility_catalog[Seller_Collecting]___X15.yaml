@@ -20,6 +20,7 @@ message:
     descriptor:
       name: Mobility Servies BPP
     providers:
+
       - fulfillments:
           - id: F1
             stops:
@@ -35,7 +36,7 @@ message:
             type: DELIVERY
             vehicle:
               category: AUTO_RICKSHAW
-              variant: EV
+              variant: AUTO_RICKSHAW
           - id: F2
             stops:
               - location:
@@ -70,6 +71,8 @@ message:
           - descriptor:
               code: RIDE
               name: CAB Economy Ride
+            category_ids:
+             - '198392'
             fulfillment_ids:
               - F2
             id: I2
@@ -92,36 +95,37 @@ message:
             id: L4
         payments:
           - collected_by: BPP
-            tags:
-              - descriptor:
-                  code: BUYER_FINDER_FEES
-                display: false
-                list:
-                  - descriptor:
-                      code: BUYER_FINDER_FEES_PERCENTAGE
-                    value: '1'
-              - descriptor:
-                  code: SETTLEMENT_TERMS
-                display: false
-                list:
-                  - descriptor:
-                      code: SETTLEMENT_WINDOW
-                    value: PT60M
-                  - descriptor:
-                      code: SETTLEMENT_BASIS
-                    value: DELIVERY
-                  - descriptor:
-                      code: SETTLEMENT_TYPE
-                    value: UPI
-                  - descriptor:
-                      code: MANDATORY_ARBITRATION
-                    value: 'true'
-                  - descriptor:
-                      code: COURT_JURISDICTION
-                    value: New Delhi
-                  - descriptor:
-                      code: DELAY_INTEREST
-                    value: '5'
-                  - descriptor:
-                      code: STATIC_TERMS
-                    value: https://example-test-bpp.com/static-terms.txt
+        categories: 
+          - id: '198392'
+            descriptor: 
+              code: ON_DEMAND
+              name: on demand
+    tags:
+      - descriptor:
+          code: BPP_TERMS
+          name: BPP Terms of Engagement
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT60M
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: DELIVERY
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: UPI
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bpp.com/static-terms.txt

@@ -49,11 +49,12 @@ message:
         type: DELIVERY
         vehicle:
           category: AUTO_RICKSHAW
-          variant: EV
+          variant: AUTO_RICKSHAW
     items:
       - descriptor:
           code: RIDE
           name: Auto Ride
+         
         fulfillment_ids:
           - F1
         id: I1
@@ -64,7 +65,7 @@ message:
           currency: INR
           maximum_value: '176'
           minimum_value: '136'
-          value: '146'
+          value: '146'     
         tags:
           - descriptor:
               code: FARE_POLICY

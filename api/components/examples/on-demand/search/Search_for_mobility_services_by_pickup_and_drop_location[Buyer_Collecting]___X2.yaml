@@ -15,6 +15,27 @@ context:
   version: 2.0.1
 message:
   intent:
+    category:
+      descriptor:
+        code: ON_DEMAND
+    tags:
+      - descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        display: false
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT1D
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: DELIVERY  
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bap.com/static-terms.txt   
     fulfillment:
       stops:
         - location:
@@ -24,25 +45,4 @@ message:
             gps: 12.971186, 77.586812
           type: END
     payment:
-      collected_by: BAP
-      tags:
-        - descriptor:
-            code: BUYER_FINDER_FEES
-          display: false
-          list:
-            - descriptor:
-                code: BUYER_FINDER_FEES_PERCENTAGE
-              value: '1'
-        - descriptor:
-            code: SETTLEMENT_TERMS
-          display: false
-          list:
-            - descriptor:
-                code: SETTLEMENT_WINDOW
-              value: PT1D
-            - descriptor:
-                code: SETTLEMENT_BASIS
-              value: DELIVERY
-            - descriptor:
-                code: STATIC_TERMS
-              value: https://example-test-bap.com/static-terms.txt
+      collected_by: BPP

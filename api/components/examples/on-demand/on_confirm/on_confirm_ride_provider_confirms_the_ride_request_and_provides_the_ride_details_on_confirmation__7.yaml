@@ -94,7 +94,7 @@ message:
         type: DELIVERY
         vehicle:
           category: AUTO_RICKSHAW
-          variant: EV
+          variant: AUTO_RICKSHAW
           make: Bajaj
           model: Compact RE
           registration: KA-01-AD-9876
@@ -167,42 +167,6 @@ message:
           transaction_id: f08966dc-4c7d-4152-9a15-1046798cc39c
           amount: '146'
         status: PAID
-        tags:
-          - descriptor:
-              code: BUYER_FINDER_FEES
-            display: false
-            list:
-              - descriptor:
-                  code: BUYER_FINDER_FEES_PERCENTAGE
-                value: '1'
-          - descriptor:
-              code: SETTLEMENT_TERMS
-            display: false
-            list:
-              - descriptor:
-                  code: DELAY_INTEREST
-                value: '5'
-              - descriptor:
-                  code: SETTLEMENT_TYPE
-                value: UPI
-              - descriptor:
-                  code: SETTLEMENT_WINDOW
-                value: PT2D
-              - descriptor:
-                  code: SETTLEMENT_BASIS
-                value: DELIVERY
-              - descriptor:
-                  code: MANDATORY_ARBITRATION
-                value: 'true'
-              - descriptor:
-                  code: COURT_JURISDICTION
-                value: New Delhi
-              - descriptor:
-                  code: STATIC_TERMS
-                value: https://example-test-bpp.com/static-terms.txt
-              - descriptor:
-                  code: SETTLEMENT_AMOUNT
-                value: '144.54'
         type: ON-FULFILLMENT
     provider:
       id: P1
@@ -223,3 +187,68 @@ message:
     status: ACTIVE
     created_at: '2023-12-10T04:34:52.031Z'
     updated_at: '2023-12-10T04:34:52.031Z'
+    tags:
+      - descriptor:
+          name: BAP Terms of Engagement
+          code: BAP_TERMS
+        display: false    
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: UPI
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT2D
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: DELIVERY
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bap.com/static-terms.txt
+          - descriptor:
+              code: SETTLEMENT_AMOUNT
+            value: '144.54'
+      - descriptor:
+          name: BPP Terms of Engagement
+          code: BPP_TERMS
+        display: false    
+        list:
+          - descriptor:
+              code: BUYER_FINDER_FEES_PERCENTAGE
+            value: '1'
+          - descriptor:
+              code: DELAY_INTEREST
+            value: '5'
+          - descriptor:
+              code: SETTLEMENT_TYPE
+            value: UPI
+          - descriptor:
+              code: SETTLEMENT_WINDOW
+            value: PT2D
+          - descriptor:
+              code: SETTLEMENT_BASIS
+            value: DELIVERY
+          - descriptor:
+              code: MANDATORY_ARBITRATION
+            value: 'true'
+          - descriptor:
+              code: COURT_JURISDICTION
+            value: New Delhi
+          - descriptor:
+              code: STATIC_TERMS
+            value: https://example-test-bpp.com/static-terms.txt
+          - descriptor:
+              code: SETTLEMENT_AMOUNT
+            value: '144.54'
