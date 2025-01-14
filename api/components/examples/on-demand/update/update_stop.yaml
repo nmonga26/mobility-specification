@@ -22,19 +22,7 @@ message:
       - id: F1
         stops:
         - location:
-            gps: 13.008935, 77.644408
-          type: START
-          instructions:
-            short_desc: short description of the location
-            long_desc: long description of the location
-          id: "1"
-        - location:
-            gps: 12.983355, 77.616695
-          type: INTERMEDIATE_STOP
-          id: "2"
-          parent_stop_id: "1"
-        - location:
-            gps: 12.971186, 77.586812
+            gps: 12.968540, 77.564459
           type: END
           id: "3"
           parent_stop_id: "2"

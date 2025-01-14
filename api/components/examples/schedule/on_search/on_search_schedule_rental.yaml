@@ -95,8 +95,8 @@ message:
         categories: 
           - id: '198393'
             descriptor: 
-              code: SCHEDULE
-              name: schedule
+              code: SCHEDULED
+              name: scheduled
     tags:
       - descriptor:
           code: BPP_TERMS

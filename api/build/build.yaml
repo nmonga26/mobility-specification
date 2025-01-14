@@ -14560,19 +14560,7 @@ x-flows:
                   - id: F1
                     stops:
                       - location:
-                          gps: 13.008935, 77.644408
-                        type: START
-                        instructions:
-                          short_desc: short description of the location
-                          long_desc: long description of the location
-                        id: '1'
-                      - location:
-                          gps: 12.983355, 77.616695
-                        type: INTERMEDIATE_STOP
-                        id: '2'
-                        parent_stop_id: '1'
-                      - location:
-                          gps: 12.971186, 77.586812
+                          gps: 12.968540, 77.564459
                         type: END
                         id: '3'
                         parent_stop_id: '2'
@@ -14664,7 +14652,7 @@ x-flows:
                           valid_to: '2023-12-10T08:05:34.294Z'
                           status: UNCLAIMED
                         location:
-                          gps: 12.983355, 77.616695
+                          gps: 13.008935, 77.644408
                         type: START
                         instructions:
                           short_desc: short description of the location
@@ -14676,7 +14664,7 @@ x-flows:
                         id: '2'
                         parent_stop_id: '1'
                       - location:
-                          gps: 12.971186, 77.586812
+                          gps: 12.968540, 77.564459
                         type: END
                         id: '3'
                         parent_stop_id: '2'
@@ -14721,7 +14709,7 @@ x-flows:
                       currency: INR
                       maximum_value: '176'
                       minimum_value: '136'
-                      value: '146'
+                      value: '156'
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -14775,7 +14763,7 @@ x-flows:
                       title: DISTANCE_FARE
                   price:
                     currency: INR
-                    value: '146'
+                    value: '156'
                   ttl: PT30S
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
@@ -18247,7 +18235,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: SCHEDULE
+                    code: SCHEDULED
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -18392,8 +18380,8 @@ x-flows:
                     categories:
                       - id: '198393'
                         descriptor:
-                          code: SCHEDULE
-                          name: schedule
+                          code: SCHEDULED
+                          name: scheduled
                 tags:
                   - descriptor:
                       code: BPP_TERMS
@@ -20925,7 +20913,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: SCHEDULE
+                    code: SCHEDULED
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -21079,8 +21067,8 @@ x-flows:
                     categories:
                       - id: '198393'
                         descriptor:
-                          code: SCHEDULE
-                          name: schedule
+                          code: SCHEDULED
+                          name: scheduled
                 tags:
                   - descriptor:
                       code: BPP_TERMS

@@ -17,7 +17,7 @@ message:
   intent:
     category:
       descriptor:
-        code: SCHEDULE
+        code: SCHEDULED
     tags:
       - descriptor:
           name: BAP Terms of Engagement
