@@ -145,4 +145,4 @@ steps:
     example:
       summary: Return current order status after confirm-cancel
       value:
-        $ref: ../../examples/on-demand/on_cancel/Return_current_order_status_after_confirm-cancel___X9.yaml
+        $ref: ../../examples/on-demand/on_cancel/on_cancel_confirm_rider.yaml

@@ -14,7 +14,7 @@ context:
   timestamp: '2023-12-10T04:34:48.031Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
-  version: 2.0.1
+  version: 2.1.0
 message:
   order:
     billing:

@@ -82,7 +82,7 @@ steps:
     api: form
     details:
       - description:
-          Buyer app fetches the SIP setup form from the provider using the
+          Buyer app redirects to payment gateway page using the
           link provided in the previous step.
         mermaid: |-
           sequenceDiagram

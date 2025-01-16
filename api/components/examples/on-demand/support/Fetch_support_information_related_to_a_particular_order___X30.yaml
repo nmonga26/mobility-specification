@@ -14,6 +14,6 @@ context:
   timestamp: '2023-03-23T04:48:53Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
-  version: 2.0.1
+  version: 2.1.0
 message:
   ref_id: 7751bd26-3fdc-47ca-9b64-e998dc5abe68

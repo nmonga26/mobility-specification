@@ -14,7 +14,7 @@ context:
   timestamp: '2023-12-09T13:49:26.132Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
-  version: 2.0.1
+  version: 2.1.0
 message:
   order:
     fulfillments:
@@ -28,23 +28,23 @@ message:
               long_desc: long description of the location
           - time:
               timestamp: '2024-11-07T00:32:19.000Z'
-        tags:
-          - descriptor:
-              code: ROUTE_INFO
-              name: Route Information
-            display: true
-            list:
-              - descriptor:
-                  code: ENCODED_POLYLINE
-                  name: Path
-                value: _p~iF~ps|U_ulLnnqC_mqNvxq`@
-              - descriptor:
-                  code: WAYPOINTS
-                  name: Waypoints
-                value: >-
-                  [{"gps":"12.909982,
-                  77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,
-                  77.611822"}]
+        # tags:
+        #   - descriptor:
+        #       code: ROUTE_INFO
+        #       name: Route Information
+        #     display: true
+        #     list:
+        #       - descriptor:
+        #           code: ENCODED_POLYLINE
+        #           name: Path
+        #         value: _p~iF~ps|U_ulLnnqC_mqNvxq`@
+        #       - descriptor:
+        #           code: WAYPOINTS
+        #           name: Waypoints
+        #         value: >-
+        #           [{"gps":"12.909982,
+        #           77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,77.611822"},{"gps":"12.909982,
+        #           77.611822"}]
         type: DELIVERY
         vehicle:
           category: AUTO_RICKSHAW
@@ -64,7 +64,22 @@ message:
           currency: INR
           maximum_value: '176'
           minimum_value: '136'
-          value: '146'  
+          value: '146'
+        add_ons:
+          - id: 'A1'  
+            price:
+              currency: INR
+              value: '20'
+            quantity:
+              selected: 
+                count: 3
+              unitized:
+                measure: 
+                  value: "10"
+                  unit: 'KILOMETERS'  
+            descriptor:
+              name: distance
+              code: DISTANCE      
         tags:
           - descriptor:
               code: FARE_POLICY
@@ -101,11 +116,11 @@ message:
             display: true
             list:
               - descriptor:
-                  code: DISTANCE_TO_NEAREST_DRIVER_METER
-                value: '661'
-              - descriptor:
-                  code: ETA_TO_NEAREST_DRIVER_MIN
+                  code: TOTAL_HOURS
                 value: '3'
+              - descriptor:
+                  code: TOTAL_DISTANCE
+                value: '30' 
     provider:
       id: P1
     quote:
@@ -118,7 +133,21 @@ message:
             currency: INR
             value: '116'
           title: DISTANCE_FARE
+        - title: ADD_ONS
+          item: 
+            id: I1
+            add_ons:
+              - id: A1
+                price:
+                  currency: INR
+                  value: '20'
+                quantity: 
+                  selected:
+                    count: 3
+          price:
+            currency: INR
+            value: '60'
       price:
         currency: INR
-        value: '146'
+        value: '206'
       ttl: P200s
