@@ -19019,6 +19019,37 @@ x-flows:
                           maximum_value: '176'
                           minimum_value: '136'
                           value: '146'
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              allocated:
+                                count: 1
+                              maximum:
+                                count: 10
+                              minimum:
+                                count: 1
+                              unitized:
+                                measure:
+                                  value: '10'
+                                  unit: KILOMETERS
+                            descriptor:
+                              name: distance
+                              code: DISTANCE
+                        tags:
+                          - descriptor:
+                              code: INFO
+                              name: General Information
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: TOTAL_HOURS
+                                value: '1'
+                              - descriptor:
+                                  code: TOTAL_DISTANCE
+                                value: '10'
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -19035,6 +19066,37 @@ x-flows:
                           maximum_value: '236'
                           minimum_value: '206'
                           value: '206'
+                        add_ons:
+                          - id: A2
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              allocated:
+                                count: 1
+                              maximum:
+                                count: 10
+                              minimum:
+                                count: 1
+                              unitized:
+                                measure:
+                                  value: '1'
+                                  unit: HOURS
+                            descriptor:
+                              name: time
+                              code: TIME
+                        tags:
+                          - descriptor:
+                              code: INFO
+                              name: General Information
+                            display: true
+                            list:
+                              - descriptor:
+                                  code: TOTAL_HOURS
+                                value: '1'
+                              - descriptor:
+                                  code: TOTAL_DISTANCE
+                                value: '10'
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -19122,6 +19184,11 @@ x-flows:
               order:
                 items:
                   - id: I1
+                    add_ons:
+                      - id: A1
+                        quantity:
+                          selected:
+                            count: 3
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -19210,6 +19277,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -19246,11 +19328,11 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 provider:
                   id: P1
                 quote:
@@ -19263,9 +19345,23 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
+                    value: '206'
                   ttl: P200s
       - summary: Buyer app initializes the ride request
         api: init
@@ -19328,6 +19424,11 @@ x-flows:
                       variant: AUTO_RICKSHAW
                 items:
                   - id: I1
+                    add_ons:
+                      - id: A1
+                        quantity:
+                          selected:
+                            count: 3
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -19358,12 +19459,17 @@ x-flows:
                       - descriptor:
                           code: STATIC_TERMS
                         value: https://example-test-bpp.com/static-terms.txt
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                 payments:
                   - collected_by: BPP
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -19490,6 +19596,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -19526,18 +19647,14 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -19552,10 +19669,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 tags:
                   - descriptor:
                       code: BPP_TERMS
@@ -19650,13 +19781,14 @@ x-flows:
                       variant: AUTO_RICKSHAW
                 items:
                   - id: I1
+                    add_ons:
+                      - id: A1
+                        quantity:
+                          selected:
+                            count: 3
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -19694,6 +19826,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -19867,6 +20008,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -19903,18 +20059,14 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -19929,10 +20081,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
@@ -19969,6 +20135,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -20140,6 +20315,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -20176,18 +20366,14 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -20202,10 +20388,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -20239,6 +20439,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -20494,6 +20703,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -20530,18 +20754,14 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -20556,10 +20776,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
@@ -20596,6 +20830,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -20765,6 +21008,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -20801,18 +21059,14 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -20827,10 +21081,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -20864,6 +21132,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -21040,6 +21317,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '136'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -21070,13 +21362,20 @@ x-flows:
                           - descriptor:
                               code: NIGHT_SHIFT_END_TIME
                             value: '05:00:00'
+                      - descriptor:
+                          code: INFO
+                          name: General Information
+                        display: true
+                        list:
+                          - descriptor:
+                              code: TOTAL_HOURS
+                            value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -21091,10 +21390,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -21128,6 +21441,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -21344,6 +21666,21 @@ x-flows:
                       maximum_value: '176'
                       minimum_value: '156'
                       value: '146'
+                    add_ons:
+                      - id: A1
+                        price:
+                          currency: INR
+                          value: '20'
+                        quantity:
+                          selected:
+                            count: 3
+                          unitized:
+                            measure:
+                              value: '10'
+                              unit: KILOMETERS
+                        descriptor:
+                          name: distance
+                          code: DISTANCE
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -21380,18 +21717,15 @@ x-flows:
                         display: true
                         list:
                           - descriptor:
-                              code: DISTANCE_TO_NEAREST_DRIVER_METER
-                            value: '661'
-                          - descriptor:
-                              code: ETA_TO_NEAREST_DRIVER_MIN
+                              code: TOTAL_HOURS
                             value: '3'
+                          - descriptor:
+                              code: TOTAL_DISTANCE
+                            value: '30'
                 payments:
                   - collected_by: BPP
                     id: PA1
                     params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                       amount: '146'
                     status: PAID
                     type: ON-FULFILLMENT
@@ -21407,10 +21741,24 @@ x-flows:
                         currency: INR
                         value: '116'
                       title: DISTANCE_FARE
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                            price:
+                              currency: INR
+                              value: '20'
+                            quantity:
+                              selected:
+                                count: 3
+                      price:
+                        currency: INR
+                        value: '60'
                   price:
                     currency: INR
-                    value: '146'
-                  ttl: PT30S
+                    value: '206'
+                  ttl: P200s
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -21444,6 +21792,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -22026,12 +22383,17 @@ x-flows:
                       - descriptor:
                           code: STATIC_TERMS
                         value: https://example-test-bpp.com/static-terms.txt
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                 payments:
                   - collected_by: BPP
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -22205,10 +22567,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -22327,10 +22685,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -22368,6 +22722,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -22588,10 +22951,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -22646,6 +23005,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -22864,10 +23232,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -22919,6 +23283,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -23179,10 +23552,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -23237,6 +23606,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -23453,10 +23831,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -23508,6 +23882,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -23720,10 +24103,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -23775,6 +24154,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -24020,9 +24408,6 @@ x-flows:
                   - collected_by: BPP
                     id: PA1
                     params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                       amount: '146'
                     status: PAID
                     type: ON-FULFILLMENT
@@ -24075,6 +24460,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -26113,10 +26507,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -26171,6 +26561,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -26391,10 +26790,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -26446,6 +26841,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -26668,10 +27072,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -26726,6 +27126,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -26944,10 +27353,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -26999,6 +27404,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -27213,10 +27627,6 @@ x-flows:
                 payments:
                   - collected_by: BPP
                     id: PA1
-                    params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                     status: NOT-PAID
                     type: ON-FULFILLMENT
                 provider:
@@ -27268,6 +27678,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement
@@ -27493,9 +27912,6 @@ x-flows:
                   - collected_by: BPP
                     id: PA1
                     params:
-                      bank_account_number: xxxxxxxxxxxxxx
-                      bank_code: XXXXXXXX
-                      virtual_payment_address: 9988199772@okicic
                       amount: '146'
                     status: PAID
                     type: ON-FULFILLMENT
@@ -27548,6 +27964,15 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
                         value: '1.46'
+                      - descriptor:
+                          code: SETTLEMENT_BANK_CODE
+                        value: XXXXXXXX
+                      - descriptor:
+                          code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+                        value: xxxxxxxxxxxxxx
+                      - descriptor:
+                          code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+                        value: 9988199772@okicic
                   - descriptor:
                       code: BPP_TERMS
                       name: BPP Terms of Engagement

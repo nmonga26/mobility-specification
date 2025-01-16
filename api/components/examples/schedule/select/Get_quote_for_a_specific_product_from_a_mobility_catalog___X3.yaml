@@ -19,5 +19,10 @@ message:
   order:
     items:
       - id: I1
+        add_ons:
+          - id: 'A1'  
+            quantity:
+              selected: 
+                count: 3
     provider:
       id: P1

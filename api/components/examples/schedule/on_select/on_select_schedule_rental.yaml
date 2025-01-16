@@ -65,6 +65,21 @@ message:
           maximum_value: '176'
           minimum_value: '136'
           value: '146'
+        add_ons:
+          - id: 'A1'  
+            price:
+              currency: INR
+              value: '20'
+            quantity:
+              selected: 
+                count: 3
+              unitized:
+                measure: 
+                  value: "10"
+                  unit: 'KILOMETERS'  
+            descriptor:
+              name: distance
+              code: DISTANCE  
  
         tags:
           - descriptor:
@@ -102,11 +117,12 @@ message:
             display: true
             list:
               - descriptor:
-                  code: DISTANCE_TO_NEAREST_DRIVER_METER
-                value: '661'
-              - descriptor:
-                  code: ETA_TO_NEAREST_DRIVER_MIN
+                  code: TOTAL_HOURS
                 value: '3'
+              - descriptor:
+                  code: TOTAL_DISTANCE
+                value: '30'
+    
     provider:
       id: P1
     quote:
@@ -119,7 +135,21 @@ message:
             currency: INR
             value: '116'
           title: DISTANCE_FARE
+        - title: ADD_ONS
+          item: 
+            id: I1
+            add_ons:
+              - id: A1
+                price:
+                  currency: INR
+                  value: '20'
+                quantity: 
+                  selected:
+                    count: 3
+          price:
+            currency: INR
+            value: '60'
       price:
         currency: INR
-        value: '146'
+        value: '206'
       ttl: P200s

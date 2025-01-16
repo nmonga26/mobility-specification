@@ -121,6 +121,7 @@ message:
               - descriptor:
                   code: TOTAL_DISTANCE
                 value: '30' 
+    
     provider:
       id: P1
     quote:
