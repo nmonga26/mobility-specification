@@ -127,6 +127,22 @@ search: &search
                 code: ACTIVE
                 description: Describes the type of fulfillment.
                 reference: <PR/Issue/Discussion Links md format text
+        customer:
+          person:
+            creds:
+              type: 
+                - code: PAN
+                  description: Describes the document type as PAN
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: AADHAR
+                  description: Describes the document type as AADHAR
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: DL
+                  description: Describes the document type as DL
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: VOTER_ID
+                  description: Describes the document type as VOTER_ID
+                  reference: <PR/Issue/Discussion Links md format text      
 on_search: &on_search
   context: &on_search_context
     action: &on_search_context_action

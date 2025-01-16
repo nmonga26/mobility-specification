@@ -54,6 +54,11 @@ message:
     fulfillments:
       - id: F9
         type: PASS
+        customer: 
+          person:
+            creds:
+              - type: PAN 
+                id: YKPYS1412V
         stops:
           - type: START
             location:
