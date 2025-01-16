@@ -143,6 +143,13 @@ message:
                     value: DOWN
           - id: F8
             type: PASS
+            customer: 
+              person:
+                creds:
+                  - type: PAN
+                  - type: AADHAR
+                  - type: DL
+                  - type: VOTER_ID
             stops:
               - type: START
                 location:
@@ -160,6 +167,13 @@ message:
               variant: NON_AC
           - id: F9
             type: PASS
+            customer: 
+              person:
+                creds:
+                  - type: PAN
+                  - type: AADHAR
+                  - type: DL
+                  - type: VOTER_ID
             stops:
               - type: START
                 location:
