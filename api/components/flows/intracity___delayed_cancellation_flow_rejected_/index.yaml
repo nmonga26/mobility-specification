@@ -1,7 +1,7 @@
 summary: IntraCity - Delayed Cancellation Flow(Rejected)
 details: &details
   - &details_0
-    description: Detailed process of cancelling a ticket with soft & confirm status.
+    description: Detailed process of Delayed Cancellation Flow (Rejected).
     mermaid: |-
       sequenceDiagram
         participant Buyer Platform (BAP)
@@ -14,7 +14,7 @@ details: &details
         # Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
         Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
         Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-        Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_status
         Buyer Platform (BAP)-->>Seller Platform (BPP): ACK         
 steps: &steps
   - &steps_0
@@ -53,7 +53,7 @@ steps: &steps
             end
             Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example: &steps_1_example
@@ -86,7 +86,7 @@ steps: &steps
 
           \  end
 
-          \  Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+          \  Seller Platform (BPP)->>Buyer Platform (BAP):on_status
 
           \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
 
@@ -97,12 +97,12 @@ steps: &steps
       value: &steps_2_example_value
         $ref: ../../examples/intracity-bus/on_cancel/Return_cancelled_ticket_order_with_cancellation_charges_35.yaml
   - &steps_3
-    summary: Provider accepts the terms of cancellation
-    api: on_update
+    summary: Provider provides the latest order status
+    api: on_status
     details: &steps_3_details
       - &steps_3_details_0
-        description: Provider accepts the terms of order and provides with latest order
-          update.
+        description: Provider provides the latest order status
+          status.
         mermaid: >-
           sequenceDiagram
             participant Buyer Platform (BAP)
@@ -112,11 +112,11 @@ steps: &steps
             Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             rect rgb(191, 223, 255)
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             end  
     reference: if any
     example: &steps_3_example
       summary: Return cancelled ticket order with cancellation charges
       value: &steps_3_example_value
-        $ref: ../../examples/intracity-bus/on_update/Return_cancelled_ticket_order_with_cancellation_charges_40.yaml
+        $ref: ../../examples/intracity-bus/on_status/on_status_rejected.yaml

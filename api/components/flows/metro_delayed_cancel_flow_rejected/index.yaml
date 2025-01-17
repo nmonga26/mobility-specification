@@ -1,7 +1,7 @@
-summary: Metro - Delayed Cancellation Flow(rejected)
+summary: Metro - Delayed Cancellation Flow(Rejected)
 details: &details
   - &details_0
-    description: Detailed process of cancelling a ticket with soft & confirm status.
+    description: Detailed process of Delayed Cancellation Flow (Rejected).
     mermaid: |-
       sequenceDiagram
         participant Buyer Platform (BAP)
@@ -14,7 +14,7 @@ details: &details
         # Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
         Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
         Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-        Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_status
         Buyer Platform (BAP)-->>Seller Platform (BPP): ACK         
 steps: &steps
   - &steps_0
@@ -56,7 +56,7 @@ steps: &steps
             end
             Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
   - &steps_2
     summary: Provider accepts the terms of cancellation
@@ -88,22 +88,22 @@ steps: &steps
 
           \  end
 
-          \  Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+          \  Seller Platform (BPP)->>Buyer Platform (BAP):on_status
 
           \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
 
           \   "
   - &steps_3
-    summary: Provider accepts the terms of cancellation
+    summary: Provider provides the latest order status
     reference: if any
-    api: on_update
+    api: on_status
     example: &steps_3_example
       value: &steps_3_example_value
-        $ref: ../../examples/metro/on_update/reject_cancel_request.yaml
+        $ref: ../../examples/metro/on_status/on_status_rejected.yaml
     details: &steps_3_details
       - &steps_3_details_0
-        description: Provider accepts the terms of order and provides with latest order
-          update.
+        description: Provider provides the latest order status
+          status.
         mermaid: >-
           sequenceDiagram
             participant Buyer Platform (BAP)
@@ -113,7 +113,7 @@ steps: &steps
             Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             rect rgb(191, 223, 255)
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             end  
 references: if any

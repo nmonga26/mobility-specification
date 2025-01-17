@@ -419,7 +419,19 @@ on_cancel: &on_cancel
         reference: <PR/Issue/Discussion Links md format text>
     location: *search_context_location
     domain: *search_context_domain
-  message: *confirm_message
+  message:
+    order:  
+      <<: *confirm_message_order
+      cancellation:
+        cancelled_by:
+          - code: CONSUMER
+            description: Describes cancelled by CONSUMER
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: PROVIDER
+            description: Describes cancelled by PROVIDER
+            reference: <PR/Issue/Discussion Links md format text> 
+           
+
 update: &update
   context: &update_context
     action: &update_context_action
