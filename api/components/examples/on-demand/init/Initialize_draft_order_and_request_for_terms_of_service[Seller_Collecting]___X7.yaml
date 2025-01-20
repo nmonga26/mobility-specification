@@ -14,7 +14,7 @@ context:
   timestamp: '2023-12-09T14:09:31.307Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
-  version: 2.0.1
+  version: 2.1.0
 message:
   order:
     billing:
@@ -68,12 +68,17 @@ message:
           - descriptor:
               code: STATIC_TERMS
             value: https://example-test-bpp.com/static-terms.txt
+          - descriptor:
+              code: SETTLEMENT_BANK_CODE
+            value: 'XXXXXXXX'
+          - descriptor:
+              code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+            value: 'xxxxxxxxxxxxxx' 
+          - descriptor:
+              code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS 
+            value: '9988199772@okicic'  
     payments:
       - collected_by: BPP
-        params:
-          bank_account_number: xxxxxxxxxxxxxx
-          bank_code: XXXXXXXX
-          virtual_payment_address: 9988199772@okicic
         status: NOT-PAID
         type: ON-FULFILLMENT
     provider:

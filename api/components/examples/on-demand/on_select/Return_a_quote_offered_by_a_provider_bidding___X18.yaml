@@ -14,7 +14,7 @@ context:
   timestamp: '2023-12-09T13:49:26.132Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
-  version: 2.0.1
+  version: 2.1.0
 message:
   order:
     fulfillments:

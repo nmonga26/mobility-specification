@@ -109,9 +109,7 @@ steps:
     details:
       - description:
           The buyer app has selected a specific service and would like to
-          obtain a quotation for that service. Since the max_callbacks is set to
-          1, the consumer platform will consider only one on_select response for
-          the quotation.
+          obtain a quotation for that service.
         mermaid: |-
           sequenceDiagram
             participant Buyer Platform (BAP)

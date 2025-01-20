@@ -182,6 +182,9 @@ on_search:
               - code: RIDE
                 description: Describes the type of ride.
                 reference: <PR/Issue/Discussion Links md format text
+              - code: RENTAL
+                description: Describes the type of ride.
+                reference: <PR/Issue/Discussion Links md format text  
         fulfillments: *a3
         payments: *a4
         categories: *a14
@@ -390,6 +393,13 @@ on_cancel:
       fulfillments: *a3
       payments: *a4
       cancellation:
+        cancelled_by:
+          - code: CONSUMER
+            description: Describes, when the ride is cancelled by the consumer.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: PROVIDER
+            description: Describes, when the ride is cancelled by the provider.
+            reference: <PR/Issue/Discussion Links md format text>
         reason:
           descriptor:
             code: *a11

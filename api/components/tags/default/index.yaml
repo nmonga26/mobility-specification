@@ -40,6 +40,15 @@ search:
             - code: SETTLEMENT_AMOUNT
               description: Denotes settlement amount
               reference: <PR/Issue/Discussion Links md format text>
+            - code: SETTLEMENT_BANK_CODE
+              description: Denotes settlement bank code
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: SETTLEMENT_BANK_ACCOUNT_NUMBER
+              description: Denotes settlement bank account number
+              reference: <PR/Issue/Discussion Links md format text>
+            - code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
+              description: Denotes settlement virtual payment address
+              reference: <PR/Issue/Discussion Links md format text>      
 
 on_search:
   message:

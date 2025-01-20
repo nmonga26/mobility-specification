@@ -14,7 +14,7 @@ context:
   timestamp: '2023-12-09T13:41:16.161Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
   ttl: PT30S
-  version: 2.0.1
+  version: 2.1.0
 message:
   catalog:
     tags:  
@@ -83,9 +83,17 @@ message:
                 instructions:
                   short_desc: short description of the location
                   long_desc: long description of the location
+                id: "1"
+              - location:
+                  gps: 12.981224, 77.615816
+                type: INTERMEDIATE_STOP
+                id: "2"
+                parent_stop_id: "1"
               - location:
                   gps: 12.971186, 77.586812
                 type: END
+                id: "3"
+                parent_stop_id: "2"
             type: DELIVERY
             vehicle:
               category: CAB
