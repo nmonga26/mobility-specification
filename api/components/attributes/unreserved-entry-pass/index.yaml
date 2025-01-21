@@ -348,7 +348,7 @@ on_search: &on_search
               usage: Culture & Heritage
               description: Describes category name of the provider
             code: &on_search_message_catalog_providers_categories_descriptor_code
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: CULTURE_HERITAGE

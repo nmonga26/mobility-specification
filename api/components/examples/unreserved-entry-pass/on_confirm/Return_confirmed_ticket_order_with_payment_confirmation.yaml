@@ -186,10 +186,15 @@ message:
             additional_desc:
               url: https://api.unreserved-entry-pass.com/sites/additional-info
               content_type: text/plain
+            images:
+              - url: https://api.unreserved-entry-pass.com/sites/images/location.png
+                size_type: md
+          rating: "5"  
     cancellation_terms:
       - external_ref:
           mimetype: text/html
           url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+        cancellation_eligible:  true  
     replacement_terms:
       - external_ref:
           mimetype: text/html

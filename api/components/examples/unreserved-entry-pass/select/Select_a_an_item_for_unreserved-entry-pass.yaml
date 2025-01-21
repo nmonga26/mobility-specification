@@ -38,5 +38,9 @@ message:
                 count: 1
     fulfillments:
       - id: F1
+        stops:
+          - type: START
+            time:  
+              timestamp: '2024-06-28T05:00:16.000Z'
     provider:
       id: P1
