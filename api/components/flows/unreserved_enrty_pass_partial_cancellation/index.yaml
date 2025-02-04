@@ -1,0 +1,93 @@
+summary: Unreserved Entry Pass - Partial Cancellation Flow
+details:
+  - description: Detailed process of cancelling a ticket with soft & confirm status.
+    mermaid: >-
+      sequenceDiagram
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): update - with soft_cancel request
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK 
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+        Buyer Platform (BAP)->>Seller Platform (BPP): update - with confirm_cancel request
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_update  
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK    
+steps:
+  - summary: Buyer app sends the request for partial cancel
+    api: update
+    details:
+      - description: Buyer app sends the request for partial cancel with soft cancel request
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): update - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK 
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return confirmed ticket order with payment confirmation
+      value:
+        $ref: ../../examples/unreserved-entry-pass/update/update_request_partial_cancel.yaml 
+  - summary: Provider app return the updated order with soft_cancel status 
+    api: on_update
+    details: 
+      - description: Provider app return the updated order with soft_cancel status.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): update - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK 
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Cancel ticket booking
+      value:
+        $ref: ../../examples/unreserved-entry-pass/on_update/on_update_request_partial_cancel.yaml
+  - summary: Buyer app sends the request for partial cancel
+    api: update
+    details:
+      - description: Buyer app sends the request for partial cancel with confirm cancel request
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): update - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK 
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return confirmed ticket order with payment confirmation
+      value:
+        $ref: ../../examples/unreserved-entry-pass/update/update_request_confirm_cancel.yaml 
+  - summary: Provider app return the updated order with soft_cancel status 
+    api: on_update
+    details: 
+      - description: Provider app return the  order with updated status.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): update - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK 
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Cancel ticket booking
+      value:
+        $ref: ../../examples/unreserved-entry-pass/on_update/on_update_request_partial_confirm_cancel.yaml
+

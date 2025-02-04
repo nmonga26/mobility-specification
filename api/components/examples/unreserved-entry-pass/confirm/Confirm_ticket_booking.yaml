@@ -19,6 +19,7 @@ message:
   order:
     items:
       - id: I1
+        parent_item_id: I0
         quantity:
           selected:
             count: 1
@@ -28,6 +29,7 @@ message:
               selected:
                 count: 1
       - id: I2
+        parent_item_id: I0
         quantity:
           selected:
             count: 1
@@ -36,8 +38,17 @@ message:
             quantity:
               selected:
                 count: 1
+      - id: I5
+        parent_item_id: I0
+        quantity:
+          selected:
+            count: 1
     fulfillments:
       - id: F1
+        stops:
+          - type: START
+            time:  
+              timestamp: '2024-06-28T05:00:16.000Z'
     billing:
       name: John Doe
       email: john.doe@example.com
@@ -51,7 +62,7 @@ message:
         params:
           transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
           currency: INR
-          amount: '700'
+          amount: '800'
     tags:
       - descriptor:
           code: BAP_TERMS

@@ -121,8 +121,10 @@ steps: &steps
             Buyer Platform (BAP)->>Seller Platform (BPP): select
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
             end
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_select
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Buyer Platform (BAP)->>Seller Form Service: Get Form
+            Seller Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Seller Form Service: Form Submission
+            Seller Form Service-->>Buyer Platform (BAP): Submission ID
     reference: if any
     example: &steps_2_example
       summary: Select a an item for unreserved-entry-pass
@@ -145,12 +147,91 @@ steps: &steps
             rect rgb(191, 223, 255)
             Seller Platform (BPP)->>Buyer Platform (BAP):on_select
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            end 
+            end
+            Buyer Platform (BAP)->>Seller Form Service: Get Form
+            Seller Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Seller Form Service: Form Submission
+            Seller Form Service-->>Buyer Platform (BAP): Submission ID
+
     reference: if any
     example: &steps_3_example
       summary: Return a selected item for unreserved-entry-pass
       value: &steps_3_example_value
         $ref: ../../examples/unreserved-entry-pass/on_select/Return_a_selected_item_for_unreserved-entry-pass.yaml
+  - summary: Provider platform share the additional details form
+    api: form
+    details:
+      - description: Buyer platform fetches the additional details form from the Provider platform using the link provided in the previous step
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): select
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_select
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Form Service: Get Form
+            Seller Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Seller Form Service: Form Submission
+            Seller Form Service-->>Buyer Platform (BAP): Submission ID
+            end
+    reference: if any
+    example:
+      value: 
+        $ref: ../../examples/unreserved-entry-pass/forms/additional_info.html
+  - &steps_2
+    summary: Buyer app submit the Additional Details Form
+    api: select
+    details: &steps_2_details
+      - &steps_2_details_0
+        description: Buyer app submit the Additional Details Form
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): select
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Buyer Platform (BAP)->>Seller Form Service: Get Form
+            Seller Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Seller Form Service: Form Submission
+            Seller Form Service-->>Buyer Platform (BAP): Submission ID
+    reference: if any
+    example: &steps_2_example
+      summary: Select a an item for unreserved-entry-pass
+      value: &steps_2_example_value
+        $ref: ../../examples/unreserved-entry-pass/select/select_request_submission.yaml
+  - &steps_3
+    summary: Provider platform provides the quote for selected service of
+      unreserved-entry-pass
+    api: on_select
+    details: &steps_3_details
+      - &steps_3_details_0
+        description: Provider platform responds with the service detailed information
+          and quotes for the specific service that consumer would like to avail
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): select
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_select
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Buyer Platform (BAP)->>Seller Form Service: Get Form
+            Seller Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Seller Form Service: Form Submission
+            Seller Form Service-->>Buyer Platform (BAP): Submission ID
+
+    reference: if any
+    example: &steps_3_example
+      summary: Return a selected item for unreserved-entry-pass
+      value: &steps_3_example_value
+        $ref: ../../examples/unreserved-entry-pass/on_select/on_select_request_submission.yaml
+ 
   - &steps_4
     summary: Consumer platform initializes the order
     api: init
