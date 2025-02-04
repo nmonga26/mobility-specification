@@ -81,6 +81,47 @@ message:
                   size_type: md
             rating: "4"
         items:
+          - id: I0
+            descriptor:
+              name: Parent Item for Culture & Heritage
+              code: ABSTRACT
+              short_desc: Ticket for Qutab Minar
+              long_desc: This ticket grants entry to the Qutab Minar.
+              images:
+                - url: >-
+                    https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                  size_type: xs
+            location_ids:
+              - L1
+            category_ids:
+              - C1
+              - C2 
+            time:
+              label: VALIDITY
+              duration: P2D
+            fulfillment_ids:
+              - F1
+              - F2    
+            cancellation_terms:
+              - external_ref:
+                  mimetype: text/html
+                  url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+                cancellation_eligible:  true
+            replacement_terms:
+              - external_ref:
+                  mimetype: text/html
+                  url: https://api.unreserved-entry-pass/beckn/replacement.html
+            tags:
+              - descriptor:
+                  code: INCLUSIONS
+                list:
+                  - value: water
+              - descriptor:
+                  code: EXCLUSIONS
+                list:
+                  - value: out side food
+                  - value: photography             
+
           - id: I1
             descriptor:
               name: Adult-Ticket Culture & Heritage Item
@@ -91,6 +132,8 @@ message:
                 - url: >-
                     https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                   size_type: xs
+            parent_item_id: I0 
+            #marked  location_ids as optional  
             location_ids:
               - L1
             category_ids:
@@ -120,15 +163,15 @@ message:
                 price:
                   value: '100'
                   currency: INR
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://api.unreserved-entry-pass.com/beckn/tnc.html
-                cancellation_eligible:  true
-            replacement_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://api.unreserved-entry-pass/beckn/replacement.html
+            # cancellation_terms:
+            #   - external_ref:
+            #       mimetype: text/html
+            #       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+            #     cancellation_eligible:  true
+            # replacement_terms:
+            #   - external_ref:
+            #       mimetype: text/html
+            #       url: https://api.unreserved-entry-pass/beckn/replacement.html
             tags:
               - descriptor:
                   code: FARE_POLICY
@@ -145,15 +188,16 @@ message:
                   - descriptor:
                       code: NATIONALITY
                     value: INDIAN
-              - descriptor:
-                  code: INCLUSIONS
-                list:
-                  - value: water
-              - descriptor:
-                  code: EXCLUSIONS
-                list:
-                  - value: out side food
-                  - value: photography
+              # - descriptor:
+              #     code: INCLUSIONS
+              #   list:
+              #     - value: water
+              # - descriptor:
+              #     code: EXCLUSIONS
+              #   list:
+              #     - value: out side food
+              #     - value: photography
+          
           - id: I2
             descriptor:
               name: Child-Ticket Culture & Heritage Item
@@ -164,6 +208,7 @@ message:
                 - url: >-
                     https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                   size_type: xs
+            parent_item_id: I0      
             location_ids:
               - L1
             category_ids:
@@ -193,15 +238,15 @@ message:
                 price:
                   value: '100'
                   currency: INR
-            cancellation_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://api.unreserved-entry-pass.com/beckn/tnc.html
-                cancellation_eligible:  true  
-            replacement_terms:
-              - external_ref:
-                  mimetype: text/html
-                  url: https://api.unreserved-entry-pass/beckn/replacement.html
+            # cancellation_terms:
+            #   - external_ref:
+            #       mimetype: text/html
+            #       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+            #     cancellation_eligible:  true  
+            # replacement_terms:
+            #   - external_ref:
+            #       mimetype: text/html
+            #       url: https://api.unreserved-entry-pass/beckn/replacement.html
             tags:
               - descriptor:
                   code: FARE_POLICY
@@ -218,15 +263,15 @@ message:
                   - descriptor:
                       code: NATIONALITY
                     value: INDIAN
-              - descriptor:
-                  code: INCLUSIONS
-                list:
-                  - value: water
-              - descriptor:
-                  code: EXCLUSIONS
-                list:
-                  - value: out side food
-                  - value: photography
+              # - descriptor:
+              #     code: INCLUSIONS
+              #   list:
+              #     - value: water
+              # - descriptor:
+              #     code: EXCLUSIONS
+              #   list:
+              #     - value: out side food
+              #     - value: photography
           - id: I3
             descriptor:
               name: Adult-Ticket Culture & Heritage Item
@@ -375,7 +420,23 @@ message:
                 list:
                   - value: out side food
                   - value: photography
-        
+          - id: I5
+            descriptor:
+              name: Add on item
+              code: ADD_ON
+              images:
+                - url: >-
+                    https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                  size_type: xs
+            price:
+              currency: INR
+              value: '100'
+            quantity:
+              maximum:
+                count: 3
+              minimum:
+                count: 1  
+
         fulfillments:
           - id: F1
             type: VISIT

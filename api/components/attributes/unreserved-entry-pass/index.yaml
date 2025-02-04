@@ -544,32 +544,32 @@ on_search: &on_search
               usage: --
               description: Describes the items description.
           location_ids: &on_search_message_catalog_providers_items_location_ids
-            required: MANDATORY
+            required: OPTIONAL
             type: string
             owner: BPP
             usage: 13r3e9e2
             description: Describes lcoation id
           category_ids: &on_search_message_catalog_providers_items_category_ids
-            required: MANDATORY
+            required: OPTIONAL
             type: string
             owner: BPP
             usage: c3r3e9e2
             description: Describes category id
           price: &on_search_message_catalog_providers_items_price
             value: &on_search_message_catalog_providers_items_price_value
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: 350
               description: Describes price value
             currency: &on_search_message_catalog_providers_items_price_currency
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: 350
               description: Describes price currency
             _description: &on_search_message_catalog_providers_items_price__description
-              required: MANDATORY
+              required: OPTIONAL
               type: object
               owner: BPP
               usage: --
@@ -577,57 +577,57 @@ on_search: &on_search
           quantity: &on_search_message_catalog_providers_items_quantity
             maximum: &on_search_message_catalog_providers_items_quantity_maximum
               count: &on_search_message_catalog_providers_items_quantity_maximum_count
-                required: MANDATORY
+                required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: 6
                 description: Describes maximum count for item
               _description: &on_search_message_catalog_providers_items_quantity_maximum__description
-                required: MANDATORY
+                required: OPTIONAL
                 type: object
                 owner: BPP
                 usage: --
                 description: Describes the maximum quantity of an item.
             minimum: &on_search_message_catalog_providers_items_quantity_minimum
               count: &on_search_message_catalog_providers_items_quantity_minimum_count
-                required: MANDATORY
+                required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: 1
                 description: Describes minimum count for item
               _description: &on_search_message_catalog_providers_items_quantity_minimum__description
-                required: MANDATORY
+                required: OPTIONAL
                 type: object
                 owner: BPP
                 usage: --
                 description: Describes the mimimum quantity of an item.
             _description: &on_search_message_catalog_providers_items_quantity__description
-              required: MANDATORY
+              required: OPTIONAL
               type: object
               owner: BPP
               usage: --
               description: Describes the quantity info of an item.
           time: &on_search_message_catalog_providers_items_time
             label: &on_search_message_catalog_providers_items_time_label
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: VALIDITY
               description: Describes time label
             duration: &on_search_message_catalog_providers_items_time_duration
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: P2D
               description: Describes time duration
             _description: &on_search_message_catalog_providers_items_time__description
-              required: MANDATORY
+              required: OPTIONAL
               type: object
               owner: BPP
               usage: --
               description: Describes time label
           fulfillment_ids: &on_search_message_catalog_providers_items_fulfillment_ids
-            required: MANDATORY
+            required: OPTIONAL
             type: string
             owner: BPP
             usage: cs3r3e9e2
@@ -700,25 +700,25 @@ on_search: &on_search
           cancellation_terms: &on_search_message_catalog_providers_items_cancellation_terms
             external_ref: &on_search_message_catalog_providers_items_cancellation_terms_external_ref
               mimetype: &on_search_message_catalog_providers_items_cancellation_terms_external_ref_mimetype
-                required: MANDATORY
+                required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: text/html
                 description: Describes mimetype for cancellation_terms
               url: &on_search_message_catalog_providers_items_cancellation_terms_external_ref_url
-                required: MANDATORY
+                required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: https://api.unreserved-entry-pass.com/beckn/tnc.html
                 description: Describes url for cancellation_terms
               _description: &on_search_message_catalog_providers_items_cancellation_terms_external_ref__description
-                required: MANDATORY
+                required: OPTIONAL
                 type: object
                 owner: BPP
                 usage: --
                 description: Describes external_ref for cancellation_terms
             _description: &on_search_message_catalog_providers_items_cancellation_terms__description
-              required: MANDATORY
+              required: OPTIONAL
               type: object
               owner: BPP
               usage: --
@@ -1175,19 +1175,19 @@ on_select: &on_select
         quantity: &on_select_message_order_items_quantity
           selected: &on_select_message_order_items_quantity_selected
             count: &on_select_message_order_items_quantity_selected_count
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: 1
               description: Describes the selected count
             _description: &on_select_message_order_items_quantity_selected__description
-              required: MANDATORY
+              required: OPTIONAL
               type: object
               owner: BAP
               usage: --
               description: Describes the items selected count
           _description: &on_select_message_order_items_quantity__description
-            required: MANDATORY
+            required: OPTIONAL
             type: object
             owner: BPP
             usage: --

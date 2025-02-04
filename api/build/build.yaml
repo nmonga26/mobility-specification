@@ -2897,6 +2897,12 @@ x-enum:
                 - code: ENTRY_PASS
                   description: Describes the item code as Entry Pass
                   reference: <PR/Issue/Discussion Links md format text
+                - code: ABSTRACT
+                  description: Describes the item code as Entry Pass
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: ADD_ON
+                  description: Describes the item code as Entry Pass
+                  reference: <PR/Issue/Discussion Links md format text
           fulfillments: *ref_2
           payments: &ref_5
             status:
@@ -3425,6 +3431,48 @@ x-flows:
                               size_type: md
                         rating: '4'
                     items:
+                      - id: I0
+                        descriptor:
+                          name: Parent Item for Culture & Heritage
+                          code: ABSTRACT
+                          short_desc: Ticket for Qutab Minar
+                          long_desc: This ticket grants entry to the Qutab Minar.
+                          images:
+                            - url: >-
+                                https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                              size_type: xs
+                        location_ids:
+                          - L1
+                        category_ids:
+                          - C1
+                          - C2
+                        time:
+                          label: VALIDITY
+                          duration: P2D
+                        fulfillment_ids:
+                          - F1
+                          - F2
+                        cancellation_terms:
+                          - external_ref:
+                              mimetype: text/html
+                              url: >-
+                                https://api.unreserved-entry-pass.com/beckn/tnc.html
+                            cancellation_eligible: true
+                        replacement_terms:
+                          - external_ref:
+                              mimetype: text/html
+                              url: >-
+                                https://api.unreserved-entry-pass/beckn/replacement.html
+                        tags:
+                          - descriptor:
+                              code: INCLUSIONS
+                            list:
+                              - value: water
+                          - descriptor:
+                              code: EXCLUSIONS
+                            list:
+                              - value: out side food
+                              - value: photography
                       - id: I1
                         descriptor:
                           name: Adult-Ticket Culture & Heritage Item
@@ -3435,6 +3483,7 @@ x-flows:
                             - url: >-
                                 https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                               size_type: xs
+                        parent_item_id: I0
                         location_ids:
                           - L1
                         category_ids:
@@ -3464,17 +3513,6 @@ x-flows:
                             price:
                               value: '100'
                               currency: INR
-                        cancellation_terms:
-                          - external_ref:
-                              mimetype: text/html
-                              url: >-
-                                https://api.unreserved-entry-pass.com/beckn/tnc.html
-                            cancellation_eligible: true
-                        replacement_terms:
-                          - external_ref:
-                              mimetype: text/html
-                              url: >-
-                                https://api.unreserved-entry-pass/beckn/replacement.html
                         tags:
                           - descriptor:
                               code: FARE_POLICY
@@ -3491,15 +3529,6 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
-                          - descriptor:
-                              code: INCLUSIONS
-                            list:
-                              - value: water
-                          - descriptor:
-                              code: EXCLUSIONS
-                            list:
-                              - value: out side food
-                              - value: photography
                       - id: I2
                         descriptor:
                           name: Child-Ticket Culture & Heritage Item
@@ -3510,6 +3539,7 @@ x-flows:
                             - url: >-
                                 https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                               size_type: xs
+                        parent_item_id: I0
                         location_ids:
                           - L1
                         category_ids:
@@ -3539,17 +3569,6 @@ x-flows:
                             price:
                               value: '100'
                               currency: INR
-                        cancellation_terms:
-                          - external_ref:
-                              mimetype: text/html
-                              url: >-
-                                https://api.unreserved-entry-pass.com/beckn/tnc.html
-                            cancellation_eligible: true
-                        replacement_terms:
-                          - external_ref:
-                              mimetype: text/html
-                              url: >-
-                                https://api.unreserved-entry-pass/beckn/replacement.html
                         tags:
                           - descriptor:
                               code: FARE_POLICY
@@ -3566,15 +3585,6 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
-                          - descriptor:
-                              code: INCLUSIONS
-                            list:
-                              - value: water
-                          - descriptor:
-                              code: EXCLUSIONS
-                            list:
-                              - value: out side food
-                              - value: photography
                       - id: I3
                         descriptor:
                           name: Adult-Ticket Culture & Heritage Item
@@ -3727,6 +3737,22 @@ x-flows:
                             list:
                               - value: out side food
                               - value: photography
+                      - id: I5
+                        descriptor:
+                          name: Add on item
+                          code: ADD_ON
+                          images:
+                            - url: >-
+                                https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                              size_type: xs
+                        price:
+                          currency: INR
+                          value: '100'
+                        quantity:
+                          maximum:
+                            count: 3
+                          minimum:
+                            count: 1
                     fulfillments:
                       - id: F1
                         type: VISIT
@@ -3826,8 +3852,10 @@ x-flows:
                 Buyer Platform (BAP)->>Seller Platform (BPP): select
                 Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
                 end
-                Seller Platform (BPP)->>Buyer Platform (BAP):on_select
-                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
         reference: if any
         example:
           summary: Select a an item for unreserved-entry-pass
@@ -3853,6 +3881,7 @@ x-flows:
               order:
                 items:
                   - id: I1
+                    parent_item_id: I0
                     quantity:
                       selected:
                         count: 1
@@ -3862,6 +3891,7 @@ x-flows:
                           selected:
                             count: 1
                   - id: I2
+                    parent_item_id: I0
                     quantity:
                       selected:
                         count: 1
@@ -3870,6 +3900,11 @@ x-flows:
                         quantity:
                           selected:
                             count: 1
+                  - id: I5
+                    parent_item_id: I0
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     stops:
@@ -3896,7 +3931,11 @@ x-flows:
                 rect rgb(191, 223, 255)
                 Seller Platform (BPP)->>Buyer Platform (BAP):on_select
                 Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-                end 
+                end
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
         reference: if any
         example:
           summary: Return a selected item for unreserved-entry-pass
@@ -3921,6 +3960,37 @@ x-flows:
             message:
               order:
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -3931,6 +4001,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -3982,6 +4053,24 @@ x-flows:
                         list:
                           - value: out side food
                           - value: photography
+                    xinput:
+                      head:
+                        descriptor:
+                          name: Additional Details
+                        index:
+                          min: 0
+                          cur: 0
+                          max: 0
+                        headings:
+                          - ADDITIONAL_DETAILS
+                      form:
+                        id: F01
+                        mime_type: text/html
+                        url: >-
+                          https://api.unreserved-entry-pass.com/xinput/additonal-details/F01
+                        resubmit: false
+                        multiple_sumbissions: false
+                      required: true
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -3992,6 +4081,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -4017,6 +4107,24 @@ x-flows:
                         price:
                           value: '100'
                           currency: INR
+                    xinput:
+                      head:
+                        descriptor:
+                          name: Additional Details
+                        index:
+                          min: 0
+                          cur: 0
+                          max: 0
+                        headings:
+                          - ADDITIONAL_DETAILS
+                      form:
+                        id: F01
+                        mime_type: text/html
+                        url: >-
+                          https://api.unreserved-entry-pass.com/xinput/additonal-details/F01
+                        resubmit: false
+                        multiple_sumbissions: false
+                      required: true
                     tags:
                       - descriptor:
                           code: FARE_POLICY
@@ -4043,6 +4151,21 @@ x-flows:
                         list:
                           - value: out side food
                           - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -4145,9 +4268,485 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                   price:
                     currency: INR
-                    value: '700'
+                    value: '800'
+      - summary: Provider platform share the additional details form
+        api: form
+        details:
+          - description: >-
+              Buyer platform fetches the additional details form from the
+              Provider platform using the link provided in the previous step
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Buyer Platform (BAP)->>Seller Platform (BPP): select
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_select
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
+                end
+        reference: if any
+        example:
+          value: |-
+            <!DOCTYPE html>
+            <html lang="en">
+
+            <head>
+              <meta charset="UTF-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Additional Details</title>
+            </head>
+
+            <body>
+              <form action="/form/submission/additional-details">
+                <label for="passportNumber">Passport Number</label>
+                <input type="text" id="passportNumber" name="passportNumber" />
+                <label for="dateOfBirth">Date Of Birth</label>
+                <input type="date" id="dateOfBirth" name="dateOfBirth" />
+                <input type="hidden" id="formId" name="formId" value="FO1">
+                <input type="hidden" id="transactionId" name="transactionId" value="cf7bb367-c820-4bc9-9be8-f548e0bbf222">
+                <input type="submit" value="Submit">
+              </form>
+            </body>
+
+            </html>
+      - summary: Buyer app submit the Additional Details Form
+        api: select
+        details:
+          - description: Buyer app submit the Additional Details Form
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): select
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
+        reference: if any
+        example:
+          summary: Select a an item for unreserved-entry-pass
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: std:011
+              domain: ONDC:TRV14
+              timestamp: '2024-06-26T04:50:16.000Z'
+              bap_id: api.example-bap.com
+              transaction_id: cf7bb367-c820-4bc9-9be8-f548e0bbf222
+              message_id: 7b355323-11aa-4be9-9648-9628618b1157
+              version: 2.0.0
+              action: select
+              bap_uri: https://api.example-bap.com/beckn/
+              ttl: PT30S
+              bpp_id: api.unreserved-entry-pass.com
+              bpp_uri: https://api.unreserved-entry-pass.com/beckn/
+            message:
+              order:
+                items:
+                  - id: I1
+                    parent_item_id: I0
+                    quantity:
+                      selected:
+                        count: 1
+                    add_ons:
+                      - id: A1
+                        quantity:
+                          selected:
+                            count: 1
+                    xinput:
+                      form:
+                        id: F01
+                      form_response:
+                        status: SUCCESS
+                        submission_id: F01_SUBMISSION_ID
+                  - id: I2
+                    parent_item_id: I0
+                    quantity:
+                      selected:
+                        count: 1
+                    add_ons:
+                      - id: A1
+                        quantity:
+                          selected:
+                            count: 1
+                    xinput:
+                      form:
+                        id: F01
+                      form_response:
+                        status: SUCCESS
+                        submission_id: F01_SUBMISSION_ID
+                  - id: I5
+                    parent_item_id: I0
+                    quantity:
+                      selected:
+                        count: 1
+                fulfillments:
+                  - id: F1
+                    stops:
+                      - type: START
+                        time:
+                          timestamp: '2024-06-28T05:00:16.000Z'
+                provider:
+                  id: P1
+      - summary: >-
+          Provider platform provides the quote for selected service of
+          unreserved-entry-pass
+        api: on_select
+        details:
+          - description: >-
+              Provider platform responds with the service detailed information
+              and quotes for the specific service that consumer would like to
+              avail
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Buyer Platform (BAP)->>Seller Platform (BPP): select
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_select
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                end
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
+        reference: if any
+        example:
+          summary: Return a selected item for unreserved-entry-pass
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: std:011
+              domain: ONDC:TRV14
+              timestamp: '2024-06-26T04:51:16.000Z'
+              bap_id: api.example-bap.com
+              transaction_id: cf7bb367-c820-4bc9-9be8-f548e0bbf222
+              message_id: 7b355323-11aa-4be9-9648-9628618b1157
+              version: 2.0.0
+              action: on_select
+              bap_uri: https://api.example-bap.com/beckn/
+              ttl: PT30S
+              bpp_id: api.unreserved-entry-pass.com
+              bpp_uri: https://api.unreserved-entry-pass.com/beckn/
+            message:
+              order:
+                items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
+                  - id: I1
+                    descriptor:
+                      name: Adult-Ticket Culture & Heritage Item
+                      code: ENTRY_PASS
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    price:
+                      currency: INR
+                      value: '350'
+                    quantity:
+                      selected:
+                        count: 1
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                    add_ons:
+                      - id: A1
+                        descriptor:
+                          name: Audio Assistance
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          value: '100'
+                          currency: INR
+                    tags:
+                      - descriptor:
+                          code: FARE_POLICY
+                        list:
+                          - descriptor:
+                              code: MIN_AGE
+                            value: '1'
+                          - descriptor:
+                              code: MAX_AGE
+                            value: '70'
+                          - descriptor:
+                              code: GENDER
+                            value: MALE
+                          - descriptor:
+                              code: NATIONALITY
+                            value: INDIAN
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                          - value: guide_tour
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
+                    xinput:
+                      form:
+                        id: F01
+                      form_response:
+                        status: SUCCESS
+                        submission_id: F01_SUBMISSION_ID
+                  - id: I2
+                    descriptor:
+                      name: Child-Ticket Culture & Heritage Item
+                      code: ENTRY_PASS
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                    price:
+                      currency: INR
+                      value: '150'
+                    quantity:
+                      selected:
+                        count: 1
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                    add_ons:
+                      - id: A1
+                        descriptor:
+                          name: Audio Assistance
+                        quantity:
+                          selected:
+                            count: 1
+                        price:
+                          value: '100'
+                          currency: INR
+                    tags:
+                      - descriptor:
+                          code: FARE_POLICY
+                        list:
+                          - descriptor:
+                              code: MIN_AGE
+                            value: '1'
+                          - descriptor:
+                              code: MAX_AGE
+                            value: '70'
+                          - descriptor:
+                              code: GENDER
+                            value: MALE
+                          - descriptor:
+                              code: NATIONALITY
+                            value: INDIAN
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                          - value: guide_tour
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
+                    xinput:
+                      form:
+                        id: F01
+                      form_response:
+                        status: SUCCESS
+                        submission_id: F01_SUBMISSION_ID
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
+                fulfillments:
+                  - id: F1
+                    type: VISIT
+                    stops:
+                      - type: START
+                        instructions:
+                          additional_desc:
+                            url: >-
+                              https://api.unreserved-entry-pass.com/sites/additional-info
+                            content_type: text/plain
+                        time:
+                          timestamp: '2024-06-28T05:00:16.000Z'
+                    agent:
+                      organization:
+                        contact:
+                          phone: +91-9999999999
+                          email: john.doe@example.com
+                    vehicle:
+                      category: SITE
+                provider:
+                  id: P1
+                  descriptor:
+                    name: Unreserved Entry Pass
+                    images:
+                      - url: >-
+                          https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                        size_type: xs
+                  locations:
+                    - id: L1
+                      gps: 28.524596, 77.185577
+                      descriptor:
+                        name: Qutab Minar
+                        short_desc: >-
+                          Seth Sarai, Mehrauli, New Delhi, Delhi. The Qutb
+                          Minar, also spelled Qutub Minar and Qutab Minar, is a
+                          minaret and "victory tower" that forms part of the
+                          Qutb complex
+                        additional_desc:
+                          url: >-
+                            https://api.unreserved-entry-pass.com/sites/additional-info
+                          content_type: text/plain
+                        images:
+                          - url: >-
+                              https://api.unreserved-entry-pass.com/sites/images/location.png
+                            size_type: md
+                      rating: '5'
+                cancellation_terms:
+                  - external_ref:
+                      mimetype: text/html
+                      url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+                    cancellation_eligible: true
+                replacement_terms:
+                  - external_ref:
+                      mimetype: text/html
+                      url: >-
+                        https://api.unreserved-entry-pass.com/beckn/replacement.html
+                quote:
+                  breakup:
+                    - title: BASE_FARE
+                      item:
+                        id: I1
+                        price:
+                          currency: INR
+                          value: '350'
+                        quantity:
+                          selected:
+                            count: 1
+                      price:
+                        currency: INR
+                        value: '350'
+                    - title: BASE_FARE
+                      item:
+                        id: I2
+                        price:
+                          currency: INR
+                          value: '150'
+                        quantity:
+                          selected:
+                            count: 1
+                      price:
+                        currency: INR
+                        value: '150'
+                    - title: TAX
+                      price:
+                        currency: INR
+                        value: '0'
+                    - title: ADD_ONS
+                      item:
+                        id: I1
+                        add_ons:
+                          - id: A1
+                      price:
+                        currency: INR
+                        value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I2
+                        add_ons:
+                          - id: A1
+                      price:
+                        currency: INR
+                        value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
+                  price:
+                    currency: INR
+                    value: '800'
       - summary: Consumer platform initializes the order
         api: init
         details:
@@ -4189,6 +4788,7 @@ x-flows:
               order:
                 items:
                   - id: I1
+                    parent_item_id: I0
                     quantity:
                       selected:
                         count: 1
@@ -4198,6 +4798,7 @@ x-flows:
                           selected:
                             count: 1
                   - id: I2
+                    parent_item_id: I0
                     quantity:
                       selected:
                         count: 1
@@ -4206,6 +4807,11 @@ x-flows:
                         quantity:
                           selected:
                             count: 1
+                  - id: I5
+                    parent_item_id: I0
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     stops:
@@ -4283,6 +4889,37 @@ x-flows:
             message:
               order:
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -4293,6 +4930,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -4334,16 +4972,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -4354,6 +4982,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -4395,16 +5024,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -4507,9 +5141,15 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                   price:
                     currency: INR
-                    value: '700'
+                    value: '800'
                 billing:
                   name: John Doe
                   email: john.doe@example.com
@@ -4616,6 +5256,7 @@ x-flows:
               order:
                 items:
                   - id: I1
+                    parent_item_id: I0
                     quantity:
                       selected:
                         count: 1
@@ -4625,6 +5266,7 @@ x-flows:
                           selected:
                             count: 1
                   - id: I2
+                    parent_item_id: I0
                     quantity:
                       selected:
                         count: 1
@@ -4633,6 +5275,11 @@ x-flows:
                         quantity:
                           selected:
                             count: 1
+                  - id: I5
+                    parent_item_id: I0
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     stops:
@@ -4652,7 +5299,7 @@ x-flows:
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
                       currency: INR
-                      amount: '700'
+                      amount: '800'
                 tags:
                   - descriptor:
                       code: BAP_TERMS
@@ -4751,6 +5398,37 @@ x-flows:
                 id: '01'
                 status: ACTIVE
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -4761,6 +5439,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -4802,16 +5481,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -4822,6 +5491,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -4863,16 +5533,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -4985,9 +5660,15 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                   price:
                     currency: INR
-                    value: '700'
+                    value: '800'
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -4995,7 +5676,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -5138,6 +5819,37 @@ x-flows:
                 id: '01'
                 status: COMPLETE
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -5148,6 +5860,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -5189,16 +5902,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -5209,6 +5912,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -5250,16 +5954,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 billing:
                   name: John Doe
                   email: john.doe@example.com
@@ -5372,9 +6081,15 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                   price:
                     currency: INR
-                    value: '700'
+                    value: '800'
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -5382,7 +6097,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -5570,6 +6285,37 @@ x-flows:
                 id: '01'
                 status: ACTIVE
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -5580,6 +6326,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -5621,16 +6368,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -5641,6 +6378,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -5682,16 +6420,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -5804,9 +6547,15 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                   price:
                     currency: INR
-                    value: '700'
+                    value: '800'
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -5814,7 +6563,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -5957,6 +6706,37 @@ x-flows:
                 id: '01'
                 status: SOFT_CANCEL
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -5967,6 +6747,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -6008,16 +6789,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -6028,6 +6799,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -6069,16 +6841,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -6187,6 +6964,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                     - title: REFUND
                       item:
                         id: I1
@@ -6221,6 +7004,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '-250'
+                    - title: REFUND
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '-100'
                     - title: CANCELLATION_CHARGES
                       price:
                         currency: INR
@@ -6235,7 +7024,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -6379,6 +7168,37 @@ x-flows:
                 id: '01'
                 status: CANCELLED
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -6389,6 +7209,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -6430,16 +7251,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -6450,6 +7261,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -6491,16 +7303,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -6609,6 +7426,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                     - title: REFUND
                       item:
                         id: I1
@@ -6643,6 +7466,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '-250'
+                    - title: REFUND
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '-100'
                     - title: CANCELLATION_CHARGES
                       price:
                         currency: INR
@@ -6657,7 +7486,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -6849,6 +7678,37 @@ x-flows:
                 id: '01'
                 status: CANCELLED
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -6859,6 +7719,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -6900,16 +7761,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -6920,6 +7771,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -6961,16 +7813,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -7079,6 +7936,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                     - title: REFUND
                       item:
                         id: I1
@@ -7113,6 +7976,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '-250'
+                    - title: REFUND
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '-100'
                     - title: CANCELLATION_CHARGES
                       price:
                         currency: INR
@@ -7127,7 +7996,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -7355,6 +8224,37 @@ x-flows:
                 id: '01'
                 status: SOFT_CANCEL
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -7365,6 +8265,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -7406,16 +8307,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -7426,6 +8317,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -7467,16 +8359,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -7589,6 +8486,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                     - title: REFUND
                       item:
                         id: I2
@@ -7612,7 +8515,7 @@ x-flows:
                         value: '0'
                   price:
                     currency: INR
-                    value: '450'
+                    value: '550'
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -7620,7 +8523,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -7770,6 +8673,37 @@ x-flows:
                 id: '01'
                 status: ACTIVE
                 items:
+                  - id: I0
+                    descriptor:
+                      name: Parent Item for Culture & Heritage
+                      code: ABSTRACT
+                      short_desc: Ticket for Qutab Minar
+                      long_desc: This ticket grants entry to the Qutab Minar.
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    location_ids:
+                      - L1
+                    category_ids:
+                      - C1
+                      - C2
+                    time:
+                      label: VALIDITY
+                      duration: P2D
+                    fulfillment_ids:
+                      - F1
+                      - F2
+                    tags:
+                      - descriptor:
+                          code: INCLUSIONS
+                        list:
+                          - value: water
+                      - descriptor:
+                          code: EXCLUSIONS
+                        list:
+                          - value: out side food
+                          - value: photography
                   - id: I1
                     descriptor:
                       name: Adult-Ticket Culture & Heritage Item
@@ -7780,6 +8714,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -7821,16 +8756,6 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -7841,6 +8766,7 @@ x-flows:
                         - url: >-
                             https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
                           size_type: xs
+                    parent_item_id: I0
                     location_ids:
                       - L1
                     category_ids:
@@ -7882,16 +8808,21 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
-                      - descriptor:
-                          code: INCLUSIONS
-                        list:
-                          - value: water
-                          - value: guide_tour
-                      - descriptor:
-                          code: EXCLUSIONS
-                        list:
-                          - value: out side food
-                          - value: photography
+                  - id: I5
+                    descriptor:
+                      name: Add on item
+                      code: ADD_ON
+                      images:
+                        - url: >-
+                            https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
+                          size_type: xs
+                    parent_item_id: I0
+                    price:
+                      currency: INR
+                      value: '100'
+                    quantity:
+                      selected:
+                        count: 1
                 fulfillments:
                   - id: F1
                     type: VISIT
@@ -8004,6 +8935,12 @@ x-flows:
                       price:
                         currency: INR
                         value: '100'
+                    - title: ADD_ONS
+                      item:
+                        id: I5
+                      price:
+                        currency: INR
+                        value: '100'
                     - title: REFUND
                       item:
                         id: I2
@@ -8027,7 +8964,7 @@ x-flows:
                         value: '0'
                   price:
                     currency: INR
-                    value: '450'
+                    value: '550'
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -8035,7 +8972,7 @@ x-flows:
                     type: PRE-ORDER
                     params:
                       transaction_id: 61b4be7e-d85c-456a-99e5-ce3d83be135d
-                      amount: '700'
+                      amount: '800'
                       currency: INR
                 tags:
                   - descriptor:
@@ -8828,32 +9765,32 @@ x-attributes:
                     usage: '--'
                     description: Describes the items description.
                 location_ids: &ref_52
-                  required: MANDATORY
+                  required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 13r3e9e2
                   description: Describes lcoation id
                 category_ids: &ref_53
-                  required: MANDATORY
+                  required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: c3r3e9e2
                   description: Describes category id
                 price:
                   value: &ref_54
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: string
                     owner: BPP
                     usage: 350
                     description: Describes price value
                   currency: &ref_55
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: string
                     owner: BPP
                     usage: 350
                     description: Describes price currency
                   _description:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: object
                     owner: BPP
                     usage: '--'
@@ -8861,57 +9798,57 @@ x-attributes:
                 quantity:
                   maximum:
                     count:
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: 6
                       description: Describes maximum count for item
                     _description:
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: object
                       owner: BPP
                       usage: '--'
                       description: Describes the maximum quantity of an item.
                   minimum:
                     count:
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: 1
                       description: Describes minimum count for item
                     _description:
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: object
                       owner: BPP
                       usage: '--'
                       description: Describes the mimimum quantity of an item.
                   _description:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the quantity info of an item.
                 time: &ref_56
                   label:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: string
                     owner: BPP
                     usage: VALIDITY
                     description: Describes time label
                   duration:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: string
                     owner: BPP
                     usage: P2D
                     description: Describes time duration
                   _description:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes time label
                 fulfillment_ids: &ref_57
-                  required: MANDATORY
+                  required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: cs3r3e9e2
@@ -8988,25 +9925,25 @@ x-attributes:
                 cancellation_terms:
                   external_ref:
                     mimetype: &ref_82
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: text/html
                       description: Describes mimetype for cancellation_terms
                     url: &ref_83
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: string
                       owner: BPP
                       usage: https://api.unreserved-entry-pass.com/beckn/tnc.html
                       description: Describes url for cancellation_terms
                     _description:
-                      required: MANDATORY
+                      required: OPTIONAL
                       type: object
                       owner: BPP
                       usage: '--'
                       description: Describes external_ref for cancellation_terms
                   _description:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: object
                     owner: BPP
                     usage: '--'
@@ -9473,19 +10410,19 @@ x-attributes:
               quantity:
                 selected:
                   count:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: string
                     owner: BPP
                     usage: 1
                     description: Describes the selected count
                   _description:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: object
                     owner: BAP
                     usage: '--'
                     description: Describes the items selected count
                 _description:
-                  required: MANDATORY
+                  required: OPTIONAL
                   type: object
                   owner: BPP
                   usage: '--'

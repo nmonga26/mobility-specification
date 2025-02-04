@@ -108,6 +108,14 @@ on_search: &on_search
                 code: ENTRY_PASS
                 description: Describes the item code as Entry Pass
                 reference: <PR/Issue/Discussion Links md format text
+              - &on_search_message_catalog_providers_items_descriptor_code_1
+                code: ABSTRACT
+                description: Describes the item code as Entry Pass
+                reference: <PR/Issue/Discussion Links md format text
+              - &on_search_message_catalog_providers_items_descriptor_code_2
+                code: ADD_ON
+                description: Describes the item code as Entry Pass
+                reference: <PR/Issue/Discussion Links md format text    
         fulfillments: *search_message_intent_fulfillment
         payments: &on_search_message_catalog_providers_payments
           status: &on_search_message_catalog_providers_payments_status
