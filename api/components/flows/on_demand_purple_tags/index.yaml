@@ -86,7 +86,7 @@ steps:
       - description:
           Ride providers which is a mobility provider platform sends the
           catalog of all services that can be used for transit from A to B along
-          with estimated fare.
+          with estimated fare & list of supported purple tags.
         mermaid: >-
           sequenceDiagram
             Buyer Platform (BAP)->>Gateway (BG): search
@@ -104,7 +104,7 @@ steps:
       summary: Return a mobility catalog[Seller Collecting]
       value:
         $ref: ../../examples/on-demand/on_search/on_search_purple_tags.yaml
-  - summary: Buyer app selects a specific service for more details
+  - summary: Buyer app selects a specific service & select specific purple tags.
     api: select
     details:
       - description:

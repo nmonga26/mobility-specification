@@ -194,7 +194,7 @@ search:
                 reference: <PR/Issue/Discussion Links md format text>                    
           
           - &PURPLE_TAGS_5
-            code: DISABILITY_INTEL
+            code: DISABILITY_SPE
             description: Describes the Speech and Language Disability
             reference: <PR/Issue/Discussion Links md format text>
             list:
@@ -203,7 +203,7 @@ search:
                 reference: <PR/Issue/Discussion Links md format text>
          
           - &PURPLE_TAGS_6
-            code: DISABILITY_SPE
+            code: DISABILITY_INTEL
             description: Describes the Intellectual Disability
             reference: <PR/Issue/Discussion Links md format text>
             list:

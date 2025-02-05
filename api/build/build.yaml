@@ -3430,14 +3430,14 @@ x-tags:
                 - code: LEP_SPECIAL_REQUIREMENT
                   description: Describes the special requirement
                   reference: <PR/Issue/Discussion Links md format text>
-            - code: DISABILITY_INTEL
+            - code: DISABILITY_SPE
               description: Describes the Speech and Language Disability
               reference: <PR/Issue/Discussion Links md format text>
               list: &ref_17
                 - code: SPE_SPECIAL_REQUIREMENT
                   description: Describes the special requirement
                   reference: <PR/Issue/Discussion Links md format text>
-            - code: DISABILITY_SPE
+            - code: DISABILITY_INTEL
               description: Describes the Intellectual Disability
               reference: <PR/Issue/Discussion Links md format text>
               list: &ref_18
@@ -3588,11 +3588,11 @@ x-tags:
                 description: Describes the Leprosy Cured
                 reference: <PR/Issue/Discussion Links md format text>
                 list: *ref_16
-              - code: DISABILITY_INTEL
+              - code: DISABILITY_SPE
                 description: Describes the Speech and Language Disability
                 reference: <PR/Issue/Discussion Links md format text>
                 list: *ref_17
-              - code: DISABILITY_SPE
+              - code: DISABILITY_INTEL
                 description: Describes the Intellectual Disability
                 reference: <PR/Issue/Discussion Links md format text>
                 list: *ref_18
@@ -8775,7 +8775,7 @@ x-flows:
           - description: >-
               Ride providers which is a mobility provider platform sends the
               catalog of all services that can be used for transit from A to B
-              along with estimated fare.
+              along with estimated fare & list of supported purple tags.
             mermaid: |-
               sequenceDiagram
                 Buyer Platform (BAP)->>Gateway (BG): search
@@ -8955,7 +8955,7 @@ x-flows:
                       - descriptor:
                           code: STATIC_TERMS
                         value: https://example-test-bpp.com/static-terms.txt
-      - summary: Buyer app selects a specific service for more details
+      - summary: Buyer app selects a specific service & select specific purple tags.
         api: select
         details:
           - description: >-
