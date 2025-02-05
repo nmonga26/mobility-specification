@@ -140,12 +140,53 @@ function displayTagGroup() {
   // insertRow(tableBody, "Refrences", selectedObject3.reference)
   displayTag()
 }
+function displaySubTag(){
+  var dropdown1 = document.getElementById('tag-schema-dropdown');
+  var dropdown2 = document.getElementById('tag-path-dropdown');
+  var dropdown3 = document.getElementById('tag-group-dropdown');
+  var dropdown4 = document.getElementById('tag-dropdown');
+  var dropdown5 = document.getElementById('sub-tag-dropdown');
+
+
+  // Get the selected values from dropdown1, dropdown2, and dropdown4
+  var selectedValue1 = dropdown1.value;
+  var selectedValue2 = dropdown2.value;
+  var selectedValue3 = dropdown3.value;
+  var selectedValue4 = dropdown4.value;
+  var selectedValue5 = dropdown5.value;
+  // Get the table data
+  let data = flattenObject(TagData[selectedValue1])
+  console.log('data', data)
+  let selectedObject2 = data[selectedValue2]
+  let selectedObject3 = selectedObject2.find(obj => {
+    if (obj["code"] === selectedValue3)
+      return obj
+  });
+  let list = selectedObject3["list"]
+
+  var tableData = list.find(obj => {
+    if (obj["code"] == selectedValue4)
+      return obj
+  });
+  var tableDataTag = tableData?.list.find(obj => {
+    if (obj["code"] == selectedValue5)
+      return obj
+  });
+  // Get the table body element
+  var tableBody = document.getElementById('sub-tag-table');
+  if (tableBody && tableBody != {}) tableBody.innerHTML = '';
+  insertRow(tableBody, "Code", tableDataTag.code)
+  insertRow(tableBody, "Description", tableDataTag.description)
+}
 
 function displayTag() {
   var dropdown1 = document.getElementById('tag-schema-dropdown');
   var dropdown2 = document.getElementById('tag-path-dropdown');
   var dropdown3 = document.getElementById('tag-group-dropdown');
   var dropdown4 = document.getElementById('tag-dropdown');
+  var dropdown5 = document.getElementById('sub-tag-dropdown');
+  var dropdown5 = document.getElementById('sub-tag-dropdown');
+  dropdown5.innerHTML = '';
 
   // Get the selected values from dropdown1, dropdown2, and dropdown4
   var selectedValue1 = dropdown1.value;
@@ -165,6 +206,14 @@ function displayTag() {
     if (obj["code"] == selectedValue4)
       return obj
   });
+  
+  if(tableData?.list?.length){
+    tableData?.list.forEach(function (item) {
+        let option = document.createElement('option');
+        option.text = item["code"];
+        dropdown5.add(option);
+      })
+    }
   // Get the table body element
   var tableBody = document.getElementById('tag-table');
   if (tableBody && tableBody != {}) tableBody.innerHTML = '';
