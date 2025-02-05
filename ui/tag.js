@@ -156,7 +156,6 @@ function displaySubTag(){
   var selectedValue5 = dropdown5.value;
   // Get the table data
   let data = flattenObject(TagData[selectedValue1])
-  console.log('data', data)
   let selectedObject2 = data[selectedValue2]
   let selectedObject3 = selectedObject2.find(obj => {
     if (obj["code"] === selectedValue3)
