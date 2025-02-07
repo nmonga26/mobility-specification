@@ -1,3 +1,4 @@
+- $ref: ./seller_side_pagination/index.yaml
 - $ref: ./unreserved_entry_pass___culture_heritage/index.yaml
 - $ref: ./unreserved_entry_pass___technical_cancellation_flow/index.yaml
 - $ref: ./unreserved_enrty_pass_user_cancellation/index.yaml

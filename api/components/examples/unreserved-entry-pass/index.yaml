@@ -42,7 +42,7 @@ on_search:
   examples:
     - summary: Return_a_catalog_for_unreserved_entry_pass
       value:
-        $ref: ./on_search/Return_a_catalog_for_unreserved_entry_pass.yaml
+        $ref: ./on_search/Return_a_catalog_for_unreserved_entry_pass_2.yaml
 on_select:
   examples:
     - summary: Return_a_selected_item_for_unreserved-entry-pass
