@@ -55,6 +55,19 @@ search: &search
         description: Details about fare for the ride
         reference: <PR/Issue/Discussion Links md format text>
         list: *search_message_intent_0_list
+      - code: PAGINATION
+        description: Details about pagination
+        reference: <PR/Issue/Discussion Links md format text>
+        list: 
+          - code: PAGINATION_ID
+            description: Describes the pagination ID
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: CURRENT_PAGE_NUMBER
+            description: Describes the current page number
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: MAX_PAGE_NUMBER
+            description: Describes the max page number
+            reference: <PR/Issue/Discussion Links md format text>    
 on_search: &on_search
   message: &on_search_message
     catalog: &on_search_message_catalog
