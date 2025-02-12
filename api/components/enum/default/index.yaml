@@ -24,15 +24,19 @@ search:
       category: &a14
         descriptor:
           code:
-            - code: ON_DEMAND
+            - code: ON_DEMAND_TRIP
               description: Describes the category of the on_demand offer
               reference: <PR/Issue/Discussion Links md format text
-            - code: SCHEDULED
+            - code: ON_DEMAND_RENTAL
+              description: Describes the category of the rental ride offer
+              reference: <PR/Issue/Discussion Links md format text  
+            - code: SCHEDULED_TRIP
               description: Describes the category of the scheduled ride offer
               reference: <PR/Issue/Discussion Links md format text
-            - code: RENTAL
-              description: Describes the category of the rental ride offer
-              reference: <PR/Issue/Discussion Links md format text
+            - code: SCHEDULED_RENTAL
+              description: Describes the category of the scheduled ride offer
+              reference: <PR/Issue/Discussion Links md format text  
+            
       fulfillment: &a3
         vehicle:
           category:
