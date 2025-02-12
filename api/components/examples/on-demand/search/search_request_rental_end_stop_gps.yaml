@@ -17,7 +17,7 @@ message:
   intent:
     category:
       descriptor:
-        code: ON_DEMAND_TRIP
+        code: ON_DEMAND_RENTAL
     fulfillment:
       stops:
         - location:
