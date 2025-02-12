@@ -49,6 +49,261 @@ search:
             - code: SETTLEMENT_VIRTUAL_PAYMENT_ADDRESS
               description: Denotes settlement virtual payment address
               reference: <PR/Issue/Discussion Links md format text>      
+      item:
+        tags: &PURPLE_TAGS_1
+          - code: DISABILITY_VIS
+            description: Describes the Vision Impairment
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: VIS_LEVEL
+                description: Describes the Level of Disability
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: LOW
+                    description: Describes the Level of Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: TOTAL
+                    description: Describes the Level of Disability
+                    reference: <PR/Issue/Discussion Links md format text>   
+              - code: VIS_SCREEN_READER_USAGE
+                description: Describes the Screen Reader Usage
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: JAWS
+                    description: Describes the Screen Reader Usage
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: NVDA
+                    description: Describes the Screen Reader Usage
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OTHERS
+                    description: Describes the Screen Reader Usage
+                    reference: <PR/Issue/Discussion Links md format text>  
+              - code: VIS_CANE_USAGE
+                description: Describes the Cane Usag
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: YES
+                    description: Describes the Cane Usag
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: NO
+                    description: Describes the Cane Usag
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SOMETIMES
+                    description: Describes the Cane Usag
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: VIS_SPECIAL_REQUIREMENT
+                description: Describes the custom text entered by user
+                reference: <PR/Issue/Discussion Links md format text>
+          
+          - &PURPLE_TAGS_2
+              code: DISABILITY_HEA
+              description: Describes the Hearing Impairment
+              reference: <PR/Issue/Discussion Links md format text>
+              list:
+                - code: HEA_READING_ABILITY
+                  description: Describes the Reading Ability
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list: 
+                    - code: FULL
+                      description: Describes the Reading Ability
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: PARTIAL
+                      description: Describes the Reading Ability
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: NO
+                      description: Describes the Reading Ability
+                      reference: <PR/Issue/Discussion Links md format text>     
+                - code: HEA_SIGN_LANGUAGE_PREFERENCE
+                  description: Describes the sign Language Preference
+                  reference: <PR/Issue/Discussion Links md format text>
+                  list: 
+                    - code: ASL
+                      description: Describes the sign Language Preference
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: BSL
+                      description: Describes the sign Language Preference
+                      reference: <PR/Issue/Discussion Links md format text>
+                    - code: OTHERS
+                      description: Describes the sign Language Preference
+                      reference: <PR/Issue/Discussion Links md format text>
+                - code: HEA_SPECIAL_REQUIREMENT
+                  description: Describes the special requirement
+                  reference: <PR/Issue/Discussion Links md format text>
+          
+          - &PURPLE_TAGS_3
+            code: DISABILITY_MOB
+            description: Describes the Disability of movement
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: MOB_DISABILITY
+                description: Describes the mob disability
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: LOCOMOTOR
+                    description: Describes the mob disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MULTIPLE_SCLEROSIS
+                    description: Describes the mob disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: CEREBRAL_PALSY
+                    description: Describes the mob disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: MUSCULAR_DYSTROPHY
+                    description: Describes the mob disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OTHERS
+                    description: Describes the mob disability
+                    reference: <PR/Issue/Discussion Links md format text>              
+              - code: MOB_WHEELCHAIR_USAGE
+                description: Describes the wheelchair usage
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: YES
+                    description: Describes the wheelchair usage
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: NO
+                    description: Describes the wheelchair usage
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SOMETIMES
+                    description: Describes the wheelchair usage
+                    reference: <PR/Issue/Discussion Links md format text>    
+              - code: MOB_CRUTCHES_USAGE
+                description: Describes the crutches usage
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: YES
+                    description: Describes the crutches usage
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: NO
+                    description: Describes the crutches usage
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SOMETIMES
+                    description: Describes the crutches usage
+                    reference: <PR/Issue/Discussion Links md format text>
+              - code: MOB_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>                    
+          
+          - &PURPLE_TAGS_4
+            code: DISABILITY_LEP
+            description: Describes the Leprosy Cured
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: LEP_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>                    
+          
+          - &PURPLE_TAGS_5
+            code: DISABILITY_SPE
+            description: Describes the Speech and Language Disability
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: SPE_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>
+         
+          - &PURPLE_TAGS_6
+            code: DISABILITY_INTEL
+            description: Describes the Intellectual Disability
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: INTEL_DISABILITY
+                description: Describes the Intellectual Disability
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: AUTISM_SPECTRUM_DISORDER
+                    description: Describes the Intellectual Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SPECIFIC_LEARNING_DISABILITIES
+                    description: Describes the Intellectual Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: PARKINSON
+                    description: Describes the Intellectual Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OTHERS
+                    description: Describes the Intellectual Disability
+                    reference: <PR/Issue/Discussion Links md format text>  
+                         
+              - code: INTEL_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>
+         
+          - &PURPLE_TAGS_7
+            code: MENTAL
+            description: Describes the Mental Illness
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: MENTAL_DISABILITY
+                description: Describes the Mental Disability
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: SCHIZOPHRENIA
+                    description: Describes the Mental Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: BIPOLAR_DISORDER
+                    description: Describes the Mental Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: DEPRESSION
+                    description: Describes the Mental Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OTHERS
+                    description: Describes the Mental Disability
+                    reference: <PR/Issue/Discussion Links md format text>         
+              - code: MENTAL_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>
+          
+          - &PURPLE_TAGS_8
+            code: DISABILITY_BLOOD
+            description: Describes the Blood Related Disorders
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: BLOOD_DISABILITY
+                description: Describes the blood Disability
+                reference: <PR/Issue/Discussion Links md format text>
+                list: 
+                  - code: HEMOPHILIA
+                    description: Describes the blood Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: THALASSEMIA
+                    description: Describes the blood Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: SICKLE_CELL_ANEMIA
+                    description: Describes the blood Disability
+                    reference: <PR/Issue/Discussion Links md format text>
+                  - code: OTHERS
+                    description: Describes the blood Disability
+                    reference: <PR/Issue/Discussion Links md format text>         
+              - code: BLOOD_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>
+          
+          - &PURPLE_TAGS_9
+            code: DISABILITY_DWARFISM
+            description: Describes the Dwarfism
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: DWARFISM_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>
+          
+          - &PURPLE_TAGS_10
+            code: DISABILITY_ACID_ATTACK_SURVIVOR
+            description: Describes the Acid Attack Survivor
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: ACID_ATTACK_SURVIVOR_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>
+          
+          - &PURPLE_TAGS_11
+            code: DISABILITY_MULTIPLE_DIS
+            description: Describes the Multiple Disabilities
+            reference: <PR/Issue/Discussion Links md format text>
+            list:
+              - code: ACID_ATTACK_SURVIVOR_SPECIAL_REQUIREMENT
+                description: Describes the special requirement
+                reference: <PR/Issue/Discussion Links md format text>                                                         
 
 on_search:
   message:
@@ -95,6 +350,17 @@ on_search:
       providers:
         items: &a2
           tags:
+            - <<: *PURPLE_TAGS_1
+            - <<: *PURPLE_TAGS_2
+            - <<: *PURPLE_TAGS_3
+            - <<: *PURPLE_TAGS_4
+            - <<: *PURPLE_TAGS_5
+            - <<: *PURPLE_TAGS_6
+            - <<: *PURPLE_TAGS_7
+            - <<: *PURPLE_TAGS_8
+            - <<: *PURPLE_TAGS_9
+            - <<: *PURPLE_TAGS_10
+            - <<: *PURPLE_TAGS_11
             - code: FARE_POLICY
               description: Details about fare for the ride
               reference: <PR/Issue/Discussion Links md format text>
@@ -133,7 +399,6 @@ on_search:
                 - code: ETA_TO_NEAREST_DRIVER_MIN
                   description: Describes the ETA to nearest driver.
                   reference: <PR/Issue/Discussion Links md format text>
-                  
 on_select:
   message:
     order:
