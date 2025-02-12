@@ -76,7 +76,7 @@ message:
               code: RIDE
               name: CAB Economy Ride
             category_ids:
-             - '198393'
+             - 'C2'
             fulfillment_ids:
               - F2
             id: I2
@@ -100,9 +100,9 @@ message:
         payments:
           - collected_by: BPP
         categories: 
-          - id: '198393'
+          - id: 'C2'
             descriptor: 
-              code: SCHEDULED
+              code: SCHEDULED_TRIP
               name: scheduled
     tags:
       - descriptor:

@@ -86,6 +86,8 @@ message:
           - descriptor:
               code: RIDE
               name: Auto Ride
+            category_ids:
+              - 'C1'  
             fulfillment_ids:
               - F1
             id: I1
@@ -100,6 +102,8 @@ message:
           - descriptor:
               code: RIDE
               name: CAB Economy Ride
+            category_ids:
+             - 'C1'  
             fulfillment_ids:
               - F2
             id: I2
@@ -120,5 +124,10 @@ message:
             id: L3
           - gps: 12.906857,77.604456
             id: L4
+        categories: 
+          - id: 'C1'
+            descriptor: 
+              code: ON_DEMAND_TRIP
+              name: On Demand  
         payments:
           - collected_by: BPP

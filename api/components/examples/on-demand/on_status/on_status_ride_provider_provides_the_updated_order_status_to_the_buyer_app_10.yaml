@@ -107,6 +107,8 @@ message:
           name: Auto Ride
         fulfillment_ids:
           - F1
+        category_ids:
+          - 'C1'  
         id: I1
         location_ids:
           - L1

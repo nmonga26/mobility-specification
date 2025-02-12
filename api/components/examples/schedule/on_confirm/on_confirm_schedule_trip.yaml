@@ -47,12 +47,7 @@ message:
             code: RIDE_STARTED
         reason_required: true
     fulfillments:
-      - agent:
-          contact:
-            phone: '9856798567'
-          person:
-            name: Jason Roy
-        customer:
+      - customer:
           contact:
             phone: '9876556789'
           person:
@@ -60,20 +55,15 @@ message:
         id: F1
         state:
           descriptor:
-            code: RIDE_ASSIGNED
+            code: RIDE_CONFIRMED
         stops:
-          - authorization:
-              token: '234234'
-              type: OTP
-              valid_to: '2023-12-10T08:05:34.294Z'
-              status: UNCLAIMED
-            location:
+          - location:
               gps: 13.008935, 77.644408
             type: START
             instructions:
               short_desc: short description of the location
               long_desc: long description of the location
-          - time:
+            time:
               timestamp: '2024-11-07T00:32:19.000Z'
           - location:
               gps: 12.971186, 77.586812
@@ -107,6 +97,8 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
+        category_ids:
+          - 'C2'   
            
         fulfillment_ids:
           - F1

@@ -103,6 +103,8 @@ message:
           - descriptor:
               code: RIDE
               name: Auto Ride
+            category_ids:
+             - 'C3'   
             fulfillment_ids:
               - F1
             id: I1
@@ -117,6 +119,8 @@ message:
           - descriptor:
               code: RIDE
               name: CAB Economy Ride
+            category_ids:
+             - 'C1'  
             fulfillment_ids:
               - F2
             id: I2

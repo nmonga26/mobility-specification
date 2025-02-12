@@ -30,6 +30,9 @@ search:
             - code: SCHEDULED
               description: Describes the category of the scheduled ride offer
               reference: <PR/Issue/Discussion Links md format text
+            - code: RENTAL
+              description: Describes the category of the rental ride offer
+              reference: <PR/Issue/Discussion Links md format text
       fulfillment: &a3
         vehicle:
           category:

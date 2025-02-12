@@ -102,6 +102,8 @@ message:
       - descriptor:
           code: RIDE
           name: CAB Ride
+        category_ids:
+          - 'C1'  
         fulfillment_ids:
           - F1
         id: I1

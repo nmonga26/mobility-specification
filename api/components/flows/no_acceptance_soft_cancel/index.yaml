@@ -1,0 +1,81 @@
+summary: No Acceptance - Soft_Cancel
+details:
+  - description: Detailed process of No Acceptance flow atter soft_cancel.
+    mermaid: |-
+      sequenceDiagram
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+steps:
+  - summary: Buyer app cancels the request for ride
+    api: cancel
+    details:
+      - description: Buyer app requests for cancellation of ride.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Initiates cancelling a ride with soft cancel status
+      value:
+        $ref: ../../examples/on-demand/cancel/Initiates_cancelling_a_ride_with_soft_cancel_status___X4.yaml
+  - summary: Ride provider accepts/appends the terms of cancellation
+    api: on_cancel
+    details:
+      - description:
+          Ride provider accepts the terms of order and appends its own terms
+          and provides with latest order update.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return current order status after soft-cancel
+      value:
+        $ref: ../../examples/on-demand/on_cancel/Return_current_order_status_after_soft-cancel___X8.yaml
+  - summary: Ride provider sends unsolicited on_status call
+    api: on_status
+    details:
+      - description:
+          The ride provider sends an unsolicited on_status call and reverted to the original order state as no response was received from the buyer app within the defined TTL.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Return current order status after soft-cancel
+      value:
+        $ref: ../../examples/on-demand/on_status/on_status_no_acceptance_soft_cancel.yaml
+  

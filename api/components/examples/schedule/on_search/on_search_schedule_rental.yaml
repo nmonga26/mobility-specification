@@ -29,7 +29,7 @@ message:
                 instructions:
                   short_desc: short description of the location
                   long_desc: long description of the location
-              - time:
+                time:
                   timestamp: '2024-11-07T00:32:19.000Z'
             type: DELIVERY
             vehicle:
@@ -43,7 +43,7 @@ message:
                 instructions:
                   short_desc: short description of the location
                   long_desc: long description of the location
-              - time:
+                time:
                   timestamp: '2024-11-07T00:32:19.000Z'
             type: DELIVERY
             vehicle:
@@ -54,6 +54,8 @@ message:
           - descriptor:
               code: RIDE
               name: Auto Ride
+            category_ids:
+              - 'C4'  
             fulfillment_ids:
               - F1
             id: I1
@@ -100,7 +102,7 @@ message:
               code: RIDE
               name: CAB Economy Ride
             category_ids:
-             - '198393'
+             - 'C4'
             fulfillment_ids:
               - F2
             id: I2
@@ -156,10 +158,10 @@ message:
         payments:
           - collected_by: BPP
         categories: 
-          - id: '198393'
+          - id: 'C4'
             descriptor: 
-              code: SCHEDULED
-              name: scheduled
+              code: SCHEDULED_RENTAL
+              name: Rental
     tags:
       - descriptor:
           code: BPP_TERMS

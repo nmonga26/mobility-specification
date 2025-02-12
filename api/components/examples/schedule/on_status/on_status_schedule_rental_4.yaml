@@ -75,8 +75,14 @@ message:
             instructions:
               short_desc: short description of the location
               long_desc: long description of the location
-          - time:
+            time:
               timestamp: '2024-11-07T00:32:19.000Z'
+          - authorization:
+              token: '144254'
+              type: OTP
+              valid_to: '2023-12-15T08:05:34.294Z'
+              status: CLAIMED
+            type: END    
         tags:
           - descriptor:
               code: ROUTE_INFO
@@ -105,6 +111,8 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
+        category_ids:
+          - 'C4'  
      
         fulfillment_ids:
           - F1

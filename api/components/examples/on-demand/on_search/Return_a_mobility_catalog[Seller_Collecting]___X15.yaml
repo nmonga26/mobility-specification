@@ -57,6 +57,8 @@ message:
           - descriptor:
               code: RIDE
               name: Auto Ride
+            category_ids:
+              - 'C1'  
             fulfillment_ids:
               - F1
             id: I1
@@ -67,14 +69,21 @@ message:
               currency: INR
               maximum_value: '176'
               minimum_value: '136'
-              value: '146'
-            category_ids:
-              - '198392'  
+              value: '146'  
+            tags:
+              - descriptor:
+                  code: FEATURE_LIST
+                  name: Feature list
+                list:
+                  - value: NON_AC
+                  - value: LOW_PRICE
+                  - value: DOORSTEP_PICK_UP
+
           - descriptor:
               code: RIDE
               name: CAB Economy Ride
             category_ids:
-              - '198392'
+              - 'C1'
             fulfillment_ids:
               - F2
             id: I2
@@ -86,6 +95,14 @@ message:
               maximum_value: '236'
               minimum_value: '206'
               value: '206'
+            tags:
+              - descriptor:
+                  code: FEATURE_LIST
+                  name: Feature list
+                list:
+                  - value: AC
+                  - value: LOW_PRICE 
+                  - value: FREE_WIFI
         locations:
           - gps: 12.916468,77.608998
             id: L1
@@ -100,7 +117,7 @@ message:
         categories: 
           - id: '198392'
             descriptor: 
-              code: ON_DEMAND
+              code: ON_DEMAND_TRIP
               name: on demand
     tags:
       - descriptor:

@@ -205,7 +205,7 @@ steps:
             end
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_update
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example:
@@ -228,34 +228,37 @@ steps:
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             end
-            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_update
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example:
       summary: Return confirmed order with latest fulfillment details
       value:
         $ref: ../../examples/schedule/on_confirm/on_confirm_schedule_trip.yaml
-  - summary: Ride provider provides latest order status
-    api: on_status
+  - summary: Ride provider provides the agent details
+    api: on_update
     details:
-      - description: Ride provider provides the updated order status to the buyer app
+      - description:
+          Ride provider confirms the ride request and provides the ride
+          details on confirmation.
         mermaid: |-
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
             Buyer Platform (BAP)->>Seller Platform (BPP): confirm
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            rect rgb(191, 223, 255)
-            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             end
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example:
-      summary: Return updated order with updated agent details
+      summary: Return confirmed order with latest fulfillment details
       value:
-        $ref: ../../examples/schedule/on_status/on_status_schedule_trip_1.yaml
+        $ref: ../../examples/schedule/on_update/on_update_agent_assign_trip.yaml
+  
   - summary: Buyer app requests for tracking status
     api: track
     details:
@@ -302,25 +305,41 @@ steps:
     api: on_status
     details:
       - description: Ride provider provides the updated order status to the buyer app
-        mermaid: "sequenceDiagram
-
-          \  participant Buyer Platform (BAP)
-
-          \  participant Seller Platform (BPP)
-
-          \  rect rgb(191, 223, 255)
-
-          \  Seller Platform (BPP)->>Buyer Platform (BAP): on_status
-
-          \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-
-          \  end
-
-          \  Seller Platform (BPP)->>Buyer Platform (BAP): on_status
-
-          \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-
-          \  "
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return updated order with updated agent details
+      value:
+        $ref: ../../examples/schedule/on_status/on_status_schedule_trip_1.yaml
+  
+  - summary: Ride provider provides latest order status
+    api: on_status
+    details:
+      - description: Ride provider provides the updated order status to the buyer app
+        mermaid: >-
+         sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example:
       summary: Return updated order with updated agent details
@@ -334,7 +353,9 @@ steps:
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
-            Seller Platform (BPP)->>Buyer Platform (BAP): on_status
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             rect rgb(191, 223, 255)
             Seller Platform (BPP)->>Buyer Platform (BAP): on_status

@@ -73,8 +73,12 @@ message:
             instructions:
               short_desc: short description of the location
               long_desc: long description of the location
-          - time:
-              timestamp: '2024-11-07T00:32:19.000Z'
+          - authorization:
+              token: '144254'
+              type: OTP
+              valid_to: '2023-12-15T08:05:34.294Z'
+              status: UNCLAIMED
+            type: END
         # tags:
         #   - descriptor:
         #       code: ROUTE_INFO
@@ -108,6 +112,8 @@ message:
         fulfillment_ids:
           - F1
         id: I1
+        category_ids:
+          - 'C3'
         location_ids:
           - L1
           - L3
