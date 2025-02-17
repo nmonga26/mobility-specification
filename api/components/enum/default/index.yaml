@@ -26,6 +26,15 @@ search: &search
   message: &search_message
     intent: &search_message_intent
       fulfillment: &search_message_intent_fulfillment
+        state: 
+          descriptor:
+            code:
+              - code: CONFIRMED
+                description: Describes the fulfillment state
+                reference: <PR/Issue/Discussion Links md format text
+              - code: CLAIMED
+                description: Describes the fulfillment state
+                reference: <PR/Issue/Discussion Links md format text  
         vehicle: &search_message_intent_fulfillment_vehicle
           category: &search_message_intent_fulfillment_vehicle_category
             - &search_message_intent_fulfillment_vehicle_category_0

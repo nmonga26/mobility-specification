@@ -103,6 +103,22 @@ message:
               - F1
               - F2    
             cancellation_terms:
+              - cancellation_fee: 
+                  percentage: '10'
+                fulfillment_state:
+                  descriptor:
+                    code: CONFIRMED
+                cancel_by:
+                  label: DURATION
+                  duration: PT1H30M 
+              - cancellation_fee: 
+                  percentage: '15'
+                fulfillment_state:
+                  descriptor:
+                    code: CLAIMED
+                cancel_by:
+                  label: DURATION
+                  duration: PT1H       
               - external_ref:
                   mimetype: text/html
                   url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -316,6 +332,12 @@ message:
                   mimetype: text/html
                   url: https://api.unreserved-entry-pass.com/beckn/tnc.html
                 cancellation_eligible:  false  
+              - cancellation_fee: 
+                  percentage: '10'
+                cancel_by:
+                  label: TIMESTAMP
+                  timestamp: '2024-07-26T04:43:16.000Z' 
+                cancellation_eligible: false  
             replacement_terms:
               - external_ref:
                   mimetype: text/html
@@ -390,6 +412,14 @@ message:
                   mimetype: text/html
                   url: https://api.unreserved-entry-pass.com/beckn/tnc.html
                 cancellation_eligible:  false
+              - cancellation_fee: 
+                  percentage: '15'
+                fulfillment_state:
+                  descriptor:
+                    code: CLAIMED
+                cancel_by:
+                  label: DURATION
+                  duration: PT1H
             replacement_terms:
               - external_ref:
                   mimetype: text/html
