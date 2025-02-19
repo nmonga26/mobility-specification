@@ -109,6 +109,8 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
+        category_ids:
+          - 'C4'  
               
         fulfillment_ids:
           - F1

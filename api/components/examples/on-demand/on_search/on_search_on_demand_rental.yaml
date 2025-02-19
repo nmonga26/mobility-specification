@@ -29,8 +29,6 @@ message:
                 instructions:
                   short_desc: short description of the location
                   long_desc: long description of the location
-              - time:
-                  timestamp: '2024-11-07T00:32:19.000Z'
             type: DELIVERY
             vehicle:
               category: AUTO_RICKSHAW
@@ -43,8 +41,15 @@ message:
                 instructions:
                   short_desc: short description of the location
                   long_desc: long description of the location
-              - time:
-                  timestamp: '2024-11-07T00:32:19.000Z'
+               #added below stops as END to accomodate Intercity use-case(serviceable area).   
+              - location:
+                  circle:
+                    gps: 13.008935, 77.644408
+                    radius:
+                      type: CONSTANT
+                      value: '100'
+                      unit: KILOMETER
+                type: END 
             type: DELIVERY
             vehicle:
               category: CAB
@@ -52,7 +57,7 @@ message:
         id: P1
         items:
           - descriptor:
-              code: RENTAL
+              code: RIDE
               name: Auto Ride
             fulfillment_ids:
               - F1
@@ -84,7 +89,8 @@ message:
                 descriptor:
                   name: distance
                   code: DISTANCE 
-
+            category_ids:
+             - 'C3'
             tags: 
               - descriptor:
                   code: INFO
@@ -98,10 +104,10 @@ message:
                       code: TOTAL_DISTANCE
                     value: '10'       
           - descriptor:
-              code: RENTAL
+              code: RIDE
               name: CAB Economy Ride
             category_ids:
-             - '198392'
+             - 'C3'
             fulfillment_ids:
               - F2
             id: I2
@@ -157,10 +163,10 @@ message:
         payments:
           - collected_by: BPP
         categories: 
-          - id: '198392'
+          - id: 'C3'
             descriptor: 
-              code: ON_DEMAND
-              name: on demand
+              code: ON_DEMAND_RENTAL
+              name: Rental
     tags:
       - descriptor:
           code: BPP_TERMS

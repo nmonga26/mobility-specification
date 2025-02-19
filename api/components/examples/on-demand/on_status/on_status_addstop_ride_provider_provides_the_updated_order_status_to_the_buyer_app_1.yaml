@@ -181,6 +181,8 @@ message:
         fulfillment_ids:
           - F1
         id: I1
+        category_ids:
+          - 'C1'
         location_ids:
           - L1
           - L3

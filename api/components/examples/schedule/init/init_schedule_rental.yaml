@@ -30,7 +30,7 @@ message:
           - location:
               gps: 13.008935, 77.644408
             type: START
-          - time:
+            time:
               timestamp: '2024-11-07T00:32:19.000Z'
         vehicle:
           category: AUTO_RICKSHAW
