@@ -115,7 +115,7 @@ message:
                   percentage: '15'
                 fulfillment_state:
                   descriptor:
-                    code: CLAIMED
+                    code: COMPLETED
                 cancel_by:
                   label: DURATION
                   duration: PT1H       
@@ -416,7 +416,7 @@ message:
                   percentage: '15'
                 fulfillment_state:
                   descriptor:
-                    code: CLAIMED
+                    code: COMPLETED
                 cancel_by:
                   label: DURATION
                   duration: PT1H

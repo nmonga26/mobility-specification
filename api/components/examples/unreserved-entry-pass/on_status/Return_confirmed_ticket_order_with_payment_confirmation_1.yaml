@@ -18,7 +18,7 @@ context:
 message:
   order:
     id: '01'
-    status: COMPLETE
+    status: COMPLETED
     items:
       - id: I0
         descriptor:
@@ -180,7 +180,7 @@ message:
         type: VISIT
         state: 
           descriptor:
-            code: CLAIMED
+            code: COMPLETED
         stops:
           - type: START
             instructions:
@@ -239,7 +239,7 @@ message:
           percentage: '15'
         fulfillment_state:
           descriptor:
-            code: CLAIMED
+            code: COMPLETED
         cancel_by:
           label: DURATION
           duration: PT1H       

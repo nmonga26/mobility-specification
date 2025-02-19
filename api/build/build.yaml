@@ -2834,7 +2834,10 @@ x-enum:
                 - code: CONFIRMED
                   description: Describes the fulfillment state
                   reference: <PR/Issue/Discussion Links md format text
-                - code: CLAIMED
+                - code: IN_PROGRESS
+                  description: Describes the fulfillment state
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: COMPLETED
                   description: Describes the fulfillment state
                   reference: <PR/Issue/Discussion Links md format text
           vehicle:
@@ -3612,7 +3615,7 @@ x-flows:
                               percentage: '15'
                             fulfillment_state:
                               descriptor:
-                                code: CLAIMED
+                                code: COMPLETED
                             cancel_by:
                               label: DURATION
                               duration: PT1H
@@ -3879,7 +3882,7 @@ x-flows:
                               percentage: '15'
                             fulfillment_state:
                               descriptor:
-                                code: CLAIMED
+                                code: COMPLETED
                             cancel_by:
                               label: DURATION
                               duration: PT1H
@@ -4169,7 +4172,7 @@ x-flows:
                               percentage: '15'
                             fulfillment_state:
                               descriptor:
-                                code: CLAIMED
+                                code: COMPLETED
                             cancel_by:
                               label: DURATION
                               duration: PT1H
@@ -4436,7 +4439,7 @@ x-flows:
                               percentage: '15'
                             fulfillment_state:
                               descriptor:
-                                code: CLAIMED
+                                code: COMPLETED
                             cancel_by:
                               label: DURATION
                               duration: PT1H
@@ -5030,7 +5033,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -5516,7 +5519,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -5935,7 +5938,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -6469,7 +6472,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -6689,7 +6692,7 @@ x-flows:
             message:
               order:
                 id: '01'
-                status: COMPLETE
+                status: COMPLETED
                 items:
                   - id: I0
                     descriptor:
@@ -6850,7 +6853,7 @@ x-flows:
                     type: VISIT
                     state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     stops:
                       - type: START
                         instructions:
@@ -6913,7 +6916,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -7394,7 +7397,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -7834,7 +7837,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -8315,7 +8318,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -8844,7 +8847,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -9409,7 +9412,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
@@ -9877,7 +9880,7 @@ x-flows:
                       percentage: '15'
                     fulfillment_state:
                       descriptor:
-                        code: CLAIMED
+                        code: COMPLETED
                     cancel_by:
                       label: DURATION
                       duration: PT1H
