@@ -1933,6 +1933,9 @@ components:
             - SOFT_CANCEL
             - CANCELLATION_INITIATED
             - CANCELLATION_REJECTED
+            - SOFT_UPDATE
+            - CONFIRM_UPDATE
+            - UPDATED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -2825,6 +2828,18 @@ x-enum:
     message:
       intent:
         fulfillment: &ref_2
+          state:
+            descriptor:
+              code:
+                - code: CONFIRMED
+                  description: Describes the fulfillment state
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: IN_PROGRESS
+                  description: Describes the fulfillment state
+                  reference: <PR/Issue/Discussion Links md format text
+                - code: COMPLETED
+                  description: Describes the fulfillment state
+                  reference: <PR/Issue/Discussion Links md format text
           vehicle:
             category:
               - code: SITE
@@ -3588,6 +3603,22 @@ x-flows:
                           - F1
                           - F2
                         cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: CONFIRMED
+                            cancel_by:
+                              label: DURATION
+                              duration: PT1H30M
+                          - cancellation_fee:
+                              percentage: '15'
+                            fulfillment_state:
+                              descriptor:
+                                code: COMPLETED
+                            cancel_by:
+                              label: DURATION
+                              duration: PT1H
                           - external_ref:
                               mimetype: text/html
                               url: >-
@@ -3765,6 +3796,12 @@ x-flows:
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
                             cancellation_eligible: false
+                          - cancellation_fee:
+                              percentage: '10'
+                            cancel_by:
+                              label: TIMESTAMP
+                              timestamp: '2024-07-26T04:43:16.000Z'
+                            cancellation_eligible: false
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -3841,6 +3878,14 @@ x-flows:
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
                             cancellation_eligible: false
+                          - cancellation_fee:
+                              percentage: '15'
+                            fulfillment_state:
+                              descriptor:
+                                code: COMPLETED
+                            cancel_by:
+                              label: DURATION
+                              duration: PT1H
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -4115,6 +4160,22 @@ x-flows:
                           - F1
                           - F2
                         cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: CONFIRMED
+                            cancel_by:
+                              label: DURATION
+                              duration: PT1H30M
+                          - cancellation_fee:
+                              percentage: '15'
+                            fulfillment_state:
+                              descriptor:
+                                code: COMPLETED
+                            cancel_by:
+                              label: DURATION
+                              duration: PT1H
                           - external_ref:
                               mimetype: text/html
                               url: >-
@@ -4292,6 +4353,12 @@ x-flows:
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
                             cancellation_eligible: false
+                          - cancellation_fee:
+                              percentage: '10'
+                            cancel_by:
+                              label: TIMESTAMP
+                              timestamp: '2024-07-26T04:43:16.000Z'
+                            cancellation_eligible: false
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -4368,6 +4435,14 @@ x-flows:
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
                             cancellation_eligible: false
+                          - cancellation_fee:
+                              percentage: '15'
+                            fulfillment_state:
+                              descriptor:
+                                code: COMPLETED
+                            cancel_by:
+                              label: DURATION
+                              duration: PT1H
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -4946,6 +5021,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -5416,6 +5507,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -5819,6 +5926,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -6284,6 +6407,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -6334,6 +6460,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -6550,7 +6692,7 @@ x-flows:
             message:
               order:
                 id: '01'
-                status: COMPLETE
+                status: COMPLETED
                 items:
                   - id: I0
                     descriptor:
@@ -6709,6 +6851,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: COMPLETED
                     stops:
                       - type: START
                         instructions:
@@ -6759,6 +6904,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -7171,6 +7332,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -7221,6 +7385,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -7592,6 +7772,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -7642,6 +7825,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -8054,6 +8253,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -8104,6 +8306,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -8564,6 +8782,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -8614,6 +8835,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -9110,6 +9347,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -9160,6 +9400,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -9559,6 +9815,9 @@ x-flows:
                 fulfillments:
                   - id: F1
                     type: VISIT
+                    state:
+                      descriptor:
+                        code: CONFIRMED
                     stops:
                       - type: START
                         instructions:
@@ -9609,6 +9868,22 @@ x-flows:
                             size_type: md
                       rating: '5'
                 cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '10'
+                    fulfillment_state:
+                      descriptor:
+                        code: CONFIRMED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H30M
+                  - cancellation_fee:
+                      percentage: '15'
+                    fulfillment_state:
+                      descriptor:
+                        code: COMPLETED
+                    cancel_by:
+                      label: DURATION
+                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -11753,7 +12028,7 @@ x-attributes:
             _description: *ref_93
       on_confirm: &ref_123
         context: *ref_112
-        message:
+        message: &ref_124
           order:
             id: &ref_122
               required: MANDATORY
@@ -11771,6 +12046,14 @@ x-attributes:
             fulfillments:
               id: *ref_63
               type: *ref_64
+              state:
+                descriptor:
+                  code:
+                    required: MANDATORY
+                    type: string
+                    owner: BPP
+                    usage: CONFIRMED
+                    description: Describes the fulfillment state
               stops:
                 type: *ref_65
                 instructions: *ref_113
@@ -11856,6 +12139,156 @@ x-attributes:
         message:
           order_id: *ref_122
       on_status: *ref_123
+      update:
+        context:
+          location: *ref_45
+          domain: *ref_30
+          timestamp: *ref_31
+          bap_id: *ref_32
+          transaction_id: *ref_33
+          message_id: *ref_34
+          version: *ref_35
+          action:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: update
+            description: >-
+              Describes the Beckn protocol method being called by the sender and
+              executed at the receiver.
+          bap_uri: *ref_36
+          ttl: *ref_37
+          bpp_id: *ref_42
+          bpp_uri: *ref_43
+        message:
+          update_target:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: order.items
+            description: Describes the update target
+          order:
+            cancellation:
+              reason:
+                id:
+                  required: MANDATORY
+                  type: string
+                  owner: BAP
+                  usage: '00'
+                  description: Describes the reason id
+                descriptor:
+                  code:
+                    required: MANDATORY
+                    type: string
+                    owner: BAP
+                    usage: SOFT_CANCEL
+                    description: Describes the code for cancellation
+            items:
+              id:
+                required: MANDATORY
+                type: string
+                owner: BPP
+                usage: I2
+                description: Describes the item id
+              quantity:
+                selected:
+                  count:
+                    required: MANDATORY
+                    type: string
+                    owner: BPP
+                    usage: '1'
+                    description: Describes the quantity count
+      on_update:
+        context:
+          location: *ref_45
+          domain: *ref_30
+          timestamp: *ref_31
+          bap_id: *ref_32
+          transaction_id: *ref_33
+          message_id: *ref_34
+          version: *ref_35
+          action:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: on_update
+            description: >-
+              Describes the Beckn protocol method being called by the sender and
+              executed at the receiver.
+          bap_uri: *ref_36
+          ttl: *ref_37
+          bpp_id: *ref_42
+          bpp_uri: *ref_43
+        message: *ref_124
+      cancel:
+        context:
+          location: *ref_45
+          domain: *ref_30
+          timestamp: *ref_31
+          bap_id: *ref_32
+          transaction_id: *ref_33
+          message_id: *ref_34
+          version: *ref_35
+          action:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: cancel
+            description: >-
+              Describes the Beckn protocol method being called by the sender and
+              executed at the receiver.
+          bap_uri: *ref_36
+          ttl: *ref_37
+          bpp_id: *ref_42
+          bpp_uri: *ref_43
+        message:
+          order_id:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: O1
+            description: Descibes the order id.
+          cancellation_reason_id:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: O1
+            description: Descibes the cancellation reason id.
+          descriptor:
+            name:
+              required: OPTIONAL
+              type: string
+              owner: BAP
+              usage: O1
+              description: Descibes the descriptor name.
+            code:
+              required: MANDATORY
+              type: string
+              owner: BAP
+              usage: O1
+              description: Descibes the descriptor name.
+      on_cancel:
+        context:
+          location: *ref_45
+          domain: *ref_30
+          timestamp: *ref_31
+          bap_id: *ref_32
+          transaction_id: *ref_33
+          message_id: *ref_34
+          version: *ref_35
+          action:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: on_cancel
+            description: >-
+              Describes the Beckn protocol method being called by the sender and
+              executed at the receiver.
+          bap_uri: *ref_36
+          ttl: *ref_37
+          bpp_id: *ref_42
+          bpp_uri: *ref_43
+        message: *ref_124
 x-tlc:
   code:
     - Term: Buyer App Fee

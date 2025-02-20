@@ -1796,6 +1796,15 @@ on_confirm: &on_confirm
       fulfillments: &on_confirm_message_order_fulfillments
         id: *on_search_message_catalog_providers_fulfillments_id
         type: *on_search_message_catalog_providers_fulfillments_type
+        state: 
+          descriptor: 
+            code: 
+              required: MANDATORY
+              type: string
+              owner: BPP
+              usage: CONFIRMED
+              description: Describes the fulfillment state
+
         stops: &on_confirm_message_order_fulfillments_stops
           type: *on_search_message_catalog_providers_fulfillments_stops_type
           instructions: *on_select_message_order_fulfillments_stops_instructions
@@ -1880,3 +1889,149 @@ status: &status
   message: &status_message
     order_id: *on_confirm_message_order_id
 on_status: *on_confirm
+update:
+  context:
+    location: *select_context_location
+    domain: *search_context_domain
+    timestamp: *search_context_timestamp
+    bap_id: *search_context_bap_id
+    transaction_id: *search_context_transaction_id
+    message_id: *search_context_message_id
+    version: *search_context_version
+    action: &status_context_action
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: update
+      description: Describes the Beckn protocol method being called by the sender and
+        executed at the receiver.
+    bap_uri: *search_context_bap_uri
+    ttl: *search_context_ttl
+    bpp_id: *on_search_context_bpp_id
+    bpp_uri: *on_search_context_bpp_uri
+  message: 
+    update_target: 
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: order.items
+      description: Describes the update target
+    order:
+      cancellation:
+        reason:
+          id:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: '00'
+            description: Describes the reason id
+          descriptor:
+            code:
+              required: MANDATORY
+              type: string
+              owner: BAP
+              usage: 'SOFT_CANCEL'
+              description: Describes the code for cancellation
+      items:
+        id:
+          required: MANDATORY
+          type: string
+          owner: BPP
+          usage: 'I2'
+          description: Describes the item id
+        quantity:
+          selected:
+            count:
+              required: MANDATORY
+              type: string
+              owner: BPP
+              usage: '1'
+              description: Describes the quantity count
+on_update:
+  context: &status_context
+    location: *select_context_location
+    domain: *search_context_domain
+    timestamp: *search_context_timestamp
+    bap_id: *search_context_bap_id
+    transaction_id: *search_context_transaction_id
+    message_id: *search_context_message_id
+    version: *search_context_version
+    action: &status_context_action
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: on_update
+      description: Describes the Beckn protocol method being called by the sender and
+        executed at the receiver.
+    bap_uri: *search_context_bap_uri
+    ttl: *search_context_ttl
+    bpp_id: *on_search_context_bpp_id
+    bpp_uri: *on_search_context_bpp_uri
+  message: *on_confirm_message  
+cancel:
+  context:
+    location: *select_context_location
+    domain: *search_context_domain
+    timestamp: *search_context_timestamp
+    bap_id: *search_context_bap_id
+    transaction_id: *search_context_transaction_id
+    message_id: *search_context_message_id
+    version: *search_context_version
+    action: &status_context_action
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: cancel
+      description: Describes the Beckn protocol method being called by the sender and
+        executed at the receiver.
+    bap_uri: *search_context_bap_uri
+    ttl: *search_context_ttl
+    bpp_id: *on_search_context_bpp_id
+    bpp_uri: *on_search_context_bpp_uri
+  message:
+    order_id:
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: O1
+      description: Descibes the order id.
+    cancellation_reason_id:
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: O1
+      description: Descibes the cancellation reason id.
+    descriptor:
+      name:
+        required: OPTIONAL
+        type: string
+        owner: BAP
+        usage: O1
+        description: Descibes the descriptor name. 
+      code:
+        required: MANDATORY
+        type: string
+        owner: BAP
+        usage: O1
+        description: Descibes the descriptor name.
+on_cancel:
+  context:
+    location: *select_context_location
+    domain: *search_context_domain
+    timestamp: *search_context_timestamp
+    bap_id: *search_context_bap_id
+    transaction_id: *search_context_transaction_id
+    message_id: *search_context_message_id
+    version: *search_context_version
+    action: &status_context_action
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: on_cancel
+      description: Describes the Beckn protocol method being called by the sender and
+        executed at the receiver.
+    bap_uri: *search_context_bap_uri
+    ttl: *search_context_ttl
+    bpp_id: *on_search_context_bpp_id
+    bpp_uri: *on_search_context_bpp_uri
+  message: *on_confirm_message   

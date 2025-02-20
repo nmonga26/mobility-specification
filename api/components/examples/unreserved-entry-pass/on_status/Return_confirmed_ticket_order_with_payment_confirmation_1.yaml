@@ -18,7 +18,7 @@ context:
 message:
   order:
     id: '01'
-    status: COMPLETE
+    status: COMPLETED
     items:
       - id: I0
         descriptor:
@@ -178,6 +178,9 @@ message:
     fulfillments:
       - id: F1
         type: VISIT
+        state: 
+          descriptor:
+            code: COMPLETED
         stops:
           - type: START
             instructions:
@@ -224,6 +227,22 @@ message:
                 size_type: md
           rating: "5"  
     cancellation_terms:
+      - cancellation_fee: 
+          percentage: '10'
+        fulfillment_state:
+          descriptor:
+            code: CONFIRMED
+        cancel_by:
+          label: DURATION
+          duration: PT1H30M 
+      - cancellation_fee: 
+          percentage: '15'
+        fulfillment_state:
+          descriptor:
+            code: COMPLETED
+        cancel_by:
+          label: DURATION
+          duration: PT1H       
       - external_ref:
           mimetype: text/html
           url: https://api.unreserved-entry-pass.com/beckn/tnc.html
