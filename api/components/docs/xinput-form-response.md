@@ -46,6 +46,10 @@ The differentiation in MIME types and additional settings, such as resubmit and 
   - `url`: Endpoint where the form is hosted.
   - `multiple_sumbissions`: Indicates whether multiple submissions are allowed.
 
+  ### Additional Behavior:
+
+  When the `cur` and `max` index values are the same, there will be an additional consecutive `action` and `on_action` call. The `action` call will include the `submission_id`, and the `on_action` call will provide the confirmation response.
+
 ### mime_type:
 
  Describes the type of MIME.It can be one of the thee possible values: application/html or text/html or text/html-multi.
