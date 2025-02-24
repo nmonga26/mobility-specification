@@ -110,19 +110,6 @@ on_search: &on_search
                   code: NUMBER
                   description: Describes the ticket number for bus
                   reference: <PR/Issue/Discussion Links md format text>
-            - &on_search_message_catalog_providers_fulfillments_tags_2
-              code: TRIP_DETAILS
-              description: Describes the details ablout trip.
-              reference: <PR/Issue/Discussion Links md format text>
-              list: &on_search_message_catalog_providers_fulfillments_tags_2_list
-                - &on_search_message_catalog_providers_fulfillments_tags_2_list_0
-                  code: AVAILABLE_TRIPS
-                  description: Describes number of available trips.
-                  reference: <PR/Issue/Discussion Links md format text>
-                - &on_search_message_catalog_providers_fulfillments_tags_2_list_1
-                  code: UTILIZED_TRIPS
-                  description: Describes the number of utilized trips.
-                  reference: <PR/Issue/Discussion Links md format text>
             - &on_search_message_catalog_providers_fulfillments_tags_3
               code: INFO
               description: Describes the details ablout fulfillment.

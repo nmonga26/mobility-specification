@@ -56,13 +56,6 @@ info:
   - code: PARENT_ITEM_ID
     description: Describes the parent item id for fulfillments
     reference: <PR/Issue/Discussion Links md format text>
-trip_details:
-  - code: AVAILABLE_TRIPS
-    description: Describes number of available trips. 
-    reference: <PR/Issue/Discussion Links md format text>
-  - code: UTILIZED_TRIPS
-    description: Describes the number of utilized trips.
-    reference: <PR/Issue/Discussion Links md format text>
 # info:
 #   - code: AVAILABLE_TRIPS
 #     description: Describes number of available trips. 
