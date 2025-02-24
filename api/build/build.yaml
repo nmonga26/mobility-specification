@@ -3611,14 +3611,7 @@ x-flows:
                             cancel_by:
                               label: DURATION
                               duration: PT1H30M
-                          - cancellation_fee:
-                              percentage: '15'
-                            fulfillment_state:
-                              descriptor:
-                                code: COMPLETED
-                            cancel_by:
-                              label: DURATION
-                              duration: PT1H
+                            cancellation_eligible: true
                           - external_ref:
                               mimetype: text/html
                               url: >-
@@ -3795,13 +3788,13 @@ x-flows:
                               mimetype: text/html
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
-                            cancellation_eligible: false
+                            cancellation_eligible: true
                           - cancellation_fee:
                               percentage: '10'
                             cancel_by:
                               label: TIMESTAMP
                               timestamp: '2024-07-26T04:43:16.000Z'
-                            cancellation_eligible: false
+                            cancellation_eligible: true
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -3877,15 +3870,7 @@ x-flows:
                               mimetype: text/html
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
-                            cancellation_eligible: false
-                          - cancellation_fee:
-                              percentage: '15'
-                            fulfillment_state:
-                              descriptor:
-                                code: COMPLETED
-                            cancel_by:
-                              label: DURATION
-                              duration: PT1H
+                            cancellation_eligible: true
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -4168,14 +4153,7 @@ x-flows:
                             cancel_by:
                               label: DURATION
                               duration: PT1H30M
-                          - cancellation_fee:
-                              percentage: '15'
-                            fulfillment_state:
-                              descriptor:
-                                code: COMPLETED
-                            cancel_by:
-                              label: DURATION
-                              duration: PT1H
+                            cancellation_eligible: true
                           - external_ref:
                               mimetype: text/html
                               url: >-
@@ -4352,13 +4330,13 @@ x-flows:
                               mimetype: text/html
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
-                            cancellation_eligible: false
+                            cancellation_eligible: true
                           - cancellation_fee:
                               percentage: '10'
                             cancel_by:
                               label: TIMESTAMP
                               timestamp: '2024-07-26T04:43:16.000Z'
-                            cancellation_eligible: false
+                            cancellation_eligible: true
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -4434,15 +4412,7 @@ x-flows:
                               mimetype: text/html
                               url: >-
                                 https://api.unreserved-entry-pass.com/beckn/tnc.html
-                            cancellation_eligible: false
-                          - cancellation_fee:
-                              percentage: '15'
-                            fulfillment_state:
-                              descriptor:
-                                code: COMPLETED
-                            cancel_by:
-                              label: DURATION
-                              duration: PT1H
+                            cancellation_eligible: true
                         replacement_terms:
                           - external_ref:
                               mimetype: text/html
@@ -5029,14 +4999,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -5515,14 +5478,6 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -5934,14 +5889,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -6468,14 +6416,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -6912,14 +6853,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -7393,14 +7327,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -7833,14 +7760,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -8314,14 +8234,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -8843,14 +8756,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -9408,14 +9314,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html
@@ -9876,14 +9775,7 @@ x-flows:
                     cancel_by:
                       label: DURATION
                       duration: PT1H30M
-                  - cancellation_fee:
-                      percentage: '15'
-                    fulfillment_state:
-                      descriptor:
-                        code: COMPLETED
-                    cancel_by:
-                      label: DURATION
-                      duration: PT1H
+                    cancellation_eligible: true
                   - external_ref:
                       mimetype: text/html
                       url: https://api.unreserved-entry-pass.com/beckn/tnc.html

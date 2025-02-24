@@ -252,15 +252,7 @@ message:
             code: CONFIRMED
         cancel_by:
           label: DURATION
-          duration: PT1H30M 
-      - cancellation_fee: 
-          percentage: '15'
-        fulfillment_state:
-          descriptor:
-            code: COMPLETED
-        cancel_by:
-          label: DURATION
-          duration: PT1H       
+          duration: PT1H30M       
       - external_ref:
           mimetype: text/html
           url: https://api.unreserved-entry-pass.com/beckn/tnc.html
