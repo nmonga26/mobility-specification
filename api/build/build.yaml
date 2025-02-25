@@ -10467,7 +10467,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: SOFT_CANCEL
@@ -10741,6 +10741,11 @@ x-flows:
                           - descriptor:
                               code: SETTLEMENT_AMOUNT
                             value: '12505'
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
       - summary: Buyer app confirms the cancel request for ticket
@@ -10779,7 +10784,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: CONFIRM_CANCEL
@@ -11053,6 +11058,11 @@ x-flows:
                           - descriptor:
                               code: SETTLEMENT_AMOUNT
                             value: '12505'
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
   - summary: Metro - Cancel Flow
@@ -17114,7 +17124,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: 077b248f
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: SOFT_CANCEL
@@ -17529,6 +17539,11 @@ x-flows:
                       - descriptor:
                           code: GTFS
                         value: https://metro-transit/gtfs-realtime
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
       - summary: Buyer app confirms the cancel request for ticket
@@ -17567,7 +17582,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: 077b248f
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: CONFIRM_CANCEL
@@ -17982,6 +17997,11 @@ x-flows:
                       - descriptor:
                           code: GTFS
                         value: https://metro-transit/gtfs-realtime
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
 x-examples:
