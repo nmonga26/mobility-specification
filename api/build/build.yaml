@@ -3760,11 +3760,7 @@ x-flows:
           summary: >-
             Initialize draft order and request for terms of service[Buyer
             Collecting]
-<<<<<<< HEAD
-          value: &ref_48
-=======
-          value: &ref_57
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_60
             context:
               action: init
               bap_id: example-bap.com
@@ -3873,11 +3869,7 @@ x-flows:
         reference: if any
         example:
           summary: Return draft order with payment terms[Buyer Collecting]
-<<<<<<< HEAD
-          value: &ref_55
-=======
-          value: &ref_65
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_67
             context:
               action: on_init
               bap_id: example-bap.com
@@ -4117,11 +4109,7 @@ x-flows:
         reference: if any
         example:
           summary: Get latest fulfillment status of a booking
-<<<<<<< HEAD
-          value: &ref_68
-=======
-          value: &ref_78
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_80
             context:
               action: status
               bap_id: example-bap.com
@@ -4157,11 +4145,7 @@ x-flows:
         reference: if any
         example:
           summary: Return draft order with payment terms[Buyer Collecting]
-<<<<<<< HEAD
-          value: &ref_63
-=======
-          value: &ref_73
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_75
             context:
               action: on_status
               bap_id: example-bap.com
@@ -4425,11 +4409,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ride booking
-<<<<<<< HEAD
-          value: &ref_47
-=======
-          value: &ref_56
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_59
             context:
               action: confirm
               bap_id: example-bap.com
@@ -4572,11 +4552,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-<<<<<<< HEAD
-          value: &ref_53
-=======
-          value: &ref_63
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_65
             context:
               action: on_confirm
               bap_id: example-bap.com
@@ -7064,11 +7040,7 @@ x-flows:
         reference: if any
         example:
           summary: Return updated order with recomputed charges
-<<<<<<< HEAD
-          value: &ref_64
-=======
-          value: &ref_74
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_76
             context:
               action: on_update
               bap_id: example-bap.com
@@ -7386,11 +7358,7 @@ x-flows:
         reference: if any
         example:
           summary: Return order with status - Driver at pickup
-<<<<<<< HEAD
-          value: &ref_62
-=======
-          value: &ref_72
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_74
             context:
               action: on_status
               bap_id: example-bap.com
@@ -8158,11 +8126,7 @@ x-flows:
         reference: if any
         example:
           summary: Return updated order with updated agent details
-<<<<<<< HEAD
-          value: &ref_65
-=======
-          value: &ref_75
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_77
             context:
               action: on_update
               bap_id: example-bap.com
@@ -8523,11 +8487,7 @@ x-flows:
         reference: if any
         example:
           summary: Return order with status - Driver at pickup
-<<<<<<< HEAD
-          value: &ref_59
-=======
-          value: &ref_69
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_71
             context:
               action: on_status
               bap_id: example-bap.com
@@ -11818,11 +11778,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a mobility catalog[Seller Collecting]
-<<<<<<< HEAD
-          value: &ref_57
-=======
-          value: &ref_67
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_69
             context:
               action: on_search
               bap_id: example-bap.com
@@ -12022,11 +11978,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a quote offered by a provider
-<<<<<<< HEAD
-          value: &ref_58
-=======
-          value: &ref_68
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_70
             context:
               action: on_select
               bap_id: example-bap.com
@@ -12174,11 +12126,7 @@ x-flows:
           summary: >-
             Initialize draft order and request for terms of service[Seller
             Collecting]
-<<<<<<< HEAD
-          value: &ref_49
-=======
-          value: &ref_58
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_61
             context:
               action: init
               bap_id: example-bap.com
@@ -12287,11 +12235,7 @@ x-flows:
         reference: if any
         example:
           summary: Return draft order with payment terms[Seller Collecting]
-<<<<<<< HEAD
-          value: &ref_56
-=======
-          value: &ref_66
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_68
             context:
               action: on_init
               bap_id: example-bap.com
@@ -12511,11 +12455,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ride booking
-<<<<<<< HEAD
-          value: &ref_46
-=======
-          value: &ref_55
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_58
             context:
               action: confirm
               bap_id: example-bap.com
@@ -12660,11 +12600,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-<<<<<<< HEAD
-          value: &ref_52
-=======
-          value: &ref_62
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_64
             context:
               action: on_confirm
               bap_id: example-bap.com
@@ -12939,11 +12875,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-<<<<<<< HEAD
-          value: &ref_66
-=======
-          value: &ref_76
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_78
             context:
               action: on_update
               bap_id: example-bap.com
@@ -13226,11 +13158,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-<<<<<<< HEAD
-          value: &ref_60
-=======
-          value: &ref_70
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_72
             context:
               action: on_status
               bap_id: example-bap.com
@@ -13553,11 +13481,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-<<<<<<< HEAD
-          value: &ref_67
-=======
-          value: &ref_77
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_79
             context:
               action: on_update
               bap_id: example-bap.com
@@ -13860,11 +13784,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed order with latest fulfillment details
-<<<<<<< HEAD
-          value: &ref_61
-=======
-          value: &ref_71
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_73
             context:
               action: on_status
               bap_id: example-bap.com
@@ -14139,11 +14059,7 @@ x-flows:
         reference: if any
         example:
           summary: Return current order status after confirm-cancel
-<<<<<<< HEAD
-          value: &ref_50
-=======
-          value: &ref_59
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_62
             context:
               action: on_cancel
               bap_id: example-bap.com
@@ -14495,11 +14411,7 @@ x-flows:
         reference: if any
         example:
           summary: Initiates cancelling a ride with soft cancel status
-<<<<<<< HEAD
-          value: &ref_41
-=======
-          value: &ref_54
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_53
             context:
               action: cancel
               bap_id: example-bap.com
@@ -14545,11 +14457,7 @@ x-flows:
         reference: if any
         example:
           summary: Return current order status after soft-cancel
-<<<<<<< HEAD
-          value: &ref_42
-=======
-          value: &ref_60
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_54
             context:
               action: on_cancel
               bap_id: example-bap.com
@@ -14840,11 +14748,7 @@ x-flows:
         reference: if any
         example:
           summary: Initiates cancelling a ride with confirm cancel status
-<<<<<<< HEAD
-          value: &ref_45
-=======
-          value: &ref_53
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_57
             context:
               action: cancel
               bap_id: example-bap.com
@@ -15233,11 +15137,7 @@ x-flows:
         reference: if any
         api: on_confirm
         example:
-<<<<<<< HEAD
-          value: &ref_54
-=======
-          value: &ref_64
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_66
             context:
               action: on_confirm
               bap_id: example-bap.com
@@ -15364,11 +15264,7 @@ x-flows:
         reference: if any
         api: on_cancel
         example:
-<<<<<<< HEAD
-          value: &ref_51
-=======
-          value: &ref_61
->>>>>>> origin/draft-TRV10-2.1.0
+          value: &ref_63
             context:
               action: on_cancel
               bap_id: example-bap.com
@@ -18471,7 +18367,7 @@ x-flows:
         reference: if any
         example:
           summary: Update an active ride
-          value: &ref_43
+          value: &ref_55
             context:
               action: update
               bap_id: example-bap.com
@@ -18519,7 +18415,7 @@ x-flows:
         reference: if any
         example:
           summary: Return tracking information for an order
-          value: &ref_44
+          value: &ref_56
             context:
               action: on_update
               bap_id: example-bap.com
@@ -27847,7 +27743,7 @@ x-flows:
         reference: if any
         example:
           summary: Track an active ride
-          value: *ref_38
+          value: *ref_50
       - summary: Provider platform provides latest order tracking status
         api: on_track
         details:
@@ -27867,7 +27763,7 @@ x-flows:
         reference: if any
         example:
           summary: Return tracking information for an order
-          value: *ref_39
+          value: *ref_51
       - summary: Ride provider provides latest order status
         api: on_status
         details:
@@ -28156,49 +28052,6 @@ x-flows:
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
-<<<<<<< HEAD
-=======
-      - summary: Buyer app requests for tracking status
-        api: track
-        details:
-          - description: >-
-              Buyer app request the provider platform to provide with latest
-              tracking status
-            mermaid: |-
-              sequenceDiagram
-                participant Buyer Platform (BAP)
-                participant Seller Platform (BPP)
-                rect rgb(191, 223, 255)
-                Buyer Platform (BAP)->>Seller Platform (BPP): track - Request tracking status
-                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-                end
-                Seller Platform (BPP)->>Buyer Platform (BAP): on_track - Provide tracking status
-                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-        reference: if any
-        example:
-          summary: Track an active ride
-          value: *ref_50
-      - summary: Provider platform provides latest order tracking status
-        api: on_track
-        details:
-          - description: >-
-              Provider platform provides the updated order tracking status to
-              the consumer
-            mermaid: |-
-              sequenceDiagram
-                participant Buyer Platform (BAP)
-                participant Seller Platform (BPP)
-                Buyer Platform (BAP)->>Seller Platform (BPP): track - Request tracking status
-                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-                rect rgb(191, 223, 255)
-                Seller Platform (BPP)->>Buyer Platform (BAP): on_track - Provide tracking status
-                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
-                end
-        reference: if any
-        example:
-          summary: Return tracking information for an order
-          value: *ref_51
->>>>>>> origin/draft-TRV10-2.1.0
       - summary: Ride provider provides latest order status
         api: on_status
         details:
@@ -29429,7 +29282,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: ON_DEMAND_TRIP
+                    code: ON_DEMAND_RENTAL
                 fulfillment:
                   stops:
                     - location:
@@ -29705,7 +29558,7 @@ x-flows:
         reference: if any
         example:
           summary: Initiates cancelling a ride with soft cancel status
-          value: *ref_41
+          value: *ref_53
       - summary: Ride provider accepts/appends the terms of cancellation
         api: on_cancel
         details:
@@ -29727,7 +29580,7 @@ x-flows:
         reference: if any
         example:
           summary: Return current order status after soft-cancel
-          value: *ref_42
+          value: *ref_54
       - summary: Ride provider sends unsolicited on_status call
         api: on_status
         details:
@@ -30046,7 +29899,7 @@ x-flows:
         reference: if any
         example:
           summary: Update an active ride
-          value: *ref_43
+          value: *ref_55
       - summary: Provider platform confirms with on_update request
         api: on_update
         details:
@@ -30066,7 +29919,7 @@ x-flows:
         reference: if any
         example:
           summary: Return tracking information for an order
-          value: *ref_44
+          value: *ref_56
       - summary: Ride provider sends unsolicited on_status call
         api: on_status
         details:
@@ -30368,15 +30221,9 @@ x-examples:
       cancel:
         examples:
           - summary: Initiates_cancelling_a_ride_with_confirm_cancel_status___X5
-<<<<<<< HEAD
-            value: *ref_45
+            value: *ref_57
           - summary: Initiates_cancelling_a_ride_with_soft_cancel_status___X4
-            value: *ref_41
-=======
             value: *ref_53
-          - summary: Initiates_cancelling_a_ride_with_soft_cancel_status___X4
-            value: *ref_54
->>>>>>> origin/draft-TRV10-2.1.0
       confirm:
         examples:
           - summary: Confirm_ride_booking___X6
@@ -30384,19 +30231,11 @@ x-examples:
           - summary: >-
               confirm_buyer_app_confirms_the_booking_and_provides_all_the_required_information_for_confirmation_as_per_the_terms_of_the_order__5
             description: TBD
-<<<<<<< HEAD
-            value: *ref_46
+            value: *ref_58
           - summary: >-
               confirm_buyer_app_confirms_the_booking_and_provides_all_the_required_information_for_confirmation_as_per_the_terms_of_the_order__6
             description: TBD
-            value: *ref_47
-=======
-            value: *ref_55
-          - summary: >-
-              confirm_buyer_app_confirms_the_booking_and_provides_all_the_required_information_for_confirmation_as_per_the_terms_of_the_order__6
-            description: TBD
-            value: *ref_56
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_59
       init:
         examples:
           - summary: >-
@@ -30405,37 +30244,20 @@ x-examples:
           - summary: >-
               init_buyer_app_platform_shares_the_terms_of_order_and_initializes_the_request__1
             description: TBD
-<<<<<<< HEAD
-            value: *ref_48
-          - summary: >-
-              init_buyer_app_platform_shares_the_terms_of_order_and_initializes_the_request__3
-            description: TBD
-            value: *ref_49
-      on_cancel:
-        examples:
-          - summary: Return_current_order_status_after_confirm-cancel___X9
-            value: *ref_50
-          - summary: Return_current_order_status_after_soft-cancel___X8
-            value: *ref_42
-          - summary: cancel_after_confirm
-            description: TBD
-            value: *ref_51
-=======
-            value: *ref_57
-          - summary: >-
-              init_buyer_app_platform_shares_the_terms_of_order_and_initializes_the_request__3
-            description: TBD
-            value: *ref_58
-      on_cancel:
-        examples:
-          - summary: Return_current_order_status_after_confirm-cancel___X9
-            value: *ref_59
-          - summary: Return_current_order_status_after_soft-cancel___X8
             value: *ref_60
-          - summary: cancel_after_confirm
+          - summary: >-
+              init_buyer_app_platform_shares_the_terms_of_order_and_initializes_the_request__3
             description: TBD
             value: *ref_61
->>>>>>> origin/draft-TRV10-2.1.0
+      on_cancel:
+        examples:
+          - summary: Return_current_order_status_after_confirm-cancel___X9
+            value: *ref_62
+          - summary: Return_current_order_status_after_soft-cancel___X8
+            value: *ref_54
+          - summary: cancel_after_confirm
+            description: TBD
+            value: *ref_63
       on_confirm:
         examples:
           - summary: Return_confirmed_order_with_latest_fulfillment_details___X10
@@ -30681,25 +30503,14 @@ x-examples:
           - summary: >-
               on_confirm_ride_provider_confirms_the_ride_request_and_provides_the_ride_details_on_confirmation__6
             description: TBD
-<<<<<<< HEAD
-            value: *ref_52
-          - summary: >-
-              on_confirm_ride_provider_confirms_the_ride_request_and_provides_the_ride_details_on_confirmation__7
-            description: TBD
-            value: *ref_53
-          - summary: ride_cancelled
-            description: TBD
-            value: *ref_54
-=======
-            value: *ref_62
-          - summary: >-
-              on_confirm_ride_provider_confirms_the_ride_request_and_provides_the_ride_details_on_confirmation__7
-            description: TBD
-            value: *ref_63
-          - summary: ride_cancelled
-            description: TBD
             value: *ref_64
->>>>>>> origin/draft-TRV10-2.1.0
+          - summary: >-
+              on_confirm_ride_provider_confirms_the_ride_request_and_provides_the_ride_details_on_confirmation__7
+            description: TBD
+            value: *ref_65
+          - summary: ride_cancelled
+            description: TBD
+            value: *ref_66
       on_init:
         examples:
           - summary: Return_draft_order_with_payment_terms[Seller_Collecting]___X13
@@ -30707,19 +30518,11 @@ x-examples:
           - summary: >-
               on_init_ride_provider_accepts_the_terms_of_order_and_appends_its_own_terms_and_responds_with_the_final_draft__2
             description: TBD
-<<<<<<< HEAD
-            value: *ref_55
+            value: *ref_67
           - summary: >-
               on_init_ride_provider_accepts_the_terms_of_order_and_appends_its_own_terms_and_responds_with_the_final_draft__4
             description: TBD
-            value: *ref_56
-=======
-            value: *ref_65
-          - summary: >-
-              on_init_ride_provider_accepts_the_terms_of_order_and_appends_its_own_terms_and_responds_with_the_final_draft__4
-            description: TBD
-            value: *ref_66
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_68
       on_rating:
         examples:
           - summary: Return_acknowledgement_of_rating_and_feedback___X14
@@ -30879,11 +30682,7 @@ x-examples:
           - summary: >-
               on_search_ride_providers_which_is_a_mobility_provider_platform_sends_the_catalog_of_all_services_that_can_be_used_for_transit_from_a_to_b_along_with_estimated_fare__1
             description: TBD
-<<<<<<< HEAD
-            value: *ref_57
-=======
-            value: *ref_67
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_69
       on_select:
         examples:
           - summary: Return_a_quote_offered_by_a_provider___X17
@@ -30891,11 +30690,7 @@ x-examples:
           - summary: >-
               on_select_ride_provider_responds_with_detailed_information_and_quote_for_the_specific_service_that_the_buyer_app_would_like_to_avail__2
             description: TBD
-<<<<<<< HEAD
-            value: *ref_58
-=======
-            value: *ref_68
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_70
       on_status:
         examples:
           - summary: >-
@@ -31555,19 +31350,11 @@ x-examples:
                       value: '146'
                     ttl: P200S
           - summary: Return_order_with_status_-_Driver_at_pickup___X18
-<<<<<<< HEAD
-            value: *ref_59
+            value: *ref_71
           - summary: >-
               on_status_ride_provider_provides_the_latest_update_on_ride_details_to_the_buyer_app_with_fulfillment_state___ride_started_8
             description: TBD
-            value: *ref_60
-=======
-            value: *ref_69
-          - summary: >-
-              on_status_ride_provider_provides_the_latest_update_on_ride_details_to_the_buyer_app_with_fulfillment_state___ride_started_8
-            description: TBD
-            value: *ref_70
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_72
           - summary: >-
               on_status_ride_provider_provides_the_updated_order_status_to_the_buyer_app_1
             description: TBD
@@ -31575,11 +31362,7 @@ x-examples:
           - summary: >-
               on_status_ride_provider_provides_the_updated_order_status_to_the_buyer_app_10
             description: TBD
-<<<<<<< HEAD
-            value: *ref_61
-=======
-            value: *ref_71
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_73
           - summary: >-
               on_status_ride_provider_provides_the_updated_order_status_to_the_buyer_app_2
             description: TBD
@@ -31591,19 +31374,11 @@ x-examples:
           - summary: >-
               on_status_ride_provider_provides_the_updated_order_status_to_the_buyer_app_4
             description: TBD
-<<<<<<< HEAD
-            value: *ref_62
+            value: *ref_74
           - summary: >-
               on_status_ride_provider_provides_the_updated_order_status_to_the_buyer_app_5
             description: TBD
-            value: *ref_63
-=======
-            value: *ref_72
-          - summary: >-
-              on_status_ride_provider_provides_the_updated_order_status_to_the_buyer_app_5
-            description: TBD
-            value: *ref_73
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_75
       on_support:
         examples:
           - summary: Return_support_information_related_to_an_order___X22
@@ -31637,15 +31412,9 @@ x-examples:
       on_update:
         examples:
           - summary: Return_updated_order_with_recomputed_charges___X24
-<<<<<<< HEAD
-            value: *ref_64
+            value: *ref_76
           - summary: Return_updated_order_with_updated_agent_details___X26
-            value: *ref_65
-=======
-            value: *ref_74
-          - summary: Return_updated_order_with_updated_agent_details___X26
-            value: *ref_75
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_77
           - summary: Return_updated_order_with_updated_billing_details___X25
             value:
               context:
@@ -31885,19 +31654,11 @@ x-examples:
           - summary: >-
               on_update_ride_provider_provides_the_latest_update_on_ride_details_to_the_buyer_app__7
             description: TBD
-<<<<<<< HEAD
-            value: *ref_66
+            value: *ref_78
           - summary: >-
               on_update_ride_provider_provides_the_updated_order_updates_to_the_buyer_app___can_update_the_quote_in_case_of_fare_update_9
             description: TBD
-            value: *ref_67
-=======
-            value: *ref_76
-          - summary: >-
-              on_update_ride_provider_provides_the_updated_order_updates_to_the_buyer_app___can_update_the_quote_in_case_of_fare_update_9
-            description: TBD
-            value: *ref_77
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_79
       rating:
         examples:
           - summary: Provide_a_rating___X27
@@ -32018,11 +31779,7 @@ x-examples:
           - summary: >-
               status_buyer_app_requests_the_ride_provider_to_provide_the_latest_order_status_4
             description: TBD
-<<<<<<< HEAD
-            value: *ref_68
-=======
-            value: *ref_78
->>>>>>> origin/draft-TRV10-2.1.0
+            value: *ref_80
       support:
         examples:
           - summary: Fetch_support_information_related_to_a_particular_order___X30
@@ -32055,15 +31812,9 @@ x-attributes:
     attribute_set:
       search:
         context:
-<<<<<<< HEAD
-          location: &ref_69
+          location: &ref_81
             country:
-              code: &ref_137
-=======
-          location: &ref_79
-            country:
-              code: &ref_147
->>>>>>> origin/draft-TRV10-2.1.0
+              code: &ref_149
                 required: MANDATORY
                 type: string
                 owner: BAP
@@ -32078,11 +31829,7 @@ x-attributes:
                   This attribute defines the country of location where the
                   transaction is meant to be completed.
             city:
-<<<<<<< HEAD
-              code: &ref_138
-=======
-              code: &ref_148
->>>>>>> origin/draft-TRV10-2.1.0
+              code: &ref_150
                 required: MANDATORY
                 type: string
                 owner: BAP
@@ -32104,51 +31851,31 @@ x-attributes:
               description: >-
                 This attribute defines the location where the transaction is
                 meant to be completed.
-<<<<<<< HEAD
-          domain: &ref_70
-=======
-          domain: &ref_80
->>>>>>> origin/draft-TRV10-2.1.0
+          domain: &ref_82
             required: MANDATORY
             type: string
             owner: BAP
             usage: ONDC:TRV10
             description: Describes domain code that is relevant to this transaction context
-<<<<<<< HEAD
-          timestamp: &ref_71
-=======
-          timestamp: &ref_81
->>>>>>> origin/draft-TRV10-2.1.0
+          timestamp: &ref_83
             required: MANDATORY
             type: string
             owner: BAP
             usage: 2023-03-23T04:41:16.000Z
             description: Describes tme of request generation in RFC3339 format
-<<<<<<< HEAD
-          bap_id: &ref_72
-=======
-          bap_id: &ref_82
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_id: &ref_84
             required: MANDATORY
             type: string
             owner: BAP
             usage: api.example-bap.com
             description: Describes subscriber ID of the BAP
-<<<<<<< HEAD
-          transaction_id: &ref_73
-=======
-          transaction_id: &ref_83
->>>>>>> origin/draft-TRV10-2.1.0
+          transaction_id: &ref_85
             required: MANDATORY
             type: string
             owner: BAP
             usage: 6743e9e2
             description: Describes  a unique value which persists across all API calls
-<<<<<<< HEAD
-          message_id: &ref_74
-=======
-          message_id: &ref_84
->>>>>>> origin/draft-TRV10-2.1.0
+          message_id: &ref_86
             required: MANDATORY
             type: string
             owner: BAP
@@ -32156,11 +31883,7 @@ x-attributes:
             description: >-
               Describes a unique value which persists during a request /
               callback cycle.
-<<<<<<< HEAD
-          version: &ref_75
-=======
-          version: &ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          version: &ref_87
             required: MANDATORY
             type: integer
             owner: BAP
@@ -32176,11 +31899,7 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: &ref_76
-=======
-          bap_uri: &ref_86
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_uri: &ref_88
             required: MANDATORY
             type: string
             owner: BAP
@@ -32188,11 +31907,7 @@ x-attributes:
             description: >-
               Describes subscriber URL of the BAP for accepting callbacks from
               BPPs.
-<<<<<<< HEAD
-          ttl: &ref_77
-=======
-          ttl: &ref_87
->>>>>>> origin/draft-TRV10-2.1.0
+          ttl: &ref_89
             required: MANDATORY
             type: string
             owner: BAP
@@ -32204,11 +31919,7 @@ x-attributes:
           intent:
             fulfillment:
               stops:
-<<<<<<< HEAD
-                type: &ref_78
-=======
-                type: &ref_88
->>>>>>> origin/draft-TRV10-2.1.0
+                type: &ref_90
                   required: MANDATORY
                   type: string
                   owner: BAP
@@ -32279,11 +31990,7 @@ x-attributes:
                 owner: BAP
                 usage: '--'
                 description: The terms of settlement for this order
-<<<<<<< HEAD
-              tags: &ref_100
-=======
-              tags: &ref_110
->>>>>>> origin/draft-TRV10-2.1.0
+              tags: &ref_112
                 BUYER_FINDER_FEES:
                   required: MANDATORY
                   type: OBJECT
@@ -32377,23 +32084,13 @@ x-attributes:
                 can align relevant options from available products or service.
       on_search:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -32402,25 +32099,15 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: &ref_79
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: &ref_89
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: &ref_91
             required: MANDATORY
             type: string
             owner: BPP
             usage: api.example-bpp.com
             description: Describes subscriber ID of the BPP
-<<<<<<< HEAD
-          bpp_uri: &ref_80
-=======
-          bpp_uri: &ref_90
->>>>>>> origin/draft-TRV10-2.1.0
+          bpp_uri: &ref_92
             required: MANDATORY
             type: string
             owner: BPP
@@ -32443,11 +32130,7 @@ x-attributes:
                 usage: '--'
                 description: Describes the catalog's descriptor.
             providers:
-<<<<<<< HEAD
-              id: &ref_82
-=======
-              id: &ref_92
->>>>>>> origin/draft-TRV10-2.1.0
+              id: &ref_94
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -32473,11 +32156,7 @@ x-attributes:
                   usage: '--'
                   description: Describes the provider's locations.
               fulfillments:
-<<<<<<< HEAD
-                id: &ref_139
-=======
-                id: &ref_149
->>>>>>> origin/draft-TRV10-2.1.0
+                id: &ref_151
                   required: MANDATORY
                   type: string
                   owner: BPP
@@ -32495,11 +32174,7 @@ x-attributes:
                     typically set when there are multiple ways an order can be
                     fulfilled. 
                 stops:
-<<<<<<< HEAD
-                  type: *ref_78
-=======
-                  type: *ref_88
->>>>>>> origin/draft-TRV10-2.1.0
+                  type: *ref_90
                   location:
                     gps:
                       required: MANDATORY
@@ -32507,52 +32182,32 @@ x-attributes:
                       owner: BAP
                       usage: 28.707358, 77.180910
                       description: Describes the GPS co-ordinates of this location.
-<<<<<<< HEAD
-                    _description: &ref_92
-=======
-                    _description: &ref_102
->>>>>>> origin/draft-TRV10-2.1.0
+                    _description: &ref_104
                       required: MANDATORY
                       type: object
                       owner: BAP
                       usage: '--'
                       description: Describes the location of stops.
-<<<<<<< HEAD
-                  _description: &ref_93
-=======
-                  _description: &ref_103
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_105
                     required: MANDATORY
                     type: object
                     owner: BAP
                     usage: '--'
                     description: Describes the fulfillments stops.
-<<<<<<< HEAD
-                vehicle: &ref_94
-=======
-                vehicle: &ref_104
->>>>>>> origin/draft-TRV10-2.1.0
+                vehicle: &ref_106
                   category:
                     required: MANDATORY
                     type: string
                     owner: BAP
                     usage: CAB
                     description: Describes the vehicle category.
-<<<<<<< HEAD
-                  _description: &ref_99
-=======
-                  _description: &ref_109
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_111
                     required: MANDATORY
                     type: object
                     owner: BAP
                     usage: '--'
                     description: Describes the vehicle type.
-<<<<<<< HEAD
-                _description: &ref_95
-=======
-                _description: &ref_105
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_107
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
@@ -32561,11 +32216,7 @@ x-attributes:
                     Describes how a an order will be rendered/fulfilled to the
                     end-customer
               items:
-<<<<<<< HEAD
-                id: &ref_81
-=======
-                id: &ref_91
->>>>>>> origin/draft-TRV10-2.1.0
+                id: &ref_93
                   required: MANDATORY
                   type: string
                   owner: BPP
@@ -32584,42 +32235,26 @@ x-attributes:
                     owner: BPP
                     usage: RIDE
                     description: Describes the name value of the item
-<<<<<<< HEAD
-                  _description: &ref_83
-=======
-                  _description: &ref_93
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_95
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the items description.
                 price:
-<<<<<<< HEAD
-                  currency: &ref_84
-=======
-                  currency: &ref_94
->>>>>>> origin/draft-TRV10-2.1.0
+                  currency: &ref_96
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: INR
                     description: Describes the currency type of a product or service
-<<<<<<< HEAD
-                  value: &ref_85
-=======
-                  value: &ref_95
->>>>>>> origin/draft-TRV10-2.1.0
+                  value: &ref_97
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: 60
                     description: Describes the price of a product or service
-<<<<<<< HEAD
-                  maximum_value: &ref_86
-=======
-                  maximum_value: &ref_96
->>>>>>> origin/draft-TRV10-2.1.0
+                  maximum_value: &ref_98
                     required: OPTIONAL
                     type: string
                     owner: BPP
@@ -32631,21 +32266,13 @@ x-attributes:
                     owner: BPP
                     usage: 50
                     description: Describes a minimum value price in decimal form
-<<<<<<< HEAD
-                  _description: &ref_87
-=======
-                  _description: &ref_97
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_99
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the price of an item.
-<<<<<<< HEAD
-                location_ids: &ref_103
-=======
-                location_ids: &ref_113
->>>>>>> origin/draft-TRV10-2.1.0
+                location_ids: &ref_115
                   required: OPTIONAL
                   type: string
                   owner: BPP
@@ -32659,11 +32286,7 @@ x-attributes:
                   owner: BPP
                   usage: b68bb35b
                   description: Describes the Unique reference ID for order fulfillment.
-<<<<<<< HEAD
-                _description: &ref_88
-=======
-                _description: &ref_98
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_100
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -32675,11 +32298,7 @@ x-attributes:
                     it can represent the delivery service offering. In the
                     retail domain it can represent a product like a grocery
                     item.
-<<<<<<< HEAD
-                tags: &ref_89
-=======
-                tags: &ref_99
->>>>>>> origin/draft-TRV10-2.1.0
+                tags: &ref_101
                   FARE_POLICY:
                     required: MANDATORY
                     type: OBJECT
@@ -32852,11 +32471,7 @@ x-attributes:
                         owner: BPP
                         usage: '--'
                         description: Denotes settlement amount
-<<<<<<< HEAD
-              _description: &ref_90
-=======
-              _description: &ref_100
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: &ref_102
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -32870,23 +32485,13 @@ x-attributes:
               description: Describes the catalog's description.
       select:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -32895,25 +32500,14 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
-            items: &ref_96
-              id: *ref_81
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items: &ref_106
-              id: *ref_91
->>>>>>> origin/draft-TRV10-2.1.0
+            items: &ref_108
+              id: *ref_93
               _description:
                 required: MANDATORY
                 type: object
@@ -32924,13 +32518,8 @@ x-attributes:
                   products or services selected and obtained within the
                   specified order.
             provider:
-<<<<<<< HEAD
-              id: *ref_82
-              _description: &ref_97
-=======
-              id: *ref_92
-              _description: &ref_107
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_94
+              _description: &ref_109
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -32948,23 +32537,13 @@ x-attributes:
                 created between the buyer and the seller.
       on_select:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -32973,29 +32552,16 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
-              id: *ref_81
-              descriptor: &ref_101
-                name: &ref_162
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items:
-              id: *ref_91
-              descriptor: &ref_111
-                name: &ref_172
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_93
+              descriptor: &ref_113
+                name: &ref_174
                   required: MANDATORY
                   type: string
                   owner: BPP
@@ -33007,65 +32573,37 @@ x-attributes:
                   owner: BPP
                   usage: RIDE
                   description: Describes the unique code value of the item
-<<<<<<< HEAD
-                _description: *ref_83
+                _description: *ref_95
               price:
-                currency: *ref_84
-                value: *ref_85
-                maximum_value: *ref_86
-                minimum_value: &ref_102
-=======
-                _description: *ref_93
-              price:
-                currency: *ref_94
-                value: *ref_95
-                maximum_value: *ref_96
-                minimum_value: &ref_112
->>>>>>> origin/draft-TRV10-2.1.0
+                currency: *ref_96
+                value: *ref_97
+                maximum_value: *ref_98
+                minimum_value: &ref_114
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 50
                   description: Describes a minimum value of price in decimal form
-<<<<<<< HEAD
-                _description: *ref_87
-              location_ids: &ref_140
-=======
-                _description: *ref_97
-              location_ids: &ref_150
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_99
+              location_ids: &ref_152
                 required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: d3ebf05b
                 description: Provider Locations this item is available in
-<<<<<<< HEAD
-              fulfillment_ids: &ref_91
-=======
-              fulfillment_ids: &ref_101
->>>>>>> origin/draft-TRV10-2.1.0
+              fulfillment_ids: &ref_103
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: b68bb35b
                 description: Unique reference ID to the fulfillment of an order
-<<<<<<< HEAD
-              _description: *ref_88
-              tags: *ref_89
-            provider:
-              id: *ref_82
-              _description: *ref_90
-            fulfillments:
-              id: *ref_91
-=======
-              _description: *ref_98
-              tags: *ref_99
-            provider:
-              id: *ref_92
               _description: *ref_100
+              tags: *ref_101
+            provider:
+              id: *ref_94
+              _description: *ref_102
             fulfillments:
-              id: *ref_101
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_103
               type:
                 required: OPTIONAL
                 type: string
@@ -33076,32 +32614,19 @@ x-attributes:
                   typically set when there are multiple ways an order can be
                   fulfilled. 
               stops:
-<<<<<<< HEAD
-                type: *ref_78
-                location: &ref_105
-=======
-                type: *ref_88
-                location: &ref_115
->>>>>>> origin/draft-TRV10-2.1.0
+                type: *ref_90
+                location: &ref_117
                   gps:
                     required: MANDATORY
                     type: string
                     owner: BAP
                     usage: 28.686576, 77.441632
                     description: Describes the GPS co-ordinates of this location.
-<<<<<<< HEAD
-                  _description: *ref_92
-                _description: *ref_93
-              vehicle: *ref_94
-              _description: *ref_95
-              tags: &ref_106
-=======
-                  _description: *ref_102
-                _description: *ref_103
-              vehicle: *ref_104
-              _description: *ref_105
-              tags: &ref_116
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_104
+                _description: *ref_105
+              vehicle: *ref_106
+              _description: *ref_107
+              tags: &ref_118
                 ROUTE_INFO:
                   required: MANDATORY
                   type: OBJECT
@@ -33122,56 +32647,35 @@ x-attributes:
                       usage: '--'
                       description: Describes the waypoints value.
             quote:
-<<<<<<< HEAD
-              price: &ref_107
-                value: *ref_85
-=======
-              price: &ref_117
-                value: *ref_95
->>>>>>> origin/draft-TRV10-2.1.0
+              price: &ref_119
+                value: *ref_97
                 currency:
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: INR
                   description: Describes the currency of a product or service
-<<<<<<< HEAD
-                _description: &ref_156
-=======
-                _description: &ref_166
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_168
                   required: MANDATORY
                   type: object
                   owner: BPP
                   usage: '--'
                   description: This refers to the value of used currency of quoted price.
               breakup:
-<<<<<<< HEAD
-                title: &ref_108
-=======
-                title: &ref_118
->>>>>>> origin/draft-TRV10-2.1.0
+                title: &ref_120
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: Base Fare
                   description: Breakup title of the total quoted price
                 price:
-<<<<<<< HEAD
-                  value: &ref_129
-=======
-                  value: &ref_139
->>>>>>> origin/draft-TRV10-2.1.0
+                  value: &ref_141
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: INR
                     description: Describes the price of a product or service
-<<<<<<< HEAD
-                  currency: &ref_130
-=======
-                  currency: &ref_140
->>>>>>> origin/draft-TRV10-2.1.0
+                  currency: &ref_142
                     required: MANDATORY
                     type: string
                     owner: BPP
@@ -33179,21 +32683,13 @@ x-attributes:
                     description: >-
                       Describes the currency to be paid in of a product or
                       service
-<<<<<<< HEAD
-                  _description: &ref_109
-=======
-                  _description: &ref_119
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_121
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the breakup price
-<<<<<<< HEAD
-                _description: &ref_110
-=======
-                _description: &ref_120
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_122
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -33201,21 +32697,13 @@ x-attributes:
                   description: >-
                     This attribute describes the breakup of the total quoted
                     price.
-<<<<<<< HEAD
-              ttl: &ref_111
-=======
-              ttl: &ref_121
->>>>>>> origin/draft-TRV10-2.1.0
+              ttl: &ref_123
                 required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: P200s
                 description: Time to live in seconds for an instance of this schema
-<<<<<<< HEAD
-              _description: &ref_112
-=======
-              _description: &ref_122
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: &ref_124
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -33231,23 +32719,13 @@ x-attributes:
               description: Describes the order description.
       init:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -33256,37 +32734,21 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
-            items: *ref_96
+            items: *ref_108
             provider:
-              id: &ref_166
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items: *ref_106
-            provider:
-              id: &ref_176
->>>>>>> origin/draft-TRV10-2.1.0
+              id: &ref_178
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: 450dec0f
                 description: Id of the provider
-<<<<<<< HEAD
-              _description: *ref_97
-=======
-              _description: *ref_107
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: *ref_109
             billing:
               name:
                 required: MANDATORY
@@ -33294,63 +32756,38 @@ x-attributes:
                 owner: BAP
                 usage: John Doe
                 description: Name of the billable entity
-<<<<<<< HEAD
-              _description: &ref_117
-=======
-              _description: &ref_127
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: &ref_129
                 required: MANDATORY
                 type: object
                 owner: BAP
                 usage: '--'
                 description: The billing details of this order
             fulfillments:
-<<<<<<< HEAD
-              id: *ref_91
+              id: *ref_103
               customer:
                 person:
-                  name: &ref_145
-=======
-              id: *ref_101
-              customer:
-                person:
-                  name: &ref_155
->>>>>>> origin/draft-TRV10-2.1.0
+                  name: &ref_157
                     required: MANDATORY
                     type: string
                     owner: BAP
                     usage: Jason Roy
                     description: Name of the customer
-<<<<<<< HEAD
-                  _description: &ref_98
-=======
-                  _description: &ref_108
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_110
                     required: MANDATORY
                     type: object
                     owner: BAP
                     usage: '--'
                     description: Describes contact of end-customer
                 contact:
-<<<<<<< HEAD
-                  phone: &ref_147
-=======
-                  phone: &ref_157
->>>>>>> origin/draft-TRV10-2.1.0
+                  phone: &ref_159
                     required: MANDATORY
                     type: string
                     owner: BAP
                     usage: 9898657512
                     description: Contact number of the customer
-<<<<<<< HEAD
-                  _description: *ref_98
+                  _description: *ref_110
               stops:
-                type: &ref_104
-=======
-                  _description: *ref_108
-              stops:
-                type: &ref_114
->>>>>>> origin/draft-TRV10-2.1.0
+                type: &ref_116
                   required: MANDATORY
                   type: string
                   owner: BAP
@@ -33358,44 +32795,26 @@ x-attributes:
                   description: >-
                     The type of stop. Allowed values of this property can be
                     defined by the network policy.
-<<<<<<< HEAD
-                location: &ref_128
-=======
-                location: &ref_138
->>>>>>> origin/draft-TRV10-2.1.0
+                location: &ref_140
                   gps:
                     required: MANDATORY
                     type: string
                     owner: BAP
                     usage: 28.707358, 77.180910
                     description: The GPS co-ordinates of this location.
-<<<<<<< HEAD
-                  _description: *ref_92
-                _description: *ref_93
-              vehicle: &ref_123
-                category: &ref_181
-=======
-                  _description: *ref_102
-                _description: *ref_103
-              vehicle: &ref_133
-                category: &ref_191
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_104
+                _description: *ref_105
+              vehicle: &ref_135
+                category: &ref_193
                   required: MANDATORY
                   type: string
                   owner: BAP
                   usage: CAB
                   description: Describes vehicle category
-<<<<<<< HEAD
-                _description: *ref_99
-              _description: *ref_95
+                _description: *ref_111
+              _description: *ref_107
             payments:
-              collected_by: &ref_113
-=======
-                _description: *ref_109
-              _description: *ref_105
-            payments:
-              collected_by: &ref_123
->>>>>>> origin/draft-TRV10-2.1.0
+              collected_by: &ref_125
                 required: MANDATORY
                 type: string
                 owner: BAP
@@ -33432,33 +32851,20 @@ x-attributes:
                   owner: BAP
                   usage: 9988199772@okicic
                   description: Virtual payment address associated with payment activity
-<<<<<<< HEAD
-                _description: &ref_114
-=======
-                _description: &ref_124
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_126
                   required: MANDATORY
                   type: object
                   owner: BAP
                   usage: '--'
                   description: This attribute defines the payment params for this order.
-<<<<<<< HEAD
-              _description: &ref_115
-=======
-              _description: &ref_125
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: &ref_127
                 required: MANDATORY
                 type: object
                 owner: BAP/BPP
                 usage: '--'
                 description: The terms of settlement for this order
-<<<<<<< HEAD
-              tags: *ref_100
-            _description: &ref_124
-=======
-              tags: *ref_110
-            _description: &ref_134
->>>>>>> origin/draft-TRV10-2.1.0
+              tags: *ref_112
+            _description: &ref_136
               required: MANDATORY
               type: object
               owner: BAP/BPP
@@ -33468,23 +32874,13 @@ x-attributes:
                 created between the buyer and the seller.
       on_init:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -33493,17 +32889,10 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
@@ -33513,11 +32902,7 @@ x-attributes:
                 owner: BPP
                 usage: ecf4d145-4ea3-45fe-ab3d-7bcf6b9f456b
                 description: Describes the unique Id of the item.
-<<<<<<< HEAD
-              descriptor: *ref_101
-=======
-              descriptor: *ref_111
->>>>>>> origin/draft-TRV10-2.1.0
+              descriptor: *ref_113
               price:
                 currency:
                   required: MANDATORY
@@ -33525,35 +32910,20 @@ x-attributes:
                   owner: BPP
                   usage: INR
                   description: Describes the price of selected item.
-<<<<<<< HEAD
-                value: *ref_85
-                maximum_value: *ref_86
-                minimum_value: *ref_102
-                _description: *ref_87
-              location_ids: *ref_103
-              fulfillment_ids: *ref_91
-              payment_ids: &ref_165
-=======
-                value: *ref_95
-                maximum_value: *ref_96
-                minimum_value: *ref_112
-                _description: *ref_97
-              location_ids: *ref_113
-              fulfillment_ids: *ref_101
-              payment_ids: &ref_175
->>>>>>> origin/draft-TRV10-2.1.0
+                value: *ref_97
+                maximum_value: *ref_98
+                minimum_value: *ref_114
+                _description: *ref_99
+              location_ids: *ref_115
+              fulfillment_ids: *ref_103
+              payment_ids: &ref_177
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: bc08edb1
                 description: Unique reference ID to the payment of an order
-<<<<<<< HEAD
-              _description: *ref_88
-              tags: *ref_89
-=======
-              _description: *ref_98
-              tags: *ref_99
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: *ref_100
+              tags: *ref_101
             provider:
               id:
                 required: MANDATORY
@@ -33561,15 +32931,9 @@ x-attributes:
                 owner: BPP
                 usage: 450dec0f
                 description: Describes the unqiue Id of the provider
-<<<<<<< HEAD
-              _description: *ref_90
+              _description: *ref_102
             fulfillments:
-              id: *ref_91
-=======
-              _description: *ref_100
-            fulfillments:
-              id: *ref_101
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_103
               type:
                 required: MANDATORY
                 type: string
@@ -33577,21 +32941,12 @@ x-attributes:
                 usage: DELIVERY
                 description: A code that describes the mode of fulfillment.
               stops:
-<<<<<<< HEAD
-                type: *ref_104
-                location: *ref_105
-                _description: *ref_93
-              vehicle: *ref_94
-              _description: *ref_95
-              customer: &ref_127
-=======
-                type: *ref_114
-                location: *ref_115
-                _description: *ref_103
-              vehicle: *ref_104
-              _description: *ref_105
-              customer: &ref_137
->>>>>>> origin/draft-TRV10-2.1.0
+                type: *ref_116
+                location: *ref_117
+                _description: *ref_105
+              vehicle: *ref_106
+              _description: *ref_107
+              customer: &ref_139
                 person:
                   name:
                     required: MANDATORY
@@ -33599,11 +32954,7 @@ x-attributes:
                     owner: BAP
                     usage: Jason Roy
                     description: Describes the name of the customer
-<<<<<<< HEAD
-                  _description: &ref_146
-=======
-                  _description: &ref_156
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_158
                     required: MANDATORY
                     type: object
                     owner: BAP
@@ -33616,39 +32967,23 @@ x-attributes:
                     owner: BAP
                     usage: 9898657512
                     description: Describes the contact number of the customer
-<<<<<<< HEAD
-                  _description: &ref_148
-=======
-                  _description: &ref_158
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_160
                     required: MANDATORY
                     type: object
                     owner: BAP
                     usage: '--'
                     description: Describes the customer contact details.
-<<<<<<< HEAD
-                _description: &ref_149
-=======
-                _description: &ref_159
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_161
                   required: MANDATORY
                   type: object
                   owner: BAP
                   usage: '--'
                   description: Describes the customer.
-<<<<<<< HEAD
-              tags: *ref_106
+              tags: *ref_118
             quote:
-              price: *ref_107
+              price: *ref_119
               breakup:
-                title: *ref_108
-=======
-              tags: *ref_116
-            quote:
-              price: *ref_117
-              breakup:
-                title: *ref_118
->>>>>>> origin/draft-TRV10-2.1.0
+                title: *ref_120
                 price:
                   currency:
                     required: MANDATORY
@@ -33664,21 +32999,12 @@ x-attributes:
                     owner: BPP
                     usage: 120
                     description: Describes the price of a product or service
-<<<<<<< HEAD
-                  _description: *ref_109
-                _description: *ref_110
-              ttl: *ref_111
-              _description: *ref_112
+                  _description: *ref_121
+                _description: *ref_122
+              ttl: *ref_123
+              _description: *ref_124
             payments:
-              id: &ref_131
-=======
-                  _description: *ref_119
-                _description: *ref_120
-              ttl: *ref_121
-              _description: *ref_122
-            payments:
-              id: &ref_141
->>>>>>> origin/draft-TRV10-2.1.0
+              id: &ref_143
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -33686,68 +33012,41 @@ x-attributes:
                 description: >-
                   Describes the ID of the payment term that can be referred at
                   an item or an order level in a catalog
-<<<<<<< HEAD
-              collected_by: *ref_113
-              status: &ref_118
-=======
-              collected_by: *ref_123
-              status: &ref_128
->>>>>>> origin/draft-TRV10-2.1.0
+              collected_by: *ref_125
+              status: &ref_130
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: NOT-PAID
                 description: Describe the payment Status for particular order
-<<<<<<< HEAD
-              type: &ref_119
-=======
-              type: &ref_129
->>>>>>> origin/draft-TRV10-2.1.0
+              type: &ref_131
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: PRE-ORDER
                 description: Describe the payment type for particular order
               params:
-<<<<<<< HEAD
-                bank_code: &ref_120
-=======
-                bank_code: &ref_130
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_code: &ref_132
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: XXXXXXXX
                   description: Bank code associated with payment activity
-<<<<<<< HEAD
-                bank_account_number: &ref_121
-=======
-                bank_account_number: &ref_131
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_account_number: &ref_133
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: xxxxxxxxxxxxxx
                   description: Bank account number associated with payment activity
-<<<<<<< HEAD
-                virtual_payment_address: &ref_122
-=======
-                virtual_payment_address: &ref_132
->>>>>>> origin/draft-TRV10-2.1.0
+                virtual_payment_address: &ref_134
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: 9988199772@okicic
                   description: Virtual payment address associated with payment activity
-<<<<<<< HEAD
-                _description: *ref_114
-              _description: *ref_115
-              tags: *ref_100
-=======
-                _description: *ref_124
-              _description: *ref_125
-              tags: *ref_110
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_126
+              _description: *ref_127
+              tags: *ref_112
             cancellation_terms:
               fulfillment_state:
                 descriptor:
@@ -33757,31 +33056,19 @@ x-attributes:
                     owner: BPP
                     usage: RIDE_ENROUTE_PICKUP
                     description: Describes the unique code for the cancellation terms
-<<<<<<< HEAD
-                  _description: &ref_116
-=======
-                  _description: &ref_126
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_128
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the price of a product or service
-<<<<<<< HEAD
-              reason_required: &ref_133
-=======
-              reason_required: &ref_143
->>>>>>> origin/draft-TRV10-2.1.0
+              reason_required: &ref_145
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: true
                 description: Indicates whether a reason is required to cancel the order
-<<<<<<< HEAD
-              cancellation_fee: &ref_134
-=======
-              cancellation_fee: &ref_144
->>>>>>> origin/draft-TRV10-2.1.0
+              cancellation_fee: &ref_146
                 percentage:
                   required: OPTIONAL
                   type: string
@@ -33801,33 +33088,20 @@ x-attributes:
                     owner: BPP
                     usage: 30
                     description: Describes the price of a product or service
-<<<<<<< HEAD
-                _description: *ref_116
-              _description: &ref_135
-=======
-                _description: *ref_126
-              _description: &ref_145
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_128
+              _description: &ref_147
                 required: MANDATORY
                 type: object
                 owner: BPP
                 usage: '--'
                 description: Describes the unique code for the cancellation terms
-<<<<<<< HEAD
-            _description: &ref_136
-=======
-            _description: &ref_146
->>>>>>> origin/draft-TRV10-2.1.0
+            _description: &ref_148
               required: MANDATORY
               type: object
               owner: BAP/BPP
               usage: '--'
               description: Describes the order description.
-<<<<<<< HEAD
-            id: &ref_125
-=======
-            id: &ref_135
->>>>>>> origin/draft-TRV10-2.1.0
+            id: &ref_137
               required: OPTIONAL
               type: string
               owner: BPP
@@ -33835,23 +33109,13 @@ x-attributes:
               description: Describes the unqiue order ID.
       confirm:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -33860,25 +33124,14 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
-              id: *ref_81
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items:
-              id: *ref_91
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_93
               _description:
                 required: MANDATORY
                 type: object
@@ -33888,11 +33141,7 @@ x-attributes:
                   This decription refers to the comprehensive list of the
                   products or services selected and obtained within the
                   specified order.
-<<<<<<< HEAD
-              tags: *ref_89
-=======
-              tags: *ref_99
->>>>>>> origin/draft-TRV10-2.1.0
+              tags: *ref_101
             provider:
               id:
                 required: MANDATORY
@@ -33900,11 +33149,7 @@ x-attributes:
                 owner: BPP
                 usage: 450dec0f
                 description: Describes the uique Id of the provider.
-<<<<<<< HEAD
-              _description: *ref_97
-=======
-              _description: *ref_107
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: *ref_109
             billing:
               name:
                 required: MANDATORY
@@ -33912,11 +33157,7 @@ x-attributes:
                 owner: BAP
                 usage: John Doe
                 description: Describes the Name of the billable entity
-<<<<<<< HEAD
-              _description: *ref_117
-=======
-              _description: *ref_127
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: *ref_129
             payments:
               id:
                 required: MANDATORY
@@ -33926,43 +33167,24 @@ x-attributes:
                 description: >-
                   ID of the payment term that can be referred at an item or an
                   order level in a catalog
-<<<<<<< HEAD
-              collected_by: *ref_113
-              status: *ref_118
-              type: *ref_119
+              collected_by: *ref_125
+              status: *ref_130
+              type: *ref_131
               params:
-                bank_code: *ref_120
-                bank_account_number: *ref_121
-                virtual_payment_address: *ref_122
-                transaction_id: &ref_132
-=======
-              collected_by: *ref_123
-              status: *ref_128
-              type: *ref_129
-              params:
-                bank_code: *ref_130
-                bank_account_number: *ref_131
-                virtual_payment_address: *ref_132
-                transaction_id: &ref_142
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_code: *ref_132
+                bank_account_number: *ref_133
+                virtual_payment_address: *ref_134
+                transaction_id: &ref_144
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: cda41144
                   description: Describes transaction ID associated with payment activity
-<<<<<<< HEAD
-                _description: *ref_114
-              _description: *ref_115
-              tags: *ref_100
+                _description: *ref_126
+              _description: *ref_127
+              tags: *ref_112
             fulfillments:
-              id: *ref_91
-=======
-                _description: *ref_124
-              _description: *ref_125
-              tags: *ref_110
-            fulfillments:
-              id: *ref_101
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_103
               customer:
                 person:
                   name:
@@ -33971,11 +33193,7 @@ x-attributes:
                     owner: BAP
                     usage: Jason Roy
                     description: Describe the name of the customer
-<<<<<<< HEAD
-                  _description: *ref_98
-=======
-                  _description: *ref_108
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_110
                 contact:
                   phone:
                     required: MANDATORY
@@ -33983,15 +33201,9 @@ x-attributes:
                     owner: BAP
                     usage: 9898657512
                     description: Describe the contact number of the customer
-<<<<<<< HEAD
-                  _description: *ref_98
+                  _description: *ref_110
               stops:
-                type: *ref_78
-=======
-                  _description: *ref_108
-              stops:
-                type: *ref_88
->>>>>>> origin/draft-TRV10-2.1.0
+                type: *ref_90
                 location:
                   gps:
                     required: MANDATORY
@@ -33999,41 +33211,22 @@ x-attributes:
                     owner: BAP
                     usage: 28.686576, 77.441632
                     description: The GPS co-ordinates of this location.
-<<<<<<< HEAD
-                  _description: *ref_92
-                _description: *ref_93
-              vehicle: *ref_123
-              _description: *ref_95
-              tags: *ref_106
-            _description: *ref_124
-            id: *ref_125
+                  _description: *ref_104
+                _description: *ref_105
+              vehicle: *ref_135
+              _description: *ref_107
+              tags: *ref_118
+            _description: *ref_136
+            id: *ref_137
       on_confirm:
         context:
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-                  _description: *ref_102
-                _description: *ref_103
-              vehicle: *ref_133
-              _description: *ref_105
-              tags: *ref_116
-            _description: *ref_134
-            id: *ref_135
-      on_confirm:
-        context:
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -34042,25 +33235,14 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
-              id: *ref_81
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items:
-              id: *ref_91
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_93
               descriptor:
                 name:
                   required: MANDATORY
@@ -34074,13 +33256,8 @@ x-attributes:
                   owner: BPP
                   usage: SJT
                   description: Describes the unique code value of the item
-<<<<<<< HEAD
-                _description: *ref_83
-              price: &ref_141
-=======
-                _description: *ref_93
-              price: &ref_151
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_95
+              price: &ref_153
                 currency:
                   required: MANDATORY
                   type: string
@@ -34089,51 +33266,30 @@ x-attributes:
                   description: >-
                     Describes the currency type to be paid in of a product or
                     service
-<<<<<<< HEAD
-                value: *ref_85
-                maximum_value: &ref_163
-=======
-                value: *ref_95
-                maximum_value: &ref_173
->>>>>>> origin/draft-TRV10-2.1.0
+                value: *ref_97
+                maximum_value: &ref_175
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 176
                   description: Describes a maximum value in decimal form
-<<<<<<< HEAD
-                minimum_value: &ref_164
-=======
-                minimum_value: &ref_174
->>>>>>> origin/draft-TRV10-2.1.0
+                minimum_value: &ref_176
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 50
                   description: Describes a minimum value in decimal form
-<<<<<<< HEAD
-                _description: *ref_87
-              location_ids: *ref_103
-              fulfillment_ids: *ref_91
-              payment_ids: &ref_126
-=======
-                _description: *ref_97
-              location_ids: *ref_113
-              fulfillment_ids: *ref_101
-              payment_ids: &ref_136
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_99
+              location_ids: *ref_115
+              fulfillment_ids: *ref_103
+              payment_ids: &ref_138
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: P1
                 description: Unique reference ID to the payment of an order
-<<<<<<< HEAD
-              _description: *ref_88
-              tags: *ref_89
-=======
-              _description: *ref_98
-              tags: *ref_99
->>>>>>> origin/draft-TRV10-2.1.0
+              _description: *ref_100
+              tags: *ref_101
             provider:
               id:
                 required: MANDATORY
@@ -34141,19 +33297,11 @@ x-attributes:
                 owner: BPP
                 usage: 450dec0f
                 description: Unique reference ID to the payment of an order
-<<<<<<< HEAD
-              _description: *ref_90
+              _description: *ref_102
             fulfillments:
-              id: *ref_91
-              type: *ref_126
-              customer: *ref_127
-=======
-              _description: *ref_100
-            fulfillments:
-              id: *ref_101
-              type: *ref_136
-              customer: *ref_137
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_103
+              type: *ref_138
+              customer: *ref_139
               agent:
                 person:
                   name:
@@ -34162,11 +33310,7 @@ x-attributes:
                     owner: BPP
                     usage: John Doe
                     description: Describes the name of the agent
-<<<<<<< HEAD
-                  _description: &ref_150
-=======
-                  _description: &ref_160
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_162
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -34179,21 +33323,13 @@ x-attributes:
                     owner: BPP
                     usage: 7845981268
                     description: Describes the contact number of the agent
-<<<<<<< HEAD
-                  _description: &ref_151
-=======
-                  _description: &ref_161
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_163
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the agent contact details.
-<<<<<<< HEAD
-                _description: &ref_152
-=======
-                _description: &ref_162
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_164
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -34207,11 +33343,7 @@ x-attributes:
                     owner: BPP
                     usage: RIDE_ASSIGNED
                     description: Describes the state's code for fulfillment.
-<<<<<<< HEAD
-                  _description: &ref_155
-=======
-                  _description: &ref_165
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: &ref_167
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -34226,15 +33358,9 @@ x-attributes:
                   description: >-
                     The type of stop. Allowed values of this property can be
                     defined by the network policy.
-<<<<<<< HEAD
-                location: *ref_128
-                authorization: &ref_180
-                  type: &ref_142
-=======
-                location: *ref_138
-                authorization: &ref_190
-                  type: &ref_152
->>>>>>> origin/draft-TRV10-2.1.0
+                location: *ref_140
+                authorization: &ref_192
+                  type: &ref_154
                     required: OPTIONAL
                     type: string
                     owner: BPP
@@ -34243,11 +33369,7 @@ x-attributes:
                       Type of authorization mechanism used. The allowed values
                       for this field can be published as part of the network
                       policy.
-<<<<<<< HEAD
-                  token: &ref_143
-=======
-                  token: &ref_153
->>>>>>> origin/draft-TRV10-2.1.0
+                  token: &ref_155
                     required: OPTIONAL
                     type: string
                     owner: BPP
@@ -34263,42 +33385,26 @@ x-attributes:
                     owner: BPP
                     usage: '--'
                     description: Describes the authorization for a fulfillments stop.
-<<<<<<< HEAD
-                _description: &ref_144
-=======
-                _description: &ref_154
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_156
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
                   usage: '--'
                   description: Describes the fulfillments stops.
               vehicle:
-<<<<<<< HEAD
-                category: &ref_153
-=======
-                category: &ref_163
->>>>>>> origin/draft-TRV10-2.1.0
+                category: &ref_165
                   required: MANDATORY
                   type: string
                   owner: BAP
                   usage: AUTO_RICKSHAW
                   description: Describes vehicle category
-<<<<<<< HEAD
-                make: &ref_167
-=======
-                make: &ref_177
->>>>>>> origin/draft-TRV10-2.1.0
+                make: &ref_179
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: Bajaj
                   description: Describes vehicle manufacturer
-<<<<<<< HEAD
-                model: &ref_168
-=======
-                model: &ref_178
->>>>>>> origin/draft-TRV10-2.1.0
+                model: &ref_180
                   required: OPTIONAL
                   type: string
                   owner: BPP
@@ -34310,90 +33416,51 @@ x-attributes:
                   owner: BPP
                   usage: HR-20AS-4578
                   description: Describes vehicle registration details
-<<<<<<< HEAD
-                _description: &ref_154
-=======
-                _description: &ref_164
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: &ref_166
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
                   usage: '--'
                   description: Describes the vehicle type.
-<<<<<<< HEAD
-              _description: *ref_95
-              tags: *ref_106
-            quote: &ref_172
-              price: *ref_107
+              _description: *ref_107
+              tags: *ref_118
+            quote: &ref_184
+              price: *ref_119
               breakup:
-                title: *ref_108
+                title: *ref_120
                 price:
-                  currency: *ref_129
-                  value: *ref_130
-                  _description: *ref_109
-                _description: *ref_110
-              ttl: *ref_111
-              _description: *ref_112
+                  currency: *ref_141
+                  value: *ref_142
+                  _description: *ref_121
+                _description: *ref_122
+              ttl: *ref_123
+              _description: *ref_124
             payments:
-              id: *ref_131
-              collected_by: *ref_113
-              status: &ref_158
-=======
-              _description: *ref_105
-              tags: *ref_116
-            quote: &ref_182
-              price: *ref_117
-              breakup:
-                title: *ref_118
-                price:
-                  currency: *ref_139
-                  value: *ref_140
-                  _description: *ref_119
-                _description: *ref_120
-              ttl: *ref_121
-              _description: *ref_122
-            payments:
-              id: *ref_141
-              collected_by: *ref_123
-              status: &ref_168
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_143
+              collected_by: *ref_125
+              status: &ref_170
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: NOT-PAID
                 description: Describe the Payment Status
-<<<<<<< HEAD
-              type: &ref_157
-=======
-              type: &ref_167
->>>>>>> origin/draft-TRV10-2.1.0
+              type: &ref_169
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: PRE-ORDER
                 description: Describe the Payment type
               params:
-<<<<<<< HEAD
-                bank_code: *ref_120
-                bank_account_number: *ref_121
-                virtual_payment_address: *ref_122
-                amount: &ref_173
-=======
-                bank_code: *ref_130
-                bank_account_number: *ref_131
-                virtual_payment_address: *ref_132
-                amount: &ref_183
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_code: *ref_132
+                bank_account_number: *ref_133
+                virtual_payment_address: *ref_134
+                amount: &ref_185
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 146
                   description: Describes the amount associated with the payment transaction
-<<<<<<< HEAD
-                currency: &ref_174
-=======
-                currency: &ref_184
->>>>>>> origin/draft-TRV10-2.1.0
+                currency: &ref_186
                   required: OPTIONAL
                   type: string
                   owner: BPP
@@ -34401,15 +33468,9 @@ x-attributes:
                   description: >-
                     Describes the currency associated with the payment
                     transaction
-<<<<<<< HEAD
-                transaction_id: *ref_132
-              tags: *ref_100
-            cancellation_terms: &ref_159
-=======
-                transaction_id: *ref_142
-              tags: *ref_110
-            cancellation_terms: &ref_169
->>>>>>> origin/draft-TRV10-2.1.0
+                transaction_id: *ref_144
+              tags: *ref_112
+            cancellation_terms: &ref_171
               fulfillment_state:
                 descriptor:
                   code:
@@ -34418,84 +33479,48 @@ x-attributes:
                     owner: BPP
                     usage: RIDE_ENROUTE_PICKUP
                     description: Describes the unique code for the cancellation terms.
-<<<<<<< HEAD
-                  _description: *ref_116
-              reason_required: *ref_133
-              cancellation_fee: *ref_134
-              _description: *ref_135
-=======
-                  _description: *ref_126
-              reason_required: *ref_143
-              cancellation_fee: *ref_144
-              _description: *ref_145
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_128
+              reason_required: *ref_145
+              cancellation_fee: *ref_146
+              _description: *ref_147
             status:
               required: MANDATORY
               type: string
               owner: BPP
               usage: ACTIVE
               description: Describes the order status.
-<<<<<<< HEAD
-            created_at: &ref_187
-=======
-            created_at: &ref_197
->>>>>>> origin/draft-TRV10-2.1.0
+            created_at: &ref_199
               required: MANDATORY
               type: string
               owner: BPP
               usage: 2023-12-10T08:03:34.294Z
               description: Describes the date-time of creation of this order
-<<<<<<< HEAD
-            updated_at: &ref_188
-=======
-            updated_at: &ref_198
->>>>>>> origin/draft-TRV10-2.1.0
+            updated_at: &ref_200
               required: MANDATORY
               type: string
               owner: BPP
               usage: 2023-12-10T08:03:34.294Z
               description: Describes The date-time of updated of this order
-<<<<<<< HEAD
-            id: &ref_160
-=======
-            id: &ref_170
->>>>>>> origin/draft-TRV10-2.1.0
+            id: &ref_172
               required: MANDATORY
               type: string
               owner: BPP
               usage: ec08edb2
               description: Describes the unqiue order ID.
-<<<<<<< HEAD
-            _description: *ref_136
+            _description: *ref_148
       cancel:
         context:
-          location: &ref_161
+          location: &ref_173
             country:
-              code: *ref_137
+              code: *ref_149
             city:
-              code: *ref_138
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-            _description: *ref_146
-      cancel:
-        context:
-          location: &ref_171
-            country:
-              code: *ref_147
-            city:
-              code: *ref_148
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+              code: *ref_150
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -34504,17 +33529,10 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order_id:
             required: MANDATORY
@@ -34558,23 +33576,13 @@ x-attributes:
                 been offered to the end customer.
       on_cancel:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -34583,17 +33591,10 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
@@ -34603,30 +33604,18 @@ x-attributes:
                 owner: BPP
                 usage: ecf4d145
                 description: 'Describes the unique ID of the order. '
-<<<<<<< HEAD
-              descriptor: *ref_101
-              fulfillment_ids: *ref_139
-=======
-              descriptor: *ref_111
-              fulfillment_ids: *ref_149
->>>>>>> origin/draft-TRV10-2.1.0
+              descriptor: *ref_113
+              fulfillment_ids: *ref_151
               payment_ids:
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: bc08edb1
                 description: Describes the unique reference ID to the payment of an order
-<<<<<<< HEAD
-              location_ids: *ref_140
-              price: *ref_141
-              _description: *ref_88
-              tags: *ref_89
-=======
-              location_ids: *ref_150
-              price: *ref_151
-              _description: *ref_98
-              tags: *ref_99
->>>>>>> origin/draft-TRV10-2.1.0
+              location_ids: *ref_152
+              price: *ref_153
+              _description: *ref_100
+              tags: *ref_101
             provider:
               id:
                 required: MANDATORY
@@ -34634,39 +33623,22 @@ x-attributes:
                 owner: BPP
                 usage: 450dec0f
                 description: 'Describes the unique ID of the provider. '
-<<<<<<< HEAD
-              _description: *ref_90
+              _description: *ref_102
             fulfillments:
-              id: *ref_91
+              id: *ref_103
               stops:
-                type: *ref_104
+                type: *ref_116
                 location:
-                  gps: &ref_179
-=======
-              _description: *ref_100
-            fulfillments:
-              id: *ref_101
-              stops:
-                type: *ref_114
-                location:
-                  gps: &ref_189
->>>>>>> origin/draft-TRV10-2.1.0
+                  gps: &ref_191
                     required: MANDATORY
                     type: string
                     owner: BAP
                     usage: 28.686576, 77.441632
                     description: Describes a GPS coordinate
-<<<<<<< HEAD
-                  _description: *ref_92
+                  _description: *ref_104
                 authorization:
-                  type: *ref_142
-                  token: *ref_143
-=======
-                  _description: *ref_102
-                authorization:
-                  type: *ref_152
-                  token: *ref_153
->>>>>>> origin/draft-TRV10-2.1.0
+                  type: *ref_154
+                  token: *ref_155
                 time:
                   duration:
                     required: OPTIONAL
@@ -34674,29 +33646,16 @@ x-attributes:
                     owner: BPP
                     usage: PT2H
                     description: Describes the duration.
-<<<<<<< HEAD
-                _description: *ref_144
+                _description: *ref_156
               customer:
                 person:
-                  name: *ref_145
-                  _description: *ref_146
-                contact: &ref_182
-                  phone: *ref_147
-                  _description: *ref_148
-                _description: *ref_149
-              agent: &ref_170
-=======
-                _description: *ref_154
-              customer:
-                person:
-                  name: *ref_155
-                  _description: *ref_156
-                contact: &ref_192
-                  phone: *ref_157
+                  name: *ref_157
                   _description: *ref_158
-                _description: *ref_159
-              agent: &ref_180
->>>>>>> origin/draft-TRV10-2.1.0
+                contact: &ref_194
+                  phone: *ref_159
+                  _description: *ref_160
+                _description: *ref_161
+              agent: &ref_182
                 person:
                   name:
                     required: MANDATORY
@@ -34704,11 +33663,7 @@ x-attributes:
                     owner: BPP
                     usage: John Doe
                     description: Name of the agent
-<<<<<<< HEAD
-                  _description: *ref_150
-=======
-                  _description: *ref_160
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_162
                 contact:
                   phone:
                     required: MANDATORY
@@ -34716,27 +33671,16 @@ x-attributes:
                     owner: BPP
                     usage: 7845981268
                     description: Contact number of the agent
-<<<<<<< HEAD
-                  _description: *ref_151
-                _description: *ref_152
+                  _description: *ref_163
+                _description: *ref_164
               vehicle:
-                registration: &ref_169
-=======
-                  _description: *ref_161
-                _description: *ref_162
-              vehicle:
-                registration: &ref_179
->>>>>>> origin/draft-TRV10-2.1.0
+                registration: &ref_181
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: HR-20AS-4578
                   description: Describes vehicle registration details
-<<<<<<< HEAD
-                category: *ref_153
-=======
-                category: *ref_163
->>>>>>> origin/draft-TRV10-2.1.0
+                category: *ref_165
                 make:
                   required: MANDATORY
                   type: string
@@ -34749,13 +33693,8 @@ x-attributes:
                   owner: BPP
                   usage: compact-re
                   description: Describes vehicle model
-<<<<<<< HEAD
-                _description: *ref_154
-              state: &ref_171
-=======
-                _description: *ref_164
-              state: &ref_181
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_166
+              state: &ref_183
                 descriptor:
                   code:
                     required: MANDATORY
@@ -34769,27 +33708,15 @@ x-attributes:
                     owner: BPP
                     usage: Driver is on the way
                     description: Describes the current state
-<<<<<<< HEAD
-                  _description: *ref_155
-              type: *ref_126
-              _description: *ref_95
-              tags: *ref_106
+                  _description: *ref_167
+              type: *ref_138
+              _description: *ref_107
+              tags: *ref_118
             quote:
               price:
-                value: *ref_85
-                currency: *ref_84
-                _description: *ref_156
-=======
-                  _description: *ref_165
-              type: *ref_136
-              _description: *ref_105
-              tags: *ref_116
-            quote:
-              price:
-                value: *ref_95
-                currency: *ref_94
-                _description: *ref_166
->>>>>>> origin/draft-TRV10-2.1.0
+                value: *ref_97
+                currency: *ref_96
+                _description: *ref_168
               breakup:
                 title:
                   required: MANDATORY
@@ -34798,28 +33725,17 @@ x-attributes:
                   usage: Base Fare
                   description: Describes the Breakup title of the total quoted price
                 price:
-<<<<<<< HEAD
-                  currency: *ref_129
-=======
-                  currency: *ref_139
->>>>>>> origin/draft-TRV10-2.1.0
+                  currency: *ref_141
                   value:
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: 120
                     description: Describes the currency type of a product or service
-<<<<<<< HEAD
-                  _description: *ref_109
-                _description: *ref_110
-              ttl: *ref_111
-              _description: *ref_112
-=======
-                  _description: *ref_119
-                _description: *ref_120
-              ttl: *ref_121
-              _description: *ref_122
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_121
+                _description: *ref_122
+              ttl: *ref_123
+              _description: *ref_124
             payments:
               id:
                 required: MANDATORY
@@ -34829,11 +33745,7 @@ x-attributes:
                 description: >-
                   ID of the payment term that can be referred at an item or an
                   order level in a catalog
-<<<<<<< HEAD
-              type: *ref_157
-=======
-              type: *ref_167
->>>>>>> origin/draft-TRV10-2.1.0
+              type: *ref_169
               params:
                 currency:
                   required: OPTIONAL
@@ -34847,13 +33759,8 @@ x-attributes:
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
-<<<<<<< HEAD
-                bank_code: *ref_120
-                bank_account_number: *ref_121
-=======
-                bank_code: *ref_130
-                bank_account_number: *ref_131
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_code: *ref_132
+                bank_account_number: *ref_133
                 bank_account_name:
                   required: OPTIONAL
                   type: string
@@ -34873,48 +33780,27 @@ x-attributes:
                   owner: BPP
                   usage: P1D
                   description: Describes time transaction duration
-<<<<<<< HEAD
-              collected_by: *ref_113
-              status: *ref_158
-              tags: *ref_100
-            cancellation_terms: *ref_159
-            id: *ref_160
-=======
-              collected_by: *ref_123
-              status: *ref_168
-              tags: *ref_110
-            cancellation_terms: *ref_169
-            id: *ref_170
->>>>>>> origin/draft-TRV10-2.1.0
+              collected_by: *ref_125
+              status: *ref_170
+              tags: *ref_112
+            cancellation_terms: *ref_171
+            id: *ref_172
             status:
               required: MANDATORY
               type: string
               owner: BPP
               usage: SOFT_CANCEL
               description: Describes the order status.
-<<<<<<< HEAD
-            _description: *ref_136
+            _description: *ref_148
       status:
         context:
-          location: *ref_161
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-            _description: *ref_146
-      status:
-        context:
-          location: *ref_171
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_173
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -34923,17 +33809,10 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
->>>>>>> origin/draft-TRV10-2.1.0
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order_id:
             required: OPTIONAL
@@ -34951,25 +33830,14 @@ x-attributes:
               transaction ID.
       on_status:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-          action: &ref_175
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
-          action: &ref_185
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
+          action: &ref_187
             required: MANDATORY
             type: string
             owner: BAP
@@ -34977,86 +33845,49 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
-              id: &ref_176
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items:
-              id: &ref_186
->>>>>>> origin/draft-TRV10-2.1.0
+              id: &ref_188
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: ecf4d145
                 description: 'Describes the unique ID of the item. '
               descriptor:
-<<<<<<< HEAD
-                name: *ref_162
-=======
-                name: *ref_172
->>>>>>> origin/draft-TRV10-2.1.0
+                name: *ref_174
                 code:
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: RIDE
                   description: Describes the item code.
-<<<<<<< HEAD
-                _description: *ref_83
-              price: &ref_177
-                currency: *ref_84
-=======
-                _description: *ref_93
-              price: &ref_187
-                currency: *ref_94
->>>>>>> origin/draft-TRV10-2.1.0
+                _description: *ref_95
+              price: &ref_189
+                currency: *ref_96
                 value:
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
-<<<<<<< HEAD
-                maximum_value: *ref_163
-                minimum_value: *ref_164
-                _description: *ref_87
-              location_ids: *ref_140
-              fulfillment_ids: *ref_91
-              payment_ids: *ref_165
-              _description: *ref_88
-              tags: *ref_89
-            provider: &ref_178
-              id: *ref_166
-              _description: *ref_90
-            fulfillments:
-              id: *ref_91
-=======
-                maximum_value: *ref_173
-                minimum_value: *ref_174
-                _description: *ref_97
-              location_ids: *ref_150
-              fulfillment_ids: *ref_101
-              payment_ids: *ref_175
-              _description: *ref_98
-              tags: *ref_99
-            provider: &ref_188
-              id: *ref_176
+                maximum_value: *ref_175
+                minimum_value: *ref_176
+                _description: *ref_99
+              location_ids: *ref_152
+              fulfillment_ids: *ref_103
+              payment_ids: *ref_177
               _description: *ref_100
+              tags: *ref_101
+            provider: &ref_190
+              id: *ref_178
+              _description: *ref_102
             fulfillments:
-              id: *ref_101
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_103
               stops:
                 type:
                   required: MANDATORY
@@ -35073,13 +33904,8 @@ x-attributes:
                     owner: BPP
                     usage: 28.686576, 77.441632
                     description: Describes a GPS coordinate
-<<<<<<< HEAD
-                  _description: *ref_92
-                _description: *ref_144
-=======
-                  _description: *ref_102
-                _description: *ref_154
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_104
+                _description: *ref_156
               vehicle:
                 category:
                   required: MANDATORY
@@ -35087,17 +33913,10 @@ x-attributes:
                   owner: BPP
                   usage: CAB
                   description: Describes vehicle category
-<<<<<<< HEAD
-                make: *ref_167
-                model: *ref_168
-                registration: *ref_169
-                _description: *ref_154
-=======
-                make: *ref_177
-                model: *ref_178
-                registration: *ref_179
-                _description: *ref_164
->>>>>>> origin/draft-TRV10-2.1.0
+                make: *ref_179
+                model: *ref_180
+                registration: *ref_181
+                _description: *ref_166
               customer:
                 person:
                   name:
@@ -35106,11 +33925,7 @@ x-attributes:
                     owner: BPP
                     usage: Jason Roy
                     description: Name of the customer
-<<<<<<< HEAD
-                  _description: *ref_146
-=======
-                  _description: *ref_156
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_158
                 contact:
                   phone:
                     required: MANDATORY
@@ -35118,37 +33933,21 @@ x-attributes:
                     owner: BPP
                     usage: 9898657512
                     description: Contact number of the customer
-<<<<<<< HEAD
-                  _description: *ref_148
-                _description: *ref_149
-              agent: *ref_170
-              type: &ref_183
-=======
-                  _description: *ref_158
-                _description: *ref_159
-              agent: *ref_180
-              type: &ref_193
->>>>>>> origin/draft-TRV10-2.1.0
+                  _description: *ref_160
+                _description: *ref_161
+              agent: *ref_182
+              type: &ref_195
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: Delivery
                 description: Describes type of fullfilment
-<<<<<<< HEAD
-              state: *ref_171
-              _description: *ref_95
-              tags: *ref_106
-            quote: *ref_172
+              state: *ref_183
+              _description: *ref_107
+              tags: *ref_118
+            quote: *ref_184
             payments:
-              id: &ref_184
-=======
-              state: *ref_181
-              _description: *ref_105
-              tags: *ref_116
-            quote: *ref_182
-            payments:
-              id: &ref_194
->>>>>>> origin/draft-TRV10-2.1.0
+              id: &ref_196
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -35156,48 +33955,28 @@ x-attributes:
                 description: >-
                   ID of the payment term that can be referred at an item or an
                   order level in a catalog
-<<<<<<< HEAD
-              collected_by: *ref_113
-              status: &ref_185
-=======
-              collected_by: *ref_123
-              status: &ref_195
->>>>>>> origin/draft-TRV10-2.1.0
+              collected_by: *ref_125
+              status: &ref_197
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: NOT-PAID
                 description: Payment Status
-<<<<<<< HEAD
-              type: &ref_186
-=======
-              type: &ref_196
->>>>>>> origin/draft-TRV10-2.1.0
+              type: &ref_198
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: PRE-ORDER
                 description: Payment type
               params:
-<<<<<<< HEAD
-                bank_code: *ref_120
-                bank_account_number: *ref_121
-                virtual_payment_address: *ref_122
-                transaction_id: *ref_132
-                amount: *ref_173
-                currency: *ref_174
-              tags: *ref_100
-            cancellation_terms: *ref_159
-=======
-                bank_code: *ref_130
-                bank_account_number: *ref_131
-                virtual_payment_address: *ref_132
-                transaction_id: *ref_142
-                amount: *ref_183
-                currency: *ref_184
-              tags: *ref_110
-            cancellation_terms: *ref_169
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_code: *ref_132
+                bank_account_number: *ref_133
+                virtual_payment_address: *ref_134
+                transaction_id: *ref_144
+                amount: *ref_185
+                currency: *ref_186
+              tags: *ref_112
+            cancellation_terms: *ref_171
             status:
               required: OPTIONAL
               type: string
@@ -35216,41 +33995,22 @@ x-attributes:
               owner: BPP
               usage: 2023-12-10T08:03:34.294Z
               description: Describes The date-time of updated of this order
-<<<<<<< HEAD
-            id: *ref_125
-            _description: *ref_136
+            id: *ref_137
+            _description: *ref_148
       update:
         context:
-          location: *ref_161
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-          action: *ref_175
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
-=======
-            id: *ref_135
-            _description: *ref_146
-      update:
-        context:
-          location: *ref_171
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
-          action: *ref_185
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_173
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
+          action: *ref_187
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             id:
@@ -35282,23 +34042,13 @@ x-attributes:
               description: Describes the unique order id
       on_update:
         context:
-<<<<<<< HEAD
-          location: *ref_69
-          domain: *ref_70
-          timestamp: *ref_71
-          bap_id: *ref_72
-          transaction_id: *ref_73
-          message_id: *ref_74
-          version: *ref_75
-=======
-          location: *ref_79
-          domain: *ref_80
-          timestamp: *ref_81
-          bap_id: *ref_82
-          transaction_id: *ref_83
-          message_id: *ref_84
-          version: *ref_85
->>>>>>> origin/draft-TRV10-2.1.0
+          location: *ref_81
+          domain: *ref_82
+          timestamp: *ref_83
+          bap_id: *ref_84
+          transaction_id: *ref_85
+          message_id: *ref_86
+          version: *ref_87
           action:
             required: MANDATORY
             type: string
@@ -35307,25 +34057,14 @@ x-attributes:
             description: >-
               Describes the Beckn protocol method being called by the sender and
               executed at the receiver.
-<<<<<<< HEAD
-          bap_uri: *ref_76
-          ttl: *ref_77
-          bpp_id: *ref_79
-          bpp_uri: *ref_80
+          bap_uri: *ref_88
+          ttl: *ref_89
+          bpp_id: *ref_91
+          bpp_uri: *ref_92
         message:
           order:
             items:
-              id: *ref_176
-=======
-          bap_uri: *ref_86
-          ttl: *ref_87
-          bpp_id: *ref_89
-          bpp_uri: *ref_90
-        message:
-          order:
-            items:
-              id: *ref_186
->>>>>>> origin/draft-TRV10-2.1.0
+              id: *ref_188
               descriptor:
                 name:
                   required: MANDATORY
@@ -35339,62 +34078,34 @@ x-attributes:
                   owner: BPP
                   usage: RIDE
                   description: 'Describes the item code. '
-<<<<<<< HEAD
-                _description: *ref_83
-              price: *ref_177
-              location_ids: *ref_140
-              fulfillment_ids: *ref_91
-              payment_ids: *ref_165
-              _description: *ref_88
-              tags: *ref_89
-            provider: *ref_178
+                _description: *ref_95
+              price: *ref_189
+              location_ids: *ref_152
+              fulfillment_ids: *ref_103
+              payment_ids: *ref_177
+              _description: *ref_100
+              tags: *ref_101
+            provider: *ref_190
             fulfillments:
-              id: *ref_91
+              id: *ref_103
               stops:
-                type: *ref_104
+                type: *ref_116
                 location:
-                  gps: *ref_179
-=======
-                _description: *ref_93
-              price: *ref_187
-              location_ids: *ref_150
-              fulfillment_ids: *ref_101
-              payment_ids: *ref_175
-              _description: *ref_98
-              tags: *ref_99
-            provider: *ref_188
-            fulfillments:
-              id: *ref_101
-              stops:
-                type: *ref_114
-                location:
-                  gps: *ref_189
->>>>>>> origin/draft-TRV10-2.1.0
+                  gps: *ref_191
                   _description:
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the location of stops.
-<<<<<<< HEAD
-                authorization: *ref_180
-                _description: *ref_144
+                authorization: *ref_192
+                _description: *ref_156
               vehicle:
-                category: *ref_181
-                make: *ref_167
-                model: *ref_168
-                registration: *ref_169
-                _description: *ref_99
-=======
-                authorization: *ref_190
-                _description: *ref_154
-              vehicle:
-                category: *ref_191
-                make: *ref_177
-                model: *ref_178
-                registration: *ref_179
-                _description: *ref_109
->>>>>>> origin/draft-TRV10-2.1.0
+                category: *ref_193
+                make: *ref_179
+                model: *ref_180
+                registration: *ref_181
+                _description: *ref_111
               customer:
                 person:
                   name:
@@ -35403,62 +34114,34 @@ x-attributes:
                     owner: BAP
                     usage: John Adam
                     description: Name of the customer
-<<<<<<< HEAD
-                  _description: *ref_146
-                contact: *ref_182
-                _description: *ref_149
-              agent: *ref_170
-              type: *ref_183
-              state: *ref_171
-              _description: *ref_95
-              tags: *ref_106
-            quote: *ref_172
+                  _description: *ref_158
+                contact: *ref_194
+                _description: *ref_161
+              agent: *ref_182
+              type: *ref_195
+              state: *ref_183
+              _description: *ref_107
+              tags: *ref_118
+            quote: *ref_184
             payments:
-              id: *ref_184
-              collected_by: *ref_113
-              status: *ref_185
-              type: *ref_186
+              id: *ref_196
+              collected_by: *ref_125
+              status: *ref_197
+              type: *ref_198
               params:
-                bank_code: *ref_120
-                bank_account_number: *ref_121
-                virtual_payment_address: *ref_122
-              tags: *ref_100
-            cancellation_terms: *ref_159
-=======
-                  _description: *ref_156
-                contact: *ref_192
-                _description: *ref_159
-              agent: *ref_180
-              type: *ref_193
-              state: *ref_181
-              _description: *ref_105
-              tags: *ref_116
-            quote: *ref_182
-            payments:
-              id: *ref_194
-              collected_by: *ref_123
-              status: *ref_195
-              type: *ref_196
-              params:
-                bank_code: *ref_130
-                bank_account_number: *ref_131
-                virtual_payment_address: *ref_132
-              tags: *ref_110
-            cancellation_terms: *ref_169
->>>>>>> origin/draft-TRV10-2.1.0
+                bank_code: *ref_132
+                bank_account_number: *ref_133
+                virtual_payment_address: *ref_134
+              tags: *ref_112
+            cancellation_terms: *ref_171
             status:
               required: MANDATORY
               type: string
               owner: BPP
               usage: COMPLETED
               description: Describes the order status.
-<<<<<<< HEAD
-            created_at: *ref_187
-            updated_at: *ref_188
-=======
-            created_at: *ref_197
-            updated_at: *ref_198
->>>>>>> origin/draft-TRV10-2.1.0
+            created_at: *ref_199
+            updated_at: *ref_200
             billing:
               name:
                 required: OPTIONAL
@@ -35478,13 +34161,8 @@ x-attributes:
                 owner: BAP
                 usage: 9897867564
                 description: Describes the contact number of the billable entity
-<<<<<<< HEAD
-            id: *ref_160
-            _description: *ref_136
-=======
-            id: *ref_170
-            _description: *ref_146
->>>>>>> origin/draft-TRV10-2.1.0
+            id: *ref_172
+            _description: *ref_148
 x-errorcodes:
   code:
     - Event: Route Serviceability error
