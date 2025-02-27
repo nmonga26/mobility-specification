@@ -7573,7 +7573,7 @@ x-flows:
               bpp_uri: https://api.unreserved-entry-pass.com/beckn/
             message:
               order_id: O1
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: SOFT_CANCEL
@@ -8017,6 +8017,13 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_BANK_ACCOUNT_NUMBER
                         value: xxxxxxxxxxxxxx
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
+                created_at: '2024-06-26T04:53:26.000Z'
+                updated_at: '2024-06-26T04:53:26.000Z'
       - summary: Buyer app confirms the cancel request for ticket
         api: cancel
         details:
@@ -8054,7 +8061,7 @@ x-flows:
               bpp_uri: https://api.unreserved-entry-pass.com/beckn/
             message:
               order_id: O1
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: CONFIRM_CANCEL
@@ -8498,6 +8505,13 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_BANK_ACCOUNT_NUMBER
                         value: xxxxxxxxxxxxxx
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
+                created_at: '2024-06-26T04:53:26.000Z'
+                updated_at: '2024-06-26T04:53:26.000Z'
   - summary: Unreserved Entry Pass - User Cancellation Flow
     details:
       - description: Detailed process of cancelling a ticket with soft & confirm status.
