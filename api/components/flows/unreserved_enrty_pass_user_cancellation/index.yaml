@@ -90,7 +90,7 @@ steps: &steps
     example: &steps_2_example
       summary: Cancel ticket booking
       value: &steps_2_example_value
-        $ref: ../../examples/unreserved-entry-pass/on_cancel/on_cancel_request_user_confirm.yaml
+        $ref: ../../examples/unreserved-entry-pass/on_cancel/on_cancel_request_user_soft.yaml
   - &steps_3
     summary: Buyer app confirms the cancel request for ticket
     api: cancel

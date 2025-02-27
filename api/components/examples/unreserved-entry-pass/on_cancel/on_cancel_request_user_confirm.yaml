@@ -414,3 +414,10 @@ message:
           - descriptor:
               code: SETTLEMENT_BANK_ACCOUNT_NUMBER
             value: xxxxxxxxxxxxxx
+    cancellation:
+      cancelled_by: CONSUMER
+      reason:
+        descriptor:
+          code: '0'
+    created_at: '2024-06-26T04:53:26.000Z'
+    updated_at: '2024-06-26T04:53:26.000Z'

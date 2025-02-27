@@ -222,31 +222,31 @@ message:
               - url: https://api.unreserved-entry-pass.com/sites/images/location.png
                 size_type: md
           rating: "5"  
-  cancellation_terms:
-    - cancellation_fee: 
-        percentage: '10'
-      fulfillment_state:
-        descriptor:
-          code: CONFIRMED
-      cancel_by:
-        label: DURATION
-        duration: PT1H30M 
-    - cancellation_fee: 
-        percentage: '15'
-      fulfillment_state:
-        descriptor:
-          code: COMPLETED
-      cancel_by:
-        label: DURATION
-        duration: PT1H       
-    - external_ref:
-        mimetype: text/html
-        url: https://api.unreserved-entry-pass.com/beckn/tnc.html
-      cancellation_eligible:  true
-  replacement_terms:
+    cancellation_terms:
+      - cancellation_fee: 
+          percentage: '10'
+        fulfillment_state:
+          descriptor:
+            code: CONFIRMED
+        cancel_by:
+          label: DURATION
+          duration: PT1H30M 
+      - cancellation_fee: 
+          percentage: '15'
+        fulfillment_state:
+          descriptor:
+            code: COMPLETED
+        cancel_by:
+          label: DURATION
+          duration: PT1H       
       - external_ref:
           mimetype: text/html
-          url: https://api.unreserved-entry-pass.com/beckn/replacement.html
+          url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+        cancellation_eligible:  true
+    replacement_terms:
+        - external_ref:
+            mimetype: text/html
+            url: https://api.unreserved-entry-pass.com/beckn/replacement.html
     quote:
       breakup:
         - title: BASE_FARE
@@ -414,3 +414,10 @@ message:
           - descriptor:
               code: SETTLEMENT_BANK_ACCOUNT_NUMBER
             value: xxxxxxxxxxxxxx
+    cancellation:
+      cancelled_by: CONSUMER
+      reason:
+        descriptor:
+          code: '0'
+    created_at: '2024-06-26T04:53:26.000Z'
+    updated_at: '2024-06-26T04:53:26.000Z'
