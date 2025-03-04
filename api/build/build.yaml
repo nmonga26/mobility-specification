@@ -992,6 +992,9 @@ components:
           $ref: '#/components/schemas/XInput'
         external_ref:
           $ref: '#/components/schemas/MediaFile'
+        cancellation_eligible:
+          description: Indicates if cancellation is eligible
+          type: boolean
     Catalog:
       description: >-
         Describes the products or services offered by a BPP. This is typically
@@ -1930,6 +1933,9 @@ components:
             - SOFT_CANCEL
             - CANCELLATION_INITIATED
             - CANCELLATION_REJECTED
+            - SOFT_UPDATE
+            - CONFIRM_UPDATE
+            - UPDATED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -3280,16 +3286,6 @@ x-tags:
                 list:
                   - code: NUMBER
                     description: Describes the ticket number for bus
-                    reference: <PR/Issue/Discussion Links md format text>
-              - code: TRIP_DETAILS
-                description: Describes the details ablout trip.
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: AVAILABLE_TRIPS
-                    description: Describes number of available trips.
-                    reference: <PR/Issue/Discussion Links md format text>
-                  - code: UTILIZED_TRIPS
-                    description: Describes the number of utilized trips.
                     reference: <PR/Issue/Discussion Links md format text>
               - code: INFO
                 description: Describes the details ablout fulfillment.
@@ -10471,7 +10467,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: SOFT_CANCEL
@@ -10745,6 +10741,11 @@ x-flows:
                           - descriptor:
                               code: SETTLEMENT_AMOUNT
                             value: '12505'
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
       - summary: Buyer app confirms the cancel request for ticket
@@ -10783,7 +10784,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: O1
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: CONFIRM_CANCEL
@@ -11057,6 +11058,11 @@ x-flows:
                           - descriptor:
                               code: SETTLEMENT_AMOUNT
                             value: '12505'
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
   - summary: Metro - Cancel Flow
@@ -12613,27 +12619,6 @@ x-flows:
                           label: Validity
                           duration: PT2D
                           timestamp: '2021-03-23T11:01:40.065Z'
-                      - id: I3
-                        category_ids:
-                          - '1'
-                          - '2'
-                        descriptor:
-                          name: Journey Pass
-                          code: Pass
-                        price:
-                          currency: INR
-                          value: '500'
-                        quantity:
-                          maximum:
-                            count: 1
-                          minimum:
-                            count: 1
-                        fulfillment_ids:
-                          - F2
-                        time:
-                          label: Validity
-                          duration: PT2D
-                          timestamp: '2021-03-23T11:01:40.065Z'
                     fulfillments:
                       - id: F1
                         type: TRIP
@@ -12847,54 +12832,6 @@ x-flows:
                               - descriptor:
                                   code: ROUTE_NAME
                                 value: Yellow Line
-                      - id: F2
-                        type: TRIP
-                        stops:
-                          - type: START
-                            location:
-                              descriptor:
-                                name: Shaheed Sthal(New Bus Adda)
-                                code: SHAHEED_STHAL
-                              gps: 28.686576, 77.441632
-                            id: '1'
-                          - type: TRANSIT_STOP
-                            instructions:
-                              short_desc: Please Change here for Yellow Line
-                            location:
-                              descriptor:
-                                name: Kashmere Gate
-                              gps: 28.738426, 77.139922
-                            id: '2'
-                            parent_stop_id: '1'
-                          - type: END
-                            location:
-                              descriptor:
-                                name: Azadpur
-                                code: AZADPUR
-                              gps: 28.707358, 77.180910
-                            id: '3'
-                            parent_stop_id: '2'
-                        tags:
-                          - descriptor:
-                              code: TRIP_DETAILS
-                            list:
-                              - descriptor:
-                                  code: AVAILABLE_TRIPS
-                                value: '30'
-                              - descriptor:
-                                  code: UTILIZED_TRIPS
-                                value: '0'
-                          - descriptor:
-                              code: ROUTE_INFO
-                            list:
-                              - descriptor:
-                                  code: ROUTE_ID
-                                value: '242'
-                              - descriptor:
-                                  code: ROUTE_NAME
-                                value: Yellow Line
-                        vehicle:
-                          category: METRO
                     payments:
                       - collected_by: BPP
                         tags:
@@ -17187,7 +17124,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: 077b248f
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: SOFT_CANCEL
@@ -17602,6 +17539,11 @@ x-flows:
                       - descriptor:
                           code: GTFS
                         value: https://metro-transit/gtfs-realtime
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
       - summary: Buyer app confirms the cancel request for ticket
@@ -17640,7 +17582,7 @@ x-flows:
               ttl: PT30S
             message:
               order_id: 077b248f
-              cancellation_reason_id: '0'
+              cancellation_reason_id: '000'
               descriptor:
                 name: Ride Cancellation
                 code: CONFIRM_CANCEL
@@ -18055,6 +17997,11 @@ x-flows:
                       - descriptor:
                           code: GTFS
                         value: https://metro-transit/gtfs-realtime
+                cancellation:
+                  cancelled_by: CONSUMER
+                  reason:
+                    descriptor:
+                      code: '000'
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T10:00:40.065Z'
 x-examples:

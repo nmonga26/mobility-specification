@@ -250,5 +250,10 @@ message:
               - descriptor:
                   code: SETTLEMENT_AMOUNT
                 value: '12505'
+    cancellation:
+      cancelled_by: 'CONSUMER'
+      reason:
+        descriptor:
+          code: '000'
     created_at: '2021-03-23T10:00:40.065Z'
     updated_at: '2021-03-23T10:00:40.065Z'
