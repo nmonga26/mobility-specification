@@ -231,22 +231,15 @@ message:
         cancel_by:
           label: DURATION
           duration: PT1H30M 
-      - cancellation_fee: 
-          percentage: '15'
-        fulfillment_state:
-          descriptor:
-            code: COMPLETED
-        cancel_by:
-          label: DURATION
-          duration: PT1H       
+        cancellation_eligible:  true         
       - external_ref:
           mimetype: text/html
           url: https://api.unreserved-entry-pass.com/beckn/tnc.html
         cancellation_eligible:  true
     replacement_terms:
-        - external_ref:
-            mimetype: text/html
-            url: https://api.unreserved-entry-pass.com/beckn/replacement.html
+      - external_ref:
+          mimetype: text/html
+          url: https://api.unreserved-entry-pass.com/beckn/replacement.html
     quote:
       breakup:
         - title: BASE_FARE
@@ -414,10 +407,3 @@ message:
           - descriptor:
               code: SETTLEMENT_BANK_ACCOUNT_NUMBER
             value: xxxxxxxxxxxxxx
-    cancellation:
-      cancelled_by: CONSUMER
-      reason:
-        descriptor:
-          code: '0'
-    created_at: '2024-06-26T04:53:26.000Z'
-    updated_at: '2024-06-26T04:53:26.000Z'
