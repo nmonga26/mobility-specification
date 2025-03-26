@@ -112,6 +112,8 @@ message:
         location_ids:
           - L1
           - L3
+        category_ids:
+          - 'C5'  
         payment_ids:
           - PA1
         price:

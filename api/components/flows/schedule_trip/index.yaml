@@ -124,7 +124,7 @@ steps:
     example:
       summary: Get quote for a specific product from a mobility catalog
       value:
-        $ref: ../../examples/schedule/select/Get_quote_for_a_specific_product_from_a_mobility_catalog___X3.yaml
+        $ref: ../../examples/schedule/select/Get_quote_for_a_specific_product_from_a_mobility_catalog_schedule_trip.yaml
   - summary: Ride provider provides the quote for selected service
     api: on_select
     details:

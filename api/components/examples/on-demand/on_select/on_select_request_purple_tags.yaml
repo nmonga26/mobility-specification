@@ -61,6 +61,8 @@ message:
         location_ids:
           - L1
           - L3
+        category_ids:
+          - 'C5'  
         price:
           currency: INR
           maximum_value: '176'
