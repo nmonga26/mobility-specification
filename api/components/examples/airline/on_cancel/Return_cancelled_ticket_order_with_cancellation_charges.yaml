@@ -469,7 +469,7 @@ message:
               timestamp: '2023-10-15T20:00:00.000Z'
         customer:
           person:
-            name: Joe Adams
+            name: Mr. | Joe | Wick | Adams
             age: '30'
             gender: MALE
             dob: '2001-03-23'
