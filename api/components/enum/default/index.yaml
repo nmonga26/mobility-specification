@@ -361,7 +361,7 @@ cancel:
         description: Driver not moving
         reference: <PR/Issue/Discussion Links md format text
       - code: "002"
-        description: Customer is unable to unable to contact driver
+        description: Customer is unable to contact driver
         reference: <PR/Issue/Discussion Links md format text
       - code: "003"
         description: Driver asked to cancel the ride

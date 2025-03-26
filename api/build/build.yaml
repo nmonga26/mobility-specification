@@ -3175,7 +3175,7 @@ x-enum:
           description: Driver not moving
           reference: <PR/Issue/Discussion Links md format text
         - code: '002'
-          description: Customer is unable to unable to contact driver
+          description: Customer is unable to contact driver
           reference: <PR/Issue/Discussion Links md format text
         - code: '003'
           description: Driver asked to cancel the ride
@@ -4017,7 +4017,7 @@ x-flows:
                               code: ETA_TO_NEAREST_DRIVER_MIN
                             value: '3'
                 payments:
-                  - collected_by: BAP
+                  - collected_by: BPP
                     id: PA1
                     status: NOT-PAID
                     type: ON-FULFILLMENT
@@ -4054,7 +4054,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -4182,7 +4182,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -4226,7 +4226,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -4758,7 +4758,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -4799,7 +4799,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -5308,7 +5308,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '146'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -5627,7 +5627,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -5770,7 +5770,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -6060,7 +6060,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -6345,7 +6345,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -6717,7 +6717,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -7000,7 +7000,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -7279,7 +7279,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -7611,7 +7611,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -8048,7 +8048,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -8089,7 +8089,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -8163,7 +8163,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -8204,7 +8204,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -8674,7 +8674,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '146'
-                  ttl: P200S
+                  ttl: PT30S
                 status: COMPLETED
                 created_at: '2023-03-23T04:48:34.53Z'
                 updated_at: '2023-03-23T04:49:34.53Z'
@@ -8736,7 +8736,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -8853,7 +8853,7 @@ x-flows:
               intent:
                 category:
                   descriptor:
-                    code: ON_DEMAND
+                    code: ON_DEMAND_TRIP
                 fulfillment:
                   stops:
                     - location:
@@ -9033,7 +9033,7 @@ x-flows:
                     categories:
                       - id: C5
                         descriptor:
-                          code: ON_DEMAND
+                          code: ON_DEMAND_TRIP
                           name: on demand
                 tags:
                   - descriptor:
@@ -9303,7 +9303,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '146'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -9640,7 +9640,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -9783,7 +9783,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -10091,7 +10091,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -10394,7 +10394,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -10742,7 +10742,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -11043,7 +11043,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -11340,7 +11340,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -11671,7 +11671,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -12115,7 +12115,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '146'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -12425,7 +12425,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -12802,7 +12802,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -12843,7 +12843,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -13085,7 +13085,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -13126,7 +13126,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -13415,7 +13415,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -13738,7 +13738,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -14003,7 +14003,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -14259,7 +14259,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '10'
-                  ttl: P200S
+                  ttl: PT30S
                 status: CANCELLED
                 cancellation:
                   cancelled_by: PROVIDER
@@ -14442,7 +14442,7 @@ x-flows:
               ttl: PT30S
               version: 2.1.0
             message:
-              cancellation_reason_id: '7'
+              cancellation_reason_id: '002'
               descriptor:
                 code: SOFT_CANCEL
                 name: Ride Cancellation
@@ -14657,13 +14657,13 @@ x-flows:
                   price:
                     currency: INR
                     value: '10'
-                  ttl: P200S
+                  ttl: PT30S
                 status: SOFT_CANCEL
                 cancellation:
                   cancelled_by: CONSUMER
                   reason:
                     descriptor:
-                      code: '001'
+                      code: '002'
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
                 tags:
@@ -14779,7 +14779,7 @@ x-flows:
               ttl: PT30S
               version: 2.1.0
             message:
-              cancellation_reason_id: '7'
+              cancellation_reason_id: '002'
               descriptor:
                 code: CONFIRM_CANCEL
                 name: Ride Cancellation
@@ -14992,13 +14992,13 @@ x-flows:
                   price:
                     currency: INR
                     value: '10'
-                  ttl: P200S
+                  ttl: PT30S
                 status: CANCELLED
                 cancellation:
                   cancelled_by: CONSUMER
                   reason:
                     descriptor:
-                      code: '001'
+                      code: '002'
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:45.294Z'
                 tags:
@@ -15472,7 +15472,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -15513,7 +15513,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -15805,12 +15805,17 @@ x-flows:
                           category: CAB
                           variant: SEDAN
                     id: P1
+                    categories:
+                      - id: C1
+                        descriptor:
+                          code: ON_DEMAND_TRIP
+                          name: on demand
                     items:
                       - descriptor:
                           code: RIDE
                           name: Auto Ride
                         category_ids:
-                          - C3
+                          - C1
                         fulfillment_ids:
                           - F1
                         id: I1
@@ -16045,7 +16050,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '146'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -16220,7 +16225,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -16604,7 +16609,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -16645,7 +16650,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -16893,7 +16898,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -16925,7 +16930,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -17212,7 +17217,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -17253,7 +17258,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -17499,7 +17504,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -17540,7 +17545,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -17790,7 +17795,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -17831,7 +17836,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -18645,7 +18650,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -18692,7 +18697,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -18973,7 +18978,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -19020,7 +19025,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -19251,7 +19256,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -19298,7 +19303,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -19614,7 +19619,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '166'
-                  ttl: P200s
+                  ttl: PT30S
   - summary: On-Demand - Post Order Tip
     details:
       - description: >-
@@ -20575,7 +20580,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -20898,7 +20903,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -21043,7 +21048,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -21341,7 +21346,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -21634,7 +21639,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -21972,7 +21977,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -22263,7 +22268,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -22561,7 +22566,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -22882,7 +22887,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -23464,7 +23469,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -23790,7 +23795,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 tags:
                   - descriptor:
                       code: BPP_TERMS
@@ -23808,7 +23813,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -23955,7 +23960,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -24194,7 +24199,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
@@ -24256,7 +24261,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -24511,7 +24516,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
@@ -24573,7 +24578,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -24908,7 +24913,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -24967,7 +24972,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -25223,7 +25228,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
@@ -25285,7 +25290,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -25538,7 +25543,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -25597,7 +25602,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -25855,7 +25860,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -25914,7 +25919,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -26214,7 +26219,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '206'
-                  ttl: P200s
+                  ttl: PT30S
                 tags:
                   - descriptor:
                       name: BAP Terms of Engagement
@@ -26273,7 +26278,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -26769,7 +26774,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '146'
-                  ttl: P200s
+                  ttl: PT30S
       - summary: Buyer app initializes the ride request
         api: init
         details:
@@ -27085,7 +27090,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -27230,7 +27235,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -27505,7 +27510,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -27793,7 +27798,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -28118,7 +28123,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -28410,7 +28415,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -28695,7 +28700,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -28974,7 +28979,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -29120,7 +29125,7 @@ x-flows:
                           token: '144254'
                           type: OTP
                           valid_to: '2023-12-15T08:05:34.294Z'
-                          status: UNCLAIMED
+                          status: CLAIMED
                         type: END
                     tags:
                       - descriptor:
@@ -29287,7 +29292,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -29869,7 +29874,7 @@ x-flows:
                   price:
                     currency: INR
                     value: '10'
-                  ttl: P200S
+                  ttl: PT30S
                 status: ACTIVE
                 created_at: '2023-12-10T08:03:34.294Z'
                 updated_at: '2023-12-10T08:03:34.294Z'
@@ -30223,7 +30228,7 @@ x-flows:
                         value: '1'
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -30270,7 +30275,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_WINDOW
-                        value: PT2D
+                        value: P2D
                       - descriptor:
                           code: SETTLEMENT_BASIS
                         value: DELIVERY
@@ -30540,7 +30545,7 @@ x-examples:
                               value: UPI
                             - descriptor:
                                 code: SETTLEMENT_WINDOW
-                              value: PT2D
+                              value: P2D
                             - descriptor:
                                 code: SETTLEMENT_BASIS
                               value: DELIVERY
@@ -30995,7 +31000,7 @@ x-examples:
                     price:
                       currency: INR
                       value: '146'
-                    ttl: P200S
+                    ttl: PT30S
           - summary: Return_order_with_latest_status_-_Ride_Ended___X21
             value:
               context:
@@ -31212,7 +31217,7 @@ x-examples:
                     price:
                       currency: INR
                       value: '146'
-                    ttl: P200S
+                    ttl: PT30S
           - summary: Return_order_with_latest_status_-_Ride_started___X20
             value:
               context:
@@ -31433,7 +31438,7 @@ x-examples:
                     price:
                       currency: INR
                       value: '146'
-                    ttl: P200S
+                    ttl: PT30S
           - summary: Return_order_with_status_-_Driver_at_pickup___X18
             value: *ref_69
           - summary: >-
@@ -31691,7 +31696,7 @@ x-examples:
                               value: UPI
                             - descriptor:
                                 code: SETTLEMENT_WINDOW
-                              value: PT2D
+                              value: P2D
                             - descriptor:
                                 code: SETTLEMENT_BASIS
                               value: DELIVERY

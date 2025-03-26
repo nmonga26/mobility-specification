@@ -186,7 +186,7 @@ message:
       price:
         currency: INR
         value: '10'
-      ttl: P200S
+      ttl: PT30S
     status: CANCELLED
     cancellation:
       cancelled_by: PROVIDER

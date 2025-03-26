@@ -127,4 +127,4 @@ message:
       price:
         currency: INR
         value: '166'
-      ttl: P200s
+      ttl: PT30S

@@ -133,7 +133,7 @@ message:
         categories: 
           - id: 'C5'
             descriptor: 
-              code: ON_DEMAND
+              code: ON_DEMAND_TRIP
               name: on demand
     tags:
       - descriptor:

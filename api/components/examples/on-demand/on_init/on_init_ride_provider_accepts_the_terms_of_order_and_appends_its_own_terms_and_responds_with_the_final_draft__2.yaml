@@ -145,7 +145,7 @@ message:
                   code: ETA_TO_NEAREST_DRIVER_MIN
                 value: '3'
     payments:
-      - collected_by: BAP
+      - collected_by: BPP
         id: PA1
         status: NOT-PAID
         type: ON-FULFILLMENT
@@ -182,7 +182,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY

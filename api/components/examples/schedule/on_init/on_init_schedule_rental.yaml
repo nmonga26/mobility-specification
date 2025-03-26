@@ -195,7 +195,7 @@ message:
       price:
         currency: INR
         value: '206'
-      ttl: P200s
+      ttl: PT30S
     tags:
       - descriptor:
           code: BPP_TERMS
@@ -213,7 +213,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY
