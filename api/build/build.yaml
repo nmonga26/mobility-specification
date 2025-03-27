@@ -992,6 +992,9 @@ components:
           $ref: '#/components/schemas/XInput'
         external_ref:
           $ref: '#/components/schemas/MediaFile'
+        cancellation_eligible:
+          description: Indicates if cancellation is eligible
+          type: boolean
     Catalog:
       description: >-
         Describes the products or services offered by a BPP. This is typically
@@ -1930,6 +1933,9 @@ components:
             - SOFT_CANCEL
             - CANCELLATION_INITIATED
             - CANCELLATION_REJECTED
+            - SOFT_UPDATE
+            - CONFIRM_UPDATE
+            - UPDATED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -8428,7 +8434,7 @@ x-flows:
                   - id: FT_1
                     customer:
                       person:
-                        name: Joe Adams
+                        name: Mr. | Joe | Wick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -8438,7 +8444,7 @@ x-flows:
                   - id: FT_2
                     customer:
                       person:
-                        name: Maria
+                        name: Ms. | Maria | Wick | Adams
                         age: '37'
                         gender: FEMALE
                         dob: '2001-03-23'
@@ -8448,7 +8454,7 @@ x-flows:
                   - id: FT_3
                     customer:
                       person:
-                        name: Mick Adams
+                        name: Mr. | Mick | Wick | Adams
                         age: '20'
                         gender: MALE
                         dob: '2001-03-23'
@@ -8458,7 +8464,7 @@ x-flows:
                   - id: FT_4
                     customer:
                       person:
-                        name: John Adams
+                        name: Mr. | Alex | Wick | Adams
                         age: '31'
                         gender: MALE
                         dob: '2001-03-23'
@@ -8468,7 +8474,7 @@ x-flows:
                   - id: FT_5
                     customer:
                       person:
-                        name: Nick Adams
+                        name: Mr. | John | Nick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9035,7 +9041,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Joe Adams
+                        name: Mr. | Joe | Wick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9068,7 +9074,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Maria
+                        name: Ms. | Maria | Wick | Adams
                         age: '37'
                         gender: FEMALE
                         dob: '2001-03-23'
@@ -9101,7 +9107,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Mick Adams
+                        name: Mr. | Mick | Wick | Adams
                         age: '20'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9134,7 +9140,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: John Adams
+                        name: Mr. | Alex | Wick | Adams
                         age: '31'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9167,7 +9173,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Nick Adams
+                        name: Mr. | John | Nick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9486,7 +9492,7 @@ x-flows:
                   - id: FT_1
                     customer:
                       person:
-                        name: Joe Adams
+                        name: Mr. | Joe | Wick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2023-03-23'
@@ -9496,7 +9502,7 @@ x-flows:
                   - id: FT_2
                     customer:
                       person:
-                        name: Maria
+                        name: Ms. | Maria | Wick | Adams
                         age: '37'
                         gender: FEMALE
                         dob: '2001-03-23'
@@ -9506,7 +9512,7 @@ x-flows:
                   - id: FT_3
                     customer:
                       person:
-                        name: Mick Adams
+                        name: Mr. | Mick | Wick | Adams
                         age: '20'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9516,7 +9522,7 @@ x-flows:
                   - id: FT_4
                     customer:
                       person:
-                        name: John Adams
+                        name: Mr. | Alex | Wick | Adams
                         age: '31'
                         gender: MALE
                         dob: '2001-03-23'
@@ -9526,7 +9532,7 @@ x-flows:
                   - id: FT_5
                     customer:
                       person:
-                        name: Nick Adams
+                        name: Mr. | John | Nick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -10100,7 +10106,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Joe Adams
+                        name: Mr. | Joe | Wick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -10133,7 +10139,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Maria
+                        name: Ms. | Maria | Wick | Adams
                         age: '37'
                         gender: FEMALE
                         dob: '2001-03-23'
@@ -10166,7 +10172,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Mick Adams
+                        name: Mr. | Mick | Wick | Adams
                         age: '20'
                         gender: MALE
                         dob: '2001-03-23'
@@ -10199,7 +10205,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: John Adams
+                        name: Mr. | Alex | Wick | Adams
                         age: '31'
                         gender: MALE
                         dob: '2001-03-23'
@@ -10232,7 +10238,7 @@ x-flows:
                             value: '200'
                     customer:
                       person:
-                        name: Nick Adams
+                        name: Mr. | John | Nick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -10999,7 +11005,7 @@ x-flows:
                           timestamp: '2023-10-15T20:00:00.000Z'
                     customer:
                       person:
-                        name: Joe Adams
+                        name: Mr. | Joe | Wick | Adams
                         age: '30'
                         gender: MALE
                         dob: '2001-03-23'
@@ -11557,7 +11563,7 @@ x-examples:
                       - id: F1
                         customer:
                           person:
-                            name: Joe Lopez
+                            name: Mr. | Joe | Wick | Adams
                             age: '30'
                             gender: MALE
                             dob: '2001-03-23'
@@ -13378,7 +13384,7 @@ x-examples:
                             timestamp: '2023-10-15T20:00:00.000Z'
                       customer:
                         person:
-                          name: Joe Lopez
+                          name: Mr. | Joe | Wick | Adams
                           age: '30'
                           gender: MALE
                           dob: '2001-03-23'
@@ -15171,8 +15177,10 @@ x-attributes:
                     required: OPTIONAL
                     type: string
                     owner: BAP
-                    usage: Joe Adams
-                    description: Name of the customer
+                    usage: Mr. | John | Nick | Adams
+                    description: >-
+                      The Customer's name should be formatted as <Title>|<First
+                      Name>|<Middle Name>|<Last Name>
                   age:
                     required: OPTIONAL
                     type: string
@@ -15375,8 +15383,10 @@ x-attributes:
                     required: OPTIONAL
                     type: string
                     owner: BAP
-                    usage: Chicke
-                    description: Describes the customer name
+                    usage: Mr. | John | Nick | Adams
+                    description: >-
+                      The Customer's name should be formatted as <Title>|<First
+                      Name>|<Middle Name>|<Last Name>
                   age:
                     required: OPTIONAL
                     type: string
@@ -15767,8 +15777,10 @@ x-attributes:
                     required: OPTIONAL
                     type: string
                     owner: BPP
-                    usage: Chicke
-                    description: Describes the customer name
+                    usage: Mr. | John | Nick | Adams
+                    description: >-
+                      The Customer's name should be formatted as <Title>|<First
+                      Name>|<Middle Name>|<Last Name>
                   age:
                     required: OPTIONAL
                     type: string

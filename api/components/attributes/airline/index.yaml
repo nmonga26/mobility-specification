@@ -1541,8 +1541,8 @@ init: &init
               required: OPTIONAL
               type: string
               owner: BAP
-              usage: Joe Adams
-              description: Name of the customer
+              usage: Mr. | John | Nick | Adams
+              description: The Customer's name should be formatted as <Title>|<First Name>|<Middle Name>|<Last Name>
             age: &init_message_order_fulfillments_customer_person_age
               required: OPTIONAL
               type: string
@@ -1744,8 +1744,8 @@ on_init: &on_init
               required: OPTIONAL
               type: string
               owner: BAP
-              usage: Chicke
-              description: Describes the customer name
+              usage: Mr. | John | Nick | Adams
+              description: The Customer's name should be formatted as <Title>|<First Name>|<Middle Name>|<Last Name>
             age: &on_init_message_order_fulfillments_customer_person_age
               required: OPTIONAL
               type: string
@@ -2133,8 +2133,8 @@ on_confirm: &on_confirm
               required: OPTIONAL
               type: string
               owner: BPP
-              usage: Chicke
-              description: Describes the customer name
+              usage: Mr. | John | Nick | Adams
+              description: The Customer's name should be formatted as <Title>|<First Name>|<Middle Name>|<Last Name>
             age: &on_confirm_message_order_fulfillments_customer_person_age
               required: OPTIONAL
               type: string

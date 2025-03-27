@@ -25,7 +25,7 @@ message:
         - id: F1
           customer:
             person:
-              name: Joe Lopez
+              name: Mr. | Joe | Wick | Adams
               age: '30'
               gender: MALE
               dob: '2001-03-23'
