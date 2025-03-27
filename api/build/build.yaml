@@ -3250,6 +3250,22 @@ x-enum:
         payments: *ref_3
         status: *ref_10
         quote: *ref_8
+  track:
+    context:
+      action:
+        - code: track
+          description: Buyer app requests order track."
+          reference: <PR/Issue/Discussion Links md format text>
+      location: *ref_0
+      domain: *ref_1
+  on_track:
+    context:
+      action:
+        - code: on_track
+          description: Seller app specifies the on_track.
+          reference: <PR/Issue/Discussion Links md format text>
+      location: *ref_0
+      domain: *ref_1
 x-tags:
   search:
     message:
@@ -34253,6 +34269,76 @@ x-attributes:
                 description: Describes the contact number of the billable entity
             id: *ref_171
             _description: *ref_147
+      track:
+        context:
+          location: *ref_172
+          domain: *ref_81
+          timestamp: *ref_82
+          bap_id: *ref_83
+          transaction_id: *ref_84
+          message_id: *ref_85
+          version: *ref_86
+          action:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: track
+            description: >-
+              Describes the Beckn protocol method being called by the sender and
+              executed at the receiver.
+          bap_uri: *ref_87
+          ttl: *ref_88
+          bpp_id: *ref_90
+          bpp_uri: *ref_91
+        message:
+          order_id:
+            required: MANDATORY
+            type: string
+            owner: BPP
+            usage: O1
+            description: Describes the order ID.
+      on_track:
+        context:
+          location: *ref_172
+          domain: *ref_81
+          timestamp: *ref_82
+          bap_id: *ref_83
+          transaction_id: *ref_84
+          message_id: *ref_85
+          version: *ref_86
+          action:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: on_track
+            description: >-
+              Describes the Beckn protocol method being called by the sender and
+              executed at the receiver.
+          bap_uri: *ref_87
+          ttl: *ref_88
+          bpp_id: *ref_90
+          bpp_uri: *ref_91
+        message:
+          tracking:
+            status:
+              required: MANDATORY
+              type: string
+              owner: BPP
+              usage: O1
+              description: Describes the order status.
+            location:
+              gps:
+                required: MANDATORY
+                type: string
+                owner: BPP
+                usage: 28.620976, 77.046732
+                description: Describes the gps value.
+              updated_at:
+                required: MANDATORY
+                type: string
+                owner: BPP
+                usage: '2023-03-23T05:41:09Z'
+                description: Describes the updated_at value.
 x-errorcodes:
   code:
     - Event: Route Serviceability error

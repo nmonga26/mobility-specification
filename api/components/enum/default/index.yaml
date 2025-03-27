@@ -436,3 +436,22 @@ on_update:
       payments: *a4
       status: *a13
       quote: *a9
+track:
+  context:
+    action:
+      - code: track
+        description: Buyer app requests order track."
+        reference: <PR/Issue/Discussion Links md format text>
+    location: *a1
+    domain: *a2
+on_track:
+  context:
+    action:
+      - code: on_track
+        description: Seller app specifies the on_track.
+        reference: <PR/Issue/Discussion Links md format text>
+    location: *a1
+    domain: *a2    
+
+
+
