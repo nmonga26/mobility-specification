@@ -61,6 +61,8 @@ message:
         location_ids:
           - L1
           - L3
+        category_ids:
+          - 'C5'  
         price:
           currency: INR
           maximum_value: '176'
@@ -148,4 +150,4 @@ message:
       price:
         currency: INR
         value: '146'
-      ttl: P200s
+      ttl: PT30S

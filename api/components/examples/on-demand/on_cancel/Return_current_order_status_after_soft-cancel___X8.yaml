@@ -186,13 +186,13 @@ message:
       price:
         currency: INR
         value: '10'
-      ttl: P200S
+      ttl: PT30S
     status: SOFT_CANCEL
     cancellation:
       cancelled_by: CONSUMER
       reason: 
         descriptor:
-          code: '001'
+          code: '002'
     created_at: '2023-12-10T08:03:34.294Z'
     updated_at: '2023-12-10T08:03:34.294Z'
     tags:

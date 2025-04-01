@@ -99,12 +99,17 @@ message:
               category: CAB
               variant: SEDAN
         id: P1
+        categories: 
+          - id: 'C1'
+            descriptor: 
+              code: ON_DEMAND_TRIP
+              name: on demand
         items:
           - descriptor:
               code: RIDE
               name: Auto Ride
             category_ids:
-             - 'C3'   
+             - 'C1'   
             fulfillment_ids:
               - F1
             id: I1

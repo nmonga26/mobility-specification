@@ -83,7 +83,7 @@ message:
               token: '144254'
               type: OTP
               valid_to: '2023-12-15T08:05:34.294Z'
-              status: UNCLAIMED
+              status: CLAIMED
             type: END                   
         tags:
           - descriptor:
@@ -252,7 +252,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY

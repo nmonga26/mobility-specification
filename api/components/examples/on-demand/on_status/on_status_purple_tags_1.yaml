@@ -105,7 +105,8 @@ message:
       - descriptor:
           code: RIDE
           name: Auto Ride
-          
+        category_ids:
+          - 'C5'
         fulfillment_ids:
           - F1
         id: I1
@@ -267,7 +268,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY

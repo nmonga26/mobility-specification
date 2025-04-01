@@ -73,8 +73,6 @@ message:
               short_desc: short description of the location
               long_desc: long description of the location
             type: START
-          - time:
-              timestamp: '2024-11-07T00:32:19.000Z'
           - type: END
             authorization:
               token: '234290'
@@ -250,7 +248,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY

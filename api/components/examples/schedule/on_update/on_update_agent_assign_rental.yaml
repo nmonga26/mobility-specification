@@ -218,7 +218,7 @@ message:
       price:
         currency: INR
         value: '206'
-      ttl: P200s
+      ttl: PT30S
     status: ACTIVE
     created_at: '2023-12-10T08:03:34.294Z'
     updated_at: '2023-12-10T08:03:34.294Z'
@@ -280,7 +280,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY

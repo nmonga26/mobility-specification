@@ -69,7 +69,7 @@ message:
               minimum_value: '136'
               value: '146'
             category_ids:
-              - '198392'
+              - 'C5'
             tags:
               - descriptor:
                   name: Vision Impairment
@@ -107,7 +107,7 @@ message:
               code: RIDE
               name: CAB Economy Ride
             category_ids:
-              - '198392'
+              - 'C5'
             fulfillment_ids:
               - F2
             id: I2
@@ -131,9 +131,9 @@ message:
         payments:
           - collected_by: BPP
         categories: 
-          - id: '198392'
+          - id: 'C5'
             descriptor: 
-              code: ON_DEMAND
+              code: ON_DEMAND_TRIP
               name: on demand
     tags:
       - descriptor:

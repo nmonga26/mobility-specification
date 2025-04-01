@@ -2274,3 +2274,71 @@ on_update: &on_update
           description: Describes the contact number of the billable entity
       id: *on_confirm_message_order_id
       _description: *on_init_message_order__description
+track: 
+  context:
+    location: *cancel_context_location
+    domain: *search_context_domain
+    timestamp: *search_context_timestamp
+    bap_id: *search_context_bap_id
+    transaction_id: *search_context_transaction_id
+    message_id: *search_context_message_id
+    version: *search_context_version
+    action: &search_context_action
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: track
+      description: Describes the Beckn protocol method being called by the sender and
+        executed at the receiver.
+    bap_uri: *search_context_bap_uri
+    ttl: *search_context_ttl
+    bpp_id: *on_search_context_bpp_id
+    bpp_uri: *on_search_context_bpp_uri
+  message:
+    order_id:
+      required: MANDATORY
+      type: string
+      owner: BPP
+      usage: O1
+      description: Describes the order ID.
+on_track: 
+  context:
+    location: *cancel_context_location
+    domain: *search_context_domain
+    timestamp: *search_context_timestamp
+    bap_id: *search_context_bap_id
+    transaction_id: *search_context_transaction_id
+    message_id: *search_context_message_id
+    version: *search_context_version
+    action: &search_context_action
+      required: MANDATORY
+      type: string
+      owner: BAP
+      usage: on_track
+      description: Describes the Beckn protocol method being called by the sender and
+        executed at the receiver.
+    bap_uri: *search_context_bap_uri
+    ttl: *search_context_ttl
+    bpp_id: *on_search_context_bpp_id
+    bpp_uri: *on_search_context_bpp_uri
+  message:
+    tracking:
+      status:
+        required: MANDATORY
+        type: string
+        owner: BPP
+        usage: O1
+        description: Describes the order status.
+      location:
+        gps:
+          required: MANDATORY
+          type: string
+          owner: BPP
+          usage: 28.620976, 77.046732
+          description: Describes the gps value.
+        updated_at:
+          required: MANDATORY
+          type: string
+          owner: BPP
+          usage: '2023-03-23T05:41:09Z'
+          description: Describes the updated_at value.           

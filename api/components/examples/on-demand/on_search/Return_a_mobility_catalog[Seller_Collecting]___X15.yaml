@@ -115,7 +115,7 @@ message:
         payments:
           - collected_by: BPP
         categories: 
-          - id: '198392'
+          - id: 'C1'
             descriptor: 
               code: ON_DEMAND_TRIP
               name: on demand

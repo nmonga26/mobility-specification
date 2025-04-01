@@ -112,6 +112,8 @@ message:
         location_ids:
           - L1
           - L3
+        category_ids:
+          - 'C5'  
         payment_ids:
           - PA1
         price:
@@ -268,7 +270,7 @@ message:
             value: UPI
           - descriptor:
               code: SETTLEMENT_WINDOW
-            value: PT2D
+            value: P2D
           - descriptor:
               code: SETTLEMENT_BASIS
             value: DELIVERY
