@@ -388,7 +388,7 @@ message:
             value: 'true'
           - descriptor:
               code: COURT_JURISDICTION
-            value: New Delhi
+            value: std:011
           - descriptor:
               code: DELAY_INTEREST
             value: 2.5 %

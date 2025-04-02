@@ -43,6 +43,9 @@ on_search:
     - summary: Return_a_catalog_for_unreserved_entry_pass
       value:
         $ref: ./on_search/Return_a_catalog_for_unreserved_entry_pass_2.yaml
+    - summary: on_search_request_1
+      value:
+        $ref: ./on_search/on_search_request_1.yaml    
 on_select:
   examples:
     - summary: Return_a_selected_item_for_unreserved-entry-pass
