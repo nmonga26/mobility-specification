@@ -14,3 +14,5 @@
 - $ref: ./metro_delayed_cancel_flow_rejected/index.yaml
 - $ref: ./metro_delayed_cancel_flow_accepted/index.yaml
 - $ref: ./metro_technical_cancellation_flow/index.yaml
+- $ref: ./cancellation_rejected/index.yaml
+

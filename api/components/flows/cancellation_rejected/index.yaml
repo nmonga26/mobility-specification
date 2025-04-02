@@ -1,0 +1,50 @@
+summary: Cancellation Rejected
+details:
+  - description: Detailed process of cancellation rejected
+    mermaid: >-
+      sequenceDiagram
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+        Seller Platform (BPP)-->>Buyer Platform (BAP):ACK 
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+steps:
+  - summary: Buyer app cancels the request for ticket
+    api: cancel
+    details:
+      - description: Buyer app requests for cancellation of ticket.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example:
+      summary: Return confirmed ticket order with payment confirmation
+      value:
+        $ref: ../../examples/metro/cancel/cancel_soft_cancel.yaml
+  - summary: The provider app rejected the cancellation as it is not allowed.
+    api: on_cancel
+    details: 
+      - description: The provider app rejected the cancellation as it is not allowed.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): cancel - with soft_cancel request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example:
+      summary: Cancel ticket booking
+      value:
+        $ref: ../../examples/metro/on_cancel/on_cancel_request_cancellation_rejected.yaml
