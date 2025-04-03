@@ -56,7 +56,8 @@ message:
     provider:
       id: P1
     payments:
-      - collected_by: BAP
+      - id: PA1
+        collected_by: BAP
         status: NOT-PAID
         type: PRE-ORDER
     tags:
