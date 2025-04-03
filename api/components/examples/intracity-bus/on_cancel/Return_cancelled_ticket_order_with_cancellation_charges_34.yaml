@@ -130,6 +130,12 @@ message:
               - descriptor:
                   code: PARENT_ID
                 value: F1
+          - descriptor:
+              code: TICKET_INFO
+            list:
+              - descriptor:
+                  code: NUMBER
+                value: 7ed21b6f
       - id: F6
         type: TICKET
         tags:
@@ -139,6 +145,12 @@ message:
               - descriptor:
                   code: PARENT_ID
                 value: F1
+          - descriptor:
+              code: TICKET_INFO
+            list:
+              - descriptor:
+                  code: NUMBER
+                value: 5xd31b8f
     cancellation_terms:
       - cancel_by:
           duration: PT60M
