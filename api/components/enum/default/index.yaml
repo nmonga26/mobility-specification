@@ -367,6 +367,9 @@ on_confirm: &on_confirm
           code: CANCEL_INITIATED
           description: Describes if the cancel has been initiated.
           reference: <PR/Issue/Discussion Links md format text
+        - code: UPDATED
+          description: Describes the order status as updated
+          reference: <PR/Issue/Discussion Links md format text  
 status: &status
   context: &status_context
     action: &status_context_action
