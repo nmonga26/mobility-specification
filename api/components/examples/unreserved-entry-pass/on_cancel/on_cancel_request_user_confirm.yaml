@@ -240,6 +240,10 @@ message:
       - external_ref:
           mimetype: text/html
           url: https://api.unreserved-entry-pass.com/beckn/replacement.html  
+    billing:
+      name: John Doe
+      email: john.doe@example.com
+      phone: +91-9897867564
     quote:
       breakup:
         - title: BASE_FARE

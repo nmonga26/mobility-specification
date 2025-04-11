@@ -626,7 +626,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -7770,6 +7769,10 @@ x-flows:
                       mimetype: text/html
                       url: >-
                         https://api.unreserved-entry-pass.com/beckn/replacement.html
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
                 quote:
                   breakup:
                     - title: BASE_FARE
@@ -8251,6 +8254,10 @@ x-flows:
                       mimetype: text/html
                       url: >-
                         https://api.unreserved-entry-pass.com/beckn/replacement.html
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
                 quote:
                   breakup:
                     - title: BASE_FARE
@@ -8780,6 +8787,10 @@ x-flows:
                       mimetype: text/html
                       url: >-
                         https://api.unreserved-entry-pass.com/beckn/replacement.html
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
                 quote:
                   breakup:
                     - title: BASE_FARE
@@ -9254,6 +9265,10 @@ x-flows:
                       mimetype: text/html
                       url: >-
                         https://api.unreserved-entry-pass.com/beckn/replacement.html
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
                 quote:
                   breakup:
                     - title: BASE_FARE
@@ -12152,25 +12167,25 @@ x-attributes:
               BAP_TERMS: *ref_91
             billing: &ref_104
               name:
-                required: OPTIONAL
+                required: MANDATORY
                 type: string
                 owner: BAP
                 usage: john.doe
                 description: Describes the billing name
               email:
-                required: OPTIONAL
+                required: MANDATORY
                 type: string
                 owner: BAP
                 usage: john.doe@example.com
                 description: Describes the billing email
               phone:
-                required: OPTIONAL
+                required: MANDATORY
                 type: string
                 owner: BAP
                 usage: -9897867473
                 description: Describes the billing phone
               _description:
-                required: OPTIONAL
+                required: MANDATORY
                 type: object
                 owner: BAP
                 usage: '--'

@@ -1578,25 +1578,25 @@ init: &init
         BAP_TERMS: *on_search_message_catalog_tags_BAP_TERMS
       billing: &init_message_order_billing
         name: &init_message_order_billing_name
-          required: OPTIONAL
+          required: MANDATORY
           type: string
           owner: BAP
           usage: john.doe
           description: Describes the billing name
         email: &init_message_order_billing_email
-          required: OPTIONAL
+          required: MANDATORY
           type: string
           owner: BAP
           usage: john.doe@example.com
           description: Describes the billing email
         phone: &init_message_order_billing_phone
-          required: OPTIONAL
+          required: MANDATORY
           type: string
           owner: BAP
           usage: -9897867473
           description: Describes the billing phone
         _description: &init_message_order_billing__description
-          required: OPTIONAL
+          required: MANDATORY
           type: object
           owner: BAP
           usage: --
