@@ -472,10 +472,10 @@ message:
                 list:
                   - descriptor:
                       code: ROUTE_ID
-                    value: "242"
+                    value: "243"
                   - descriptor:
                       code: ROUTE_NAME
-                    value: Yellow Line  
+                    value: Blue Line  
         payments:
           - collected_by: BPP
             tags:

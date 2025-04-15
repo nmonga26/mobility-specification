@@ -55,12 +55,6 @@ message:
         type: TRIP
         stops:
           - type: START
-            authorization:
-              type: QR
-              token: >-
-                aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-              valid_to: "2024-07-23T23:59:59.999Z"
-              status: CLAIMED
             location:
               descriptor:
                 name: Shaheed Sthal(New Bus Adda)
@@ -272,6 +266,14 @@ message:
                 value: Yellow Line
       - id: F3
         type: TICKET
+        stops:
+          - type: START
+            authorization:
+              type: QR
+              token: >-
+                aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+              valid_to: '2024-07-23T23:59:59.999Z'
+              status: CLAIMED
         tags:
           - descriptor:
               code: INFO
@@ -287,6 +289,14 @@ message:
                 value: 7ed21b6f
       - id: F4
         type: TICKET
+        stops:
+          - type: START
+            authorization:
+              type: QR
+              token: >-
+                iNCORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+              valid_to: '2024-07-23T23:59:59.999Z'
+              status: CLAIMED
         tags:
           - descriptor:
               code: INFO
@@ -345,6 +355,13 @@ message:
           bank_code: XXXXXXXX
           bank_account_number: xxxxxxxxxxxxxx
         tags:
+          - descriptor:
+              code: BUYER_FINDER_FEES
+            display: false
+            list:
+              - descriptor:
+                  code: BUYER_FINDER_FEES_PERCENTAGE
+                value: '1'
           - descriptor:
               code: SETTLEMENT_TERMS
             display: false

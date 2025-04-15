@@ -345,7 +345,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -380,7 +379,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -437,7 +435,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -473,7 +470,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -487,7 +483,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -511,7 +506,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -525,7 +519,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -586,7 +579,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -663,7 +655,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -701,7 +692,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -715,7 +705,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -754,7 +743,6 @@ paths:
           application/json:
             schema:
               type: object
-              additionalProperties: false
               properties:
                 context:
                   allOf:
@@ -775,7 +763,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -991,9 +978,6 @@ components:
           $ref: '#/components/schemas/XInput'
         external_ref:
           $ref: '#/components/schemas/MediaFile'
-        cancellation_eligible:
-          description: Indicates if cancellation is eligible
-          type: boolean
     Catalog:
       description: >-
         Describes the products or services offered by a BPP. This is typically
@@ -1040,10 +1024,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Provider'
-        tags:
-          type: array
-          items:
-            $ref: '#/components/schemas/TagGroup'
         exp:
           description: Timestamp after which catalog will expire
           type: string
@@ -1051,6 +1031,10 @@ components:
         ttl:
           description: Duration in seconds after which this catalog will expire
           type: string
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
     Category:
       description: A label under which a collection of items can be grouped.
       type: object
@@ -1924,17 +1908,6 @@ components:
             Status of the order. Allowed values can be defined by the network
             policy
           type: string
-          enum:
-            - ACTIVE
-            - COMPLETE
-            - CANCELLED
-            - COMPLETED
-            - SOFT_CANCEL
-            - CANCELLATION_INITIATED
-            - CANCELLATION_REJECTED
-            - SOFT_UPDATE
-            - CONFIRM_UPDATE
-            - UPDATED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -13949,12 +13922,6 @@ x-flows:
                     type: TRIP
                     stops:
                       - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-07-23T23:59:59.999Z'
-                          status: CLAIMED
                         location:
                           descriptor:
                             name: Shaheed Sthal(New Bus Adda)
@@ -14165,6 +14132,14 @@ x-flows:
                             value: Yellow Line
                   - id: F3
                     type: TICKET
+                    stops:
+                      - type: START
+                        authorization:
+                          type: QR
+                          token: >-
+                            aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-07-23T23:59:59.999Z'
+                          status: CLAIMED
                     tags:
                       - descriptor:
                           code: INFO
@@ -14180,6 +14155,14 @@ x-flows:
                             value: 7ed21b6f
                   - id: F4
                     type: TICKET
+                    stops:
+                      - type: START
+                        authorization:
+                          type: QR
+                          token: >-
+                            iNCORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-07-23T23:59:59.999Z'
+                          status: CLAIMED
                     tags:
                       - descriptor:
                           code: INFO
@@ -14238,6 +14221,13 @@ x-flows:
                       bank_code: XXXXXXXX
                       bank_account_number: xxxxxxxxxxxxxx
                     tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        display: false
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '1'
                       - descriptor:
                           code: SETTLEMENT_TERMS
                         display: false
@@ -14881,10 +14871,10 @@ x-flows:
                             list:
                               - descriptor:
                                   code: ROUTE_ID
-                                value: '242'
+                                value: '243'
                               - descriptor:
                                   code: ROUTE_NAME
-                                value: Yellow Line
+                                value: Blue Line
                     payments:
                       - collected_by: BPP
                         tags:
