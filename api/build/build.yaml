@@ -17813,6 +17813,9 @@ x-featureui:
   filenames:
     - log-verification.md
     - xinput-form-response.md
+x-testcasesui:
+  filenames:
+    - log-verification.md
 x-sandboxui:
   dropdown:
     - environment-name: staging
