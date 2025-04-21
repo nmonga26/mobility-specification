@@ -549,7 +549,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -627,7 +626,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -993,6 +991,9 @@ components:
           $ref: '#/components/schemas/XInput'
         external_ref:
           $ref: '#/components/schemas/MediaFile'
+        cancellation_eligible:
+          description: Indicates if cancellation is eligible
+          type: boolean
     Catalog:
       description: >-
         Describes the products or services offered by a BPP. This is typically
@@ -1039,6 +1040,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/Provider'
+        tags:
+          type: array
+          items:
+            $ref: '#/components/schemas/TagGroup'
         exp:
           description: Timestamp after which catalog will expire
           type: string
@@ -1919,6 +1924,17 @@ components:
             Status of the order. Allowed values can be defined by the network
             policy
           type: string
+          enum:
+            - ACTIVE
+            - COMPLETE
+            - CANCELLED
+            - COMPLETED
+            - SOFT_CANCEL
+            - CANCELLATION_INITIATED
+            - CANCELLATION_REJECTED
+            - SOFT_UPDATE
+            - CONFIRM_UPDATE
+            - UPDATED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
