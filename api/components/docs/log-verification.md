@@ -7,6 +7,9 @@
 - Create PR and label it with your domain name
 - Once submitted, please refer to the comments on logs submitted and update the PR based on the comments provided
 - Once the reviews are done, the PR will be merged and the logs shall be considered as approved on pr merge
+- Both IGM and transactional logs need to be submitted in a single PR, while RSF logs should be submitted in a separate PR
+- For IGM logs, create a folder with name igm under your entity named folder.
+- For RSF logs, create a folder with name RSF under your entity named folder.
 
 ### File Naming conventions:
 1. **Single Endpoint Naming**:
@@ -80,7 +83,51 @@ The payload structure for validation is as follows:
   }
 }
 ```
+#### For Igm logs, use POST api exposed at [https://log-validation.ondc.org/api/validate/igm](https://log-validation.ondc.org/api/validate/igm)
 
+The body structure for igm logs:
+
+```json
+  {
+      "domain": "<use-case domain>",
+      "version": "2.0.0",
+      "bap_id": "BUYER_APP_SUBSCRIBER_ID",
+      "flow": "FLOW_1",
+      "bpp_id": "SELLER_APP_SUBSCRIBER_ID",
+      "payload": {
+          "issue_open": {},
+          "on_issue_processing_1":{},
+          "on_issue_info_required": {},
+          "issue_info_provided": {},
+          "on_issue_processing_2": {},
+          "on_issue_resolution_proposed": {},
+          "issue_resolution_accepted": {},
+          "on_issue_resolved": {},
+          "issue_closed": {}
+      }
+  }  
+
+```
+
+#### For RSF logs, use POST api exposed at [https://log-validation.ondc.org/api/validate/rsf](https://log-validation.ondc.org/api/validate/rsf)
+
+  ```json
+     {
+      "domain": "<use-case domain>",
+      "version": "2.0.0",
+      "bap_id": "BUYER_APP_SUBSCRIBER_ID",
+      "bpp_id": "SELLER_APP_SUBSCRIBER_ID",
+      "payload": {
+          "settle":{},
+          "on_settle":{},
+          "report":{},
+          "on_report":{},
+          "recon":{},
+          "on_recon":{}
+        }
+    }'
+
+  ```
 The api call sequence inside the payload object might differ based on different flows
 
 _Note: Log verification will follow a FIFO model with a TAT of 4 days_
