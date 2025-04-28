@@ -67,7 +67,14 @@ search: &search
             reference: <PR/Issue/Discussion Links md format text>
           - code: MAX_PAGE_NUMBER
             description: Describes the max page number
-            reference: <PR/Issue/Discussion Links md format text>    
+            reference: <PR/Issue/Discussion Links md format text>
+      - code: INCREMENTAL_PULL
+        description: Describes the incremental pull for search
+        reference: <PR/Issue/Discussion Links md format text>
+        list: 
+          - code: REGISTER
+            description: Describes the register for incremental pull
+            reference: <PR/Issue/Discussion Links md format text>         
 on_search: &on_search
   message: &on_search_message
     catalog: &on_search_message_catalog

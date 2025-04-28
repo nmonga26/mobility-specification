@@ -3178,6 +3178,13 @@ x-tags:
             - code: MAX_PAGE_NUMBER
               description: Describes the max page number
               reference: <PR/Issue/Discussion Links md format text>
+        - code: INCREMENTAL_PULL
+          description: Describes the incremental pull for search
+          reference: <PR/Issue/Discussion Links md format text>
+          list:
+            - code: REGISTER
+              description: Describes the register for incremental pull
+              reference: <PR/Issue/Discussion Links md format text>
   on_search:
     message:
       catalog:
@@ -3256,7 +3263,7 @@ x-flows:
         reference: if any
         example:
           summary: Search for unreserved entry pass
-          value: &ref_16
+          value: &ref_19
             context:
               location:
                 country:
@@ -3284,7 +3291,9 @@ x-flows:
                         city:
                           code: std:040
                       time:
-                        timestamp: '2024-06-27T04:41:16.000Z'
+                        range:
+                          start: '2024-06-27T04:41:16.000Z'
+                          end: '2024-06-29T04:41:16.000Z'
                   vehicle:
                     category: SITE
                 payment:
@@ -3329,7 +3338,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a catalog for unreserved entry pass
-          value: &ref_23
+          value: &ref_14
             context:
               location:
                 country:
@@ -3492,7 +3501,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a catalog for unreserved entry pass
-          value: &ref_22
+          value: &ref_15
             context:
               location:
                 country:
@@ -4034,7 +4043,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a catalog for unreserved entry pass
-          value:
+          value: &ref_16
             context:
               location:
                 country:
@@ -4559,6 +4568,167 @@ x-flows:
                       - descriptor:
                           code: MAX_PAGE_NUMBER
                         value: '2'
+  - summary: >-
+      Unreserved Entry Pass - Search and register for incremental pull
+      (Culture-Heritage)
+    details:
+      - description: >-
+          The illustrative flow to perform a transaction to create an ecosystem
+          where entry tickets/ passes can be bought and sold over the network.
+        mermaid: |-
+          sequenceDiagram
+            title Unreserved Entry Pass Discovery
+            Buyer Platform (BAP)->>Gateway (BG): search
+            Gateway (BG) ->> Buyer Platform (BAP): ACK
+            Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+            Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+            Gateway (BG)->>Seller Platform (BPP): search
+            Seller Platform (BPP)->>Gateway (BG) : ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+            Buyer Platform (BAP)->>Seller Platform (BPP): ACK 
+    steps:
+      - summary: Search for the Unreserved Entry Pass
+        api: search
+        details:
+          - description: >-
+              Search for the Unreserved Entry Pass & also register to
+              incremental updates
+            mermaid: |-
+              sequenceDiagram
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+                Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+                Gateway (BG)->>Seller Platform (BPP): search
+                Seller Platform (BPP)->>Gateway (BG) : ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+                Buyer Platform (BAP)->>Seller Platform (BPP): ACK  
+        reference: if any
+        example:
+          summary: Search for unreserved entry pass
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: std:011
+              domain: ONDC:TRV14
+              timestamp: '2024-06-26T04:41:16.000Z'
+              bap_id: api.example-bap.com
+              transaction_id: cf7bb367-c820-4bc9-9be8-f548e0bbf222
+              message_id: 40f94dbc-3c07-40ea-83f0-58568d530f65
+              version: 2.0.0
+              action: search
+              bap_uri: https://api.example-bap.com/beckn/
+              ttl: PT30S
+            message:
+              intent:
+                category:
+                  descriptor:
+                    code: CULTURE_HERITAGE
+                fulfillment:
+                  stops:
+                    - type: START
+                      location:
+                        city:
+                          code: std:040
+                      time:
+                        range:
+                          start: '2024-06-27T04:41:16.000Z'
+                          end: '2024-06-29T04:41:16.000Z'
+                  vehicle:
+                    category: SITE
+                payment:
+                  collected_by: BAP
+                tags:
+                  - descriptor:
+                      code: BAP_TERMS
+                      name: BAP Terms of Engagement
+                    display: false
+                    list:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_PERCENTAGE
+                        value: '1'
+                      - descriptor:
+                          code: BUYER_FINDER_FEES_TYPE
+                        value: percent
+                      - descriptor:
+                          code: STATIC_TERMS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: SETTLEMENT_BASIS
+                        value: https://api.example-bap.com/booking/terms
+                      - descriptor:
+                          code: SETTLEMENT_WINDOW
+                        value: P30D
+                  - descriptor:
+                      code: INCREMENTAL_PULL
+                      name: Incremental Pull
+                    display: false
+                    list:
+                      - descriptor:
+                          code: REGISTER
+                          name: Register
+                        value: 'true'
+      - summary: Return a catalog of all unreserved-entry-pass services
+        api: on_search
+        details:
+          - description: Provider platform sends the catalog of all the services
+            mermaid: |-
+              sequenceDiagram
+                Buyer Platform (BAP)->>Gateway (BG): search
+                Gateway (BG) ->> Buyer Platform (BAP): ACK
+                Gateway (BG)->>Registry: Lookup Seller Platforms (lookup)
+                Registry->>Gateway (BG): List of Seller Platforms (200 OK)
+                Gateway (BG)->>Seller Platform (BPP): search
+                Seller Platform (BPP)->>Gateway (BG) : ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP): Publish Catalog of Seller 1 (on_search)
+                Buyer Platform (BAP)->>Seller Platform (BPP): ACK 
+                end 
+        reference: if any
+        example:
+          summary: Return a catalog for unreserved entry pass
+          value: *ref_14
+      - summary: Return a catalog of all unreserved-entry-pass services
+        api: on_search
+        details:
+          - description: Provider platform sends the catalog of all the services
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): search
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_search
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+        reference: if any
+        example:
+          summary: Return a catalog for unreserved entry pass
+          value: *ref_15
+      - summary: Return a catalog of all unreserved-entry-pass services
+        api: on_search
+        details:
+          - description: Provider platform sends the catalog of all the services
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Buyer Platform (BAP)->>Seller Platform (BPP): search
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_search
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                end 
+        reference: if any
+        example:
+          summary: Return a catalog for unreserved entry pass
+          value: *ref_16
   - summary: Unreserved Entry Pass - Purchase Journey(Culture-Heritage)
     details:
       - description: >-
@@ -4637,7 +4807,7 @@ x-flows:
         reference: if any
         example:
           summary: Select a an item for unreserved-entry-pass
-          value: &ref_17
+          value: &ref_20
             context:
               location:
                 country:
@@ -4717,7 +4887,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a selected item for unreserved-entry-pass
-          value: &ref_24
+          value: &ref_25
             context:
               location:
                 country:
@@ -5561,7 +5731,7 @@ x-flows:
         reference: if any
         example:
           summary: Initialize the order by providing billing details
-          value: &ref_18
+          value: &ref_21
             context:
               location:
                 country:
@@ -5664,7 +5834,7 @@ x-flows:
         reference: if any
         example:
           summary: Return draft order for transit ticket with settlement details
-          value: &ref_25
+          value: &ref_26
             context:
               location:
                 country:
@@ -6039,7 +6209,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ticket booking
-          value: &ref_19
+          value: &ref_22
             context:
               location:
                 country:
@@ -6181,7 +6351,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: &ref_14
+          value: &ref_17
             context:
               location:
                 country:
@@ -6574,7 +6744,7 @@ x-flows:
         reference: if any
         example:
           summary: Fetch the latest status of order
-          value: &ref_21
+          value: &ref_24
             context:
               location:
                 country:
@@ -6614,7 +6784,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: &ref_28
+          value: &ref_29
             context:
               location:
                 country:
@@ -7033,7 +7203,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: *ref_14
+          value: *ref_17
       - summary: Buyer app request for latest order status
         api: status
         details:
@@ -7482,7 +7652,7 @@ x-flows:
         reference: if any
         example:
           summary: Cancel ticket booking
-          value: &ref_15
+          value: &ref_18
             context:
               location:
                 country:
@@ -7525,7 +7695,7 @@ x-flows:
         reference: if any
         example:
           summary: Cancel ticket booking
-          value: &ref_26
+          value: &ref_27
             context:
               location:
                 country:
@@ -7963,7 +8133,7 @@ x-flows:
         reference: if any
         example:
           summary: Cancel ticket booking
-          value: &ref_20
+          value: &ref_23
             context:
               location:
                 country:
@@ -8006,7 +8176,7 @@ x-flows:
         reference: if any
         example:
           summary: Cancel ticket booking
-          value: &ref_27
+          value: &ref_28
             context:
               location:
                 country:
@@ -8470,7 +8640,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: *ref_14
+          value: *ref_17
       - summary: Buyer app cancels the request for ticket
         api: cancel
         details:
@@ -10397,7 +10567,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: *ref_15
+          value: *ref_18
       - summary: The provider app rejected the cancellation as it is not allowed.
         api: on_cancel
         details:
@@ -10504,7 +10674,7 @@ x-examples:
                             code: SETTLEMENT_WINDOW
                           value: P30D
           - summary: Search_for_unreserved_entry_pass_2
-            value: *ref_16
+            value: *ref_19
           - summary: Search_for_unreserved_entry_pass_without_timestamp(FOOD_DINING)
             value:
               context:
@@ -10561,53 +10731,53 @@ x-examples:
       select:
         examples:
           - summary: Select_a_an_item_for_unreserved-entry-pass
-            value: *ref_17
+            value: *ref_20
       init:
         examples:
           - summary: Initialize_the_order_by_providing_billing_details
-            value: *ref_18
+            value: *ref_21
       confirm:
         examples:
           - summary: Confirm_ticket_booking
-            value: *ref_19
+            value: *ref_22
       cancel:
         examples:
           - summary: Cancel_ticket_booking
-            value: *ref_15
+            value: *ref_18
           - summary: Cancel_ticket_booking_2
-            value: *ref_20
+            value: *ref_23
       status:
         examples:
           - summary: Fetch_the_latest_status_of_order
-            value: *ref_21
+            value: *ref_24
       on_search:
         examples:
           - summary: Return_a_catalog_for_unreserved_entry_pass
-            value: *ref_22
+            value: *ref_15
           - summary: on_search_request_1
-            value: *ref_23
+            value: *ref_14
       on_select:
         examples:
           - summary: Return_a_selected_item_for_unreserved-entry-pass
-            value: *ref_24
+            value: *ref_25
       on_init:
         examples:
           - summary: Return_draft_order_for_transit_ticket_with_settlement_details
-            value: *ref_25
+            value: *ref_26
       on_confirm:
         examples:
           - summary: Return_confirmed_ticket_order_with_payment_confirmation
-            value: *ref_14
+            value: *ref_17
       on_cancel:
         examples:
           - summary: Cancel_ticket_booking_1
-            value: *ref_26
-          - summary: Cancel_ticket_booking_2
             value: *ref_27
+          - summary: Cancel_ticket_booking_2
+            value: *ref_28
       on_status:
         examples:
           - summary: Return_confirmed_ticket_order_with_payment_confirmation_1
-            value: *ref_28
+            value: *ref_29
 x-attributes:
   unreserved-entry-pass:
     attribute_set:

@@ -8,7 +8,7 @@ context:
   timestamp: '2024-06-26T04:41:16.000Z'
   bap_id: api.example-bap.com
   transaction_id: cf7bb367-c820-4bc9-9be8-f548e0bbf222
-  message_id: 5fd86e70-3465-4759-ac6c-910ab16e2db9
+  message_id: 40f94dbc-3c07-40ea-83f0-58568d530f65
   version: 2.0.0
   action: search
   bap_uri: https://api.example-bap.com/beckn/
@@ -28,7 +28,6 @@ message:
             range:  
               start: '2024-06-27T04:41:16.000Z'
               end: '2024-06-29T04:41:16.000Z'
-            #timestamp: '2024-06-27T04:41:16.000Z'
       vehicle:
         category: SITE
     payment:
@@ -54,3 +53,12 @@ message:
           - descriptor:
               code: SETTLEMENT_WINDOW
             value: P30D
+      - descriptor:
+          code: INCREMENTAL_PULL
+          name: Incremental Pull
+        display: false
+        list:
+          - descriptor:
+              code: REGISTER
+              name: Register
+            value: 'true'  
