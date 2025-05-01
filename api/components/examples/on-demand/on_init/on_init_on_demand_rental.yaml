@@ -46,6 +46,7 @@ message:
           descriptor:
             code: RIDE_STARTED
         reason_required: true
+    
     fulfillments:
       - id: F1
         customer:
