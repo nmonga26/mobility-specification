@@ -130,6 +130,12 @@ search: &search
             owner: BAP
             usage: CAB
             description: Describes the vehicle category.
+          variant:
+            required: OPTIONAL
+            type: string
+            owner: BAP
+            usage: CAB
+            description: Describes the vehicle variant.  
           _description: &search_message_intent_fulfillment_vehicle__description
             required: OPTIONAL
             type: object
@@ -363,6 +369,12 @@ on_search: &on_search
               owner: BAP
               usage: CAB
               description: Describes the vehicle category.
+            variant:
+              required: MANDATORY
+              type: string
+              owner: BAP
+              usage: CAB
+              description: Describes the vehicle variant.  
             _description: &on_search_message_catalog_providers_fulfillments_vehicle__description
               required: MANDATORY
               type: object
@@ -946,12 +958,24 @@ init: &init
           _description: *on_search_message_catalog_providers_fulfillments_stops__description
         vehicle: &init_message_order_fulfillments_vehicle
           category: &init_message_order_fulfillments_vehicle_category
-            required: MANDATORY
+            required: OPTIONAL
             type: string
             owner: BAP
             usage: CAB
             description: Describes vehicle category
-          _description: *on_search_message_catalog_providers_fulfillments_vehicle__description
+          variant:
+            required: OPTIONAL
+            type: string
+            owner: BAP
+            usage: CAB
+            description: Describes the vehicle variant.  
+          _description:
+              required: OPTIONAL
+              type: object
+              owner: BAP
+              usage: --
+              description: Describes the vehicle type.
+            
         _description: *on_search_message_catalog_providers_fulfillments__description
       payments: &init_message_order_payments
         collected_by: &init_message_order_payments_collected_by
@@ -1540,6 +1564,12 @@ on_confirm: &on_confirm
             owner: BPP
             usage: HR-20AS-4578
             description: Describes vehicle registration details
+          variant:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: CAB
+            description: Describes the vehicle variant.  
           _description: &on_confirm_message_order_fulfillments_vehicle__description
             required: MANDATORY
             type: object
@@ -1812,6 +1842,12 @@ on_cancel: &on_cancel
             owner: BPP
             usage: compact-re
             description: Describes vehicle model
+          variant:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: CAB
+            description: Describes the vehicle variant.  
           _description: *on_confirm_message_order_fulfillments_vehicle__description
         state: &on_cancel_message_order_fulfillments_state
           descriptor: &on_cancel_message_order_fulfillments_state_descriptor
@@ -2030,6 +2066,12 @@ on_status: &on_status
           model: *on_confirm_message_order_fulfillments_vehicle_model
           registration: *on_cancel_message_order_fulfillments_vehicle_registration
           _description: *on_confirm_message_order_fulfillments_vehicle__description
+          variant:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: CAB
+            description: Describes the vehicle variant.
         customer: &on_status_message_order_fulfillments_customer
           person: &on_status_message_order_fulfillments_customer_person
             name: &on_status_message_order_fulfillments_customer_person_name
@@ -2217,6 +2259,12 @@ on_update: &on_update
           model: *on_confirm_message_order_fulfillments_vehicle_model
           registration: *on_cancel_message_order_fulfillments_vehicle_registration
           _description: *on_search_message_catalog_providers_fulfillments_vehicle__description
+          variant:
+            required: MANDATORY
+            type: string
+            owner: BAP
+            usage: CAB
+            description: Describes the vehicle variant.
         customer: &on_update_message_order_fulfillments_customer
           person: &on_update_message_order_fulfillments_customer_person
             name: &on_update_message_order_fulfillments_customer_person_name

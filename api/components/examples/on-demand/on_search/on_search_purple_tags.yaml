@@ -102,7 +102,35 @@ message:
                       code: DWARFISM_SPECIAL_REQUIREMENT
                       name: Dwarfism
                       short_desc: Custom description
-              
+            cancellation_terms:
+              - cancellation_fee:
+                  percentage: '0'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_ASSIGNED
+                reason_required: true
+              - cancellation_fee:
+                  amount:
+                    currency: INR
+                    value: '30'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_ENROUTE_PICKUP
+                reason_required: true
+              - cancellation_fee:
+                  amount:
+                    currency: INR
+                    value: '50'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_ARRIVED_PICKUP
+                reason_required: true
+              - cancellation_fee:
+                  percentage: '100'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_STARTED
+                reason_required: true  
           - descriptor:
               code: RIDE
               name: CAB Economy Ride
@@ -119,6 +147,36 @@ message:
               maximum_value: '236'
               minimum_value: '206'
               value: '206'
+            cancellation_terms:
+              - cancellation_fee:
+                  percentage: '10'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_ASSIGNED
+                reason_required: true
+              - cancellation_fee:
+                  amount:
+                    currency: INR
+                    value: '50'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_ENROUTE_PICKUP
+                reason_required: true
+              - cancellation_fee:
+                  amount:
+                    currency: INR
+                    value: '50'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_ARRIVED_PICKUP
+                reason_required: true
+              - cancellation_fee:
+                  percentage: '90'
+                fulfillment_state:
+                  descriptor:
+                    code: RIDE_STARTED
+                reason_required: true
+           
         locations:
           - gps: 12.916468,77.608998
             id: L1
@@ -135,6 +193,18 @@ message:
             descriptor: 
               code: ON_DEMAND_TRIP
               name: on demand
+        cancellation_terms:
+          - cancellation_fee:
+              percentage: '10'
+            fulfillment_state:
+              descriptor:
+                code: RIDE_ASSIGNED
+            reason_required: true
+          - external_ref:
+              url:  https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+              mimetype: application/pdf 
+            
+                   
     tags:
       - descriptor:
           code: BPP_TERMS

@@ -19,5 +19,7 @@ message:
   order:
     items:
       - id: I1
+    fulfillments:
+      - id: F1  
     provider:
       id: P1

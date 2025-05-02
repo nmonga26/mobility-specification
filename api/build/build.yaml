@@ -2300,6 +2300,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        cancellation_terms:
+          description: Cancellation terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services
@@ -5059,6 +5064,35 @@ x-flows:
                               - value: NON_AC
                               - value: LOW_PRICE
                               - value: DOORSTEP_PICK_UP
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '0'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '30'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '100'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -5083,6 +5117,46 @@ x-flows:
                               - value: AC
                               - value: LOW_PRICE
                               - value: FREE_WIFI
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '90'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
+                    cancellation_terms:
+                      - cancellation_fee:
+                          percentage: '10'
+                        fulfillment_state:
+                          descriptor:
+                            code: RIDE_ASSIGNED
+                        reason_required: true
+                      - external_ref:
+                          url: >-
+                            https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                          mimetype: application/pdf
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -5164,11 +5238,13 @@ x-flows:
               timestamp: '2023-12-09T13:49:01.460Z'
               transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
               ttl: P120S
-              version: 2.0.1
+              version: 2.1.0
             message:
               order:
                 items:
                   - id: I1
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -5210,6 +5286,35 @@ x-flows:
               version: 2.1.0
             message:
               order:
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
                 fulfillments:
                   - id: F1
                     stops:
@@ -9018,6 +9123,35 @@ x-flows:
                                   code: DWARFISM_SPECIAL_REQUIREMENT
                                   name: Dwarfism
                                   short_desc: Custom description
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '0'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '30'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '100'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -9034,6 +9168,35 @@ x-flows:
                           maximum_value: '236'
                           minimum_value: '206'
                           value: '206'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '90'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -9050,6 +9213,17 @@ x-flows:
                         descriptor:
                           code: ON_DEMAND_TRIP
                           name: on demand
+                    cancellation_terms:
+                      - cancellation_fee:
+                          percentage: '10'
+                        fulfillment_state:
+                          descriptor:
+                            code: RIDE_ASSIGNED
+                        reason_required: true
+                      - external_ref:
+                          url: >-
+                            https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                          mimetype: application/pdf
                 tags:
                   - descriptor:
                       code: BPP_TERMS
@@ -9115,7 +9289,7 @@ x-flows:
               timestamp: '2023-12-09T13:49:01.460Z'
               transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
               ttl: P120S
-              version: 2.0.1
+              version: 2.1.0
             message:
               order:
                 items:
@@ -9146,6 +9320,8 @@ x-flows:
                               name: special requirement
                               short_desc: Custom description
                             value: CUSTOM TEXT ENTERED BY USER
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -9187,6 +9363,35 @@ x-flows:
               version: 2.1.0
             message:
               order:
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
                 fulfillments:
                   - id: F1
                     stops:
@@ -11910,6 +12115,35 @@ x-flows:
                           maximum_value: '176'
                           minimum_value: '136'
                           value: '146'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '0'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '30'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '100'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -11926,6 +12160,35 @@ x-flows:
                           maximum_value: '236'
                           minimum_value: '206'
                           value: '206'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '90'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -11940,6 +12203,17 @@ x-flows:
                         descriptor:
                           code: ON_DEMAND_TRIP
                           name: On Demand
+                    cancellation_terms:
+                      - cancellation_fee:
+                          percentage: '10'
+                        fulfillment_state:
+                          descriptor:
+                            code: RIDE_ASSIGNED
+                        reason_required: true
+                      - external_ref:
+                          url: >-
+                            https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                          mimetype: application/pdf
                     payments:
                       - collected_by: BPP
       - summary: Buyer app selects a specific service for more details
@@ -11983,6 +12257,8 @@ x-flows:
               order:
                 items:
                   - id: I1
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -12024,6 +12300,35 @@ x-flows:
               version: 2.1.0
             message:
               order:
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
                 fulfillments:
                   - id: F1
                     stops:
@@ -15842,6 +16147,35 @@ x-flows:
                           maximum_value: '176'
                           minimum_value: '136'
                           value: '146'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '0'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '30'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '100'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -15858,6 +16192,46 @@ x-flows:
                           maximum_value: '236'
                           minimum_value: '206'
                           value: '206'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '90'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
+                    cancellation_terms:
+                      - cancellation_fee:
+                          percentage: '10'
+                        fulfillment_state:
+                          descriptor:
+                            code: RIDE_ASSIGNED
+                        reason_required: true
+                      - external_ref:
+                          url: >-
+                            https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                          mimetype: application/pdf
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -15910,6 +16284,8 @@ x-flows:
               order:
                 items:
                   - id: I1
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -15951,6 +16327,35 @@ x-flows:
               version: 2.1.0
             message:
               order:
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
                 fulfillments:
                   - id: F1
                     stops:
@@ -19483,6 +19888,8 @@ x-flows:
                     price:
                       currency: INR
                       value: '166'
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -19524,6 +19931,35 @@ x-flows:
               version: 2.1.0
             message:
               order:
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
                 fulfillments:
                   - id: F1
                     stops:
@@ -20301,6 +20737,35 @@ x-flows:
                               - descriptor:
                                   code: TOTAL_DISTANCE
                                 value: '10'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '0'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '30'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '100'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -20348,6 +20813,35 @@ x-flows:
                               - descriptor:
                                   code: TOTAL_DISTANCE
                                 value: '10'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '90'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -20364,6 +20858,17 @@ x-flows:
                         descriptor:
                           code: ON_DEMAND_RENTAL
                           name: Rental
+                    cancellation_terms:
+                      - cancellation_fee:
+                          percentage: '10'
+                        fulfillment_state:
+                          descriptor:
+                            code: RIDE_ASSIGNED
+                        reason_required: true
+                      - external_ref:
+                          url: >-
+                            https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                          mimetype: application/pdf
                 tags:
                   - descriptor:
                       code: BPP_TERMS
@@ -20439,6 +20944,8 @@ x-flows:
                         quantity:
                           selected:
                             count: 3
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: Ride provider provides the quote for selected service
@@ -20566,6 +21073,35 @@ x-flows:
                           - descriptor:
                               code: TOTAL_DISTANCE
                             value: '30'
+                cancellation_terms:
+                  - cancellation_fee:
+                      percentage: '0'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ASSIGNED
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '30'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ENROUTE_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      amount:
+                        currency: INR
+                        value: '50'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_ARRIVED_PICKUP
+                    reason_required: true
+                  - cancellation_fee:
+                      percentage: '100'
+                    fulfillment_state:
+                      descriptor:
+                        code: RIDE_STARTED
+                    reason_required: true
                 provider:
                   id: P1
                 quote:
@@ -29538,6 +30074,35 @@ x-flows:
                               - descriptor:
                                   code: TOTAL_DISTANCE
                                 value: '10'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '0'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '30'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '100'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
                       - descriptor:
                           code: RIDE
                           name: CAB Economy Ride
@@ -29585,6 +30150,46 @@ x-flows:
                               - descriptor:
                                   code: TOTAL_DISTANCE
                                 value: '10'
+                        cancellation_terms:
+                          - cancellation_fee:
+                              percentage: '10'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ASSIGNED
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ENROUTE_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              amount:
+                                currency: INR
+                                value: '50'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_ARRIVED_PICKUP
+                            reason_required: true
+                          - cancellation_fee:
+                              percentage: '90'
+                            fulfillment_state:
+                              descriptor:
+                                code: RIDE_STARTED
+                            reason_required: true
+                    cancellation_terms:
+                      - cancellation_fee:
+                          percentage: '10'
+                        fulfillment_state:
+                          descriptor:
+                            code: RIDE_ASSIGNED
+                        reason_required: true
+                      - external_ref:
+                          url: >-
+                            https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                          mimetype: application/pdf
                     locations:
                       - gps: 12.916468,77.608998
                         id: L1
@@ -30728,6 +31333,35 @@ x-examples:
                             maximum_value: '176'
                             minimum_value: '136'
                             value: '146'
+                          cancellation_terms:
+                            - cancellation_fee:
+                                percentage: '0'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_ASSIGNED
+                              reason_required: true
+                            - cancellation_fee:
+                                amount:
+                                  currency: INR
+                                  value: '30'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_ENROUTE_PICKUP
+                              reason_required: true
+                            - cancellation_fee:
+                                amount:
+                                  currency: INR
+                                  value: '50'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_ARRIVED_PICKUP
+                              reason_required: true
+                            - cancellation_fee:
+                                percentage: '100'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_STARTED
+                              reason_required: true
                         - descriptor:
                             code: RIDE
                             name: CAB Economy Ride
@@ -30744,6 +31378,46 @@ x-examples:
                             maximum_value: '236'
                             minimum_value: '206'
                             value: '206'
+                          cancellation_terms:
+                            - cancellation_fee:
+                                percentage: '10'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_ASSIGNED
+                              reason_required: true
+                            - cancellation_fee:
+                                amount:
+                                  currency: INR
+                                  value: '50'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_ENROUTE_PICKUP
+                              reason_required: true
+                            - cancellation_fee:
+                                amount:
+                                  currency: INR
+                                  value: '50'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_ARRIVED_PICKUP
+                              reason_required: true
+                            - cancellation_fee:
+                                percentage: '90'
+                              fulfillment_state:
+                                descriptor:
+                                  code: RIDE_STARTED
+                              reason_required: true
+                      cancellation_terms:
+                        - cancellation_fee:
+                            percentage: '10'
+                          fulfillment_state:
+                            descriptor:
+                              code: RIDE_ASSIGNED
+                          reason_required: true
+                        - external_ref:
+                            url: >-
+                              https://example-bpp.com/prod/seller/v1/cancellation_terms.pdf
+                            mimetype: application/pdf
                       locations:
                         - gps: 12.916468,77.608998
                           id: L1
@@ -31919,7 +32593,7 @@ x-attributes:
         context:
           location: &ref_80
             country:
-              code: &ref_148
+              code: &ref_147
                 required: MANDATORY
                 type: string
                 owner: BAP
@@ -31934,7 +32608,7 @@ x-attributes:
                   This attribute defines the country of location where the
                   transaction is meant to be completed.
             city:
-              code: &ref_149
+              code: &ref_148
                 required: MANDATORY
                 type: string
                 owner: BAP
@@ -32060,6 +32734,12 @@ x-attributes:
                   owner: BAP
                   usage: CAB
                   description: Describes the vehicle category.
+                variant:
+                  required: OPTIONAL
+                  type: string
+                  owner: BAP
+                  usage: CAB
+                  description: Describes the vehicle variant.
                 _description:
                   required: OPTIONAL
                   type: object
@@ -32095,7 +32775,7 @@ x-attributes:
                 owner: BAP
                 usage: '--'
                 description: The terms of settlement for this order
-              tags: &ref_111
+              tags: &ref_110
                 BUYER_FINDER_FEES:
                   required: MANDATORY
                   type: OBJECT
@@ -32261,7 +32941,7 @@ x-attributes:
                   usage: '--'
                   description: Describes the provider's locations.
               fulfillments:
-                id: &ref_150
+                id: &ref_149
                   required: MANDATORY
                   type: string
                   owner: BPP
@@ -32306,7 +32986,13 @@ x-attributes:
                     owner: BAP
                     usage: CAB
                     description: Describes the vehicle category.
-                  _description: &ref_110
+                  variant:
+                    required: MANDATORY
+                    type: string
+                    owner: BAP
+                    usage: CAB
+                    description: Describes the vehicle variant.
+                  _description: &ref_192
                     required: MANDATORY
                     type: object
                     owner: BAP
@@ -32377,7 +33063,7 @@ x-attributes:
                     owner: BPP
                     usage: '--'
                     description: Describes the price of an item.
-                location_ids: &ref_114
+                location_ids: &ref_113
                   required: OPTIONAL
                   type: string
                   owner: BPP
@@ -32665,8 +33351,8 @@ x-attributes:
           order:
             items:
               id: *ref_92
-              descriptor: &ref_112
-                name: &ref_173
+              descriptor: &ref_111
+                name: &ref_172
                   required: MANDATORY
                   type: string
                   owner: BPP
@@ -32683,14 +33369,14 @@ x-attributes:
                 currency: *ref_95
                 value: *ref_96
                 maximum_value: *ref_97
-                minimum_value: &ref_113
+                minimum_value: &ref_112
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 50
                   description: Describes a minimum value of price in decimal form
                 _description: *ref_98
-              location_ids: &ref_151
+              location_ids: &ref_150
                 required: OPTIONAL
                 type: string
                 owner: BPP
@@ -32720,7 +33406,7 @@ x-attributes:
                   fulfilled. 
               stops:
                 type: *ref_89
-                location: &ref_116
+                location: &ref_115
                   gps:
                     required: MANDATORY
                     type: string
@@ -32731,7 +33417,7 @@ x-attributes:
                 _description: *ref_104
               vehicle: *ref_105
               _description: *ref_106
-              tags: &ref_117
+              tags: &ref_116
                 ROUTE_INFO:
                   required: MANDATORY
                   type: OBJECT
@@ -32752,7 +33438,7 @@ x-attributes:
                       usage: '--'
                       description: Describes the waypoints value.
             quote:
-              price: &ref_118
+              price: &ref_117
                 value: *ref_96
                 currency:
                   required: MANDATORY
@@ -32760,27 +33446,27 @@ x-attributes:
                   owner: BPP
                   usage: INR
                   description: Describes the currency of a product or service
-                _description: &ref_167
+                _description: &ref_166
                   required: MANDATORY
                   type: object
                   owner: BPP
                   usage: '--'
                   description: This refers to the value of used currency of quoted price.
               breakup:
-                title: &ref_119
+                title: &ref_118
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: Base Fare
                   description: Breakup title of the total quoted price
                 price:
-                  value: &ref_140
+                  value: &ref_139
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: INR
                     description: Describes the price of a product or service
-                  currency: &ref_141
+                  currency: &ref_140
                     required: MANDATORY
                     type: string
                     owner: BPP
@@ -32788,13 +33474,13 @@ x-attributes:
                     description: >-
                       Describes the currency to be paid in of a product or
                       service
-                  _description: &ref_120
+                  _description: &ref_119
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the breakup price
-                _description: &ref_121
+                _description: &ref_120
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -32802,13 +33488,13 @@ x-attributes:
                   description: >-
                     This attribute describes the breakup of the total quoted
                     price.
-              ttl: &ref_122
+              ttl: &ref_121
                 required: OPTIONAL
                 type: string
                 owner: BPP
                 usage: P200s
                 description: Time to live in seconds for an instance of this schema
-              _description: &ref_123
+              _description: &ref_122
                 required: MANDATORY
                 type: object
                 owner: BPP
@@ -32847,7 +33533,7 @@ x-attributes:
           order:
             items: *ref_107
             provider:
-              id: &ref_177
+              id: &ref_176
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -32861,7 +33547,7 @@ x-attributes:
                 owner: BAP
                 usage: John Doe
                 description: Name of the billable entity
-              _description: &ref_128
+              _description: &ref_127
                 required: MANDATORY
                 type: object
                 owner: BAP
@@ -32871,7 +33557,7 @@ x-attributes:
               id: *ref_102
               customer:
                 person:
-                  name: &ref_156
+                  name: &ref_155
                     required: MANDATORY
                     type: string
                     owner: BAP
@@ -32884,7 +33570,7 @@ x-attributes:
                     usage: '--'
                     description: Describes contact of end-customer
                 contact:
-                  phone: &ref_158
+                  phone: &ref_157
                     required: MANDATORY
                     type: string
                     owner: BAP
@@ -32892,7 +33578,7 @@ x-attributes:
                     description: Contact number of the customer
                   _description: *ref_109
               stops:
-                type: &ref_115
+                type: &ref_114
                   required: MANDATORY
                   type: string
                   owner: BAP
@@ -32900,7 +33586,7 @@ x-attributes:
                   description: >-
                     The type of stop. Allowed values of this property can be
                     defined by the network policy.
-                location: &ref_139
+                location: &ref_138
                   gps:
                     required: MANDATORY
                     type: string
@@ -32909,17 +33595,28 @@ x-attributes:
                     description: The GPS co-ordinates of this location.
                   _description: *ref_103
                 _description: *ref_104
-              vehicle: &ref_134
-                category: &ref_192
-                  required: MANDATORY
+              vehicle: &ref_133
+                category: &ref_191
+                  required: OPTIONAL
                   type: string
                   owner: BAP
                   usage: CAB
                   description: Describes vehicle category
-                _description: *ref_110
+                variant:
+                  required: OPTIONAL
+                  type: string
+                  owner: BAP
+                  usage: CAB
+                  description: Describes the vehicle variant.
+                _description:
+                  required: OPTIONAL
+                  type: object
+                  owner: BAP
+                  usage: '--'
+                  description: Describes the vehicle type.
               _description: *ref_106
             payments:
-              collected_by: &ref_124
+              collected_by: &ref_123
                 required: MANDATORY
                 type: string
                 owner: BAP
@@ -32956,20 +33653,20 @@ x-attributes:
                   owner: BAP
                   usage: 9988199772@okicic
                   description: Virtual payment address associated with payment activity
-                _description: &ref_125
+                _description: &ref_124
                   required: MANDATORY
                   type: object
                   owner: BAP
                   usage: '--'
                   description: This attribute defines the payment params for this order.
-              _description: &ref_126
+              _description: &ref_125
                 required: MANDATORY
                 type: object
                 owner: BAP/BPP
                 usage: '--'
                 description: The terms of settlement for this order
-              tags: *ref_111
-            _description: &ref_135
+              tags: *ref_110
+            _description: &ref_134
               required: MANDATORY
               type: object
               owner: BAP/BPP
@@ -33007,7 +33704,7 @@ x-attributes:
                 owner: BPP
                 usage: ecf4d145-4ea3-45fe-ab3d-7bcf6b9f456b
                 description: Describes the unique Id of the item.
-              descriptor: *ref_112
+              descriptor: *ref_111
               price:
                 currency:
                   required: MANDATORY
@@ -33017,11 +33714,11 @@ x-attributes:
                   description: Describes the price of selected item.
                 value: *ref_96
                 maximum_value: *ref_97
-                minimum_value: *ref_113
+                minimum_value: *ref_112
                 _description: *ref_98
-              location_ids: *ref_114
+              location_ids: *ref_113
               fulfillment_ids: *ref_102
-              payment_ids: &ref_176
+              payment_ids: &ref_175
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -33046,12 +33743,12 @@ x-attributes:
                 usage: DELIVERY
                 description: A code that describes the mode of fulfillment.
               stops:
-                type: *ref_115
-                location: *ref_116
+                type: *ref_114
+                location: *ref_115
                 _description: *ref_104
               vehicle: *ref_105
               _description: *ref_106
-              customer: &ref_138
+              customer: &ref_137
                 person:
                   name:
                     required: MANDATORY
@@ -33059,7 +33756,7 @@ x-attributes:
                     owner: BAP
                     usage: Jason Roy
                     description: Describes the name of the customer
-                  _description: &ref_157
+                  _description: &ref_156
                     required: MANDATORY
                     type: object
                     owner: BAP
@@ -33072,23 +33769,23 @@ x-attributes:
                     owner: BAP
                     usage: 9898657512
                     description: Describes the contact number of the customer
-                  _description: &ref_159
+                  _description: &ref_158
                     required: MANDATORY
                     type: object
                     owner: BAP
                     usage: '--'
                     description: Describes the customer contact details.
-                _description: &ref_160
+                _description: &ref_159
                   required: MANDATORY
                   type: object
                   owner: BAP
                   usage: '--'
                   description: Describes the customer.
-              tags: *ref_117
+              tags: *ref_116
             quote:
-              price: *ref_118
+              price: *ref_117
               breakup:
-                title: *ref_119
+                title: *ref_118
                 price:
                   currency:
                     required: MANDATORY
@@ -33104,12 +33801,12 @@ x-attributes:
                     owner: BPP
                     usage: 120
                     description: Describes the price of a product or service
-                  _description: *ref_120
-                _description: *ref_121
-              ttl: *ref_122
-              _description: *ref_123
+                  _description: *ref_119
+                _description: *ref_120
+              ttl: *ref_121
+              _description: *ref_122
             payments:
-              id: &ref_142
+              id: &ref_141
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -33117,41 +33814,41 @@ x-attributes:
                 description: >-
                   Describes the ID of the payment term that can be referred at
                   an item or an order level in a catalog
-              collected_by: *ref_124
-              status: &ref_129
+              collected_by: *ref_123
+              status: &ref_128
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: NOT-PAID
                 description: Describe the payment Status for particular order
-              type: &ref_130
+              type: &ref_129
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: PRE-ORDER
                 description: Describe the payment type for particular order
               params:
-                bank_code: &ref_131
+                bank_code: &ref_130
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: XXXXXXXX
                   description: Bank code associated with payment activity
-                bank_account_number: &ref_132
+                bank_account_number: &ref_131
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: xxxxxxxxxxxxxx
                   description: Bank account number associated with payment activity
-                virtual_payment_address: &ref_133
+                virtual_payment_address: &ref_132
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: 9988199772@okicic
                   description: Virtual payment address associated with payment activity
-                _description: *ref_125
-              _description: *ref_126
-              tags: *ref_111
+                _description: *ref_124
+              _description: *ref_125
+              tags: *ref_110
             cancellation_terms:
               fulfillment_state:
                 descriptor:
@@ -33161,19 +33858,19 @@ x-attributes:
                     owner: BPP
                     usage: RIDE_ENROUTE_PICKUP
                     description: Describes the unique code for the cancellation terms
-                  _description: &ref_127
+                  _description: &ref_126
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the price of a product or service
-              reason_required: &ref_144
+              reason_required: &ref_143
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: true
                 description: Indicates whether a reason is required to cancel the order
-              cancellation_fee: &ref_145
+              cancellation_fee: &ref_144
                 percentage:
                   required: OPTIONAL
                   type: string
@@ -33193,20 +33890,20 @@ x-attributes:
                     owner: BPP
                     usage: 30
                     description: Describes the price of a product or service
-                _description: *ref_127
-              _description: &ref_146
+                _description: *ref_126
+              _description: &ref_145
                 required: MANDATORY
                 type: object
                 owner: BPP
                 usage: '--'
                 description: Describes the unique code for the cancellation terms
-            _description: &ref_147
+            _description: &ref_146
               required: MANDATORY
               type: object
               owner: BAP/BPP
               usage: '--'
               description: Describes the order description.
-            id: &ref_136
+            id: &ref_135
               required: OPTIONAL
               type: string
               owner: BPP
@@ -33262,7 +33959,7 @@ x-attributes:
                 owner: BAP
                 usage: John Doe
                 description: Describes the Name of the billable entity
-              _description: *ref_128
+              _description: *ref_127
             payments:
               id:
                 required: MANDATORY
@@ -33272,22 +33969,22 @@ x-attributes:
                 description: >-
                   ID of the payment term that can be referred at an item or an
                   order level in a catalog
-              collected_by: *ref_124
-              status: *ref_129
-              type: *ref_130
+              collected_by: *ref_123
+              status: *ref_128
+              type: *ref_129
               params:
-                bank_code: *ref_131
-                bank_account_number: *ref_132
-                virtual_payment_address: *ref_133
-                transaction_id: &ref_143
+                bank_code: *ref_130
+                bank_account_number: *ref_131
+                virtual_payment_address: *ref_132
+                transaction_id: &ref_142
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: cda41144
                   description: Describes transaction ID associated with payment activity
-                _description: *ref_125
-              _description: *ref_126
-              tags: *ref_111
+                _description: *ref_124
+              _description: *ref_125
+              tags: *ref_110
             fulfillments:
               id: *ref_102
               customer:
@@ -33318,11 +34015,11 @@ x-attributes:
                     description: The GPS co-ordinates of this location.
                   _description: *ref_103
                 _description: *ref_104
-              vehicle: *ref_134
+              vehicle: *ref_133
               _description: *ref_106
-              tags: *ref_117
-            _description: *ref_135
-            id: *ref_136
+              tags: *ref_116
+            _description: *ref_134
+            id: *ref_135
       on_confirm:
         context:
           location: *ref_80
@@ -33362,7 +34059,7 @@ x-attributes:
                   usage: SJT
                   description: Describes the unique code value of the item
                 _description: *ref_94
-              price: &ref_152
+              price: &ref_151
                 currency:
                   required: MANDATORY
                   type: string
@@ -33372,22 +34069,22 @@ x-attributes:
                     Describes the currency type to be paid in of a product or
                     service
                 value: *ref_96
-                maximum_value: &ref_174
+                maximum_value: &ref_173
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 176
                   description: Describes a maximum value in decimal form
-                minimum_value: &ref_175
+                minimum_value: &ref_174
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 50
                   description: Describes a minimum value in decimal form
                 _description: *ref_98
-              location_ids: *ref_114
+              location_ids: *ref_113
               fulfillment_ids: *ref_102
-              payment_ids: &ref_137
+              payment_ids: &ref_136
                 required: MANDATORY
                 type: string
                 owner: BPP
@@ -33405,8 +34102,8 @@ x-attributes:
               _description: *ref_101
             fulfillments:
               id: *ref_102
-              type: *ref_137
-              customer: *ref_138
+              type: *ref_136
+              customer: *ref_137
               agent:
                 person:
                   name:
@@ -33415,7 +34112,7 @@ x-attributes:
                     owner: BPP
                     usage: John Doe
                     description: Describes the name of the agent
-                  _description: &ref_161
+                  _description: &ref_160
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -33428,13 +34125,13 @@ x-attributes:
                     owner: BPP
                     usage: 7845981268
                     description: Describes the contact number of the agent
-                  _description: &ref_162
+                  _description: &ref_161
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the agent contact details.
-                _description: &ref_163
+                _description: &ref_162
                   required: MANDATORY
                   type: object
                   owner: BPP
@@ -33448,7 +34145,7 @@ x-attributes:
                     owner: BPP
                     usage: RIDE_ASSIGNED
                     description: Describes the state's code for fulfillment.
-                  _description: &ref_166
+                  _description: &ref_165
                     required: MANDATORY
                     type: object
                     owner: BPP
@@ -33463,9 +34160,9 @@ x-attributes:
                   description: >-
                     The type of stop. Allowed values of this property can be
                     defined by the network policy.
-                location: *ref_139
-                authorization: &ref_191
-                  type: &ref_153
+                location: *ref_138
+                authorization: &ref_190
+                  type: &ref_152
                     required: OPTIONAL
                     type: string
                     owner: BPP
@@ -33474,7 +34171,7 @@ x-attributes:
                       Type of authorization mechanism used. The allowed values
                       for this field can be published as part of the network
                       policy.
-                  token: &ref_154
+                  token: &ref_153
                     required: OPTIONAL
                     type: string
                     owner: BPP
@@ -33490,26 +34187,26 @@ x-attributes:
                     owner: BPP
                     usage: '--'
                     description: Describes the authorization for a fulfillments stop.
-                _description: &ref_155
+                _description: &ref_154
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
                   usage: '--'
                   description: Describes the fulfillments stops.
               vehicle:
-                category: &ref_164
+                category: &ref_163
                   required: MANDATORY
                   type: string
                   owner: BAP
                   usage: AUTO_RICKSHAW
                   description: Describes vehicle category
-                make: &ref_178
+                make: &ref_177
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: Bajaj
                   description: Describes vehicle manufacturer
-                model: &ref_179
+                model: &ref_178
                   required: OPTIONAL
                   type: string
                   owner: BPP
@@ -33521,51 +34218,57 @@ x-attributes:
                   owner: BPP
                   usage: HR-20AS-4578
                   description: Describes vehicle registration details
-                _description: &ref_165
+                variant:
+                  required: MANDATORY
+                  type: string
+                  owner: BAP
+                  usage: CAB
+                  description: Describes the vehicle variant.
+                _description: &ref_164
                   required: MANDATORY
                   type: object
                   owner: BAP/BPP
                   usage: '--'
                   description: Describes the vehicle type.
               _description: *ref_106
-              tags: *ref_117
-            quote: &ref_183
-              price: *ref_118
+              tags: *ref_116
+            quote: &ref_182
+              price: *ref_117
               breakup:
-                title: *ref_119
+                title: *ref_118
                 price:
-                  currency: *ref_140
-                  value: *ref_141
-                  _description: *ref_120
-                _description: *ref_121
-              ttl: *ref_122
-              _description: *ref_123
+                  currency: *ref_139
+                  value: *ref_140
+                  _description: *ref_119
+                _description: *ref_120
+              ttl: *ref_121
+              _description: *ref_122
             payments:
-              id: *ref_142
-              collected_by: *ref_124
-              status: &ref_169
+              id: *ref_141
+              collected_by: *ref_123
+              status: &ref_168
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: NOT-PAID
                 description: Describe the Payment Status
-              type: &ref_168
+              type: &ref_167
                 required: MANDATORY
                 type: string
                 owner: BAP
                 usage: PRE-ORDER
                 description: Describe the Payment type
               params:
-                bank_code: *ref_131
-                bank_account_number: *ref_132
-                virtual_payment_address: *ref_133
-                amount: &ref_184
+                bank_code: *ref_130
+                bank_account_number: *ref_131
+                virtual_payment_address: *ref_132
+                amount: &ref_183
                   required: OPTIONAL
                   type: string
                   owner: BPP
                   usage: 146
                   description: Describes the amount associated with the payment transaction
-                currency: &ref_185
+                currency: &ref_184
                   required: OPTIONAL
                   type: string
                   owner: BPP
@@ -33573,9 +34276,9 @@ x-attributes:
                   description: >-
                     Describes the currency associated with the payment
                     transaction
-                transaction_id: *ref_143
-              tags: *ref_111
-            cancellation_terms: &ref_170
+                transaction_id: *ref_142
+              tags: *ref_110
+            cancellation_terms: &ref_169
               fulfillment_state:
                 descriptor:
                   code:
@@ -33584,10 +34287,10 @@ x-attributes:
                     owner: BPP
                     usage: RIDE_ENROUTE_PICKUP
                     description: Describes the unique code for the cancellation terms.
-                  _description: *ref_127
-              reason_required: *ref_144
-              cancellation_fee: *ref_145
-              _description: *ref_146
+                  _description: *ref_126
+              reason_required: *ref_143
+              cancellation_fee: *ref_144
+              _description: *ref_145
             status:
               required: MANDATORY
               type: string
@@ -33606,20 +34309,20 @@ x-attributes:
               owner: BPP
               usage: 2023-12-10T08:03:34.294Z
               description: Describes The date-time of updated of this order
-            id: &ref_171
+            id: &ref_170
               required: MANDATORY
               type: string
               owner: BPP
               usage: ec08edb2
               description: Describes the unqiue order ID.
-            _description: *ref_147
+            _description: *ref_146
       cancel:
         context:
-          location: &ref_172
+          location: &ref_171
             country:
-              code: *ref_148
+              code: *ref_147
             city:
-              code: *ref_149
+              code: *ref_148
           domain: *ref_81
           timestamp: *ref_82
           bap_id: *ref_83
@@ -33709,16 +34412,16 @@ x-attributes:
                 owner: BPP
                 usage: ecf4d145
                 description: 'Describes the unique ID of the order. '
-              descriptor: *ref_112
-              fulfillment_ids: *ref_150
+              descriptor: *ref_111
+              fulfillment_ids: *ref_149
               payment_ids:
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: bc08edb1
                 description: Describes the unique reference ID to the payment of an order
-              location_ids: *ref_151
-              price: *ref_152
+              location_ids: *ref_150
+              price: *ref_151
               _description: *ref_99
               tags: *ref_100
             provider:
@@ -33732,9 +34435,9 @@ x-attributes:
             fulfillments:
               id: *ref_102
               stops:
-                type: *ref_115
+                type: *ref_114
                 location:
-                  gps: &ref_190
+                  gps: &ref_189
                     required: MANDATORY
                     type: string
                     owner: BAP
@@ -33742,8 +34445,8 @@ x-attributes:
                     description: Describes a GPS coordinate
                   _description: *ref_103
                 authorization:
-                  type: *ref_153
-                  token: *ref_154
+                  type: *ref_152
+                  token: *ref_153
                 time:
                   duration:
                     required: OPTIONAL
@@ -33751,16 +34454,16 @@ x-attributes:
                     owner: BPP
                     usage: PT2H
                     description: Describes the duration.
-                _description: *ref_155
+                _description: *ref_154
               customer:
                 person:
-                  name: *ref_156
-                  _description: *ref_157
+                  name: *ref_155
+                  _description: *ref_156
                 contact: &ref_193
-                  phone: *ref_158
-                  _description: *ref_159
-                _description: *ref_160
-              agent: &ref_181
+                  phone: *ref_157
+                  _description: *ref_158
+                _description: *ref_159
+              agent: &ref_180
                 person:
                   name:
                     required: MANDATORY
@@ -33768,7 +34471,7 @@ x-attributes:
                     owner: BPP
                     usage: John Doe
                     description: Name of the agent
-                  _description: *ref_161
+                  _description: *ref_160
                 contact:
                   phone:
                     required: MANDATORY
@@ -33776,16 +34479,16 @@ x-attributes:
                     owner: BPP
                     usage: 7845981268
                     description: Contact number of the agent
-                  _description: *ref_162
-                _description: *ref_163
+                  _description: *ref_161
+                _description: *ref_162
               vehicle:
-                registration: &ref_180
+                registration: &ref_179
                   required: MANDATORY
                   type: string
                   owner: BPP
                   usage: HR-20AS-4578
                   description: Describes vehicle registration details
-                category: *ref_164
+                category: *ref_163
                 make:
                   required: MANDATORY
                   type: string
@@ -33798,8 +34501,14 @@ x-attributes:
                   owner: BPP
                   usage: compact-re
                   description: Describes vehicle model
-                _description: *ref_165
-              state: &ref_182
+                variant:
+                  required: MANDATORY
+                  type: string
+                  owner: BAP
+                  usage: CAB
+                  description: Describes the vehicle variant.
+                _description: *ref_164
+              state: &ref_181
                 descriptor:
                   code:
                     required: MANDATORY
@@ -33813,15 +34522,15 @@ x-attributes:
                     owner: BPP
                     usage: Driver is on the way
                     description: Describes the current state
-                  _description: *ref_166
-              type: *ref_137
+                  _description: *ref_165
+              type: *ref_136
               _description: *ref_106
-              tags: *ref_117
+              tags: *ref_116
             quote:
               price:
                 value: *ref_96
                 currency: *ref_95
-                _description: *ref_167
+                _description: *ref_166
               breakup:
                 title:
                   required: MANDATORY
@@ -33830,17 +34539,17 @@ x-attributes:
                   usage: Base Fare
                   description: Describes the Breakup title of the total quoted price
                 price:
-                  currency: *ref_140
+                  currency: *ref_139
                   value:
                     required: MANDATORY
                     type: string
                     owner: BPP
                     usage: 120
                     description: Describes the currency type of a product or service
-                  _description: *ref_120
-                _description: *ref_121
-              ttl: *ref_122
-              _description: *ref_123
+                  _description: *ref_119
+                _description: *ref_120
+              ttl: *ref_121
+              _description: *ref_122
             payments:
               id:
                 required: MANDATORY
@@ -33850,7 +34559,7 @@ x-attributes:
                 description: >-
                   ID of the payment term that can be referred at an item or an
                   order level in a catalog
-              type: *ref_168
+              type: *ref_167
               params:
                 currency:
                   required: OPTIONAL
@@ -33864,8 +34573,8 @@ x-attributes:
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
-                bank_code: *ref_131
-                bank_account_number: *ref_132
+                bank_code: *ref_130
+                bank_account_number: *ref_131
                 bank_account_name:
                   required: OPTIONAL
                   type: string
@@ -33885,21 +34594,21 @@ x-attributes:
                   owner: BPP
                   usage: P1D
                   description: Describes time transaction duration
-              collected_by: *ref_124
-              status: *ref_169
-              tags: *ref_111
-            cancellation_terms: *ref_170
-            id: *ref_171
+              collected_by: *ref_123
+              status: *ref_168
+              tags: *ref_110
+            cancellation_terms: *ref_169
+            id: *ref_170
             status:
               required: MANDATORY
               type: string
               owner: BPP
               usage: SOFT_CANCEL
               description: Describes the order status.
-            _description: *ref_147
+            _description: *ref_146
       status:
         context:
-          location: *ref_172
+          location: *ref_171
           domain: *ref_81
           timestamp: *ref_82
           bap_id: *ref_83
@@ -33942,7 +34651,7 @@ x-attributes:
           transaction_id: *ref_84
           message_id: *ref_85
           version: *ref_86
-          action: &ref_186
+          action: &ref_185
             required: MANDATORY
             type: string
             owner: BAP
@@ -33957,14 +34666,14 @@ x-attributes:
         message:
           order:
             items:
-              id: &ref_187
+              id: &ref_186
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: ecf4d145
                 description: 'Describes the unique ID of the item. '
               descriptor:
-                name: *ref_173
+                name: *ref_172
                 code:
                   required: MANDATORY
                   type: string
@@ -33972,7 +34681,7 @@ x-attributes:
                   usage: RIDE
                   description: Describes the item code.
                 _description: *ref_94
-              price: &ref_188
+              price: &ref_187
                 currency: *ref_95
                 value:
                   required: MANDATORY
@@ -33980,16 +34689,16 @@ x-attributes:
                   owner: BPP
                   usage: 60
                   description: Describes a numerical value in decimal form
-                maximum_value: *ref_174
-                minimum_value: *ref_175
+                maximum_value: *ref_173
+                minimum_value: *ref_174
                 _description: *ref_98
-              location_ids: *ref_151
+              location_ids: *ref_150
               fulfillment_ids: *ref_102
-              payment_ids: *ref_176
+              payment_ids: *ref_175
               _description: *ref_99
               tags: *ref_100
-            provider: &ref_189
-              id: *ref_177
+            provider: &ref_188
+              id: *ref_176
               _description: *ref_101
             fulfillments:
               id: *ref_102
@@ -34010,7 +34719,7 @@ x-attributes:
                     usage: 28.686576, 77.441632
                     description: Describes a GPS coordinate
                   _description: *ref_103
-                _description: *ref_155
+                _description: *ref_154
               vehicle:
                 category:
                   required: MANDATORY
@@ -34018,10 +34727,16 @@ x-attributes:
                   owner: BPP
                   usage: CAB
                   description: Describes vehicle category
-                make: *ref_178
-                model: *ref_179
-                registration: *ref_180
-                _description: *ref_165
+                make: *ref_177
+                model: *ref_178
+                registration: *ref_179
+                _description: *ref_164
+                variant:
+                  required: MANDATORY
+                  type: string
+                  owner: BAP
+                  usage: CAB
+                  description: Describes the vehicle variant.
               customer:
                 person:
                   name:
@@ -34030,7 +34745,7 @@ x-attributes:
                     owner: BPP
                     usage: Jason Roy
                     description: Name of the customer
-                  _description: *ref_157
+                  _description: *ref_156
                 contact:
                   phone:
                     required: MANDATORY
@@ -34038,19 +34753,19 @@ x-attributes:
                     owner: BPP
                     usage: 9898657512
                     description: Contact number of the customer
-                  _description: *ref_159
-                _description: *ref_160
-              agent: *ref_181
+                  _description: *ref_158
+                _description: *ref_159
+              agent: *ref_180
               type: &ref_194
                 required: MANDATORY
                 type: string
                 owner: BPP
                 usage: Delivery
                 description: Describes type of fullfilment
-              state: *ref_182
+              state: *ref_181
               _description: *ref_106
-              tags: *ref_117
-            quote: *ref_183
+              tags: *ref_116
+            quote: *ref_182
             payments:
               id: &ref_195
                 required: MANDATORY
@@ -34060,7 +34775,7 @@ x-attributes:
                 description: >-
                   ID of the payment term that can be referred at an item or an
                   order level in a catalog
-              collected_by: *ref_124
+              collected_by: *ref_123
               status: &ref_196
                 required: MANDATORY
                 type: string
@@ -34074,14 +34789,14 @@ x-attributes:
                 usage: PRE-ORDER
                 description: Payment type
               params:
-                bank_code: *ref_131
-                bank_account_number: *ref_132
-                virtual_payment_address: *ref_133
-                transaction_id: *ref_143
-                amount: *ref_184
-                currency: *ref_185
-              tags: *ref_111
-            cancellation_terms: *ref_170
+                bank_code: *ref_130
+                bank_account_number: *ref_131
+                virtual_payment_address: *ref_132
+                transaction_id: *ref_142
+                amount: *ref_183
+                currency: *ref_184
+              tags: *ref_110
+            cancellation_terms: *ref_169
             status:
               required: OPTIONAL
               type: string
@@ -34100,18 +34815,18 @@ x-attributes:
               owner: BPP
               usage: 2023-12-10T08:03:34.294Z
               description: Describes The date-time of updated of this order
-            id: *ref_136
-            _description: *ref_147
+            id: *ref_135
+            _description: *ref_146
       update:
         context:
-          location: *ref_172
+          location: *ref_171
           domain: *ref_81
           timestamp: *ref_82
           bap_id: *ref_83
           transaction_id: *ref_84
           message_id: *ref_85
           version: *ref_86
-          action: *ref_186
+          action: *ref_185
           bap_uri: *ref_87
           ttl: *ref_88
           bpp_id: *ref_90
@@ -34169,7 +34884,7 @@ x-attributes:
         message:
           order:
             items:
-              id: *ref_187
+              id: *ref_186
               descriptor:
                 name:
                   required: MANDATORY
@@ -34184,33 +34899,39 @@ x-attributes:
                   usage: RIDE
                   description: 'Describes the item code. '
                 _description: *ref_94
-              price: *ref_188
-              location_ids: *ref_151
+              price: *ref_187
+              location_ids: *ref_150
               fulfillment_ids: *ref_102
-              payment_ids: *ref_176
+              payment_ids: *ref_175
               _description: *ref_99
               tags: *ref_100
-            provider: *ref_189
+            provider: *ref_188
             fulfillments:
               id: *ref_102
               stops:
-                type: *ref_115
+                type: *ref_114
                 location:
-                  gps: *ref_190
+                  gps: *ref_189
                   _description:
                     required: MANDATORY
                     type: object
                     owner: BPP
                     usage: '--'
                     description: Describes the location of stops.
-                authorization: *ref_191
-                _description: *ref_155
+                authorization: *ref_190
+                _description: *ref_154
               vehicle:
-                category: *ref_192
-                make: *ref_178
-                model: *ref_179
-                registration: *ref_180
-                _description: *ref_110
+                category: *ref_191
+                make: *ref_177
+                model: *ref_178
+                registration: *ref_179
+                _description: *ref_192
+                variant:
+                  required: MANDATORY
+                  type: string
+                  owner: BAP
+                  usage: CAB
+                  description: Describes the vehicle variant.
               customer:
                 person:
                   name:
@@ -34219,26 +34940,26 @@ x-attributes:
                     owner: BAP
                     usage: John Adam
                     description: Name of the customer
-                  _description: *ref_157
+                  _description: *ref_156
                 contact: *ref_193
-                _description: *ref_160
-              agent: *ref_181
+                _description: *ref_159
+              agent: *ref_180
               type: *ref_194
-              state: *ref_182
+              state: *ref_181
               _description: *ref_106
-              tags: *ref_117
-            quote: *ref_183
+              tags: *ref_116
+            quote: *ref_182
             payments:
               id: *ref_195
-              collected_by: *ref_124
+              collected_by: *ref_123
               status: *ref_196
               type: *ref_197
               params:
-                bank_code: *ref_131
-                bank_account_number: *ref_132
-                virtual_payment_address: *ref_133
-              tags: *ref_111
-            cancellation_terms: *ref_170
+                bank_code: *ref_130
+                bank_account_number: *ref_131
+                virtual_payment_address: *ref_132
+              tags: *ref_110
+            cancellation_terms: *ref_169
             status:
               required: MANDATORY
               type: string
@@ -34266,11 +34987,11 @@ x-attributes:
                 owner: BAP
                 usage: 9897867564
                 description: Describes the contact number of the billable entity
-            id: *ref_171
-            _description: *ref_147
+            id: *ref_170
+            _description: *ref_146
       track:
         context:
-          location: *ref_172
+          location: *ref_171
           domain: *ref_81
           timestamp: *ref_82
           bap_id: *ref_83
@@ -34298,7 +35019,7 @@ x-attributes:
             description: Describes the order ID.
       on_track:
         context:
-          location: *ref_172
+          location: *ref_171
           domain: *ref_81
           timestamp: *ref_82
           bap_id: *ref_83
