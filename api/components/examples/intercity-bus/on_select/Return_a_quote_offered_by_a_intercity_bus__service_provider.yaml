@@ -70,8 +70,6 @@ message:
           capacity: 47
           wheels_count: '6'
           energy_type: DIESEL
-      - id: FT1
-        type: TICKET
         tags:
           - descriptor:
               code: SEAT_GRID
@@ -109,9 +107,6 @@ message:
               - descriptor:
                   code: AVAILABLE
                 value: 'true'
-      - id: FT2
-        type: TICKET
-        tags:
           - descriptor:
               code: SEAT_GRID
             list:
@@ -148,3 +143,82 @@ message:
               - descriptor:
                   code: AVAILABLE
                 value: 'true'
+          - descriptor:
+              code: SEAT_GRID
+            list:
+              - descriptor:
+                  code: X
+                value: '1'
+              - descriptor:
+                  code: 'Y'
+                value: '1'
+              - descriptor:
+                  code: Z
+                value: '1'
+              - descriptor:
+                  code: X_SIZE
+                value: '1'
+              - descriptor:
+                  code: Y_SIZE
+                value: '2'
+              - descriptor:
+                  code: NUMBER
+                value: F2
+              - descriptor:
+                  code: RESTRICTED_GENDER
+                value: MALE
+              - descriptor:
+                  code: SINGLE_SEAT
+                value: 'TRUE'
+              - descriptor:
+                  code: SEAT_PRICE
+                value: '50'
+              - descriptor:
+                  code: ITEM_ID
+                value: I1
+              - descriptor:
+                  code: AVAILABLE
+                value: 'true'
+          - descriptor:
+              code: SEAT_GRID
+            list:
+              - descriptor:
+                  code: X
+                value: '0'
+              - descriptor:
+                  code: 'Y'
+                value: ''
+              - descriptor:
+                  code: Z
+                value: '1'
+              - descriptor:
+                  code: X_SIZE
+                value: '1'
+              - descriptor:
+                  code: Y_SIZE
+                value: '2'
+              - descriptor:
+                  code: NUMBER
+                value: A3
+              - descriptor:
+                  code: RESTRICTED_GENDER
+                value: MALE
+              - descriptor:
+                  code: SINGLE_SEAT
+                value: 'TRUE'
+              - descriptor:
+                  code: SEAT_PRICE
+                value: '50'
+              - descriptor:
+                  code: ITEM_ID
+                value: I1
+              - descriptor:
+                  code: AVAILABLE
+                value: 'true'
+
+      - id: FT1
+        type: TICKET
+        
+      - id: FT2
+        type: TICKET
+         
