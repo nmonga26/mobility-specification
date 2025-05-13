@@ -2300,6 +2300,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        cancellation_terms:
+          description: Cancellation terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services
