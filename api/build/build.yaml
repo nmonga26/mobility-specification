@@ -2300,6 +2300,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        cancellation_terms:
+          description: Cancellation terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services
@@ -2870,6 +2875,10 @@ x-enum:
                     Describes current status of ticket whether is claimed or
                     unclaimed.
                   reference: <PR/Issue/Discussion Links md format text
+          type:
+            - code: VISIT
+              description: Describes the fulfillment type.
+              reference: <PR/Issue/Discussion Links md format text
   on_search:
     context:
       action:
@@ -4928,7 +4937,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -5431,7 +5439,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -5875,7 +5882,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -6394,7 +6400,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -6827,7 +6832,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -7305,7 +7309,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -7738,7 +7741,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -8219,7 +8221,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -8748,7 +8749,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -9222,7 +9222,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -9726,7 +9725,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -10187,7 +10185,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     tags:
                       - descriptor:
                           code: INCLUSIONS
