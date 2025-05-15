@@ -2300,11 +2300,6 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
-        cancellation_terms:
-          description: Cancellation terms of this item
-          type: array
-          items:
-            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services
@@ -4934,7 +4929,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -4971,7 +4965,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -5052,7 +5045,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -5141,24 +5133,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -5458,7 +5432,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -5495,7 +5468,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -5564,7 +5536,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -5641,24 +5612,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -5923,7 +5876,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -5960,7 +5912,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -6013,7 +5964,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -6074,24 +6024,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -6463,7 +6395,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -6500,7 +6431,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -6553,7 +6483,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -6610,6 +6539,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -6617,40 +6552,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -6927,7 +6828,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -6964,7 +6864,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -7017,7 +6916,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -7078,6 +6976,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: CLAIMED
                     agent:
                       organization:
                         contact:
@@ -7085,40 +6989,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: CLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: CLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -7436,7 +7306,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -7473,7 +7342,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -7526,7 +7394,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -7583,6 +7450,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -7590,40 +7463,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -7900,7 +7739,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -7937,7 +7775,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -7990,7 +7827,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -8047,6 +7883,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -8054,40 +7896,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -8412,7 +8220,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -8449,7 +8256,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -8502,7 +8308,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -8559,6 +8364,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -8566,40 +8377,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -8972,7 +8749,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -9009,7 +8785,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -9062,7 +8837,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -9119,6 +8893,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -9126,40 +8906,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -9477,7 +9223,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -9514,7 +9259,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -9567,7 +9311,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -9624,6 +9367,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -9631,40 +9380,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -10012,7 +9727,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -10049,7 +9763,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -10102,7 +9815,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -10159,6 +9871,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -10166,40 +9884,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -10504,7 +10188,6 @@ x-flows:
                     fulfillment_ids:
                       - F1
                       - F2
-                      - F3
                     tags:
                       - descriptor:
                           code: INCLUSIONS
@@ -10541,7 +10224,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F2
                     add_ons:
                       - id: A1
                         descriptor:
@@ -10594,7 +10276,6 @@ x-flows:
                       duration: P2D
                     fulfillment_ids:
                       - F1
-                      - F3
                     add_ons:
                       - id: A1
                         descriptor:
@@ -10651,6 +10332,12 @@ x-flows:
                             content_type: text/plain
                         time:
                           timestamp: '2024-06-28T05:00:16.000Z'
+                        authorization:
+                          type: QR
+                          token: >-
+                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-06-30T05:00:16.000Z'
+                          status: UNCLAIMED
                     agent:
                       organization:
                         contact:
@@ -10658,40 +10345,6 @@ x-flows:
                           email: john.doe@example.com
                     vehicle:
                       category: SITE
-                  - id: F2
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
-                  - id: F3
-                    type: TICKET
-                    stops:
-                      - type: START
-                        authorization:
-                          type: QR
-                          token: >-
-                            iPNILw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-                          valid_to: '2024-06-30T05:00:16.000Z'
-                          status: UNCLAIMED
-                    tags:
-                      - descriptor:
-                          code: INFO
-                        list:
-                          - descriptor:
-                              code: PARENT_ID
-                            value: F1
                 provider:
                   id: P1
                   descriptor:
@@ -13828,7 +13481,7 @@ x-attributes:
                 description: Describes type of fulfillment
               stops:
                 type:
-                  required: optional
+                  required: mandatory
                   type: string
                   owner: BAP
                   usage: START
@@ -13914,13 +13567,13 @@ x-attributes:
                   description: Describes organization agent details
               vehicle:
                 category:
-                  required: optional
+                  required: mandatory
                   type: string
                   owner: BAP
                   usage: SITE
                   description: Describes vehicle category for fulfillments
                 _description:
-                  required: optional
+                  required: mandatory
                   type: object
                   owner: BAP
                   usage: '--'
@@ -14946,7 +14599,7 @@ x-attributes:
                 description: Describes type of fulfillment
               stops:
                 type:
-                  required: optional
+                  required: mandatory
                   type: string
                   owner: BAP
                   usage: START
@@ -15032,13 +14685,13 @@ x-attributes:
                   description: Describes organization agent details
               vehicle:
                 category:
-                  required: optional
+                  required: mandatory
                   type: string
                   owner: BAP
                   usage: SITE
                   description: Describes vehicle category for fulfillments
                 _description:
-                  required: optional
+                  required: mandatory
                   type: object
                   owner: BAP
                   usage: '--'
@@ -16384,31 +16037,31 @@ x-attributes:
                     description: Describes time for fulfillments
                 authorization:
                   type:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: QR
                     description: Describes the authorization type
                   token:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: iVBORw0KGgoAAAANSUhEUg
                     description: Describes the authorization token
                   valid_to:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: '2024-06-30T05:00:16.000Z'
                     description: Describes the authorization token valid timestamp
                   status:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: UNCLAIMED
                     description: Describes the authorization token status
                   _description:
-                    required: optional
+                    required: mandatory
                     type: object
                     owner: BPP
                     usage: '--'
@@ -16454,13 +16107,13 @@ x-attributes:
                   description: Describes organization agent details
               vehicle:
                 category:
-                  required: optional
+                  required: mandatory
                   type: string
                   owner: BAP
                   usage: SITE
                   description: Describes vehicle category for fulfillments
                 _description:
-                  required: optional
+                  required: mandatory
                   type: object
                   owner: BAP
                   usage: '--'
@@ -17553,31 +17206,31 @@ x-attributes:
                     description: Describes time for fulfillments
                 authorization:
                   type:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: QR
                     description: Describes the authorization type
                   token:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: iVBORw0KGgoAAAANSUhEUg
                     description: Describes the authorization token
                   valid_to:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: '2024-06-30T05:00:16.000Z'
                     description: Describes the authorization token valid timestamp
                   status:
-                    required: optional
+                    required: mandatory
                     type: string
                     owner: BPP
                     usage: UNCLAIMED
                     description: Describes the authorization token status
                   _description:
-                    required: optional
+                    required: mandatory
                     type: object
                     owner: BPP
                     usage: '--'
@@ -17623,13 +17276,13 @@ x-attributes:
                   description: Describes organization agent details
               vehicle:
                 category:
-                  required: optional
+                  required: mandatory
                   type: string
                   owner: BAP
                   usage: SITE
                   description: Describes vehicle category for fulfillments
                 _description:
-                  required: optional
+                  required: mandatory
                   type: object
                   owner: BAP
                   usage: '--'

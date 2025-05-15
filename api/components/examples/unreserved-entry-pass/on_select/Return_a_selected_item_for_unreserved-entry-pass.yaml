@@ -38,8 +38,7 @@ message:
           duration: P2D
         fulfillment_ids:
           - F1
-          - F2
-          - F3  
+          - F2    
         tags:
           - descriptor:
               code: INCLUSIONS
@@ -77,7 +76,6 @@ message:
           duration: P2D
         fulfillment_ids:
           - F1
-          - F2
         add_ons:
           - id: A1
             descriptor:
@@ -157,7 +155,6 @@ message:
           duration: P2D
         fulfillment_ids:
           - F1
-          - F3
         add_ons:
           - id: A1
             descriptor:
@@ -219,7 +216,7 @@ message:
             - url: >-
                 https://api.unreserved-entry-pass.com/sites/default/files/event/logo/event_logo_2.png
               size_type: xs
-        parent_item_id: I0
+        parent_item_id: I0      
         price:
           currency: INR
           value: '100'
@@ -245,25 +242,6 @@ message:
               email: john.doe@example.com
         vehicle:
           category: SITE
-      - id: F2
-        type: TICKET
-        tags:
-          - descriptor:
-              code: INFO
-            list:
-              - descriptor:
-                  code: PARENT_ID
-                value: 'F1'
-      - id: F3
-        type: TICKET
-        tags:
-          - descriptor:
-              code: INFO
-            list:
-              - descriptor:
-                  code: PARENT_ID
-                value: 'F1'          
-    
     provider:
       id: P1
       descriptor:
