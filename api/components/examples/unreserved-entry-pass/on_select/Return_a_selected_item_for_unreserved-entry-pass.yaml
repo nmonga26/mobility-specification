@@ -37,8 +37,7 @@ message:
           label: VALIDITY
           duration: P2D
         fulfillment_ids:
-          - F1
-          - F2    
+          - F1  
         tags:
           - descriptor:
               code: INCLUSIONS
