@@ -612,6 +612,7 @@ function addEnumTag(base, layer) {
   base["x-testcasesui"] = layer["testcases-ui"]
   base["x-sandboxui"] = layer["sandbox-ui"]
   base["x-changeLog"] = layer["changeLog"]
+  base["x-validations"] = layer["validations"]
 
 }
 

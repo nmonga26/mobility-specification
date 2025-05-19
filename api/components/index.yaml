@@ -19,4 +19,6 @@ changeLog:
 feature-ui:
   $ref: "./docs/index.yaml" 
 testcases-ui:
-  $ref: "./docs/log-submission.yaml"          
+  $ref: "./docs/log-submission.yaml"
+validations:
+  $ref: "./x-validations.yaml"             
