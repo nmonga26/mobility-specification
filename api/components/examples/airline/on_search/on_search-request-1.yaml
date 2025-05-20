@@ -159,7 +159,7 @@ message:
                       short_desc: Allowed limit for checkin baggage
                     value: 15 KG
                   - descriptor:
-                      code: PROHIBITED_ITEMS
+                      code: CHECK_IN_BAGGAGE
                       name: Prohibited Items
                     value: list of items
           - id: I2

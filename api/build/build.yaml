@@ -626,7 +626,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -992,6 +991,9 @@ components:
           $ref: '#/components/schemas/XInput'
         external_ref:
           $ref: '#/components/schemas/MediaFile'
+        cancellation_eligible:
+          description: Indicates if cancellation is eligible
+          type: boolean
     Catalog:
       description: >-
         Describes the products or services offered by a BPP. This is typically
@@ -1930,6 +1932,9 @@ components:
             - SOFT_CANCEL
             - CANCELLATION_INITIATED
             - CANCELLATION_REJECTED
+            - SOFT_UPDATE
+            - CONFIRM_UPDATE
+            - UPDATED
         type:
           description: >-
             This is used to indicate the type of order being created to BPPs.
@@ -2295,6 +2300,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        cancellation_terms:
+          description: Cancellation terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services

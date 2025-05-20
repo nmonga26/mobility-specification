@@ -1,0 +1,417 @@
+_TESTS_:
+    search:
+      - _NAME_: SEARCH_CONTEXT
+        action: search
+        domain: ONDC:TRV12
+        version: "2.0.0"
+        _RETURN_: &CONTEXT_COMMON
+          - _NAME_: REQUIRED_CONTEXT_LOCATION_COUNTRY_CODE
+            attr: $.context.location.country.code
+            enumList:
+              - IND
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_CONTEXT_LOCATION_CITY_CODE
+            attr: $.context.location.city.code
+            enumList:
+              - std:011
+            reg: "(\\*)|(^std\\:[0-9]{2,4}$)"  
+            _RETURN_: attr are present && attr all in enumList && attr follow regex reg 
+          - _NAME: REQUIRED_CONTEXT_DOMAIN
+            attr: $.context.domain
+            _RETURN_: attr are present && attr all in enumList
+            enumList:
+              - ONDC:TRV12
+          - _NAME: REQUIRED_CONTEXT_TIMESTAMP
+            attr: $.context.timestamp
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_CONTEXT_BAP_ID
+            attr: $.context.bap_id
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_CONTEXT_BAP_URI
+            attr: $.context.bap_uri
+            reg: "(^https\\:\\/\\/)"
+            _RETURN_: attr are present && attr follow regex reg
+          - _NAME_: REQUIRED_CONTEXT_BPP_ID
+            attr: "$.context.bpp_id"
+            var_search: ["search"]
+            _CONTINUE_: (search equal to var_search)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_CONTEXT_BPP_URI
+            attr: "$.context.bpp_uri"
+            var_search: ["search"]
+            _CONTINUE_: (action equal to var_search)
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_CONTEXT_TRANSACTION_ID
+            attr: $.context.transaction_id
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_CONTEXT_MESSAGE_ID
+            attr: $.context.message_id
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_CONTEXT_VERSION
+            attr: $.context.version
+            _RETURN_: attr are presents 
+          - _NAME: REQUIRED_CONTEXT_TTL
+            attr: $.context.ttl
+            _RETURN_: attr are present
+      - _NAME_: SEARCH_INTENT
+        action: search
+        _RETURN_:
+          _NAME_: REQUIRED_CATEGORY_CODE
+          attr: $.message.intent.category.descriptor.code
+          enumList:
+            - ECONOMY
+            - PREMIUM_ECONOMY
+            - BUSINESS
+            - FIRST_CLASS
+          _RETURN_: attr are present && attr all in enumList 
+      - _NAME_: SEARCH_FULFILMENT
+        action: search
+        _RETURN_: &SEARCH_FULFILMENT
+          - _NAME_: REQUIRED_FULFILMENT_STOP_TYPE
+            attr: $.message.intent.fulfillment.stops[*].type
+            enumList:
+              - START   
+              - END
+            _RETURN_: attr are present && attr all in enumList  
+          - _NAME_: REQUIRED_FULFILMENT_LOCATION_CODE
+            attr: $.message.intent.fulfillment.stops[*].location.descriptor.code
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_FULFILMENT_LOCATION_CODE
+            attr: $.message.intent.fulfillment.stops[*].location.descriptor.code
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_FULFILMENT_STOPS_TIME
+            attr: $.message.intent.fulfillment.stops[*].time.timestamp
+            reg: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$
+            _RETURN_: attr are present && attr follow regex reg
+          - _NAME_: REQUIRED_FULFILMENT_STOPS_LABEL
+            attr: $.message.intent.fulfillment.stops[*].time.label
+            reg: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_FULFILMENT_CATEGORY
+            attr: $.message.intent.fulfillment[*].vehicle.category
+            enumList:
+              - AIRLINE
+            _RETURN_: attr are present && attr all in enumList    
+      - _NAME_: SEARCH_PROVIDER
+        action: search
+        _RETURN_: &SEARCH_PROVIDER
+          - _NAME_: REQUIRED_ITEM_CODE
+            attr: $.message.intent.provider.items[*].descriptor.code
+            enumList:
+              - ADULT_TICKET
+              - CHILD_TICKET
+              - INFANT_TICKET
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_ITEM_CODE
+            attr: $.message.intent.provider.items[*].descriptor.name
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_ITEM_QUANTITY
+            attr: $.message.intent.provider.items[*].quantity.selected.count
+            _RETURN_: attr are present
+      - _NAME_: SEARCH_PAYMENT
+        action: search
+        _RETURN_ : 
+          - _NAME: PAYMENT_TAG_GROUP
+            validTags:
+              - BUYER_FINDER_FEES
+              - SETTLEMENT_TERMS
+            tagPath: $.message.intent.payment.tags[*].descriptor.code
+            _RETURN_: tagPath all in validTags
+          - _NAME_: REQUIRED_PAYMENT_TAG_BUYER_FINDER_FEES
+            _SCOPE_: $.message.intent.payment.tags[*][?(@.descriptor.code=='BUYER_FINDER_FEES')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - BUYER_FINDER_FEES_PERCENTAGE
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues
+          - _NAME_: REQUIRED_PAYMENT_TAG_SETTLEMENT_TERMS
+            _SCOPE_: $.message.intent.payment.tags[*][?(@.descriptor.code=='SETTLEMENT_TERMS')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - DELAY_INTEREST
+              - STATIC_TERMS
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues         
+
+    on_search:
+      - _NAME_: ON_SEARCH_CONTEXT
+        action: on_search
+        domain: ONDC:TRV12
+        version: "2.0.0"
+        _RETURN_: *CONTEXT_COMMON
+      - _NAME_: ON_SEARCH_CATALOG
+        action: on_search
+        _RETURN_:
+          - _NAME_: REQUIRED_MESSAGE_CATALOG_NAME
+            attr: $.message.catalog.descriptor.name
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_CATALOG_IMAGES
+            attr: $.message.catalog.descriptor.images.url
+            reg: ^https:\/\/[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}(\/.*)?$
+            _RETURN_: attr are present && attr follow regex reg
+          - _NAME_: REQUIRED_MESSAGE_CATALOG_IMAGES_SIZE
+            attr: $.message.catalog.descriptor.images.size_type
+            enumList:
+              - xs
+              - sm
+              - md
+              - lg
+              - xl
+              - custom
+            _RETURN_: attr are present && attr all in enumList
+      - _NAME_: ON_SEARCH_PROVIDER
+        action: on_search
+        domain: ONDC:TRV12
+        RETURN_:
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ID
+            attr: $.message.catalog.providers[*].id
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_DESCRIPTOR
+            attr: $.message.catalog.providers[*].descriptor.name
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_CATRGORY
+            attr: $.message.catalog.providers[*].categories[*].descriptor.name
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_CATRGORY_CODE
+            attr: $.message.catalog.providers[*].categories[*].descriptor.code
+            enumList:
+              - ECONOMY
+              - PREMIUM_ECONOMY
+              - BUSINESS
+              - FIRST_CLASS
+            _RETURN_: attr are present && attr all in enumList                 
+      - _NAME: ON_SEARCH_ITEMS
+        action: on_search
+        _RETURN_: 
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEMS_ID
+            attr:  $.message.catalog.providers[*].items[*].id
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEMS_CODE
+            attr: $.message.catalog.providers[*].items[*].descriptor.code
+            enumList:
+              - ADULT_TICKET
+              - CHILD_TICKET
+              - INFANT_TICKET
+            RETURN_: attr are present && attr all in enumList  
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEMS_CODE
+            attr: $.message.catalog.providers[*].items[*].descriptor.name
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_QUANTITY
+            attr: $.message.catalog.providers[*].items[*].quantity.selected.count
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_PRICE_VALUE
+            attr: $.message.catalog.providers[*].items[*].price.value
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_PRICE_CURRENCY
+            attr: $.message.catalog.providers[*].items[*].price.currency
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present 
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_PRICE_FULFILLMENT_ID
+            attr: $.message.catalog.providers[*].items[*].fulfillment_ids
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present     
+          
+          
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_CATEGORY
+            attr: $.message.catalog.providers[*].items[*].category_ids
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_TIME_LABEL
+            attr: $.message.catalog.providers[*].items[*].time.label
+            enumList:
+              - JOURNEY_TIME
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_TIME_DURATION
+            attr: $.message.catalog.providers[*].items[*].time.duration
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_REFUND_TERMS
+            attr: $.message.catalog.providers[*].items[*].refund_terms[*].refund_eligible
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_REFUND_TERMS
+            attr: $.message.catalog.providers[*].items[*].refund_terms[*].refund_eligible
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_CANCELLATION_TERMS_URL
+            attr: $.message.catalog.providers[*].items[*].cancellation_terms[*].external_ref.url
+            _RETURN_: attr are present                
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_CANCELLATION_TERMS_MIMETYPE
+            attr: $.message.catalog.providers[*].items[*].cancellation_terms[*].external_ref.mimetype
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_MESSAGE_PROVIDERS_ITEM_TAG_GROUP
+            validTags:
+              - FARE_TYPE
+              - GENERAL_INFO
+            tagPath: $.message.catalog.providers[*].items[*].tags[*].descriptor.code
+            _RETURN_: tagPath all in validTags 
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_FARE_TYPE
+            _SCOPE_: $.message.catalog.providers[*].items[*].tags[*][?(@.descriptor.code=='FARE_TYPE')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - REGULAR
+              - STUDENT
+              - SENIOR_CITIZEN
+              - ARMED_FORCES
+              - DOCTORS_NURSES
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_GENERAL_INFO
+            _SCOPE_: $.message.catalog.providers[*].items[*].tags[*][?(@.descriptor.code=='GENERAL_INFO')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - CABIN_BAGGAGE
+              - CHECK_IN_BAGGAGE
+              - PROHIBITED_ITEMS
+              - ARMED_FORCES
+              - DOCTORS_NURSES
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_GENERAL_INFO
+            _SCOPE_: $.message.catalog.providers[*].items[*].tags[*][?(@.descriptor.code=='FARE_BREAK_UP')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - OTHER_CHARGES
+              - TAX
+              - BASE_FARE
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags && subTags are present) 
+            _RETURN_: subTags all in validValues      
+      
+      - _NAME: ON_SEARCH_PAYMENTS
+        action: on_search
+        _RETURN_:
+          - _NAME: REQUIRED_MESSAGE_PROVIDERS_PAYMENTS_TAG_GROUP
+            validTags:
+              - BUYER_FINDER_FEES
+              - SETTLEMENT_TERMS
+            tagPath: $.message.catalog.providers[*].payments.tags[*].descriptor.code
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_PAYMENTS_BUYER_FINDER_FEES
+            _SCOPE_: $.message.catalog.providers[*].payments.tags[*][?(@.descriptor.code=='BUYER_FINDER_FEES')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - BUYER_FINDER_FEES_PERCENTAGE
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_PAYMENTS_SETTLEMENT_TERMS
+            _SCOPE_: $.message.catalog.providers[*].payments.tags[*][?(@.descriptor.code=='SETTLEMENT_TERMS')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - SETTLEMENT_WINDOW
+              - SETTLEMENT_BASIS
+              - MANDATORY_ARBITRATION
+              - COURT_JURISDICTION
+              - STATIC_TERMS
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues    
+      - _NAME: ON_SEARCH_CATALOG_TAGS
+        action: on_search
+        _RETURN_:
+          - _NAME: REQUIRED_MESSAGE_CATALOG_PAGINATION
+            validTags:
+              - PAGINATION
+            tagPath: $.message.catalog.tags[*].descriptor.code
+          - _NAME_: REQUIRED_MESSAGE_CATALOG_PAGINATION
+            _SCOPE_: $.message.catalog.tags[*][?(@.descriptor.code=='PAGINATION')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - PAGINATION_ID
+              - MAX_PAGE_NUMBER
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues  
+      - _NAME: ON_SEARCH_FULLFILLMENTS
+        action: on_search
+        _RETURN_:
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_ID
+            attr:  $.message.catalog.providers[*].fulfillments[*].id
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_TYPE
+            attr:  $.message.catalog.providers[*].fulfillments[*].type
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            enumList:
+              - TRIP
+              - CONNECT
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_STOPS_TYPE
+            attr:  $.message.catalog.providers[*].fulfillments[*].stops[*].type
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            enumList:
+              - START
+              - END
+              - LAYOVER
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_STOPS_ID
+            attr:  $.message.catalog.providers[*].fulfillments[*].stops[*].id
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_STOPS_LOCATIONS_CODE
+            attr:  $.message.catalog.providers[*].fulfillments[*].stops[*].locations.descriptor.code
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_STOPS_LOCATIONS_NAME
+            attr:  $.message.catalog.providers[*].fulfillments[*].stops[*].locations.descriptor.name
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_STOPS_TIME_LABEL
+            attr:  $.message.catalog.providers[*].fulfillments[*].stops[*].time.label
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            enumList:
+              - DATE_TIME
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_MESSAGE_PROVIDERS_FULFILLMENTS_STOPS_TIME_TIMESTAMP
+            attr:  $.message.catalog.providers[*].fulfillments[*].stops[*].time.timestamp
+            _SCOPE_: $.message.catalog.tags[?(@.descriptor.code=='PAGINATION')]
+            subTags: $.list[*].descriptor.code
+            var_page: CURRENT_PAGE_NUMBER
+            _CONTINUE_: >-
+              !(var_page equal to subTags)
+            reg: ^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$
+            _RETURN_: attr are present && attr follow regex reg
+
+    select:
+      - _NAME_: SELECT_CONTEXT
+        action: select
+        domain: ONDC:TRV12
+        version: "2.0.0"
+        _RETURN_: *CONTEXT_COMMON
