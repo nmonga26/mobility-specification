@@ -159,7 +159,7 @@ message:
                   code: ETA_TO_NEAREST_DRIVER_MIN
                 value: '3'
     payments:
-      - collected_by: BAP
+      - collected_by: BPP
         id: PA1
         status: NOT-PAID
         type: ON-FULFILLMENT
@@ -177,7 +177,7 @@ message:
           title: DISTANCE_FARE
         - price:
             currency: INR
-            value: '10'
+            value: '0'
           title: CANCELLATION_CHARGES
         - price:
             currency: INR
@@ -185,7 +185,7 @@ message:
           title: REFUND
       price:
         currency: INR
-        value: '10'
+        value: '0'
       ttl: PT30S
     status: CANCELLED
     cancellation:
@@ -268,4 +268,4 @@ message:
             value: https://example-test-bpp.com/static-terms.txt
           - descriptor:
               code: SETTLEMENT_AMOUNT
-            value: '85'
+            value: '0'

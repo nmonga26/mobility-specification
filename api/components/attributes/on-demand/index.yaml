@@ -374,7 +374,14 @@ on_search: &on_search
               type: string
               owner: BAP
               usage: CAB
-              description: Describes the vehicle variant.  
+              description: Describes the vehicle variant.
+            energy_type:
+              required: OPTIONAL
+              type: string
+              owner: BPP
+              usage: CAB
+              description: Describes the vehicle energy type.
+
             _description: &on_search_message_catalog_providers_fulfillments_vehicle__description
               required: MANDATORY
               type: object

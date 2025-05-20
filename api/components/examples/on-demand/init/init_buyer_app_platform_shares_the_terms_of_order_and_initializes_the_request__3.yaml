@@ -76,6 +76,9 @@ message:
               code: DELAY_INTEREST
             value: '5'
           - descriptor:
+              code: SETTLEMENT_AMOUNT
+            value: '1.46'  
+          - descriptor:
               code: STATIC_TERMS
             value: https://example-test-bpp.com/static-terms.txt
           - descriptor:

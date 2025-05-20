@@ -69,7 +69,7 @@ search:
             - code: ELECTRIC
               description: Describes the vehicle energy_type as Electric
               reference: <PR/Issue/Discussion Links md format text
-            - code: PETRO
+            - code: PETROL
               description: Describes the vehicle energy_type as Petrol
               reference: <PR/Issue/Discussion Links md format text
             - code: DIESEL

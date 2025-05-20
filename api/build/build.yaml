@@ -2878,7 +2878,7 @@ x-enum:
               - code: ELECTRIC
                 description: Describes the vehicle energy_type as Electric
                 reference: <PR/Issue/Discussion Links md format text
-              - code: PETRO
+              - code: PETROL
                 description: Describes the vehicle energy_type as Petrol
                 reference: <PR/Issue/Discussion Links md format text
               - code: DIESEL
@@ -3847,7 +3847,7 @@ x-flows:
                         value: UPI
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
-                        value: '144.54'
+                        value: '1.46'
                       - descriptor:
                           code: MANDATORY_ARBITRATION
                         value: 'true'
@@ -5038,6 +5038,7 @@ x-flows:
                         vehicle:
                           category: CAB
                           variant: SEDAN
+                          energy_type: PETROL
                     id: P1
                     items:
                       - descriptor:
@@ -5509,6 +5510,9 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_TYPE
                         value: UPI
+                      - descriptor:
+                          code: SETTLEMENT_AMOUNT
+                        value: '1.46'
                       - descriptor:
                           code: MANDATORY_ARBITRATION
                         value: 'true'
@@ -8979,8 +8983,9 @@ x-flows:
                     - location:
                         gps: 13.008935, 77.644408
                       type: START
-                      time:
-                        timestamp: '2024-11-07T00:32:19.000Z'
+                    - location:
+                        gps: 12.971186, 77.586812
+                      type: END
                 payment:
                   collected_by: BPP
                 tags:
@@ -9604,6 +9609,9 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_TYPE
                         value: UPI
+                      - descriptor:
+                          code: SETTLEMENT_AMOUNT
+                        value: '1.46'
                       - descriptor:
                           code: MANDATORY_ARBITRATION
                         value: 'true'
@@ -12536,6 +12544,9 @@ x-flows:
                           code: DELAY_INTEREST
                         value: '5'
                       - descriptor:
+                          code: SETTLEMENT_AMOUNT
+                        value: '1.46'
+                      - descriptor:
                           code: STATIC_TERMS
                         value: https://example-test-bpp.com/static-terms.txt
                       - descriptor:
@@ -14284,6 +14295,8 @@ x-flows:
                     id: PA1
                     status: PAID
                     type: ON-FULFILLMENT
+                    params:
+                      amount: '146'
                 provider:
                   id: P1
                 quote:
@@ -14552,7 +14565,7 @@ x-flows:
                               code: ETA_TO_NEAREST_DRIVER_MIN
                             value: '3'
                 payments:
-                  - collected_by: BAP
+                  - collected_by: BPP
                     id: PA1
                     status: NOT-PAID
                     type: ON-FULFILLMENT
@@ -14570,7 +14583,7 @@ x-flows:
                       title: DISTANCE_FARE
                     - price:
                         currency: INR
-                        value: '10'
+                        value: '0'
                       title: CANCELLATION_CHARGES
                     - price:
                         currency: INR
@@ -14578,7 +14591,7 @@ x-flows:
                       title: REFUND
                   price:
                     currency: INR
-                    value: '10'
+                    value: '0'
                   ttl: PT30S
                 status: CANCELLED
                 cancellation:
@@ -14661,7 +14674,7 @@ x-flows:
                         value: https://example-test-bpp.com/static-terms.txt
                       - descriptor:
                           code: SETTLEMENT_AMOUNT
-                        value: '85'
+                        value: '0'
   - summary: On-Demand - Ride cancellation by rider
     details:
       - description: Detailed process of cancelling a ride with soft & confirm status.
@@ -16530,6 +16543,9 @@ x-flows:
                       - descriptor:
                           code: SETTLEMENT_TYPE
                         value: UPI
+                      - descriptor:
+                          code: SETTLEMENT_AMOUNT
+                        value: '1.46'
                       - descriptor:
                           code: MANDATORY_ARBITRATION
                         value: 'true'
@@ -21226,6 +21242,9 @@ x-flows:
                       - descriptor:
                           code: STATIC_TERMS
                         value: https://example-test-bpp.com/static-terms.txt
+                      - descriptor:
+                          code: SETTLEMENT_AMOUNT
+                        value: '1.46'
                       - descriptor:
                           code: SETTLEMENT_BANK_CODE
                         value: XXXXXXXX
@@ -32992,6 +33011,12 @@ x-attributes:
                     owner: BAP
                     usage: CAB
                     description: Describes the vehicle variant.
+                  energy_type:
+                    required: OPTIONAL
+                    type: string
+                    owner: BPP
+                    usage: CAB
+                    description: Describes the vehicle energy type.
                   _description: &ref_192
                     required: MANDATORY
                     type: object

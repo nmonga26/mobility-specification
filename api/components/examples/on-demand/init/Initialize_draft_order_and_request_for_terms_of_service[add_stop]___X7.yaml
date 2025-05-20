@@ -36,6 +36,9 @@ message:
               code: SETTLEMENT_TYPE
             value: UPI
           - descriptor:
+              code: SETTLEMENT_AMOUNT
+            value: '1.46'   
+          - descriptor:
               code: MANDATORY_ARBITRATION
             value: 'true'
           - descriptor:
