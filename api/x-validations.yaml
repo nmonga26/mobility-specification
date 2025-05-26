@@ -272,8 +272,6 @@ _TESTS_:
               - CABIN_BAGGAGE
               - CHECK_IN_BAGGAGE
               - PROHIBITED_ITEMS
-              - ARMED_FORCES
-              - DOCTORS_NURSES
             _CONTINUE_: "!(subTags are present)"
             _RETURN_: subTags all in validValues
           - _NAME_: REQUIRED_MESSAGE_PROVIDERS_ITEM_GENERAL_INFO
@@ -415,3 +413,137 @@ _TESTS_:
         domain: ONDC:TRV12
         version: "2.0.0"
         _RETURN_: *CONTEXT_COMMON
+      - _NAME_: SELECT_ITEMS
+        action: select
+        _RETURN_: &COMMON_ACTION_ITEM
+          #if SEAT_GRID present, then check for id
+          - _NAME_: REQUIRED_ORDER_ITEM_ID
+            attr:  $.message.order.items[*].id
+            enumPath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='SEAT_GRID')]
+            _CONTINUE_: "!(enumPath are present)"
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_ORDER_ITEM_PARENT_ID
+            attr:  $.message.order.items[*].parent_item_id
+            enumPath: $.message.order.fulfillments[*].tags[?(@.descriptor.code=='SEAT_GRID')]
+            _CONTINUE_: "!(enumPath are present)"
+            _RETURN_: attr are present  
+          - _NAME_: REQUIRED_ORDER_ITEM_QUANTITY
+            attr:  $.message.order.items[*].quantity.selected.count
+            _RETURN_: attr are present
+      - _NAME_: SELECT_PROVIDER
+        action: select
+        _RETURN_: &COMMON_ACTION_PROVIDER
+          - _NAME: REQUIRED_ORDER_PROVIDER
+            attr:  $.message.order.provider.id
+            _RETURN_: attr are present
+      - _NAME_: SELECT_FULLFILLMENTS
+        action: select
+        _RETURN_: &COMMON_SELECT_FULFILLMENTS
+          - _NAME: REQUIRED_ORDER_FULFILLMENT_ID
+            attr:  $.message.order.fulfillments[*].id
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_FULFILLMENT_STOPS_ID
+            attr:  $.message.order.fulfillments[*].stops[*].id
+            _RETURN_: attr are present 
+          - _NAME: VALIDATE_FULFILLMENT_TAGS
+            validTags:
+              - INFO
+              - SEAT_GRID
+            tagPath: $.message.order.fulfillments[*].tags[*].descriptor.code
+            _RETURN_: tagPath all in validTags
+          - _NAME_: VALIDATE_TAG_INFO
+            _SCOPE_: $.message.intent.payment.tags[*][?(@.descriptor.code=='INFO')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - OPERATED_BY
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues
+          - _NAME_: VALIDATE_TAG_SEAT_GRID
+            _SCOPE_: $.message.intent.payment.tags[*][?(@.descriptor.code=='SEAT_GRID')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - NUMBER
+              - SELECTED
+              - SEAT_PRICE
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues 
+    
+    on_select:
+      - _NAME_: ON_SELECT_CONTEXT
+        action: on_select
+        domain: ONDC:TRV12
+        version: "2.0.0"
+        _RETURN_: *CONTEXT_COMMON
+      - _NAME_: ON_SELECT_ITEMS
+        action: on_select
+        _RETURN_: &COMMON_ON_ACTION_ITEMS
+          - _NAME: REQUIRED_ORDER_ITEM
+            attr:  $.message.order.items[*].id
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_ITEM_DESCRIPTOR_NAME
+            attr:  $.message.order.items[*].descriptor.name
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_ITEM_DESCRIPTOR_CODE
+            attr:  $.message.order.items[*].descriptor.code
+            enumList:
+              - ADULT_TICKET
+              - CHILD_TICKET
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_ORDER_ITEM_PRICE_VALUE
+            attr:  $.message.order.items[*].price.value
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_ORDER_ITEM_PRICE_CURRENCY
+            attr:  $.message.order.items[*].price.currency
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_ITEM_QUANTITY
+            attr:  $.message.order.items[*].quantity.selected.count
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_ITEM_CATEGORY
+            attr:  $.message.order.items[*].category_ids
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_ITEM_FULFILLMENT_ID
+            attr:  $.message.order.items[*].fulfillment_ids
+            _RETURN_: attr are present 
+          - _NAME: REQUIRED_ORDER_ITEM_TIME_LABEL
+            attr:  $.message.order.items[*].time.label
+            enumList:
+              - JOURNEY_TIME
+            _RETURN_: attr are present && attr all in enumList 
+          - _NAME: REQUIRED_ORDER_ITEM_TIME_DURATION
+            attr:  $.message.order.items[*].time.label
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_ORDER_ITEM_TIME_REFUND_TERMS
+            attr:  $.message.order.items[*].refund_terms.refund_eligible
+            _RETURN_: attr are present   
+          - _NAME: REQUIRED_ORDER_ITEM_TIME_REFUND_TERMS
+            attr:  $.message.order.items[*].refund_terms.refund_eligible
+            _RETURN_: attr are present
+          - _NAME: REQUIRED_MESSAGE_ITEM_TAG_GROUP
+            validTags:
+              - FARE_TYPE
+              - GENERAL_INFO
+            tagPath: $.message.order.items[*].tags[*].descriptor.code
+            _RETURN_: tagPath all in validTags
+          - _NAME_: REQUIRED_MESSAGE_ITEM_FARE_TYPE
+            _SCOPE_: $.message.order.items[*].tags[*][?(@.descriptor.code=='FARE_TYPE')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - REGULAR
+              - STUDENT
+              - SENIOR_CITIZEN
+              - ARMED_FORCES
+              - DOCTORS_NURSES
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues
+          - _NAME_: REQUIRED_MESSAGE_ITEM_GENERAL_INFO
+            _SCOPE_: $.message.order.items[*].tags[*][?(@.descriptor.code=='GENERAL_INFO')]" 
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - CABIN_BAGGAGE
+              - CHECK_IN_BAGGAGE
+              - PROHIBITED_ITEMS
+            _CONTINUE_: "!(subTags are present)"
+            _RETURN_: subTags all in validValues      
+      - _NAME_: ON_SELECT_FULFILLMENTS
+        action: on_select
+        _RETURN_: &COMMON_ON_ACTION_ITEMS
