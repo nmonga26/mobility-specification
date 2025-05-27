@@ -17997,7 +17997,7 @@ x-validations:
         action: search
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_:
+        _RETURN_: &ref_30
           - _NAME_: REQUIRED_CONTEXT_LOCATION_COUNTRY_CODE
             attr: $.context.location.country.code
             enumList:
@@ -18120,7 +18120,7 @@ x-validations:
         action: on_search
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: ON_SEARCH_CATALOG
         action: on_search
         _RETURN_:
@@ -18332,10 +18332,10 @@ x-validations:
         action: select
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: SELECT_ITEM
         action: select
-        _RETURN_: &ref_30
+        _RETURN_: &ref_31
           - _NAME: REQUIRED_ORDER_ITEM
             attr: $.message.order.items[*].id
             _RETURN_: attr are present
@@ -18347,7 +18347,7 @@ x-validations:
             _RETURN_: attr are present
       - _NAME_: SELECT_FULLFILLMENTS
         action: select
-        _RETURN_: &ref_31
+        _RETURN_: &ref_32
           - _NAME: REQUIRED_ORDER_FULFILLMENT_ID
             attr: $.message.order.fulfillments[*].id
             _RETURN_: attr are present
@@ -18362,7 +18362,7 @@ x-validations:
             _RETURN_: attr are present && attr follow regex reg
       - _NAME_: SELECT_PROVIDER
         action: select
-        _RETURN_: &ref_32
+        _RETURN_: &ref_33
           - _NAME: REQUIRED_ORDER_PROVIDER
             attr: $.message.order.provider.id
             _RETURN_: attr are present
@@ -18371,10 +18371,10 @@ x-validations:
         action: on_select
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: ON_SELECT_ITEMS
         action: on_select
-        _RETURN_:
+        _RETURN_: &ref_34
           - _NAME: REQUIRED_ORDER_ITEM
             attr: $.message.order.items[*].id
             _RETURN_: attr are present
@@ -18427,7 +18427,7 @@ x-validations:
             _RETURN_: attr are present
       - _NAME_: ON_SELECT_FULFILLMENTS
         action: on_select
-        _RETURN_: &ref_33
+        _RETURN_: &ref_35
           - _NAME_: REQUIRED_FULFILLMENT_ID
             attr: $.message.order.fulfillments[*].id
             _RETURN_: attr are present
@@ -18448,7 +18448,7 @@ x-validations:
             _RETURN_: attr are present && attr all in enumList
       - _NAME_: ON_SELECT_PROVIDER
         action: on_select
-        _RETURN_: &ref_34
+        _RETURN_: &ref_36
           - _NAME: REQUIRED_ORDER_PROVIDER
             attr: $.message.order.provider.id
             _RETURN_: attr are present
@@ -18473,7 +18473,7 @@ x-validations:
             _RETURN_: attr are present
       - _NAME_: ON_SELECT_CANCELLATION_TERMS
         action: on_select
-        _RETURN_: &ref_35
+        _RETURN_: &ref_37
           - _NAME_: REQUIRED_CANCELLATION_TERMS_ELIGIBLE
             attr: $.message.order.cancellation_terms[*].cancellation_eligible
             _RETURN_: attr are present
@@ -18489,7 +18489,7 @@ x-validations:
             _RETURN_: attr are present
       - _NAME_: ON_SELECT_REPLACEMENT_TERMS
         action: on_select
-        _RETURN_: &ref_36
+        _RETURN_: &ref_38
           - _NAME_: REQUIRED_REPLACEMENT_TERMS
             attr: $.message.order.replacement_terms[*].mimetype
             _RETURN_: attr are present
@@ -18498,7 +18498,7 @@ x-validations:
             _RETURN_: attr are present
       - _NAME_: ON_SELECT_QUOTE
         action: on_select
-        _RETURN_: &ref_37
+        _RETURN_: &ref_39
           - _NAME_: REQUIRED_QUOTE_TITLE
             attr: $.message.order.quote.breakup[*].title
             _RETURN_: attr are present
@@ -18531,88 +18531,88 @@ x-validations:
         action: init
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_:
-          - _NAME_: INIT_ITEM
-            action: init
-            _RETURN_: *ref_30
-          - _NAME_: INIT_FULLFILLMENTS
-            action: init
-            _RETURN_: *ref_31
-          - _NAME_: INIT_PROVIDER
-            action: init
-            _RETURN_: *ref_32
-          - _NAME_: INIT_PAYMENTS
-            action: init
-            _RETURN_: &ref_38
-              - _NAME_: REQUIRED_PAYMENTS_ID
-                attr: $.message.order.payments[*].id
-                useCasePath: $.message.order.payments[*].collected_by
-                var_collectedby: BPP
-                _CONTINUE_: (var_collectedby equal to useCasePath)
-                _RETURN_: attr are present
-              - _NAME_: REQUIRED_PAYMENTS_COLLECTOR
-                attr: $.message.order.payments[*].collected_by
-                enumList:
-                  - BAP
-                  - BPP
-                _RETURN_: attr are present && attr all in enumList
-              - _NAME_: REQUIRED_PAYMENTS_STATUS
-                attr: $.message.order.payments[*].status
-                enumList:
-                  - PAID
-                  - NOT-PAID
-                _RETURN_: attr are present && attr all in enumList
-              - _NAME_: REQUIRED_PAYMENTS_TYPE
-                attr: $.message.order.payments[*].type
-                enumList:
-                  - PRE-ORDER
-                _RETURN_: attr are present && attr all in enumList
-          - _NAME_: INIT_PAYMENTS_TAG
-            action: init
-            _RETURN_:
-              - _NAME: PAYMENT_TAG_GROUP
-                validTags:
-                  - BAP_TERMS
-                tagPath: $.message.order.tags[*].descriptor.code
-                _RETURN_: tagPath all in validTags
-              - _NAME_: REQUIRED_PAYMENT_TAG_BAP_TERMS
-                _SCOPE_: $.message.intent.tags[?(@.descriptor.code=='BAP_TERMS')]
-                subTags: $.list[*].descriptor.code
-                validValues:
-                  - BUYER_FINDER_FEES_TYPE
-                  - BUYER_FINDER_FEES_PERCENTAGE
-                  - STATIC_TERMS
-                  - SETTLEMENT_BASIS
-                  - SETTLEMENT_WINDOW
-                _CONTINUE_: '!(subTags are present)'
-                _RETURN_: subTags all in validValues
+        _RETURN_: *ref_30
+      - _NAME_: INIT_ITEM
+        action: init
+        _RETURN_: *ref_31
+      - _NAME_: INIT_FULLFILLMENTS
+        action: init
+        _RETURN_: *ref_32
+      - _NAME_: INIT_PROVIDER
+        action: init
+        _RETURN_: *ref_33
+      - _NAME_: INIT_PAYMENTS
+        action: init
+        _RETURN_: &ref_40
+          - _NAME_: REQUIRED_PAYMENTS_ID
+            attr: $.message.order.payments[*].id
+            useCasePath: $.message.order.payments[*].collected_by
+            var_collectedby: BPP
+            _CONTINUE_: (var_collectedby equal to useCasePath)
+            _RETURN_: attr are present
+          - _NAME_: REQUIRED_PAYMENTS_COLLECTOR
+            attr: $.message.order.payments[*].collected_by
+            enumList:
+              - BAP
+              - BPP
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_PAYMENTS_STATUS
+            attr: $.message.order.payments[*].status
+            enumList:
+              - PAID
+              - NOT-PAID
+            _RETURN_: attr are present && attr all in enumList
+          - _NAME_: REQUIRED_PAYMENTS_TYPE
+            attr: $.message.order.payments[*].type
+            enumList:
+              - PRE-ORDER
+            _RETURN_: attr are present && attr all in enumList
+      - _NAME_: INIT_PAYMENTS_TAG
+        action: init
+        _RETURN_: &ref_41
+          - _NAME: PAYMENT_TAG_GROUP
+            validTags:
+              - BAP_TERMS
+            tagPath: $.message.order.tags[*].descriptor.code
+            _RETURN_: tagPath all in validTags
+          - _NAME_: REQUIRED_PAYMENT_TAG_BAP_TERMS
+            _SCOPE_: $.message.intent.tags[?(@.descriptor.code=='BAP_TERMS')]
+            subTags: $.list[*].descriptor.code
+            validValues:
+              - BUYER_FINDER_FEES_TYPE
+              - BUYER_FINDER_FEES_PERCENTAGE
+              - STATIC_TERMS
+              - SETTLEMENT_BASIS
+              - SETTLEMENT_WINDOW
+            _CONTINUE_: '!(subTags are present)'
+            _RETURN_: subTags all in validValues
     on_init:
       - _NAME_: ONINIT_CONTEXT
         action: on_init
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: ON_INIT_ITEMS
         action: on_init
-        _RETURN_: null
+        _RETURN_: *ref_34
       - _NAME_: ON_INIT_FULFILLMENTS
         action: on_init
-        _RETURN_: *ref_33
+        _RETURN_: *ref_35
       - _NAME_: ON_INIT_PROVIDER
         action: on_init
-        _RETURN_: *ref_34
+        _RETURN_: *ref_36
       - _NAME_: ON_INIT_CANCELLATION_TERMS
         action: on_init
-        _RETURN_: *ref_35
+        _RETURN_: *ref_37
       - _NAME_: ON_INIT_REPLACEMENT_TERMS
         action: on_init
-        _RETURN_: *ref_36
+        _RETURN_: *ref_38
       - _NAME_: ON_INIT_QUOTE
         action: on_init
-        _RETURN_: *ref_37
+        _RETURN_: *ref_39
       - _NAME_: ON_INIT_PAYMENTS
         action: on_init
-        _RETURN_: *ref_38
+        _RETURN_: *ref_40
       - _NAME_: ON_INIT_PAYMENTS_TAG
         action: on_init
         _RETURN_:
@@ -18642,19 +18642,19 @@ x-validations:
         action: confirm
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: CONFIRM_ITEM
         action: confirm
-        _RETURN_: *ref_30
+        _RETURN_: *ref_31
       - _NAME_: INIT_FULLFILLMENTS
         action: confirm
-        _RETURN_: *ref_31
+        _RETURN_: *ref_32
       - _NAME_: INIT_PROVIDER
         action: confirm
-        _RETURN_: *ref_32
+        _RETURN_: *ref_33
       - _NAME_: CONFIRM_PAYMENTS
         action: confirm
-        _RETURN_: &ref_39
+        _RETURN_: &ref_42
           - _NAME_: REQUIRED_PAYMENTS_ID
             attr: $.message.order.payments[*].id
             useCasePath: $.message.order.payments[*].collected_by
@@ -18698,16 +18698,16 @@ x-validations:
             _RETURN_: attr are present
       - _NAME_: CONFIRM_PAYMENTS_TAG
         action: confirm
-        _RETURN_: null
+        _RETURN_: *ref_41
     on_confirm:
       - _NAME_: ON_CONFIRM_CONTEXT
         action: on_confirm
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: ON_CONFIRM_ORDER
         action: on_confirm
-        _RETURN_: &ref_40
+        _RETURN_: &ref_43
           - _NAME_: ON_CONFIRM_ORDER_ID
             attr: $.message.order.id
             _RETURN_: attr are present
@@ -18766,19 +18766,19 @@ x-validations:
             _RETURN_: attr are present && attr all in enumList
       - _NAME_: ON_CONFIRM_PROVIDER
         action: on_confirm
-        _RETURN_: *ref_34
+        _RETURN_: *ref_36
       - _NAME_: ON_CONFIRM_CANCELLATION_TERMS
         action: on_confirm
-        _RETURN_: *ref_35
+        _RETURN_: *ref_37
       - _NAME_: ON_CONFIRM_REPLACEMENT_TERMS
         action: on_confirm
-        _RETURN_: *ref_36
+        _RETURN_: *ref_38
       - _NAME_: ON_CONFIRM_QUOTE
         action: on_confirm
-        _RETURN_: *ref_37
+        _RETURN_: *ref_39
       - _NAME_: ON_CONFIRM_PAYMENTS
         action: on_confirm
-        _RETURN_: *ref_39
+        _RETURN_: *ref_42
       - _NAME_: ON_CONFIRM_PAYMENTS_TAG
         action: on_confirm
         _RETURN_: null
@@ -18787,7 +18787,7 @@ x-validations:
         action: status
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME: REQUIRED_ORDER_ID
         action: status
         attr: $.message.order_id
@@ -18797,10 +18797,10 @@ x-validations:
         action: on_status
         domain: ONDC:TRV14
         version: 2.0.0
-        _RETURN_: null
+        _RETURN_: *ref_30
       - _NAME_: ON_STATUS_ORDER
         action: on_status
-        _RETURN_: *ref_40
+        _RETURN_: *ref_43
       - _NAME_: ON_STATUS_ITEMS
         action: on_status
         _RETURN_: null
@@ -18848,19 +18848,19 @@ x-validations:
             _RETURN_: attr are present && attr all in enumList
       - _NAME_: ON_STATUS_PROVIDER
         action: on_status
-        _RETURN_: *ref_34
+        _RETURN_: *ref_36
       - _NAME_: ON_STATUS_CANCELLATION_TERMS
         action: on_status
-        _RETURN_: *ref_35
+        _RETURN_: *ref_37
       - _NAME_: ON_STATUS_REPLACEMENT_TERMS
         action: on_status
-        _RETURN_: *ref_36
+        _RETURN_: *ref_38
       - _NAME_: ON_STATUS_QUOTE
         action: on_status
-        _RETURN_: *ref_37
+        _RETURN_: *ref_39
       - _NAME_: ON_STATUS_PAYMENTS
         action: on_status
-        _RETURN_: *ref_39
+        _RETURN_: *ref_42
       - _NAME_: ON_STATUS_PAYMENTS_TAG
         action: on_status
         _RETURN_: null
