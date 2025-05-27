@@ -67,6 +67,12 @@ update:
     - summary: Update_customer_details_2
       value:
         $ref: ./update/Update_customer_details_2.yaml
+rating:
+  examples:
+    - summary: Provide feedback on a service
+      value:
+        $ref: ./rating/example_request_rating_1.yaml
+
 on_search:
   examples:
     - summary: Return_services_available_for_provided_start_code_or_gps

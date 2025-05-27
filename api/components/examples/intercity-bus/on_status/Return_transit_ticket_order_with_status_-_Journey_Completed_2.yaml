@@ -45,6 +45,9 @@ message:
     fulfillments:
       - id: F1
         type: TRIP
+        state: 
+          descriptor:
+            code: COMPLETED
         stops:
           - id: S2
             type: PICKUP
@@ -57,9 +60,10 @@ message:
               label: DATE_TIME
               timestamp: '2023-09-06T06:30:00.000Z'
             authorization:
-              type: QR
+              type: PNR
               token: >-
                 iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+              status: CLAIMED
           - id: S5
             type: DROP
             location:
@@ -76,6 +80,15 @@ message:
           capacity: 47
           wheels_count: '6'
           energy_type: DIESEL
+        tags: 
+          - descriptor:
+              code: INFO
+              name: General Info
+            display: false
+            list:
+              - descriptor:
+                  code: SEAT_LOCKING_PERIOD
+                value: 'PT10M'  
       - id: FT1
         type: TICKET
         customer:
@@ -175,10 +188,19 @@ message:
                   code: ITEM_ID
                 value: I1
     cancellation_terms:
-      - cancel_by:
-          duration: PT60M
-        cancellation_fee:
-          percentage: '0'
+      - external_ref:
+          mimetype: text/html
+          url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+        cancellation_eligible: true  
+      - cancellation_fee:
+          percentage: '10'
+        fulfillment_state:
+          descriptor:
+            code: CONFIRMED
+        cancel_by:
+          label:  DURATION
+          duration: PT1H30M
+        cancellation_eligible: true
     quote:
       price:
         value: '1783'

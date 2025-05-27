@@ -1,3 +1,4 @@
 - $ref: ./intercity_bus____gps_based_flow/index.yaml
 - $ref: ./intercity_bus____station_code_based_flow/index.yaml
 - $ref: ./intercity_bus____cancel_flow/index.yaml
+- $ref: ./intercity_bus_error_scenario/index.yaml

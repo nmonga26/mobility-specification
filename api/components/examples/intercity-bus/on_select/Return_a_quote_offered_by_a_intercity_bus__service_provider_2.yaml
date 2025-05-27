@@ -70,6 +70,15 @@ message:
           capacity: 47
           wheels_count: '6'
           energy_type: DIESEL
+        tags: 
+          - descriptor:
+              code: INFO
+              name: General Info
+            display: false
+            list:
+              - descriptor:
+                  code: SEAT_LOCKING_PERIOD
+                value: 'PT10M'  
       - id: FT1
         type: TICKET
         tags:

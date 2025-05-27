@@ -132,6 +132,14 @@ message:
                   - value: WIFI
                   - value: BLANKET
                   - value: CCTV
+              - descriptor:
+                  code: INFO
+                  name: General Info
+                display: false
+                list:
+                  - descriptor:
+                      code: SEAT_LOCKING_PERIOD
+                    value: 'PT10M'
           - id: F2
             type: TRIP
             stops:
@@ -243,6 +251,14 @@ message:
                   - value: WIFI
                   - value: BLANKET
                   - value: CCTV
+              - descriptor:
+                  code: INFO
+                  name: General Info
+                display: false
+                list:
+                  - descriptor:
+                      code: SEAT_LOCKING_PERIOD
+                    value: 'PT10M'    
         items:
           - id: I0
             descriptor:
@@ -254,6 +270,20 @@ message:
             fulfillment_ids:
               - F1
               - F2
+            cancellation_terms:
+              - external_ref:
+                  mimetype: text/html
+                  url: https://api.unreserved-entry-pass.com/beckn/tnc.html 
+                cancellation_eligible: true   
+              - cancellation_fee:
+                  percentage: '10'
+                fulfillment_state:
+                  descriptor:
+                    code: CONFIRMED
+                cancel_by:
+                  label:  DURATION
+                  duration: PT1H30M
+                cancellation_eligible: true      
         payments:
           - collected_by: BPP
             tags:

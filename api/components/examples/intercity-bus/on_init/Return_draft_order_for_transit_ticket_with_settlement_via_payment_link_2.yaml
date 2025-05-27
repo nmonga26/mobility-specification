@@ -70,6 +70,15 @@ message:
           capacity: 47
           wheels_count: '6'
           energy_type: DIESEL
+        tags: 
+          - descriptor:
+              code: INFO
+              name: General Info
+            display: false
+            list:
+              - descriptor:
+                  code: SEAT_LOCKING_PERIOD
+                value: 'PT10M'  
       - id: FT1
         type: TICKET
         customer:
@@ -169,10 +178,19 @@ message:
                   code: ITEM_ID
                 value: I1
     cancellation_terms:
-      - cancel_by:
-          duration: PT60M
-        cancellation_fee:
-          percentage: '0'
+      - external_ref:
+          mimetype: text/html
+          url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+        cancellation_eligible: true  
+      - cancellation_fee:
+          percentage: '10'
+        fulfillment_state:
+          descriptor:
+            code: CONFIRMED
+        cancel_by:
+          label:  DURATION
+          duration: PT1H30M
+        cancellation_eligible: true
     quote:
       price:
         value: '1783'

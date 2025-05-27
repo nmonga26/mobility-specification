@@ -235,6 +235,15 @@ on_search: &on_search
                   code: ROUTE_DIRECTION
                   description: Describes the direction of a particular route
                   reference: <PR/Issue/Discussion Links md format text>
+            - &on_search_message_catalog_providers_fulfillments_tags_4
+              code: INFO
+              description: Describes the general info
+              reference: <PR/Issue/Discussion Links md format text>
+              list: &on_search_message_catalog_providers_fulfillments_tags_3_list
+                - &on_search_message_catalog_providers_fulfillments_tags_3_list_0
+                  code: SEAT_LOCKING_PERIOD
+                  description: Describes the seat locing period
+                  reference: <PR/Issue/Discussion Links md format text>
         payments: *search_message_intent_payment
 select: &select
   message: &select_message

@@ -215,7 +215,14 @@ message:
               - descriptor:
                   code: AVAILABLE
                 value: 'true'
-
+          - descriptor:
+              code: INFO
+              name: General Info
+            display: false
+            list:
+              - descriptor:
+                  code: SEAT_LOCKING_PERIOD
+                value: 'PT10M'
       - id: FT1
         type: TICKET
         
