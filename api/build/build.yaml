@@ -8176,7 +8176,9 @@ x-flows:
                 updated_at: '2023-09-03T01:56:18.143Z'
   - summary: InterCity(Bus) - Error Response(Soft Locking Time)
     details:
-      - description: Detailed process of error response in case if soft locking time
+      - description: >-
+          Detailed process of error response in case If Buyer app did not
+          respond with in seat locking period
         mermaid: |-
           sequenceDiagram
             participant Buyer Platform (BAP)
@@ -8233,12 +8235,14 @@ x-flows:
         example:
           summary: Initialize the order by providing billing details
           value: *ref_23
-      - summary: Provider platform accepts/appends the terms of orders
+      - summary: >-
+          Provider platform return with an error code as the Buyer app did not
+          respond with in seat locking period
         api: on_init
         details:
           - description: >-
-              Provider platform accepts the terms of orders and appends its own
-              terms and responds with the final draft
+              Provider platform return with an error code as the Buyer app did
+              not respond with in seat locking period
             mermaid: |-
               sequenceDiagram
                 participant Buyer Platform (BAP)
