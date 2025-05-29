@@ -166,6 +166,9 @@ message:
         id: PA1
         status: PAID
         type: ON-FULFILLMENT
+        params:
+          amount: '146'
+
     provider:
       id: P1
     quote:
