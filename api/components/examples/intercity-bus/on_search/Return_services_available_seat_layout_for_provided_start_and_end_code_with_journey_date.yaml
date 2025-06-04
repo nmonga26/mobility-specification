@@ -197,14 +197,6 @@ message:
                   - value: WIFI
                   - value: BLANKET
                   - value: CCTV
-              - descriptor:
-                  code: INFO
-                  name: General Info
-                display: false
-                list:
-                  - descriptor:
-                      code: SEAT_LOCKING_PERIOD
-                    value: 'PT10M'
         payments:
           - collected_by: BPP
             tags:

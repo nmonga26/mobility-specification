@@ -62,7 +62,7 @@ message:
             authorization:
               type: PNR
               token: >-
-                iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                RB3F9K7H
               status: CLAIMED
           - id: S5
             type: DROP
@@ -80,15 +80,6 @@ message:
           capacity: 47
           wheels_count: '6'
           energy_type: DIESEL
-        tags: 
-          - descriptor:
-              code: INFO
-              name: General Info
-            display: false
-            list:
-              - descriptor:
-                  code: SEAT_LOCKING_PERIOD
-                value: 'PT10M'  
       - id: FT1
         type: TICKET
         customer:
@@ -245,6 +236,7 @@ message:
           price:
             value: '50'
             currency: INR
+      ttl: PT10M
     payments:
       - id: PA1
         collected_by: BAP

@@ -55,10 +55,10 @@ steps:
       summary: Initialize the order by providing billing details
       value: &steps_8_example_value
         $ref: ../../examples/intercity-bus/init/Initialize_the_order_by_providing_billing_details_2.yaml
-  - summary: Provider platform return with an error code as the Buyer app did not respond with in seat locking period
+  - summary: The provider platform returned an error code because the buyer app did not respond within the TTL specified in the quote object.
     api: on_init
     details:
-      - description: Provider platform return with an error code as the Buyer app did not respond with in seat locking period
+      - description: The provider platform returned an error code because the buyer app did not respond within the TTL specified in the quote object.
         mermaid: |-
           sequenceDiagram
             participant Buyer Platform (BAP)

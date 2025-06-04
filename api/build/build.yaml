@@ -3385,13 +3385,6 @@ x-tags:
                   - code: ROUTE_DIRECTION
                     description: Describes the direction of a particular route
                     reference: <PR/Issue/Discussion Links md format text>
-              - code: INFO
-                description: Describes the general info
-                reference: <PR/Issue/Discussion Links md format text>
-                list:
-                  - code: SEAT_LOCKING_PERIOD
-                    description: Describes the seat locing period
-                    reference: <PR/Issue/Discussion Links md format text>
           payments: *ref_10
   select:
     message:
@@ -3989,14 +3982,6 @@ x-flows:
                               - value: WIFI
                               - value: BLANKET
                               - value: CCTV
-                          - descriptor:
-                              code: INFO
-                              name: General Info
-                            display: false
-                            list:
-                              - descriptor:
-                                  code: SEAT_LOCKING_PERIOD
-                                value: PT10M
                       - id: F2
                         type: TRIP
                         stops:
@@ -4108,14 +4093,6 @@ x-flows:
                               - value: WIFI
                               - value: BLANKET
                               - value: CCTV
-                          - descriptor:
-                              code: INFO
-                              name: General Info
-                            display: false
-                            list:
-                              - descriptor:
-                                  code: SEAT_LOCKING_PERIOD
-                                value: PT10M
                     items:
                       - id: I0
                         descriptor:
@@ -4466,14 +4443,6 @@ x-flows:
                           - descriptor:
                               code: AVAILABLE
                             value: 'true'
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                   - id: FT2
@@ -4652,15 +4621,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     tags:
@@ -4789,6 +4749,7 @@ x-flows:
                       price:
                         value: '50'
                         currency: INR
+                  ttl: PT10M
       - summary: Consumer platform initializes the order
         api: init
         details:
@@ -5011,15 +4972,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     customer:
@@ -5176,6 +5128,7 @@ x-flows:
                       price:
                         value: '50'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -5437,8 +5390,7 @@ x-flows:
                           timestamp: '2023-09-06T06:30:00.000Z'
                         authorization:
                           type: PNR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          token: RB3F9K7H
                           status: UNCLAIMED
                       - id: S5
                         type: DROP
@@ -5456,15 +5408,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     customer:
@@ -5621,6 +5564,7 @@ x-flows:
                       price:
                         value: '50'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -5802,8 +5746,7 @@ x-flows:
                           timestamp: '2023-09-06T06:30:00.000Z'
                         authorization:
                           type: PNR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          token: RB3F9K7H
                           status: CLAIMED
                       - id: S5
                         type: DROP
@@ -5821,15 +5764,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     customer:
@@ -5986,6 +5920,7 @@ x-flows:
                       price:
                         value: '50'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -6160,8 +6095,7 @@ x-flows:
                           timestamp: '2023-09-06T06:30:00.000Z'
                         authorization:
                           type: PNR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          token: RB3F9K7H
                           status: CLAIMED
                       - id: S5
                         type: DROP
@@ -6179,15 +6113,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     customer:
@@ -6344,6 +6269,7 @@ x-flows:
                       price:
                         value: '50'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -6917,14 +6843,6 @@ x-flows:
                               - value: WIFI
                               - value: BLANKET
                               - value: CCTV
-                          - descriptor:
-                              code: INFO
-                              name: General Info
-                            display: false
-                            list:
-                              - descriptor:
-                                  code: SEAT_LOCKING_PERIOD
-                                value: PT10M
                     payments:
                       - collected_by: BPP
                         tags:
@@ -7263,8 +7181,7 @@ x-flows:
                           timestamp: '2023-09-06T06:30:00.000Z'
                         authorization:
                           type: PNR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          token: RB3F9K7H
                           status: UNCLAIMED
                       - id: S5
                         type: DROP
@@ -7326,14 +7243,6 @@ x-flows:
                           - descriptor:
                               code: ITEM_ID
                             value: I1
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                 cancellation_terms:
                   - external_ref:
                       mimetype: text/html
@@ -7388,6 +7297,7 @@ x-flows:
                       price:
                         value: '50'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -7563,8 +7473,7 @@ x-flows:
                           timestamp: '2023-09-06T06:30:00.000Z'
                         authorization:
                           type: PNR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          token: RB3F9K7H
                           status: UNCLAIMED
                       - id: S5
                         type: DROP
@@ -7582,15 +7491,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     customer:
@@ -7758,6 +7658,7 @@ x-flows:
                       price:
                         value: '-1773'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -7929,8 +7830,7 @@ x-flows:
                           timestamp: '2023-09-06T06:30:00.000Z'
                         authorization:
                           type: PNR
-                          token: >-
-                            iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          token: RB3F9K7H
                           status: UNCLAIMED
                       - id: S5
                         type: DROP
@@ -7948,15 +7848,6 @@ x-flows:
                       capacity: 47
                       wheels_count: '6'
                       energy_type: DIESEL
-                    tags:
-                      - descriptor:
-                          code: INFO
-                          name: General Info
-                        display: false
-                        list:
-                          - descriptor:
-                              code: SEAT_LOCKING_PERIOD
-                            value: PT10M
                   - id: FT1
                     type: TICKET
                     customer:
@@ -8124,6 +8015,7 @@ x-flows:
                       price:
                         value: '-1773'
                         currency: INR
+                  ttl: PT10M
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -8236,13 +8128,13 @@ x-flows:
           summary: Initialize the order by providing billing details
           value: *ref_23
       - summary: >-
-          Provider platform return with an error code as the Buyer app did not
-          respond with in seat locking period
+          The provider platform returned an error code because the buyer app did
+          not respond within the TTL specified in the quote object.
         api: on_init
         details:
           - description: >-
-              Provider platform return with an error code as the Buyer app did
-              not respond with in seat locking period
+              The provider platform returned an error code because the buyer app
+              did not respond within the TTL specified in the quote object.
             mermaid: |-
               sequenceDiagram
                 participant Buyer Platform (BAP)
@@ -8710,14 +8602,6 @@ x-examples:
                             - descriptor:
                                 code: ITEM_ID
                               value: I1
-                        - descriptor:
-                            code: INFO
-                            name: General Info
-                          display: false
-                          list:
-                            - descriptor:
-                                code: SEAT_LOCKING_PERIOD
-                              value: PT10M
                   cancellation_terms:
                     - external_ref:
                         mimetype: text/html
@@ -8772,6 +8656,7 @@ x-examples:
                         price:
                           value: '50'
                           currency: INR
+                    ttl: PT10M
                   payments:
                     - id: PA1
                       collected_by: BAP
@@ -8891,8 +8776,7 @@ x-examples:
                             timestamp: '2023-09-06T06:30:00.000Z'
                           authorization:
                             type: PNR
-                            token: >-
-                              iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                            token: RB3F9K7H
                             status: CLAIMED
                         - id: S3
                           type: DROP
@@ -8954,14 +8838,6 @@ x-examples:
                             - descriptor:
                                 code: ITEM_ID
                               value: I1
-                        - descriptor:
-                            code: INFO
-                            name: General Info
-                          display: false
-                          list:
-                            - descriptor:
-                                code: SEAT_LOCKING_PERIOD
-                              value: PT10M
                   cancellation_terms:
                     - external_ref:
                         mimetype: text/html
@@ -9016,6 +8892,7 @@ x-examples:
                         price:
                           value: '50'
                           currency: INR
+                    ttl: PT10M
                   payments:
                     - id: PA1
                       collected_by: BAP
@@ -9131,8 +9008,7 @@ x-examples:
                             timestamp: '2023-09-06T06:30:00.000Z'
                           authorization:
                             type: PNR
-                            token: >-
-                              iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                            token: RB3F9K7H
                             status: CLAIMED
                         - id: S3
                           type: DROP
@@ -9194,14 +9070,6 @@ x-examples:
                             - descriptor:
                                 code: ITEM_ID
                               value: I1
-                        - descriptor:
-                            code: INFO
-                            name: General Info
-                          display: false
-                          list:
-                            - descriptor:
-                                code: SEAT_LOCKING_PERIOD
-                              value: PT10M
                   cancellation_terms:
                     - external_ref:
                         mimetype: text/html
@@ -9256,6 +9124,7 @@ x-examples:
                         price:
                           value: '50'
                           currency: INR
+                    ttl: PT10M
                   payments:
                     - id: PA1
                       collected_by: BAP
@@ -9367,8 +9236,7 @@ x-examples:
                             timestamp: '2023-09-06T06:30:00.000Z'
                           authorization:
                             type: PNR
-                            token: >-
-                              iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                            token: RB3F9K7H
                             status: CLAIMED
                         - id: S5
                           type: DROP
@@ -9435,14 +9303,6 @@ x-examples:
                             - descriptor:
                                 code: ITEM_ID
                               value: I1
-                        - descriptor:
-                            code: INFO
-                            name: General Info
-                          display: false
-                          list:
-                            - descriptor:
-                                code: SEAT_LOCKING_PERIOD
-                              value: PT10M
                   cancellation_terms:
                     - external_ref:
                         mimetype: text/html
@@ -9497,6 +9357,7 @@ x-examples:
                         price:
                           value: '50'
                           currency: INR
+                    ttl: PT10M
                   payments:
                     - id: PA1
                       collected_by: BAP

@@ -112,14 +112,6 @@ message:
               - descriptor:
                   code: ITEM_ID
                 value: I1 
-          - descriptor:
-              code: INFO
-              name: General Info
-            display: false
-            list:
-              - descriptor:
-                  code: SEAT_LOCKING_PERIOD
-                value: 'PT10M'
     cancellation_terms:
       - external_ref:
           mimetype: text/html
@@ -174,6 +166,7 @@ message:
           price:
             value: '50'
             currency: INR
+      ttl: PT10M
     payments:
       - id: PA1
         collected_by: BAP
