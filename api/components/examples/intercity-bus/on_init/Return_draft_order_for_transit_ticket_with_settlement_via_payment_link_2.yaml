@@ -169,10 +169,19 @@ message:
                   code: ITEM_ID
                 value: I1
     cancellation_terms:
-      - cancel_by:
-          duration: PT60M
-        cancellation_fee:
-          percentage: '0'
+      - external_ref:
+          mimetype: text/html
+          url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+        cancellation_eligible: true  
+      - cancellation_fee:
+          percentage: '10'
+        fulfillment_state:
+          descriptor:
+            code: CONFIRMED
+        cancel_by:
+          label:  DURATION
+          duration: PT1H30M
+        cancellation_eligible: true
     quote:
       price:
         value: '1783'
@@ -217,6 +226,7 @@ message:
           price:
             value: '50'
             currency: INR
+      ttl: PT10M
     payments:
       - id: PA1
         collected_by: BAP

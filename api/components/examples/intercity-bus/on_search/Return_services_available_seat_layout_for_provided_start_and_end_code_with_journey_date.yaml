@@ -57,6 +57,20 @@ message:
               - F1
             category_ids:
               - C1
+            cancellation_terms:
+              - external_ref:
+                  mimetype: text/html
+                  url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+                cancellation_eligible: true  
+              - cancellation_fee:
+                  percentage: '10'
+                fulfillment_state:
+                  descriptor:
+                    code: CONFIRMED
+                cancel_by:
+                  label:  DURATION
+                  duration: PT1H30M
+                cancellation_eligible: true    
           - id: I2
             descriptor:
               name: Sleeper Ticket
@@ -71,6 +85,13 @@ message:
               - F1
             category_ids:
               - C2
+            cancellation_terms:
+              - cancellation_fee:
+                  percentage: '10'
+                cancel_by:
+                  label:  DURATION
+                  duration: PT1H30M
+                cancellation_eligible: true    
         fulfillments:
           - id: F1
             type: TRIP

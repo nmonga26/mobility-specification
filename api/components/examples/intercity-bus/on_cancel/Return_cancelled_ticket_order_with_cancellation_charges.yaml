@@ -57,9 +57,10 @@ message:
               label: DATE_TIME
               timestamp: '2023-09-06T06:30:00.000Z'
             authorization:
-              type: QR
+              type: PNR
               token: >-
-                iVBORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                RB3F9K7H
+              status: UNCLAIMED
           - id: S5
             type: DROP
             location:
@@ -75,7 +76,7 @@ message:
           variant: AC
           capacity: 47
           wheels_count: '6'
-          energy_type: DIESEL
+          energy_type: DIESEL  
       - id: FT1
         type: TICKET
         customer:
@@ -178,10 +179,19 @@ message:
       cancelled_by: CONSUMER
       time: '2023-09-03T02:00:08.143Z'
     cancellation_terms:
-      - cancel_by:
-          duration: PT60M
-        cancellation_fee:
-          percentage: '0'
+      - external_ref:
+          mimetype: text/html
+          url: https://api.unreserved-entry-pass.com/beckn/tnc.html
+        cancellation_eligible: true  
+      - cancellation_fee:
+          percentage: '10'
+        fulfillment_state:
+          descriptor:
+            code: CONFIRMED
+        cancel_by:
+          label:  DURATION
+          duration: PT1H30M
+        cancellation_eligible: true
     quote:
       price:
         value: '10'
@@ -234,6 +244,7 @@ message:
           price:
             value: '-1773'
             currency: INR
+      ttl: PT10M
     payments:
       - id: PA1
         collected_by: BAP

@@ -215,7 +215,6 @@ message:
               - descriptor:
                   code: AVAILABLE
                 value: 'true'
-
       - id: FT1
         type: TICKET
         

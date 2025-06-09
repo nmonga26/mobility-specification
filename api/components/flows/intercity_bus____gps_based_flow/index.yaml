@@ -224,6 +224,7 @@ steps: &steps
       summary: Get Quote of a selected seat
       value: &steps_6_example_value
         $ref: ../../examples/intercity-bus/select/Get_Quote_of_a_selected_seat_2.yaml
+ 
   - &steps_7
     summary: Provider platform provides the quote for selected service of bus
     api: on_select
@@ -289,6 +290,7 @@ steps: &steps
       summary: Return draft order for transit ticket with settlement via payment link
       value: &steps_9_example_value
         $ref: ../../examples/intercity-bus/on_init/Return_draft_order_for_transit_ticket_with_settlement_via_payment_link_2.yaml
+ 
   - &steps_10
     summary: Consumer confirms the booking and provides details.
     api: confirm

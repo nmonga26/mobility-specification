@@ -198,3 +198,4 @@ message:
           price:
             value: '50'
             currency: INR
+      ttl: PT10M
