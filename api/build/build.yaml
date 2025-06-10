@@ -360,10 +360,14 @@ paths:
                 message:
                   type: object
                   properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
                     ratings:
                       type: array
                       items:
                         $ref: '#/components/schemas/Rating'
+                  required:
+                    - order_id
               required:
                 - context
                 - message
@@ -727,14 +731,17 @@ paths:
                       required:
                         - action
                 message:
+                  additionalProperties: false
                   type: object
                   properties:
-                    feedback_form:
-                      description: >-
-                        A feedback form to allow the user to provide additional
-                        information on the rating provided
-                      allOf:
-                        - $ref: '#/components/schemas/XInput'
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                    ratings:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Rating'
+                  required:
+                    - order_id
                 error:
                   $ref: '#/components/schemas/Error'
               required:
@@ -2343,12 +2350,12 @@ components:
           description: Category of the entity being rated
           type: string
           enum:
-            - Item
-            - Order
-            - Fulfillment
-            - Provider
-            - Agent
-            - Support
+            - ITEM
+            - ORDER
+            - FULFILLMENT
+            - PROVIDER
+            - AGENT
+            - SUPPORT
         id:
           description: Id of the object being rated
           type: string
@@ -2359,6 +2366,14 @@ components:
             also contain an inequality expression containing logical operators
             like && and ||.
           type: string
+        feedback:
+          description: feedback for rating
+          type: string
+        feedback_form:
+          description: >-
+            A feedback form to allow the user to provide additional information
+            on the rating provided
+          $ref: '#/components/schemas/Form'
     Region:
       description: >-
         Describes an arbitrary region of space. The network policy should
@@ -3199,6 +3214,64 @@ x-enum:
       location: *ref_0
       domain: *ref_1
     message: *ref_9
+  rating:
+    context:
+      action:
+        - code: rating
+          description: Buyer app provides rating.
+          reference: <PR/Issue/Discussion Links md format text>
+      location: *ref_0
+      domain: *ref_1
+    message:
+      ratings:
+        rating_category:
+          - code: ITEM
+            description: Describes the category as an item.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ORDER
+            description: Describes the category as ORDER.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: FULFILLMENT
+            description: Describes the category as FULFILLMENT.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: PROVIDER
+            description: Describes the category as PROVIDER.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: AGENT
+            description: Describes the category as AGENT.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: SUPPORT
+            description: Describes the category as SUPPORT.
+            reference: <PR/Issue/Discussion Links md format text>
+  on_rating:
+    context:
+      action:
+        - code: on_rating
+          description: Provide feedback on a service
+          reference: <PR/Issue/Discussion Links md format text>
+      location: *ref_0
+      domain: *ref_1
+    message:
+      ratings:
+        rating_category:
+          - code: ITEM
+            description: Describes the category as an item.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: ORDER
+            description: Describes the category as ORDER.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: FULFILLMENT
+            description: Describes the category as FULFILLMENT.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: PROVIDER
+            description: Describes the category as PROVIDER.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: AGENT
+            description: Describes the category as AGENT.
+            reference: <PR/Issue/Discussion Links md format text>
+          - code: SUPPORT
+            description: Describes the category as SUPPORT.
+            reference: <PR/Issue/Discussion Links md format text>
 x-tags:
   search:
     message:
@@ -3517,7 +3590,7 @@ x-flows:
         reference: if any
         example:
           summary: Search for all services from given start and end location(gps)
-          value: &ref_31
+          value: &ref_30
             context:
               location:
                 country:
@@ -3764,7 +3837,7 @@ x-flows:
         reference: if any
         example:
           summary: Search for all services from given start and end location(gps)
-          value: &ref_32
+          value: &ref_31
             context:
               location:
                 country:
@@ -4171,7 +4244,7 @@ x-flows:
         reference: if any
         example:
           summary: Get Quote of a selected seat
-          value: &ref_19
+          value: &ref_17
             context:
               location:
                 country:
@@ -4225,7 +4298,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a quote offered by a intercity bus  service provider
-          value: &ref_20
+          value: &ref_18
             context:
               location:
                 country:
@@ -4466,7 +4539,7 @@ x-flows:
         reference: if any
         example:
           summary: Get Quote of a selected seat
-          value: &ref_21
+          value: &ref_19
             context:
               location:
                 country:
@@ -4548,7 +4621,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a quote offered by a intercity bus  service provider
-          value: &ref_22
+          value: &ref_20
             context:
               location:
                 country:
@@ -4769,7 +4842,7 @@ x-flows:
         reference: if any
         example:
           summary: Initialize the order by providing billing details
-          value: &ref_23
+          value: &ref_21
             context:
               location:
                 country:
@@ -4899,7 +4972,7 @@ x-flows:
           summary: >-
             Return draft order for transit ticket with settlement via payment
             link
-          value: &ref_24
+          value: &ref_22
             context:
               location:
                 country:
@@ -5193,7 +5266,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ticket booking
-          value: &ref_25
+          value: &ref_23
             context:
               location:
                 country:
@@ -5326,7 +5399,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: &ref_26
+          value: &ref_24
             context:
               location:
                 country:
@@ -5634,7 +5707,7 @@ x-flows:
         reference: if any
         example:
           summary: Update customer details
-          value: &ref_27
+          value: &ref_25
             context:
               location:
                 country:
@@ -5682,7 +5755,7 @@ x-flows:
         reference: if any
         example:
           summary: Return updated order with agent details
-          value: &ref_28
+          value: &ref_26
             context:
               location:
                 country:
@@ -5991,7 +6064,7 @@ x-flows:
         reference: if any
         example:
           summary: Get latest status of a transit ticket booking
-          value: &ref_36
+          value: &ref_35
             context:
               location:
                 country:
@@ -6399,7 +6472,7 @@ x-flows:
         reference: if any
         example:
           summary: Search for all services form the given start location(code)
-          value: &ref_29
+          value: &ref_28
             context:
               location:
                 country:
@@ -6475,7 +6548,7 @@ x-flows:
           value: *ref_15
       - summary: Search for the bus by start and end station code
         api: search
-        details: &ref_17
+        details:
           - description: >-
               Users searches over the network to avail the intercity bus mode of
               transport from one station to another
@@ -6494,7 +6567,7 @@ x-flows:
         reference: if any
         example:
           summary: Search for all services from given start and end location(code)
-          value: &ref_30
+          value: &ref_29
             context:
               location:
                 country:
@@ -6557,7 +6630,7 @@ x-flows:
           Return an intercity catalog of all bus services from one station to
           another
         api: on_search
-        details: &ref_18
+        details:
           - description: >-
               Provider platform sends the catalog of all the service that can be
               used for transit using bus from station A to station B
@@ -6581,11 +6654,24 @@ x-flows:
           value: *ref_16
       - summary: Search for the specific bus service
         api: search
-        details: *ref_17
+        details:
+          - description: >-
+              Users searches over the network to avail the intercity bus mode of
+              transport from one station to another
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): search
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_search
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
         reference: if any
         example:
           summary: Search for all services from given start and end location(code)
-          value: &ref_33
+          value: &ref_32
             context:
               location:
                 country:
@@ -6601,6 +6687,8 @@ x-flows:
               action: search
               bap_uri: https://api.example-bap.com/beckn/
               ttl: PT30S
+              bpp_id: api.transit-solutions.com,
+              bpp_uri: https://api.transit-solutions.com/beckn/,
             message:
               intent:
                 fulfillment:
@@ -6636,13 +6724,26 @@ x-flows:
                           value: https://api.example-bap.com/booking/terms
       - summary: Return an intercity specific bus services
         api: on_search
-        details: *ref_18
+        details:
+          - description: >-
+              Provider platform sends the catalog of all the service that can be
+              used for transit using bus from station A to station B
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Buyer Platform (BAP)->>Seller Platform (BPP): search
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_search
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                end
         reference: if any
         example:
           summary: >-
             Return services available seat layout for provided start and end
             code with journey date
-          value: &ref_37
+          value: &ref_38
             context:
               location:
                 country:
@@ -6895,7 +6996,7 @@ x-flows:
         reference: if any
         example:
           summary: Get Quote of a selected seat
-          value: *ref_19
+          value: *ref_17
       - summary: Provider platform provides the seat's for selected service of bus
         api: on_select
         details:
@@ -6916,7 +7017,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a quote offered by a intercity bus  service provider
-          value: *ref_20
+          value: *ref_18
       - summary: Selection of specific service
         api: select
         details:
@@ -6936,7 +7037,7 @@ x-flows:
         reference: if any
         example:
           summary: Get Quote of a selected seat
-          value: *ref_21
+          value: *ref_19
       - summary: Provider platform provides the quote for selected service of bus
         api: on_select
         details:
@@ -6957,7 +7058,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a quote offered by a intercity bus  service provider
-          value: *ref_22
+          value: *ref_20
       - summary: Consumer platform initializes the order
         api: init
         details:
@@ -6977,7 +7078,7 @@ x-flows:
         reference: if any
         example:
           summary: Initialize the order by providing billing details
-          value: *ref_23
+          value: *ref_21
       - summary: Provider platform accepts/appends the terms of orders
         api: on_init
         details:
@@ -6999,7 +7100,7 @@ x-flows:
           summary: >-
             Return draft order for transit ticket with settlement via payment
             link
-          value: *ref_24
+          value: *ref_22
       - summary: Consumer confirms the booking and provides details.
         api: confirm
         details:
@@ -7019,7 +7120,7 @@ x-flows:
         reference: if any
         example:
           summary: Confirm ticket booking
-          value: *ref_25
+          value: *ref_23
       - summary: Provider platform confirms the order
         api: on_confirm
         details:
@@ -7039,7 +7140,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: *ref_26
+          value: *ref_24
       - summary: Consumer platform updates the ride details
         api: update
         details:
@@ -7059,7 +7160,7 @@ x-flows:
         reference: if any
         example:
           summary: Update customer details
-          value: *ref_27
+          value: *ref_25
       - summary: Provider platform provides latest update on the order
         api: on_update
         details:
@@ -7077,7 +7178,7 @@ x-flows:
         reference: if any
         example:
           summary: Return updated order with agent details
-          value: *ref_28
+          value: *ref_26
   - summary: InterCity(Bus) - Cancel Flow
     details:
       - description: Detailed process of cancelling a ticket with soft & confirm status.
@@ -7119,7 +7220,7 @@ x-flows:
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
-          value: &ref_38
+          value: &ref_27
             context:
               location:
                 country:
@@ -7367,7 +7468,7 @@ x-flows:
         reference: if any
         example:
           summary: Cancel a transit ticket booking before the cancellation period
-          value: &ref_34
+          value: &ref_33
             context:
               location:
                 country:
@@ -7726,7 +7827,7 @@ x-flows:
         reference: if any
         example:
           summary: Cancel a transit ticket booking before the cancellation period
-          value: &ref_35
+          value: &ref_34
             context:
               location:
                 country:
@@ -8104,7 +8205,7 @@ x-flows:
         reference: if any
         example:
           summary: Return a quote offered by a intercity bus  service provider
-          value: *ref_22
+          value: *ref_20
       - summary: Consumer platform initializes the order
         api: init
         details:
@@ -8126,7 +8227,7 @@ x-flows:
         reference: if any
         example:
           summary: Initialize the order by providing billing details
-          value: *ref_23
+          value: *ref_21
       - summary: >-
           The provider platform returned an error code because the buyer app did
           not respond within the TTL specified in the quote object.
@@ -8173,6 +8274,318 @@ x-flows:
             error:
               code: '90203'
               message: Buyer app did not respond with in seat locking period
+  - summary: InterCity(Bus) - Rating(without feedback form)
+    details:
+      - description: Detailed process of rating.
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            Buyer Platform (BAP)->>Seller Platform (BPP): rating
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                  
+    steps:
+      - summary: >-
+          Provider platform confirms the request and provides the details on
+          confirmation.
+        api: on_confirm
+        details:
+          - description: >-
+              Provider platform confirms the order and provides details of the
+              journey upon confirmation
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                end
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK   
+        reference: if any
+        example:
+          summary: Return confirmed ticket order with payment confirmation
+          value: *ref_27
+      - summary: Buyer app provides rating for an entity
+        api: rating
+        details:
+          - description: Buyer app provides rating for an entity
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+        reference: if any
+        example:
+          summary: Buyer app provides rating for an entity
+          value: &ref_36
+            context:
+              location:
+                country:
+                  code: IND
+              domain: ONDC:TRV12
+              timestamp: '2023-09-03T01:55:08.143Z'
+              bap_id: example-bap.com
+              bap_uri: https://api.example-bap.com/beckn
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
+              message_id: 537c8bc0-bec5-473c-977c-0843df158d26
+              version: 2.0.0
+              action: rating
+              ttl: PT30S
+            message:
+              order_id: O1
+              ratings:
+                - rating_category: FULFILLMENT
+                  id: O1
+                  value: '4'
+                  feedback: Feedback on the rating
+      - summary: Provider returns with the on_rating
+        api: on_rating
+        details:
+          - description: Provider returns with the on_rating
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                end
+        reference: if any
+        example:
+          summary: Provider returns with the on_rating
+          value: &ref_42
+            context:
+              location:
+                country:
+                  code: IND
+              domain: ONDC:TRV12
+              timestamp: '2023-09-03T01:55:40.143Z'
+              bap_id: example-bap.com
+              bap_uri: https://api.example-bap.com/beckn
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
+              message_id: 537c8bc0-bec5-473c-977c-0843df158d26
+              version: 2.0.0
+              action: on_rating
+              ttl: PT30S
+            message:
+              order_id: O1
+              ratings:
+                - rating_category: FULFILLMENT
+                  id: O1
+                  value: '4'
+                  feedback: Feedback on the rating
+  - summary: InterCity(Bus) - Rating(with feedback form)
+    details:
+      - description: Detailed process of rating.
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            participant Seller Form Service
+
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            Buyer Platform (BAP)->>Seller Platform (BPP): rating
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+            Buyer Platform (BAP)->>Seller Form Service: Get Form
+            Seller Form Service-->>Buyer Platform (BAP): Form Received
+            Buyer Platform (BAP)->>Seller Form Service: Form Submission
+            Seller Form Service-->>Buyer Platform (BAP): Submission ID
+    steps:
+      - summary: >-
+          Provider platform confirms the request and provides the details on
+          confirmation.
+        api: on_confirm
+        details:
+          - description: >-
+              Provider platform confirms the order and provides details of the
+              journey upon confirmation
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                participant Seller Form Service
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                end
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID  
+        reference: if any
+        example:
+          summary: Return confirmed ticket order with payment confirmation
+          value: *ref_27
+      - summary: Buyer app provides rating for an entity
+        api: rating
+        details:
+          - description: Buyer app provides rating for an entity
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                participant Seller Form Service
+                
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
+        reference: if any
+        example:
+          summary: Buyer app provides rating for an entity
+          value: &ref_37
+            context:
+              location:
+                country:
+                  code: IND
+              domain: ONDC:TRV12
+              timestamp: '2023-09-03T01:55:08.143Z'
+              bap_id: example-bap.com
+              bap_uri: https://api.example-bap.com/beckn
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
+              message_id: 639e79f5-5882-407b-94ba-50aaa0df195e
+              version: 2.0.0
+              action: rating
+              ttl: PT30S
+            message:
+              order_id: O1
+              ratings:
+                - rating_category: FULFILLMENT
+                  id: O1
+                  value: '4'
+                  feedback: Feedback on the rating
+                - rating_category: ITEM
+                  id: O2
+                  value: '1'
+                  feedback: Feedback on the rating
+      - summary: Provider app provides the feedback form based on the rating value.
+        api: on_rating
+        details:
+          - description: Provider app provides the feedback form based on the rating value.
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                participant Seller Form Service
+                
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                end
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
+        reference: if any
+        example:
+          summary: Provider returns with the on_rating
+          value: &ref_43
+            context:
+              location:
+                country:
+                  code: IND
+              domain: ONDC:TRV12
+              timestamp: '2023-09-03T01:55:40.143Z'
+              bap_id: example-bap.com
+              bap_uri: https://api.example-bap.com/beckn
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
+              message_id: 639e79f5-5882-407b-94ba-50aaa0df195e
+              version: 2.0.0
+              action: on_rating
+              ttl: PT30S
+            message:
+              order_id: O1
+              ratings:
+                - rating_category: FULFILLMENT
+                  id: O1
+                  value: '4'
+                  feedback: Feedback on the rating
+                - rating_category: ITEM
+                  id: O2
+                  value: '1'
+                  feedback: Feedback on the rating
+                  feedback_form:
+                    id: F01
+                    mime_type: application/html
+                    url: https://api.transit-solutions.com/beckn/feedback-form/f01
+      - summary: Provider app provides the feedback form
+        api: form
+        details:
+          - description: Provider app provides the feedback form
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                participant Seller Form Service
+                
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+                
+                Buyer Platform (BAP)->>Seller Platform (BPP): rating
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Form Service: Get Form
+                Seller Form Service-->>Buyer Platform (BAP): Form Received
+                Buyer Platform (BAP)->>Seller Form Service: Form Submission
+                Seller Form Service-->>Buyer Platform (BAP): Submission ID
+                end
+        reference: if any
+        example:
+          summary: Provider app provides the feedback form
+          value: 'Feedback form Redirect: This will redirected to different html page'
 x-examples:
   intercity-bus:
     summary: Intercity Bus Use Case Specification
@@ -8181,21 +8594,21 @@ x-examples:
       search:
         examples:
           - summary: Search_for_all_services_form_the_given_start_location(code)
-            value: *ref_29
+            value: *ref_28
           - summary: Search_for_all_services_from_given_start_and_end_location(code)
-            value: *ref_30
+            value: *ref_29
           - summary: Search_for_all_services_from_given_start_and_end_location(gps)
-            value: *ref_31
+            value: *ref_30
           - summary: Search_for_all_services_from_given_start_and_end_location(gps)_4
-            value: *ref_32
+            value: *ref_31
           - summary: Search_for_all_services_from_given_start_and_end_location(code)_5
-            value: *ref_33
+            value: *ref_32
       select:
         examples:
           - summary: Get_Quote_of_a_selected_seat
-            value: *ref_19
+            value: *ref_17
           - summary: Get_Quote_of_a_selected_seat_2
-            value: *ref_21
+            value: *ref_19
       init:
         examples:
           - summary: Initialize_the_order_by_providing_billing_details
@@ -8293,7 +8706,7 @@ x-examples:
                                 code: SETTLEMENT_AMOUNT
                               value: '940'
           - summary: Initialize_the_order_by_providing_billing_details_2
-            value: *ref_23
+            value: *ref_21
       confirm:
         examples:
           - summary: Confirm_ticket_booking
@@ -8396,17 +8809,17 @@ x-examples:
                                 code: SETTLEMENT_AMOUNT
                               value: '940'
           - summary: Confirm_ticket_booking_2
-            value: *ref_25
+            value: *ref_23
       cancel:
         examples:
           - summary: Cancel_a_transit_ticket_booking_before_the_cancellation_period
-            value: *ref_34
+            value: *ref_33
           - summary: Cancel_a_transit_ticket_booking_before_the_cancellation_period_2
-            value: *ref_35
+            value: *ref_34
       status:
         examples:
           - summary: Get_latest_status_of_a_transit_ticket_booking
-            value: *ref_36
+            value: *ref_35
       update:
         examples:
           - summary: Update_customer_details
@@ -8442,31 +8855,13 @@ x-examples:
                         contact:
                           phone: +91-9988776655
           - summary: Update_customer_details_2
-            value: *ref_27
+            value: *ref_25
       rating:
         examples:
           - summary: Provide feedback on a service
-            value:
-              context:
-                location:
-                  country:
-                    code: IND
-                domain: ONDC:TRV12
-                timestamp: '2023-09-03T01:55:08.143Z'
-                bap_id: example-bap.com
-                bap_uri: https://api.example-bap.com/beckn
-                bpp_id: api.transit-solutions.com
-                bpp_uri: https://api.transit-solutions.com/beckn/
-                transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
-                message_id: 537c8bc0-bec5-473c-977c-0843df158d26
-                version: 2.0.0
-                action: rating
-                ttl: PT30S
-              message:
-                ratings:
-                  - rating_category: Fulfillment
-                    id: O1
-                    value: '4'
+            value: *ref_36
+          - summary: Provide feedback on a service
+            value: *ref_37
       on_search:
         examples:
           - summary: Return_services_available_for_provided_start_code_or_gps
@@ -8476,13 +8871,13 @@ x-examples:
             value: *ref_16
           - summary: >-
               Return_services_available_seat_layout_for_provided_start_and_end_code_with_journey_date
-            value: *ref_37
+            value: *ref_38
       on_select:
         examples:
           - summary: Return_a_quote_offered_by_a_intercity_bus__service_provider
-            value: *ref_20
+            value: *ref_18
           - summary: Return_a_quote_offered_by_a_intercity_bus__service_provider_2
-            value: *ref_22
+            value: *ref_20
       on_init:
         examples:
           - summary: >-
@@ -8704,13 +9099,13 @@ x-examples:
                               value: '940'
           - summary: >-
               Return_draft_order_for_transit_ticket_with_settlement_via_payment_link_2
-            value: *ref_24
+            value: *ref_22
       on_confirm:
         examples:
           - summary: Return_confirmed_ticket_order_with_payment_confirmation
-            value: *ref_38
+            value: *ref_27
           - summary: Return_confirmed_ticket_order_with_payment_confirmation_2
-            value: *ref_26
+            value: *ref_24
       on_status:
         examples:
           - summary: Return_transit_ticket_order_with_status_-_Journey_Completed
@@ -9407,13 +9802,19 @@ x-examples:
                                 code: SETTLEMENT_AMOUNT
                               value: '940'
           - summary: Return_updated_order_with_agent_details_3
-            value: *ref_28
+            value: *ref_26
       on_cancel:
         examples:
           - summary: Return_cancelled_ticket_order_with_cancellation_charges
             value: *ref_40
           - summary: Return_cancelled_ticket_order_with_cancellation_charges_2
             value: *ref_41
+      on_rating:
+        examples:
+          - summary: on_rating without feedback form
+            value: *ref_42
+          - summary: on_rating with feedback form
+            value: *ref_43
 x-attributes:
   inter-city:
     attribute_set:
