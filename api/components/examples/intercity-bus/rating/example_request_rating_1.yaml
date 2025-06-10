@@ -14,9 +14,7 @@ context:
   action: rating
   ttl: PT30S
 message:
-  order_id: O1
   ratings:
-    - rating_category: FULFILLMENT
+    - rating_category: Fulfillment
       id: O1
-      value: '4'
-      feedback: Feedback on the rating 
+      value: '4' 
