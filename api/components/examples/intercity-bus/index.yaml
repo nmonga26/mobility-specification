@@ -72,9 +72,6 @@ rating:
     - summary: Provide feedback on a service
       value:
         $ref: ./rating/example_request_rating_1.yaml
-    - summary: Provide feedback on a service
-      value:
-        $ref: ./rating/example_request_rating_2.yaml    
 
 on_search:
   examples:
@@ -153,13 +150,3 @@ on_cancel:
       value:
         $ref: >-
           ./on_cancel/Return_cancelled_ticket_order_with_cancellation_charges_2.yaml
-on_rating:
-  examples:
-    - summary: on_rating without feedback form
-      value:
-        $ref: >-
-          ./on_rating/example_request_1.yaml
-    - summary: on_rating with feedback form
-      value:
-        $ref: >-
-          ./on_rating/example_request_2.yaml      
