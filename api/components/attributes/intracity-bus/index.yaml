@@ -385,7 +385,7 @@ on_search: &on_search
                 usage: --
                 description: Describes the location of stops.
             id: &on_search_message_catalog_providers_fulfillments_stops_id
-              required: MANDATORY
+              required: OPTIONAL
               type: string
               owner: BPP
               usage: 2

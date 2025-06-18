@@ -24,14 +24,25 @@ message:
             count: 2
     provider:
       id: P1
+    fulfillments:
+      - id: F1
+        type: TRIP
+     
+      - id: F5
+        type: TICKET
+        vehicle:
+          registration: GL90
+        
+      - id: F6
+        type: TICKET
+        vehicle:
+          registration: GL90
+
+      
     billing:
       name: John Doe
       email: john.doe@example.com
       phone: +91-9897867564
-    fulfillments:
-      - id: F1
-      - id: F5
-      - id: F6   
     payments:
       - id: PA1
         collected_by: BAP

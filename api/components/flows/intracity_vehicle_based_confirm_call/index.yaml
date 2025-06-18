@@ -1,0 +1,70 @@
+summary: IntraCity - Vehicle Based Confirmation flow (Without Update Call)
+details: &details
+  - &details_0
+    description: Detailed process of ticket confirmation.
+    mermaid: "sequenceDiagram
+
+      \  participant Buyer Platform (BAP)
+
+      \  participant Seller Platform (BPP)
+
+      \  Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+
+      \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK\ 
+
+      \  Buyer Platform (BAP)->>Seller Platform (BPP): update - with vehicle
+      number request
+
+      \  Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+
+      \  Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+
+      \  Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+      \          "
+steps: &steps
+
+
+  - summary: Consumer confirms the booking details and provides the vechicle registration number.
+    api: confirm
+    details: &steps_6_details
+      - &steps_6_details_0
+        description: Consumer confirms the booking details and provides the vechicle registration number.
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+    reference: if any
+    example: &steps_6_example
+      summary: Confirm ticket booking
+      value: &steps_6_example_value
+        $ref: ../../examples/intracity-bus/confirm/confirm_ticket_vehicle_confirm.yaml
+  - &steps_0
+    summary: Provider confirms the request
+    api: on_confirm
+    details: &steps_0_details
+      - &steps_0_details_0
+        description: Provider confirms the  request and provides the details on
+          confirmation.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end   
+    reference: if any
+    example: &steps_0_example
+      summary: Return confirmed ticket order with payment confirmation
+      value: &steps_0_example_value
+        $ref: ../../examples/intracity-bus/on_confirm/Return_confirmed_vehicle_confirmation.yaml
+  

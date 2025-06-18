@@ -5,7 +5,7 @@ context:
     city:
       code: std:011
   domain: ONDC:TRV11
-  action: on_update
+  action: on_confirm
   version: 2.0.1
   bap_id: api.example-bap.com
   bap_uri: https://api.example-bap.com/beckn/
@@ -13,7 +13,7 @@ context:
   bpp_uri: https://api.transit-solutions.com/beckn/
   transaction_id: 6f339232-2bc3-44d2-915c-30d2b053ce1d
   message_id: 33145cb7-88f8-4f41-9784-b1a760c7a4eb
-  timestamp: '2021-03-23T10:04:40.065Z'
+  timestamp: '2021-03-23T10:00:40.065Z'
   ttl: PT30S
 message:
   order:
@@ -55,8 +55,6 @@ message:
         type: TRIP
         stops:
           - type: START
-            authorization:
-              type: QR
             location:
               descriptor:
                 name: kashmere gate
@@ -113,6 +111,9 @@ message:
             parent_stop_id: '5'
         vehicle:
           category: BUS
+        state:
+          descriptor:
+            code: INACTIVE
         tags:
           - descriptor:
               code: ROUTE_INFO
@@ -128,11 +129,13 @@ message:
         stops:
           - type: START
             authorization:
-              type: QR
+              type: QR_AND_VEHICLE_NUMBER
               token: >-
                 aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-              valid_to: '2024-07-23T23:59:59.999Z'
+              valid_to: '2025-06-20T23:59:59.999Z'
               status: CLAIMED
+        vehicle:
+          registration: GL90      
         tags:
           - descriptor:
               code: INFO
@@ -140,22 +143,18 @@ message:
               - descriptor:
                   code: PARENT_ID
                 value: F1
-          - descriptor:
-              code: TICKET_INFO
-            list:
-              - descriptor:
-                  code: NUMBER
-                value: 7ed21b6f
       - id: F6
         type: TICKET
         stops:
           - type: START
             authorization:
-              type: QR
+              type: QR_AND_VEHICLE_NUMBER
               token: >-
-                iNCORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
-              valid_to: '2024-07-23T23:59:59.999Z'
+                bPOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+              valid_to: '2025-06-20T23:59:59.999Z'
               status: CLAIMED
+        vehicle:
+          registration: GL90      
         tags:
           - descriptor:
               code: INFO
@@ -163,13 +162,6 @@ message:
               - descriptor:
                   code: PARENT_ID
                 value: F1
-          - descriptor:
-              code: TICKET_INFO
-            list:
-              - descriptor:
-                  code: NUMBER
-                value: 5xd31b8f
-    
     cancellation_terms:
       - cancel_by:
           duration: PT60M
@@ -177,7 +169,7 @@ message:
           percentage: '0'
     billing:
       name: John Doe
-      email: john_doe@example.com
+      email: john.doe@example.com
       phone: +91-9897867564
     quote:
       price:
@@ -254,4 +246,4 @@ message:
                   code: SETTLEMENT_AMOUNT
                 value: '12505'
     created_at: '2021-03-23T10:00:40.065Z'
-    updated_at: '2021-03-23T10:04:40.065Z'
+    updated_at: '2021-03-23T10:00:40.065Z'

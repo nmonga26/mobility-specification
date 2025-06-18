@@ -79,6 +79,18 @@ message:
             vehicle:
               category: BUS
               variant: AC
+          - id: FT9
+            type: TICKET
+            stops:
+              - authorization:
+                  type: QR_AND_VEHICLE_NUMBER
+          - id: FT10
+            type: TICKET
+            stops:
+              - authorization:
+                  type: QR          
+
+
         items:
           - id: I1
             descriptor:

@@ -99,7 +99,7 @@ search: &search
                   fulfillment of an order.
                 reference: <PR/Issue/Discussion Links md format text
               - &search_message_intent_fulfillment_stops_authorization_type_2
-                code: VEHICLE_NUMBER
+                code: QR_AND_VEHICLE_NUMBER
                 description: Describes vehcile number based authorization mechanism.
                 reference: <PR/Issue/Discussion Links md format text
             status:

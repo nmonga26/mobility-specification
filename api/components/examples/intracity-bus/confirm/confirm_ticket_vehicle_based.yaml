@@ -22,16 +22,16 @@ message:
         quantity:
           selected:
             count: 2
+    fulfillments:
+      - id: F1
+      - id: F5
+      - id: F6         
     provider:
       id: P1
     billing:
       name: John Doe
       email: john.doe@example.com
       phone: +91-9897867564
-    fulfillments:
-      - id: F1
-      - id: F5
-      - id: F6   
     payments:
       - id: PA1
         collected_by: BAP
