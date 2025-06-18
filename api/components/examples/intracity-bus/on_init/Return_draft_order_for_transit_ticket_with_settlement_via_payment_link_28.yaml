@@ -121,6 +121,9 @@ message:
                 value: UP
       - id: F5
         type: TICKET
+        stops:
+          - authorization:
+              type: QR
         tags:
           - descriptor:
               code: INFO
@@ -130,6 +133,9 @@ message:
                 value: F1
       - id: F6
         type: TICKET
+        stops:
+          - authorization:
+              type: QR
         tags:
           - descriptor:
               code: INFO

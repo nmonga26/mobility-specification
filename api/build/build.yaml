@@ -360,10 +360,14 @@ paths:
                 message:
                   type: object
                   properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
                     ratings:
                       type: array
                       items:
                         $ref: '#/components/schemas/Rating'
+                  required:
+                    - order_id
               required:
                 - context
                 - message
@@ -511,7 +515,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -728,14 +731,17 @@ paths:
                       required:
                         - action
                 message:
+                  additionalProperties: false
                   type: object
                   properties:
-                    feedback_form:
-                      description: >-
-                        A feedback form to allow the user to provide additional
-                        information on the rating provided
-                      allOf:
-                        - $ref: '#/components/schemas/XInput'
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                    ratings:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Rating'
+                  required:
+                    - order_id
                 error:
                   $ref: '#/components/schemas/Error'
               required:
@@ -2300,6 +2306,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        cancellation_terms:
+          description: Cancellation terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services
@@ -2339,12 +2350,12 @@ components:
           description: Category of the entity being rated
           type: string
           enum:
-            - Item
-            - Order
-            - Fulfillment
-            - Provider
-            - Agent
-            - Support
+            - ITEM
+            - ORDER
+            - FULFILLMENT
+            - PROVIDER
+            - AGENT
+            - SUPPORT
         id:
           description: Id of the object being rated
           type: string
@@ -2355,6 +2366,14 @@ components:
             also contain an inequality expression containing logical operators
             like && and ||.
           type: string
+        feedback:
+          description: feedback for rating
+          type: string
+        feedback_form:
+          description: >-
+            A feedback form to allow the user to provide additional information
+            on the rating provided
+          $ref: '#/components/schemas/Form'
     Region:
       description: >-
         Describes an arbitrary region of space. The network policy should
@@ -2884,7 +2903,7 @@ x-enum:
                     Describes QR as an authorization mechanism used to start or
                     end the fulfillment of an order.
                   reference: <PR/Issue/Discussion Links md format text
-                - code: VEHICLE_NUMBER
+                - code: QR_AND_VEHICLE_NUMBER
                   description: Describes vehcile number based authorization mechanism.
                   reference: <PR/Issue/Discussion Links md format text
               status:
@@ -5122,6 +5141,8 @@ x-flows:
                     quantity:
                       selected:
                         count: 2
+                fulfillments:
+                  - id: F1
                 provider:
                   id: P1
       - summary: >-
@@ -5270,6 +5291,9 @@ x-flows:
                             value: UP
                   - id: F5
                     type: TICKET
+                    stops:
+                      - authorization:
+                          type: QR
                     tags:
                       - descriptor:
                           code: INFO
@@ -5279,6 +5303,9 @@ x-flows:
                             value: F1
                   - id: F6
                     type: TICKET
+                    stops:
+                      - authorization:
+                          type: QR
                     tags:
                       - descriptor:
                           code: INFO
@@ -5355,6 +5382,10 @@ x-flows:
                     quantity:
                       selected:
                         count: 2
+                fulfillments:
+                  - id: F1
+                  - id: F5
+                  - id: F6
                 provider:
                   id: P1
                 billing:
@@ -5546,6 +5577,9 @@ x-flows:
                             value: UP
                   - id: F5
                     type: TICKET
+                    stops:
+                      - authorization:
+                          type: QR
                     tags:
                       - descriptor:
                           code: INFO
@@ -5555,6 +5589,9 @@ x-flows:
                             value: F1
                   - id: F6
                     type: TICKET
+                    stops:
+                      - authorization:
+                          type: QR
                     tags:
                       - descriptor:
                           code: INFO
@@ -5691,6 +5728,10 @@ x-flows:
                   name: John Doe
                   email: john.doe@example.com
                   phone: +91-9897867564
+                fulfillments:
+                  - id: F1
+                  - id: F5
+                  - id: F6
                 payments:
                   - id: PA1
                     collected_by: BAP
@@ -6431,6 +6472,8 @@ x-flows:
                     type: TRIP
                     stops:
                       - type: START
+                        authorization:
+                          type: QR
                         location:
                           descriptor:
                             name: kashmere gate
@@ -6499,6 +6542,14 @@ x-flows:
                             value: UP
                   - id: F5
                     type: TICKET
+                    stops:
+                      - type: START
+                        authorization:
+                          type: QR
+                          token: >-
+                            aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-07-23T23:59:59.999Z'
+                          status: CLAIMED
                     tags:
                       - descriptor:
                           code: INFO
@@ -6514,6 +6565,14 @@ x-flows:
                             value: 7ed21b6f
                   - id: F6
                     type: TICKET
+                    stops:
+                      - type: START
+                        authorization:
+                          type: QR
+                          token: >-
+                            iNCORw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GIAAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2024-07-23T23:59:59.999Z'
+                          status: CLAIMED
                     tags:
                       - descriptor:
                           code: INFO
@@ -6785,6 +6844,16 @@ x-flows:
                         vehicle:
                           category: BUS
                           variant: AC
+                      - id: FT9
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR_AND_VEHICLE_NUMBER
+                      - id: FT10
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR
                     items:
                       - id: I1
                         descriptor:
@@ -7163,6 +7232,16 @@ x-flows:
                                 name: Greater Kailash
                                 code: GREATER_KAILASH
                               gps: 28.548230, 77.238039
+                      - id: FT9
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR_AND_VEHICLE_NUMBER
+                      - id: FT10
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR
                     items:
                       - id: I1
                         descriptor:
@@ -7613,6 +7692,16 @@ x-flows:
                                 name: Greater Kailash
                                 code: GREATER_KAILASH
                               gps: 28.548230, 77.238039
+                      - id: FT9
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR_AND_VEHICLE_NUMBER
+                      - id: FT10
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR
                     payments:
                       - collected_by: BAP
                         tags:
@@ -7979,6 +8068,16 @@ x-flows:
                                 name: Greater Kailash
                                 code: GREATER_KAILASH
                               gps: 28.548230, 77.238039
+                      - id: FT9
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR_AND_VEHICLE_NUMBER
+                      - id: FT10
+                        type: TICKET
+                        stops:
+                          - authorization:
+                              type: QR
                     payments:
                       - collected_by: BAP
                         tags:
@@ -9498,7 +9597,7 @@ x-flows:
                       short_desc: Cancelled by the consumer
                 created_at: '2021-03-23T10:00:40.065Z'
                 updated_at: '2021-03-23T11:12:40.065Z'
-  - summary: IntraCity - Vehicle Based Confirmation flow
+  - summary: IntraCity - Vehicle Based Confirmation flow (With Update Call)
     details:
       - description: Detailed process of ticket confirmation.
         mermaid: |-
@@ -9513,6 +9612,105 @@ x-flows:
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
                     
     steps:
+      - summary: Consumer confirms the booking and provides details.
+        api: confirm
+        details:
+          - description: >-
+              Consumer platform confirms the booking and provides all
+              information required for confirmation as per the terms of order
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+        reference: if any
+        example:
+          summary: Confirm ticket booking
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: std:011
+              domain: ONDC:TRV11
+              action: confirm
+              version: 2.0.1
+              bap_id: api.example-bap.com
+              bap_uri: https://api.example-bap.com/beckn/
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6f339232-2bc3-44d2-915c-30d2b053ce1d
+              message_id: 33145cb7-88f8-4f41-9784-b1a760c7a4eb
+              timestamp: '2021-03-23T10:00:40.065Z'
+              ttl: PT30S
+            message:
+              order:
+                items:
+                  - id: I1
+                    quantity:
+                      selected:
+                        count: 2
+                fulfillments:
+                  - id: F1
+                  - id: F5
+                  - id: F6
+                provider:
+                  id: P1
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
+                payments:
+                  - id: PA1
+                    collected_by: BAP
+                    status: PAID
+                    type: PRE-ORDER
+                    params:
+                      transaction_id: 34cc9b0b-6887-4c63-8397-2f4fcf03e50d
+                      currency: INR
+                      amount: '70'
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        display: false
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '1'
+                      - descriptor:
+                          code: SETTLEMENT_TERMS
+                        display: false
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_WINDOW
+                            value: PT60M
+                          - descriptor:
+                              code: SETTLEMENT_BASIS
+                            value: Delivery
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: upi
+                          - descriptor:
+                              code: MANDATORY_ARBITRATION
+                            value: 'true'
+                          - descriptor:
+                              code: COURT_JURISDICTION
+                            value: New Delhi
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '2.5'
+                          - descriptor:
+                              code: STATIC_TERMS
+                            value: https://www.abc.com/settlement-terms/
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '12505'
       - summary: Provider confirms the request
         api: on_confirm
         details:
@@ -9523,14 +9721,12 @@ x-flows:
               sequenceDiagram
                 participant Buyer Platform (BAP)
                 participant Seller Platform (BPP)
+                Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
                 rect rgb(191, 223, 255)
                 Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
                 Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-                end 
-                Buyer Platform (BAP)->>Seller Platform (BPP): update - with vehicle number request
-                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-                Seller Platform (BPP)->>Buyer Platform (BAP):on_update
-                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK   
+                end   
         reference: if any
         example:
           summary: Return confirmed ticket order with payment confirmation
@@ -9666,7 +9862,10 @@ x-flows:
                     stops:
                       - type: START
                         authorization:
-                          type: VEHICLE_NUMBER
+                          type: QR_AND_VEHICLE_NUMBER
+                          token: >-
+                            aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2025-06-20T23:59:59.999Z'
                           status: UNCLAIMED
                     tags:
                       - descriptor:
@@ -9680,7 +9879,10 @@ x-flows:
                     stops:
                       - type: START
                         authorization:
-                          type: VEHICLE_NUMBER
+                          type: QR_AND_VEHICLE_NUMBER
+                          token: >-
+                            bPOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2025-06-20T23:59:59.999Z'
                           status: UNCLAIMED
                     tags:
                       - descriptor:
@@ -9781,8 +9983,6 @@ x-flows:
               sequenceDiagram
                 participant Buyer Platform (BAP)
                 participant Seller Platform (BPP)
-                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
-                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
                 rect rgb(191, 223, 255) 
                 Buyer Platform (BAP)->>Seller Platform (BPP): update - with vehicle number request
                 Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
@@ -9829,8 +10029,6 @@ x-flows:
               sequenceDiagram
                 participant Buyer Platform (BAP)
                 participant Seller Platform (BPP)
-                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
-                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
                 Buyer Platform (BAP)->>Seller Platform (BPP): update - with vehicle number request
                 Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
                 rect rgb(191, 223, 255) 
@@ -9972,7 +10170,10 @@ x-flows:
                     stops:
                       - type: START
                         authorization:
-                          type: VEHICLE_NUMBER
+                          type: QR_AND_VEHICLE_NUMBER
+                          token: >-
+                            aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2025-06-20T23:59:59.999Z'
                           status: CLAIMED
                     tags:
                       - descriptor:
@@ -9992,7 +10193,10 @@ x-flows:
                     stops:
                       - type: START
                         authorization:
-                          type: VEHICLE_NUMBER
+                          type: QR_AND_VEHICLE_NUMBER
+                          token: >-
+                            bPOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2025-06-20T23:59:59.999Z'
                           status: CLAIMED
                     tags:
                       - descriptor:
@@ -10007,6 +10211,397 @@ x-flows:
                           - descriptor:
                               code: NUMBER
                             value: 5xd31b8f
+                cancellation_terms:
+                  - cancel_by:
+                      duration: PT60M
+                    cancellation_fee:
+                      percentage: '0'
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
+                quote:
+                  price:
+                    value: '70'
+                    currency: INR
+                  breakup:
+                    - title: BASE_FARE
+                      item:
+                        id: I1
+                        price:
+                          currency: INR
+                          value: '35'
+                        quantity:
+                          selected:
+                            count: 2
+                      price:
+                        currency: INR
+                        value: '70'
+                    - title: OFFER
+                      price:
+                        currency: INR
+                        value: '0'
+                    - title: TOLL
+                      price:
+                        currency: INR
+                        value: '0'
+                payments:
+                  - id: PA1
+                    collected_by: BAP
+                    status: PAID
+                    type: PRE-ORDER
+                    params:
+                      transaction_id: 34cc9b0b-6887-4c63-8397-2f4fcf03e50d
+                      currency: INR
+                      amount: '70'
+                      bank_code: XXXXXXXX
+                      bank_account_number: xxxxxxxxxxxxxx
+                      virtual_payment_address: 9988199772@okicic
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        display: false
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '1'
+                      - descriptor:
+                          code: SETTLEMENT_TERMS
+                        display: false
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_WINDOW
+                            value: PT60M
+                          - descriptor:
+                              code: SETTLEMENT_BASIS
+                            value: Delivery
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: upi
+                          - descriptor:
+                              code: MANDATORY_ARBITRATION
+                            value: 'true'
+                          - descriptor:
+                              code: COURT_JURISDICTION
+                            value: New Delhi
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '2.5'
+                          - descriptor:
+                              code: STATIC_TERMS
+                            value: https://www.abc.com/settlement-terms/
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '12505'
+                created_at: '2021-03-23T10:00:40.065Z'
+                updated_at: '2021-03-23T10:00:40.065Z'
+  - summary: IntraCity - Vehicle Based Confirmation flow (Without Update Call)
+    details:
+      - description: Detailed process of ticket confirmation.
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            Buyer Platform (BAP)->>Seller Platform (BPP): update - with vehicle number request
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                    
+    steps:
+      - summary: >-
+          Consumer confirms the booking details and provides the vechicle
+          registration number.
+        api: confirm
+        details:
+          - description: >-
+              Consumer confirms the booking details and provides the vechicle
+              registration number.
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                rect rgb(191, 223, 255)
+                Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                end
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+        reference: if any
+        example:
+          summary: Confirm ticket booking
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: std:011
+              domain: ONDC:TRV11
+              action: confirm
+              version: 2.0.1
+              bap_id: api.example-bap.com
+              bap_uri: https://api.example-bap.com/beckn/
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6f339232-2bc3-44d2-915c-30d2b053ce1d
+              message_id: 33145cb7-88f8-4f41-9784-b1a760c7a4eb
+              timestamp: '2021-03-23T10:00:40.065Z'
+              ttl: PT30S
+            message:
+              order:
+                items:
+                  - id: I1
+                    quantity:
+                      selected:
+                        count: 2
+                provider:
+                  id: P1
+                fulfillments:
+                  - id: F1
+                    type: TRIP
+                  - id: F5
+                    type: TICKET
+                    vehicle:
+                      registration: GL90
+                  - id: F6
+                    type: TICKET
+                    vehicle:
+                      registration: GL90
+                billing:
+                  name: John Doe
+                  email: john.doe@example.com
+                  phone: +91-9897867564
+                payments:
+                  - id: PA1
+                    collected_by: BAP
+                    status: PAID
+                    type: PRE-ORDER
+                    params:
+                      transaction_id: 34cc9b0b-6887-4c63-8397-2f4fcf03e50d
+                      currency: INR
+                      amount: '70'
+                    tags:
+                      - descriptor:
+                          code: BUYER_FINDER_FEES
+                        display: false
+                        list:
+                          - descriptor:
+                              code: BUYER_FINDER_FEES_PERCENTAGE
+                            value: '1'
+                      - descriptor:
+                          code: SETTLEMENT_TERMS
+                        display: false
+                        list:
+                          - descriptor:
+                              code: SETTLEMENT_WINDOW
+                            value: PT60M
+                          - descriptor:
+                              code: SETTLEMENT_BASIS
+                            value: Delivery
+                          - descriptor:
+                              code: SETTLEMENT_TYPE
+                            value: upi
+                          - descriptor:
+                              code: MANDATORY_ARBITRATION
+                            value: 'true'
+                          - descriptor:
+                              code: COURT_JURISDICTION
+                            value: New Delhi
+                          - descriptor:
+                              code: DELAY_INTEREST
+                            value: '2.5'
+                          - descriptor:
+                              code: STATIC_TERMS
+                            value: https://www.abc.com/settlement-terms/
+                          - descriptor:
+                              code: SETTLEMENT_AMOUNT
+                            value: '12505'
+      - summary: Provider confirms the request
+        api: on_confirm
+        details:
+          - description: >-
+              Provider confirms the  request and provides the details on
+              confirmation.
+            mermaid: |-
+              sequenceDiagram
+                participant Buyer Platform (BAP)
+                participant Seller Platform (BPP)
+                Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+                Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+                rect rgb(191, 223, 255)
+                Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+                Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+                end   
+        reference: if any
+        example:
+          summary: Return confirmed ticket order with payment confirmation
+          value:
+            context:
+              location:
+                country:
+                  code: IND
+                city:
+                  code: std:011
+              domain: ONDC:TRV11
+              action: on_confirm
+              version: 2.0.1
+              bap_id: api.example-bap.com
+              bap_uri: https://api.example-bap.com/beckn/
+              bpp_id: api.transit-solutions.com
+              bpp_uri: https://api.transit-solutions.com/beckn/
+              transaction_id: 6f339232-2bc3-44d2-915c-30d2b053ce1d
+              message_id: 33145cb7-88f8-4f41-9784-b1a760c7a4eb
+              timestamp: '2021-03-23T10:00:40.065Z'
+              ttl: PT30S
+            message:
+              order:
+                id: O1
+                status: ACTIVE
+                items:
+                  - id: I1
+                    descriptor:
+                      name: Single Journey Ticket
+                      code: SJT
+                      images:
+                        - url: >-
+                            https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                          size_type: xs
+                    fulfillment_ids:
+                      - F1
+                      - F5
+                      - F6
+                    price:
+                      currency: INR
+                      value: '35'
+                    quantity:
+                      selected:
+                        count: 2
+                    time:
+                      label: Validity
+                      duration: PT2D
+                      timestamp: '2021-03-23T11:01:40.065Z'
+                provider:
+                  id: P1
+                  descriptor:
+                    name: Delhi Transport Corporation
+                    images:
+                      - url: >-
+                          https://dtc.delhi.gov.in/sites/default/files/DTC/logo/dtc_logo_2.png
+                        size_type: xs
+                fulfillments:
+                  - id: F1
+                    type: TRIP
+                    stops:
+                      - type: START
+                        location:
+                          descriptor:
+                            name: kashmere gate
+                            code: KASHMERE_GATE
+                          gps: 28.666576, 77.233332
+                        id: '1'
+                      - type: INTERMEDIATE_STOP
+                        instructions:
+                          name: Stop 1
+                        location:
+                          descriptor:
+                            name: Indira Gandhi Technical Unviversity
+                            code: INDIRA_GANDHI_TECHNICAL_UNIV
+                          gps: 28.624097, 77.204991
+                        id: '2'
+                        parent_stop_id: '1'
+                      - type: INTERMEDIATE_STOP
+                        instructions:
+                          name: Stop 2
+                        location:
+                          descriptor:
+                            name: Yamuna Bazar
+                            code: YAMUNA_BAZAR
+                          gps: 28.625972,77.209917
+                        id: '3'
+                        parent_stop_id: '2'
+                      - type: INTERMEDIATE_STOP
+                        instructions:
+                          name: Stop 3
+                        location:
+                          descriptor:
+                            name: dhaula kuan
+                            code: DHAULA_KUAN
+                          gps: 28.610972,77.201717
+                        id: '4'
+                        parent_stop_id: '3'
+                      - type: INTERMEDIATE_STOP
+                        instructions:
+                          name: Stop 4
+                        location:
+                          descriptor:
+                            name: gpo
+                            code: GPO
+                          gps: 28.623097,77.209917
+                        id: '5'
+                        parent_stop_id: '4'
+                      - type: END
+                        location:
+                          descriptor:
+                            name: Greater Kailash
+                            code: GREATER_KAILASH
+                          gps: 28.548230, 77.238039
+                        id: '6'
+                        parent_stop_id: '5'
+                    vehicle:
+                      category: BUS
+                    state:
+                      descriptor:
+                        code: INACTIVE
+                    tags:
+                      - descriptor:
+                          code: ROUTE_INFO
+                        list:
+                          - descriptor:
+                              code: ROUTE_ID
+                            value: '242'
+                          - descriptor:
+                              code: ROUTE_DIRECTION
+                            value: UP
+                  - id: F5
+                    type: TICKET
+                    stops:
+                      - type: START
+                        authorization:
+                          type: QR_AND_VEHICLE_NUMBER
+                          token: >-
+                            aMOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2025-06-20T23:59:59.999Z'
+                          status: CLAIMED
+                    vehicle:
+                      registration: GL90
+                    tags:
+                      - descriptor:
+                          code: INFO
+                        list:
+                          - descriptor:
+                              code: PARENT_ID
+                            value: F1
+                  - id: F6
+                    type: TICKET
+                    stops:
+                      - type: START
+                        authorization:
+                          type: QR_AND_VEHICLE_NUMBER
+                          token: >-
+                            bPOPw0KGgoAAAANSUhEUgAAAH0AAAB9AQAAAACn+1GINAAApklEQVR4Xu2UMQ4EMQgD/QP+/0vK6zjsvayUMmavWxQpMAUBkwS12wcveAAkgNSCD3rR5Lkgoai3GUCMgWqbAEYR3HxAkZlzU/0MyBisYRsgI1ERFfcpBpA+ze6k56Cj7KTdXNigFWZvSOpsgqLfd18i2aAukXh9TXBNmdWt5gzA/oqzWkkN8HtA7G8CNOwYAiZt3wZixUfkA32OHNQq7Bxs9oI/gC/9fV8AVCkPjQAAAABJRU5ErkJggg==
+                          valid_to: '2025-06-20T23:59:59.999Z'
+                          status: CLAIMED
+                    vehicle:
+                      registration: GL90
+                    tags:
+                      - descriptor:
+                          code: INFO
+                        list:
+                          - descriptor:
+                              code: PARENT_ID
+                            value: F1
                 cancellation_terms:
                   - cancel_by:
                       duration: PT60M
@@ -21971,7 +22566,7 @@ x-attributes:
                       usage: '--'
                       description: Describes the location of stops.
                   id:
-                    required: MANDATORY
+                    required: OPTIONAL
                     type: string
                     owner: BPP
                     usage: 2

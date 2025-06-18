@@ -22,6 +22,10 @@ message:
         quantity:
           selected:
             count: 2
+    fulfillments:
+      - id: F1
+      - id: F5
+      - id: F6      
     provider:
       id: P1
     billing:

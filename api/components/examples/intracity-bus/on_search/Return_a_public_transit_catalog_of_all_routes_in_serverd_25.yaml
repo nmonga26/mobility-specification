@@ -320,6 +320,16 @@ message:
                     name: Greater Kailash
                     code: GREATER_KAILASH
                   gps: 28.548230, 77.238039
+          - id: FT9
+            type: TICKET
+            stops:
+              - authorization:
+                  type: QR_AND_VEHICLE_NUMBER
+          - id: FT10
+            type: TICKET
+            stops:
+              - authorization:
+                  type: QR
         payments:
           - collected_by: BAP
             tags:
