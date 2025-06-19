@@ -1,0 +1,57 @@
+summary: InterCity(Bus) - Seller Cancellation
+details: &details
+  - &details_0
+    description: Detailed process of seller side cancellations.
+    mermaid: >-
+      sequenceDiagram
+        participant Buyer Platform (BAP)
+        participant Seller Platform (BPP)
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+              
+steps: 
+  - summary: Provider platform confirms the request and provides the details on
+      confirmation.
+    api: on_confirm
+    details: 
+      - description: Provider platform confirms the order and provides details of the
+          journey upon confirmation
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+    reference: if any
+    example:
+      summary: Return confirmed ticket order with payment confirmation
+      value:
+        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
+  - summary: The provider platform cancel the order with unsolicited on_cancel call.
+    api: on_cancel
+    details: 
+      - description: The provider platform cancel the order with unsolicited on_cancel call.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_cancel
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+
+    reference: if any
+    example: &steps_15_example
+      summary: Return transit ticket order with status - Journey Completed
+      value: &steps_15_example_value
+        $ref: ../../examples/intercity-bus/on_cancel/on_cancel_request_seller_cancellation.yaml
+
+   

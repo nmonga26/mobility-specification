@@ -349,6 +349,8 @@ steps: &steps
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
             end
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
     reference: if any
     example: &steps_12_example
@@ -372,51 +374,78 @@ steps: &steps
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example: &steps_13_example
       summary: Return confirmed ticket order with payment confirmation
       value: &steps_13_example_value
         $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
-  - &steps_14
-    summary: Consumer platform updates the ride details
-    api: update
-    details: &steps_14_details
-      - &steps_14_details_0
-        description: The consumer platform updates the ride with some certain details he
-          wants to be updated.
-        mermaid: |-
-          sequenceDiagram
-            rect rgb(191, 223, 255)
-            participant Buyer Platform (BAP)
-            participant Seller Platform (BPP)
-            Buyer Platform (BAP)->>Seller Platform (BPP): update
-            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-            end
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
-    reference: if any
-    example: &steps_14_example
-      summary: Update customer details
-      value: &steps_14_example_value
-        $ref: ../../examples/intercity-bus/update/Update_customer_details_2.yaml
-  - &steps_15
-    summary: Provider platform provides latest update on the order
-    api: on_update
-    details: &steps_15_details
-      - &steps_15_details_0
-        description: Provider platform provides the ride details with updated context.
-        mermaid: |-
+  
+  - summary: The provider platform sends an unsolicited on_status call.
+    api: on_status
+    details: 
+      - description: The provider platform sends an unsolicited on_status call.
+        mermaid: >-
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
-            Buyer Platform (BAP)->>Seller Platform (BPP): update
+            Buyer Platform (BAP)->>Seller Platform (BPP): confirm
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-            rect rgb(191, 223, 255)
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            end
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end 
+
     reference: if any
     example: &steps_15_example
-      summary: Return updated order with agent details
+      summary: Return transit ticket order with status - Journey Completed
       value: &steps_15_example_value
-        $ref: ../../examples/intercity-bus/on_update/Return_updated_order_with_agent_details_3.yaml
+        $ref: ../../examples/intercity-bus/on_status/on_status_request_complete.yaml
+
+
+  # - &steps_14
+  #   summary: Consumer platform updates the ride details
+  #   api: update
+  #   details: &steps_14_details
+  #     - &steps_14_details_0
+  #       description: The consumer platform updates the ride with some certain details he
+  #         wants to be updated.
+  #       mermaid: |-
+  #         sequenceDiagram
+  #           rect rgb(191, 223, 255)
+  #           participant Buyer Platform (BAP)
+  #           participant Seller Platform (BPP)
+  #           Buyer Platform (BAP)->>Seller Platform (BPP): update
+  #           Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+  #           end
+  #           Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+  #           Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+  #   reference: if any
+  #   example: &steps_14_example
+  #     summary: Update customer details
+  #     value: &steps_14_example_value
+  #       $ref: ../../examples/intercity-bus/update/Update_customer_details_2.yaml
+  # - &steps_15
+  #   summary: Provider platform provides latest update on the order
+  #   api: on_update
+  #   details: &steps_15_details
+  #     - &steps_15_details_0
+  #       description: Provider platform provides the ride details with updated context.
+  #       mermaid: |-
+  #         sequenceDiagram
+  #           participant Buyer Platform (BAP)
+  #           participant Seller Platform (BPP)
+  #           Buyer Platform (BAP)->>Seller Platform (BPP): update
+  #           Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+  #           rect rgb(191, 223, 255)
+  #           Seller Platform (BPP)->>Buyer Platform (BAP):on_update
+  #           Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+  #           end
+  #   reference: if any
+  #   example: &steps_15_example
+  #     summary: Return updated order with agent details
+  #     value: &steps_15_example_value
+  #       $ref: ../../examples/intercity-bus/on_update/Return_updated_order_with_agent_details_3.yaml

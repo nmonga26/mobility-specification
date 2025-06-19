@@ -49,7 +49,7 @@ steps:
     example:
       summary: Return confirmed ticket order with payment confirmation
       value:
-        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation.yaml
+        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
   - &steps_1
     summary: Buyer app provides rating for an entity
     api: rating

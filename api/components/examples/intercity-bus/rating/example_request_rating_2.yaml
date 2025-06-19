@@ -14,13 +14,12 @@ context:
   action: rating
   ttl: PT30S
 message:
-  order_id: O1
+  order_id: O1_INVALID
   ratings:
     - rating_category: FULFILLMENT
       id: O1
       value: '4'
-      feedback: Feedback on the rating
-    - rating_category: ITEM
-      id: O2
-      value: '1'
-      feedback: Feedback on the rating   
+    # - rating_category: ITEM
+    #   id: O2
+    #   value: '1'
+    #   feedback: Feedback on the rating   

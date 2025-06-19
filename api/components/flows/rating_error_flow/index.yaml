@@ -1,4 +1,4 @@
-summary: InterCity(Bus) - Rating(Success)
+summary: InterCity(Bus) - Rating(Error Flow)
 details: &details
   - &details_0
     description: Detailed process of rating.
@@ -12,6 +12,8 @@ details: &details
         Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
         Buyer Platform (BAP)->>Seller Platform (BPP): rating
         Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+        Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+        Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
               
 steps: 
   - summary: Provider platform confirms the request and provides the details on
@@ -32,12 +34,13 @@ steps:
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             Buyer Platform (BAP)->>Seller Platform (BPP): rating
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
     reference: if any
     example:
       summary: Return confirmed ticket order with payment confirmation
       value:
         $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
-  
   - summary: The provider platform sends an unsolicited on_status call.
     api: on_status
     details: 
@@ -54,16 +57,15 @@ steps:
             end
             Buyer Platform (BAP)->>Seller Platform (BPP): rating
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
 
     reference: if any
     example: &steps_15_example
       summary: Return transit ticket order with status - Journey Completed
       value: &steps_15_example_value
         $ref: ../../examples/intercity-bus/on_status/on_status_request_complete.yaml
-
-  
-  - &steps_1
-    summary: Buyer app provides rating for an entity
+  - summary: Buyer app provides rating for an entity
     api: rating
     details:
       - description: Buyer app provides rating for an entity
@@ -79,30 +81,33 @@ steps:
             Buyer Platform (BAP)->>Seller Platform (BPP): rating
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
             end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
     reference: if any
     example: 
       summary: Buyer app provides rating for an entity
-      value: &steps_1_example_value
-        $ref: ../../examples/intercity-bus/rating/example_request_rating_1.yaml
-  # - &steps_2
-  #   summary: Provider returns with the on_rating
-  #   api: on_rating
-  #   details:
-  #     - description: Provider returns with the on_rating
-  #       mermaid: >-
-  #         sequenceDiagram
-  #           participant Buyer Platform (BAP)
-  #           participant Seller Platform (BPP)
-  #           Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
-  #           Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
-  #           Buyer Platform (BAP)->>Seller Platform (BPP): rating
-  #           Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-  #           rect rgb(191, 223, 255)
-  #           Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
-  #           Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-  #           end
-  #   reference: if any
-  #   example: &steps_2_example
-  #     summary: Provider returns with the on_rating
-  #     value: &steps_2_example_value
-  #       $ref: ../../examples/intercity-bus/on_rating/example_request_1.yaml
+      value:
+        $ref: ../../examples/intercity-bus/rating/example_request_rating_2.yaml
+  - summary: Provider returns with the an error code
+    api: on_rating
+    details:
+      - description: The provider returns an error code because the order_id is invalid
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            Buyer Platform (BAP)->>Seller Platform (BPP): rating
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_rating
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+    reference: if any
+    example: &steps_2_example
+      summary: Provider returns with the on_rating
+      value: &steps_2_example_value
+        $ref: ../../examples/intercity-bus/on_rating/example_request_3.yaml

@@ -82,6 +82,9 @@ message:
           energy_type: DIESEL
       - id: FT1
         type: TICKET
+        state: 
+          descriptor:
+            code: CONFIRMED
         customer:
           person:
             name: Joe Adams
@@ -131,6 +134,9 @@ message:
                 value: I1
       - id: FT2
         type: TICKET
+        state: 
+          descriptor:
+            code: CONFIRMED
         customer:
           person:
             name: RACHEL ADAMS
@@ -232,10 +238,19 @@ message:
           price:
             value: '50'
             currency: INR
+          item:
+            id: I1
+            fulfillment_ids: 
+              - FT1
         - title: SEAT_FARE
           price:
             value: '50'
             currency: INR
+          item:
+            id: I1
+            fulfillment_ids: 
+              - FT2
+      
       ttl: PT10M
     payments:
       - id: PA1

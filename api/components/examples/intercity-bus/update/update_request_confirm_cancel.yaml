@@ -2,6 +2,8 @@ context:
   location:
     country:
       code: IND
+    city:
+      code: std:011
   domain: ONDC:TRV12
   timestamp: '2023-09-03T01:55:08.143Z'
   bap_id: example-bap.com
@@ -9,14 +11,17 @@ context:
   bpp_id: api.transit-solutions.com
   bpp_uri: https://api.transit-solutions.com/beckn/
   transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
-  message_id: 537c8bc0-bec5-473c-977c-0843df158d26
+  message_id: 014fd638-ce2e-4e26-b490-60cd608771b9
   version: 2.0.0
-  action: rating
+  action: update
   ttl: PT30S
 message:
-  order_id: O1
-  ratings:
-    - rating_category: FULFILLMENT
-      id: O1
-      value: '4'
-      # feedback: Feedback on the rating 
+  update_target: order.fulfillments
+  order:
+    id: O1
+    fulfillments:
+      - id: FT1
+        type: TICKET
+        state:
+          descriptor:
+            code: CONFIRM_CANCEL

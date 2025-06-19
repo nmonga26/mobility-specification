@@ -232,10 +232,18 @@ message:
           price:
             value: '50'
             currency: INR
+          item:
+            id: I1
+            fulfillment_ids: 
+              - FT1
         - title: SEAT_FARE
           price:
             value: '50'
             currency: INR
+          item:
+            id: I1
+            fulfillment_ids: 
+              - FT2
         - title: CANCELLATION_CHARGES
           price:
             value: '10'

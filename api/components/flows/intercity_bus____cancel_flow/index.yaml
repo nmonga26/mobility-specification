@@ -41,7 +41,7 @@ steps: &steps
     example: &steps_0_example
       summary: Return confirmed ticket order with payment confirmation
       value: &steps_0_example_value
-        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation.yaml
+        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
   - &steps_1
     summary: Buyer app cancels the request for ticket
     api: cancel
