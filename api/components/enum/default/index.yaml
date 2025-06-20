@@ -70,6 +70,10 @@ search: &search
                 code: CLAIMED
                 description: Describes current status of ticket whether is claimed or unclaimed.
                 reference: <PR/Issue/Discussion Links md format text
+        type: 
+          - code: VISIT
+            description: Describes the fulfillment type.
+            reference: <PR/Issue/Discussion Links md format text
 on_search: &on_search
   context: &on_search_context
     action: &on_search_context_action
