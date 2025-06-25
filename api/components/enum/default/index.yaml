@@ -355,3 +355,43 @@ on_update: &on_update
     location: *search_context_location
     domain: *search_context_domain
   message: *on_init_message
+rating:
+  context: 
+    action: 
+      - code: rating
+        description: Buyer app provides the rating of the order
+        reference: <PR/Issue/Discussion Links md format text>
+    location: *search_context_location
+    domain: *search_context_domain
+  message:
+    ratings: &rating_category
+      rating_category:
+        - code: ITEM
+          description: Describes the category as an item.
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: ORDER
+          description: Describes the category as ORDER.
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: FULFILLMENT
+          description: Describes the category as FULFILLMENT.
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: PROVIDER
+          description: Describes the category as PROVIDER.
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: AGENT
+          description: Describes the category as AGENT.
+          reference: <PR/Issue/Discussion Links md format text>
+        - code: SUPPORT
+          description: Describes the category as SUPPORT.
+          reference: <PR/Issue/Discussion Links md format text>
+on_rating: 
+  context: 
+    action: 
+      - code: on_rating
+        description: Provide feedback on a service
+        reference: <PR/Issue/Discussion Links md format text>
+    location: *search_context_location
+    domain: *search_context_domain
+  message:
+    ratings: *rating_category
+   

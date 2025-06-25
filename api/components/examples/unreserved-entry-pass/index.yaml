@@ -38,6 +38,14 @@ status:
     - summary: Fetch_the_latest_status_of_order
       value:
         $ref: ./status/Fetch_the_latest_status_of_order.yaml
+rating:
+  examples:
+    - summary: Provides the rating
+      value:
+        $ref: ./rating/example_request_1.yaml
+    - summary: Provides the rating with invalid order id
+      value:
+        $ref: ./rating/example_request_2.yaml            
 on_search:
   examples:
     - summary: Return_a_catalog_for_unreserved_entry_pass
@@ -77,3 +85,9 @@ on_status:
       value:
         $ref: >-
           ./on_status/Return_confirmed_ticket_order_with_payment_confirmation_1.yaml
+on_rating:
+  examples:
+    - summary: Provides the on_Rating on case of error
+      value:
+        $ref: >-
+          ./on_rating/example_request_1.yaml

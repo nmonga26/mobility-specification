@@ -1,0 +1,18 @@
+context:
+  location:
+    country:
+      code: IND
+  domain: ONDC:TRV12
+  timestamp: '2023-09-03T01:55:40.143Z'
+  bap_id: example-bap.com
+  bap_uri: https://api.example-bap.com/beckn
+  bpp_id: api.transit-solutions.com
+  bpp_uri: https://api.transit-solutions.com/beckn/
+  transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
+  message_id: 639e79f5-5882-407b-94ba-50aaa0df195e
+  version: 2.0.0
+  action: on_rating
+  ttl: PT30S
+error:
+  code: '90203'
+  message: The buyer app provides the invalid order_id
