@@ -157,24 +157,10 @@ steps: &steps
         journey date
       value: &steps_3_example_value
         $ref: ../../examples/intercity-bus/on_search/Return_services_available_for_provided_start_and_end_code_or_gps_with_journey_date.yaml
-  
   - &steps_4
     summary: Search for the specific bus service
     api: search
-    details: 
-      - description: Users searches over the network to avail the intercity bus mode of
-          transport from one station to another
-        mermaid: >-
-          sequenceDiagram
-            participant Buyer Platform (BAP)
-            participant Seller Platform (BPP)
-            rect rgb(191, 223, 255)
-            Buyer Platform (BAP)->>Seller Platform (BPP): search
-            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-            end
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_search
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-    
+    details: *steps_2_details
     reference: if any
     example: &steps_4_example
       summary: Search for all services from given start and end location(code)
@@ -183,19 +169,7 @@ steps: &steps
   - &steps_5
     summary: Return an intercity specific bus services
     api: on_search
-    details: 
-      - description: Provider platform sends the catalog of all the service that can be
-          used for transit using bus from station A to station B
-        mermaid: >-
-          sequenceDiagram
-            participant Buyer Platform (BAP)
-            participant Seller Platform (BPP)
-            Buyer Platform (BAP)->>Seller Platform (BPP): search
-            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-            rect rgb(191, 223, 255)
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_search
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            end
+    details: *steps_3_details
     reference: if any
     example: &steps_5_example
       summary: Return services available seat layout for provided start and end code

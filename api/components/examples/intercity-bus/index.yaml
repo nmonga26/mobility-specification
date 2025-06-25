@@ -155,7 +155,7 @@ on_cancel:
           ./on_cancel/Return_cancelled_ticket_order_with_cancellation_charges_2.yaml
 on_rating:
   examples:
-    - summary: on_rating wit error response
+    - summary: on_rating with error response
       value:
         $ref: >-
           ./on_rating/example_request_3.yaml   
