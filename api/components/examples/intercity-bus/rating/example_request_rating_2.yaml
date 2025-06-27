@@ -9,14 +9,17 @@ context:
   bpp_id: api.transit-solutions.com
   bpp_uri: https://api.transit-solutions.com/beckn/
   transaction_id: 6743e9e2-4fb5-487c-92b7-13ba8018f176
-  message_id: 537c8bc0-bec5-473c-977c-0843df158d26
+  message_id: 639e79f5-5882-407b-94ba-50aaa0df195e
   version: 2.0.0
   action: rating
   ttl: PT30S
 message:
-  order_id: O1
+  order_id: O1_INVALID
   ratings:
     - rating_category: FULFILLMENT
       id: O1
       value: '4'
-      # feedback: Feedback on the rating 
+    # - rating_category: ITEM
+    #   id: O2
+    #   value: '1'
+    #   feedback: Feedback on the rating   

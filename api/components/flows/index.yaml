@@ -2,3 +2,7 @@
 - $ref: ./intercity_bus____station_code_based_flow/index.yaml
 - $ref: ./intercity_bus____cancel_flow/index.yaml
 - $ref: ./intercity_bus_error_scenario/index.yaml
+- $ref: ./intercity_partial_cancellation/index.yaml
+- $ref: ./intercity_bus_seller_cancellation/index.yaml
+- $ref: ./rating_without_form/index.yaml
+- $ref: ./rating_error_flow/index.yaml
