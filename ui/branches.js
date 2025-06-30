@@ -1,21 +1,40 @@
 const BRANCHES = [
   {
-    code: "draft-TRV10-2.1.0",
+    code: "release-TRV10-2.0.0",
+    name: "Ride Hailing",
+    short_desc: "Ride Hailing: OnDemand",
+    status: "DEPRECATED",
+  },
+  {
+    code: "release-TRV10-2.0.1",
+    name: "Ride Hailing",
+    short_desc: "Ride Hailing: OnDemand, Special Zone",
+    status: "TO_BE_DEPRECATED",
+  },
+  {
+    code: "release-TRV10-2.1.0",
     name: "Ride Hailing",
     short_desc: "Ride Hailing: OnDemand, Special Zone, Schedule, Rental",
-    status: "WIP",
+    status: "RELEASED",
   },
+ 
   {
-    code: "draft-TRV11-2.0.1",
+    code: "release-TRV11-2.0.0",
+    name: "Unreserved Ticket",
+    short_desc: "Unreserved Ticket booking for Metro",
+    status: "TO_BE_DEPRECATED",
+  },
+   {
+    code: "release-TRV11-2.0.1",
     name: "Unreserved Ticketing",
     short_desc: "Unreserved Ticket booking for Metro & Bus",
-    status: "DRAFT",
+    status: "RELEASED",
   },
   {
-    code: "draft-TRV12-airline",
+    code: "release-TRV12-airline",
     name: "Reserved Ticketing",
     short_desc: "Airline Ticket Booking",
-    status: "DRAFT",
+    status: "RELEASED",
   },
   {
     code: "draft-TRV12-intercity",
@@ -24,33 +43,15 @@ const BRANCHES = [
     status: "DRAFT",
   },
   {
-    code: "draft-TRV13-hotel",
+    code: "release-TRV13-hotel",
     name: "Accommodation Booking",
     short_desc: "Hotel & Stay Booking",
-    status: "DRAFT",
+    status: "RELEASED",
   },
   {
-    code: "draft-TRV14-2.0.0",
+    code: "release-TRV14-2.0.0",
     name: "Unreserved Entry Pass",
     short_desc: "Unreserved Tickets for Monuments, Museum, Art Gallery",
-    status: "DRAFT",
-  },
-  {
-    code: "release-TRV10-2.0.0",
-    name: "Ride Hailing",
-    short_desc: "Ride Hailing: OnDemand",
     status: "RELEASED",
-  },
-  {
-    code: "release-TRV10-2.0.1",
-    name: "Ride Hailing",
-    short_desc: "Ride Hailing: OnDemand, Special Zone",
-    status: "RELEASED",
-  },
-  {
-    code: "release-TRV11-2.0.0",
-    name: "Unreserved Ticket",
-    short_desc: "Unreserved Ticket booking for Metro",
-    status: "RELEASED",
-  },
+  }
 ];
