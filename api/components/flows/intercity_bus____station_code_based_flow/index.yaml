@@ -324,8 +324,6 @@ steps: &steps
             end
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
-            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK 
     reference: if any
     example: &steps_12_example
       summary: Confirm ticket booking
@@ -348,14 +346,62 @@ steps: &steps
             Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             end
+    reference: if any
+    example: &steps_13_example
+      summary: Return confirmed ticket order with payment confirmation
+      value: &steps_13_example_value
+        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
+  - &steps_13
+    summary: Consumer Platform request for latest order status
+    api: status
+    details: &steps_13_details
+      - &steps_13_details_0
+        description: Consumer Platform request for latest order status
+        mermaid: |-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            rect rgb(191, 223, 255)
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            
             Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
     reference: if any
     example: &steps_13_example
       summary: Return confirmed ticket order with payment confirmation
       value: &steps_13_example_value
-        $ref: ../../examples/intercity-bus/on_confirm/Return_confirmed_ticket_order_with_payment_confirmation_2.yaml
-  
+        $ref: ../../examples/intercity-bus/status/Get_latest_status_of_a_transit_ticket_booking.yaml      
+
+  - summary: The provider platform provides the latest order status.
+    api: on_status
+    details: 
+      - description: The provider platform provides the latest order status.
+        mermaid: >-
+          sequenceDiagram
+            participant Buyer Platform (BAP)
+            participant Seller Platform (BPP)
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
+            Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
+            rect rgb(191, 223, 255)
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+            end
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
+            Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
+
+    reference: if any
+    example: &steps_15_example
+      summary: Return transit ticket order with status - Journey Completed
+      value: &steps_15_example_value
+        $ref: ../../examples/intercity-bus/on_status/on_status_request_after_on_confirm.yaml 
+
+
+
+
   - summary: The provider platform sends an unsolicited on_status call.
     api: on_status
     details: 
@@ -364,14 +410,16 @@ steps: &steps
           sequenceDiagram
             participant Buyer Platform (BAP)
             participant Seller Platform (BPP)
-            Buyer Platform (BAP)->>Seller Platform (BPP): confirm
+            
+            Buyer Platform (BAP)->>Seller Platform (BPP): status
             Seller Platform (BPP)-->>Buyer Platform (BAP):ACK
-            Seller Platform (BPP)->>Buyer Platform (BAP):on_confirm
+    
+            Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
             rect rgb(191, 223, 255)
             Seller Platform (BPP)->>Buyer Platform (BAP):on_status
             Buyer Platform (BAP)-->>Seller Platform (BPP): ACK
-            end 
+            end
 
     reference: if any
     example: &steps_15_example

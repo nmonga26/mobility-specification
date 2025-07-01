@@ -30,6 +30,8 @@ message:
         fulfillments:
           - id: F1
             type: TRIP
+            rateable: true
+            rating: '4.5'
             stops:
               - id: S1
                 type: START
@@ -134,6 +136,8 @@ message:
                   - value: CCTV
           - id: F2
             type: TRIP
+            rateable: true
+            rating: '5'
             stops:
               - id: S7
                 type: START
