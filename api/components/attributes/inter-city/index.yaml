@@ -489,6 +489,20 @@ on_search:
             description: >-
               The type of stop. Allowed values of this property can be defined
               by the network policy.
+          rateable:
+            required: optional
+            type: string
+            owner: BPP
+            sample usage: True
+            description: >-
+              Describes whether the fulfillment can be rated or not 
+          rating:
+            required: optional
+            type: string
+            owner: BPP
+            sample usage: 4.5
+            description: >-
+              Describes the rating value for a fulfillment service. The allowed value is a decimal number with up to 1 decimal place     
           stops:
             type:
               required: mandatory

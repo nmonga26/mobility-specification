@@ -95,6 +95,8 @@ message:
         fulfillments:
           - id: F1
             type: TRIP
+            rateable: true
+            rating: '4.5'
             stops:
               - id: S1
                 type: START
