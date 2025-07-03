@@ -1,6 +1,6 @@
 # - $ref: ./intracity___buyer_app_pagination_flow_code_based_/index.yaml
-- $ref: ./intracity___delayed_cancellation_flow_rejected_/index.yaml
-- $ref: ./intracity___delayed_cancellation_flow_successful_/index.yaml
+# - $ref: ./intracity___delayed_cancellation_flow_rejected_/index.yaml
+# - $ref: ./intracity___delayed_cancellation_flow_successful_/index.yaml
 - $ref: ./intracity___gps_based_flow/index.yaml
 - $ref: ./intracity___purchase_journey_flow_code_based_/index.yaml
 - $ref: ./intracity___search_pagination_flow_code_based_/index.yaml
@@ -12,8 +12,8 @@
 - $ref: ./metro___cancel_flow/index.yaml
 - $ref: ./metro___gps_based_flow/index.yaml
 - $ref: ./metro___station_code_based_flow/index.yaml
-- $ref: ./metro_delayed_cancel_flow_rejected/index.yaml
-- $ref: ./metro_delayed_cancel_flow_accepted/index.yaml
+# - $ref: ./metro_delayed_cancel_flow_rejected/index.yaml
+# - $ref: ./metro_delayed_cancel_flow_accepted/index.yaml
 - $ref: ./metro_technical_cancellation_flow/index.yaml
 - $ref: ./metro_update_stops/index.yaml
 
