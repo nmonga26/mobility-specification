@@ -119,6 +119,7 @@ message:
         vehicle:
           category: AIRLINE
     quote:
+      id: Q1
       price:
         value: '42159'
         currency: INR
