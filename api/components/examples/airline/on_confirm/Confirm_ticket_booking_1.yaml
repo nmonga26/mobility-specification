@@ -649,6 +649,7 @@ message:
             phone: +91-9988776655
             email: joeadams@yahoo.com
     quote:
+      id: Q1
       price:
         value: '42159'
         currency: INR

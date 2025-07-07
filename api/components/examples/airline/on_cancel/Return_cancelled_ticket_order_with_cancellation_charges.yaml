@@ -609,6 +609,7 @@ message:
                   code: SEAT_PRICE
                 value: '200'
     quote:
+      id: Q1
       price:
         value: '1000'
         currency: INR

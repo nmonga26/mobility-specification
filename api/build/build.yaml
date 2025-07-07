@@ -360,10 +360,14 @@ paths:
                 message:
                   type: object
                   properties:
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
                     ratings:
                       type: array
                       items:
                         $ref: '#/components/schemas/Rating'
+                  required:
+                    - order_id
               required:
                 - context
                 - message
@@ -511,7 +515,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -626,7 +629,6 @@ paths:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -729,19 +731,21 @@ paths:
                       required:
                         - action
                 message:
+                  additionalProperties: false
                   type: object
                   properties:
-                    feedback_form:
-                      description: >-
-                        A feedback form to allow the user to provide additional
-                        information on the rating provided
-                      allOf:
-                        - $ref: '#/components/schemas/XInput'
+                    order_id:
+                      $ref: '#/components/schemas/Order/properties/id'
+                    ratings:
+                      type: array
+                      items:
+                        $ref: '#/components/schemas/Rating'
+                  required:
+                    - order_id
                 error:
                   $ref: '#/components/schemas/Error'
               required:
                 - context
-                - message
       responses:
         default:
           $ref: '#/paths/~1init/post/responses/default'
@@ -2301,6 +2305,11 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/TagGroup'
+        cancellation_terms:
+          description: Cancellation terms of this item
+          type: array
+          items:
+            $ref: '#/components/schemas/CancellationTerm'
     Quotation:
       description: >-
         Describes a quote. It is the estimated price of products or services
@@ -2311,7 +2320,6 @@ components:
         id:
           description: ID of the quote.
           type: string
-          format: uuid
         price:
           description: The total quoted price
           allOf:
@@ -2340,12 +2348,12 @@ components:
           description: Category of the entity being rated
           type: string
           enum:
-            - Item
-            - Order
-            - Fulfillment
-            - Provider
-            - Agent
-            - Support
+            - ITEM
+            - ORDER
+            - FULFILLMENT
+            - PROVIDER
+            - AGENT
+            - SUPPORT
         id:
           description: Id of the object being rated
           type: string
@@ -8177,6 +8185,7 @@ x-flows:
                               code: SEAT_PRICE
                             value: '200'
                 quote:
+                  id: Q1
                   price:
                     value: '42159'
                     currency: INR
@@ -9181,6 +9190,7 @@ x-flows:
                         phone: +91-9988776655
                         email: joeadams@yahoo.com
                 quote:
+                  id: Q1
                   price:
                     value: '42159'
                     currency: INR
@@ -9544,7 +9554,8 @@ x-flows:
                   phone: +91-9988776655
                   tax_id: GSTIN:22AAAAA0000A1Z5
                 payments:
-                  - collected_by: BAP
+                  - id: PA1
+                    collected_by: BAP
                     status: PAID
                     type: PRE-ORDER
                     params:
@@ -10246,6 +10257,7 @@ x-flows:
                         phone: +91-9988776655
                         email: joeadams@yahoo.com
                 quote:
+                  id: Q1
                   price:
                     value: '42159'
                     currency: INR
@@ -11145,6 +11157,7 @@ x-flows:
                               code: SEAT_PRICE
                             value: '200'
                 quote:
+                  id: Q1
                   price:
                     value: '1000'
                     currency: INR
@@ -13394,6 +13407,7 @@ x-examples:
                       vehicle:
                         category: AIRLINE
                   quote:
+                    id: Q1
                     price:
                       value: '42159'
                       currency: INR
