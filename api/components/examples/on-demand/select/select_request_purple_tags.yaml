@@ -13,7 +13,7 @@ context:
   message_id: 01c1903c-f943-4c11-8e93-dff5ce3c30bd
   timestamp: '2023-12-09T13:49:01.460Z'
   transaction_id: 870782be-6757-43f1-945c-8eeaf9536259
-  ttl: P120S
+  ttl: PT20S
   version: 2.1.0
 message:
   order:
