@@ -29,10 +29,10 @@ message:
           value: '800'
         quantity:
           selected:
-            count: 2
+            count: 1
         fulfillment_ids:
           - F1
-          - FT1
+          # - FT1
           - FT2
         category_ids:
           - C1
