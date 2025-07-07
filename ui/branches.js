@@ -37,10 +37,10 @@ const BRANCHES = [
     status: "RELEASED",
   },
   {
-    code: "draft-TRV12-intercity",
+    code: "release-TRV12-intercity",
     name: "Reserved Ticketing",
     short_desc: "Reserved Ticket booking for Bus",
-    status: "DRAFT",
+    status: "RELEASED",
   },
   {
     code: "release-TRV13-hotel",
