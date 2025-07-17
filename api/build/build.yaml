@@ -366,8 +366,6 @@ paths:
                       type: array
                       items:
                         $ref: '#/components/schemas/Rating'
-                  required:
-                    - order_id
               required:
                 - context
                 - message
@@ -731,7 +729,6 @@ paths:
                       required:
                         - action
                 message:
-                  additionalProperties: false
                   type: object
                   properties:
                     order_id:
@@ -740,8 +737,6 @@ paths:
                       type: array
                       items:
                         $ref: '#/components/schemas/Rating'
-                  required:
-                    - order_id
                 error:
                   $ref: '#/components/schemas/Error'
               required:
@@ -2320,7 +2315,6 @@ components:
         id:
           description: ID of the quote.
           type: string
-          format: uuid
         price:
           description: The total quoted price
           allOf:
@@ -3263,6 +3257,11 @@ x-tags:
                   - code: ENTRY_ELIGIBILITY
                     description: Describes the entry eligibility
                     reference: <PR/Issue/Discussion Links md format text>
+                  - code: ADDITIONAL_DETAILS_REQUIRED
+                    description: >-
+                      Describes whether the additional details form is required.
+                      If this tag is not provided, the default value is false.
+                    reference: <PR/Issue/Discussion Links md format text>
         tags: *ref_10
   on_select:
     message:
@@ -3750,6 +3749,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                       - id: I2
                         descriptor:
                           name: Child-Ticket Culture & Heritage Item
@@ -3806,6 +3808,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                       - id: I3
                         descriptor:
                           name: Adult-Ticket Culture & Heritage Item
@@ -3878,6 +3883,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                           - descriptor:
                               code: INCLUSIONS
                             list:
@@ -3954,6 +3962,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                           - descriptor:
                               code: INCLUSIONS
                             list:
@@ -4292,6 +4303,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                       - id: I2
                         descriptor:
                           name: Child-Ticket Culture & Heritage Item
@@ -4348,6 +4362,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                       - id: I3
                         descriptor:
                           name: Adult-Ticket Culture & Heritage Item
@@ -4420,6 +4437,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                           - descriptor:
                               code: INCLUSIONS
                             list:
@@ -4496,6 +4516,9 @@ x-flows:
                               - descriptor:
                                   code: NATIONALITY
                                 value: INDIAN
+                              - descriptor:
+                                  code: ADDITIONAL_DETAILS_REQUIRED
+                                value: 'TRUE'
                           - descriptor:
                               code: INCLUSIONS
                             list:
@@ -5043,6 +5066,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                       - descriptor:
                           code: INCLUSIONS
                         list:
@@ -5141,6 +5167,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                       - descriptor:
                           code: INCLUSIONS
                         list:
@@ -5545,6 +5574,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                       - descriptor:
                           code: INCLUSIONS
                         list:
@@ -5613,6 +5645,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                       - descriptor:
                           code: INCLUSIONS
                         list:
@@ -5988,6 +6023,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -6040,6 +6078,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -6506,6 +6547,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -6558,6 +6602,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -6938,6 +6985,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -6990,6 +7040,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -7415,6 +7468,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -7467,6 +7523,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -7847,6 +7906,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -7899,6 +7961,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: additional_details_required
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -8327,6 +8392,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -8379,6 +8447,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -8855,6 +8926,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -8907,6 +8981,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -9328,6 +9405,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -9380,6 +9460,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -9831,6 +9914,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -9883,6 +9969,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
@@ -10291,6 +10380,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I2
                     descriptor:
                       name: Child-Ticket Culture & Heritage Item
@@ -10343,6 +10435,9 @@ x-flows:
                           - descriptor:
                               code: NATIONALITY
                             value: INDIAN
+                          - descriptor:
+                              code: ADDITIONAL_DETAILS_REQUIRED
+                            value: 'TRUE'
                   - id: I5
                     descriptor:
                       name: Add on item
