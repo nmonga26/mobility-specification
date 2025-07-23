@@ -1,0 +1,3 @@
+[submodule "ONDC-transaction-Specifications"]
+	path = ONDC-transaction-Specifications
+	url = https://github.com/nmonga26/ONDC-transaction-Specifications.git
